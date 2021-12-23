@@ -1,0 +1,227 @@
+.main {
+  min-height: 100vh;
+  padding: 9rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15rem;
+}
+
+.crystalHeader {
+  display: flex;
+  margin-top: 13rem;
+  width: 100vw !important;
+  margin-bottom: 2rem !important;
+}
+
+.crystalHeaderAbout {
+  margin-left: 45vw;
+}
+
+.split {
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  border-right: 2px solid black;
+}
+
+.crystalsText {
+  margin-top: 3vh !important;
+  margin-left: 25rem;
+  margin-right: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.contactHeader {
+  margin-top: 5rem;
+  color: #fff;
+  font-size: clamp(30px, 6vw, 60px);
+  letter-spacing: 2px;
+  text-align: center;
+  transform: scale(0.95, 1);
+}
+
+.crystals {
+  margin-bottom: 10vh;
+  height: 85vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../public/crystals.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.envText {
+  margin-top: 10rem;
+  margin-left: 25rem;
+  margin-right: 20rem;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.nzNatural {
+  margin-top: -6.1rem;
+  height: 100vh;
+  width: 100vw !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../public/NZNature.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+#contact {
+  background-color: #6a9ac4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactBox {
+  margin-top: -10rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  margin-top: -35vh;
+  margin-bottom: -20vh;
+}
+
+.contactHeader {
+  font-size: 2rem;
+  margin-top: -40vh;
+  color: black;
+  justify-content: center;
+  transform: translate(100%);
+  margin-bottom: -5vh;
+}
+
+.contactFormWrapper {
+  background-color: #ffffff8f;
+  width: 25vw;
+  height: 25vh;
+  margin-bottom: 3vh;
+}
+
+@media only screen and (max-width: 800px) {
+  .contactLinks,
+  .contactFormWrapper {
+    width: 100%;
+  }
+
+  .contactLinks {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .contactFormWrapper {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contactBox {
+    width: 95%;
+    margin: 8% 5%;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.link {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.formItem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  padding: 0.5rem;
+  height: 1.5rem;
+}
+
+.formLabel {
+  position: absolute;
+  top: 10px;
+  left: -20%;
+  color: black;
+  font-size: 1.2rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.formArea {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: clamp(15px, 1.5vw, 18px);
+  height: 5rem;
+}
+
+.formLabel:focus + .formLabel,
+.formLabel:valid + .formLabel,
+.formArea:focus + .formArea,
+.formArea:valid + .formArea {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #777;
+  top: -20px;
+  transition: all 0.225s ease;
+}
+
+.submitBtn {
+  margin-top: 10vh !important;
+  margin-left: 0.8vh !important;
+  background-color: #f5bbc3;
+  filter: drop-shadow(2px 2px 3px #0003);
+  color: black;
+  font-size: clamp(16px, 1.6vw, 18px);
+  display: block;
+  padding: 12px 20px;
+  margin: 2px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.submitBtn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.submitBtn:active {
+  transform: scale(1.1, 1.1);
+  filter: sepia(0.5);
+}
+
+@media only screen and (max-width: 800px) {
+  .contactHeader {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contactHeader {
+    font-size: clamp(30px, 12vw, 60px);
+  }
+
+  .links {
+    padding-top: 30px;
+  }
+}
