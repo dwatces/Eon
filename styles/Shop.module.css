@@ -1,15 +1,79 @@
 .main {
-  height: 100vh;
-  padding: 4rem 0;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  padding-top: 3rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden !important;
+}
+
+.mailModal {
+  width: 100vw;
+  max-width: 100% !important;
+  float: right;
+  height: 5vh;
+  background-color: #a793bce8;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mailIcon {
+  margin-left: 1rem;
+  margin-bottom: -0.4rem;
+  font-size: 1.5rem;
+}
+
+.message {
+  display: inline-block;
+  text-align: center;
+  margin-left: 25vw;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.emailInput {
+  display: inline-block;
+  position: absolute;
+  border: none;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  height: 1.3rem;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.emailInput:focus {
+  border: 1px solid #604081;
+}
+
+.emailButton {
+  cursor: pointer;
+  margin-left: 13vw;
+  padding: 0.3rem;
+  background-color: #cec1da;
+  border: 1px solid #a793bc;
+  border-radius: 2rem;
+  filter: drop-shadow(2px 2px 3px #0003);
+  user-select: none;
+  transition: 0.2s;
+}
+
+.emailButton:hover {
+  transform: scale(1.05, 1.05) !important;
+}
+
+.emailButton:active {
+  transform: scale(1.1, 1.1);
 }
 
 .candleContainer {
-  margin-top: 2.5vw;
+  margin-top: 1vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -44,7 +108,12 @@
 }
 
 .candleDetailMuted {
-  font-weight: 350;
+  font-weight: 390;
+}
+
+.candleZoom {
+  margin-top: 0.5rem;
+  font-size: 1.5rem !important;
 }
 
 .candleMain {
@@ -64,9 +133,19 @@
 }
 
 .candleMain .candleDetail {
-  margin-left: 33vw;
+  margin-left: 34vw;
   margin-top: -50vh;
   width: 100%;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
+}
+
+.candleMain .candleDetail .candlePrice {
+  font-size: 1rem;
+  text-decoration: line-through;
+  margin-right: 5rem;
+}
+
+.candleMain .candleDetail .candleDetailMuted {
+  margin-bottom: 3.5rem !important;
 }

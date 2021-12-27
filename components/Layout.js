@@ -7,7 +7,7 @@ const Layout = (props) => (
     <Head>
       <title>Eon</title>
       <meta
-        name="eon candles new zealand hand poured crystal energy aura promote vibes peace love dreams happiness"
+        name="eon candles NZ "
         content="new zealand hand poured crystal energy aura promote vibes peace love dreams happiness"
       />
       <link rel="icon" href="/favicon.ico" />
@@ -26,10 +26,12 @@ const Layout = (props) => (
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap"
         rel="stylesheet"
       />
+      <link rel="preload" as="image" href="../public/crystals.png" />
+      <link rel="preload" as="image" href="../public/NZNature.png" />
     </Head>
     <html>
       <NavBar />
-      <body style={{ width: "100vw", height: "100vh" }}>
+      <body>
         {props.children}
         <Footer />
       </body>

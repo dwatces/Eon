@@ -5,13 +5,13 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <a href="https://facebook.com">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
       <div className={styles.socialButtonF}>
         <FaFacebookF className={styles.iconF} />
       </div>
     </a>
 
-    <a href="https://instagram.com">
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
       <div className={styles.socialButtonI}>
         <FaInstagram className={styles.iconI} />
       </div>
