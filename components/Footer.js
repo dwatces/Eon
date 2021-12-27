@@ -1,19 +1,25 @@
 import styles from "./Layout.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
   <footer className={styles.footer}>
     <a href="https://facebook.com">
       <div className={styles.socialButtonF}>
-        <FontAwesomeIcon icon={faFacebookF} className={styles.iconF} />
+        <FaFacebookF className={styles.iconF} />
       </div>
     </a>
 
     <a href="https://instagram.com">
       <div className={styles.socialButtonI}>
-        <FontAwesomeIcon icon={faInstagram} className={styles.iconI} />
+        <FaInstagram className={styles.iconI} />
+      </div>
+    </a>
+
+    <a href="http://localhost:3000/about#contact">
+      <div className={styles.socialButtonE}>
+        <FaEnvelope className={styles.iconE} />
       </div>
     </a>
   </footer>

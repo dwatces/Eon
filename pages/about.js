@@ -14,7 +14,6 @@ const About = () => {
     axios
       .post("http://localhost:5000/send", { data })
       .then(
-        setName(`Thanks, ${data[0]}!`),
         setMessage(
           "We have received your message, and will reply as soon as we can! "
         )

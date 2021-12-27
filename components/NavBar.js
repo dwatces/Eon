@@ -1,16 +1,18 @@
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
-import Image from "next/image";
 
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
-
+  const router = useRouter();
   const toggleNav = () => setNav(!showNav);
 
   return (
     <nav className={styles.navbar}>
-      <a href="/">
+      <Link href="/">
         <span className={styles.logo}>
           <Image
             src={logo}
@@ -20,21 +22,29 @@ const NavBar = () => {
             height={30}
           />
         </span>
-      </a>
-      <div
-        style={{ display: showNav ? "flex" : null }}
-        className={styles.middleLinks}
-      >
-        <a href="/" onClick={toggleNav} className={styles.link}>
-          Home
-        </a>
-
-        <a href="/shop" onClick={toggleNav} className={styles.link}>
-          Shop
-        </a>
-        <a href="/about" onClick={toggleNav} className={styles.link}>
-          About
-        </a>
+      </Link>
+      <div style={{ display: showNav ? "flex" : null }}>
+        <ul className={styles.middleLinks}>
+          <li className={router.pathname == "/" ? "active" : ""}>
+            <span className={styles.link}>
+              <Link href="/">Home</Link>
+            </span>
+          </li>
+          <li className={router.pathname == "/shop" ? "active" : ""}>
+            <span className={styles.link}>
+              <Link href="/shop" className={styles.link}>
+                Shop
+              </Link>
+            </span>
+          </li>
+          <li className={router.pathname == "/about" ? "active" : ""}>
+            <span className={styles.link}>
+              <Link href="/about" className={styles.link}>
+                About
+              </Link>
+            </span>
+          </li>
+        </ul>
       </div>
       {/* <a href="/cart" onClick={toggleNav} className={styles.cartLink}>
         {/* <ShoppingCartIcon color="action" /> */}
