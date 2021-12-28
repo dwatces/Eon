@@ -83,6 +83,7 @@ export default function Home() {
             Each luxuriously scented candle is paired with a different crystal
             and natural accompaniment to maximise it&apos;s power.
           </p>
+
           <p className={(styles.eonPara, styles.hover)}>
             Our modern lives are so busy; we rarely take time to pause, breath,
             and reconnect with the energies of the universe. We are all one,
