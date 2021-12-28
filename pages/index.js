@@ -78,10 +78,10 @@ export default function Home() {
             Crystals have been used in traditions, dating back millennia, to
             amplify the positive energy in our lives and ward against the
             negative. The power of crystals release fear, ground us from our
-            daily anxieties, and bring good fortune. That’s why we seamlessly
-            blend elegance throughout our crystal imbued candles. Each
-            luxuriously scented candle is paired with a different crystal and
-            natural accompaniment to maximise it&apos;s power.
+            daily anxieties, and bring good fortune. That&apos;s why we
+            seamlessly blend elegance throughout our crystal imbued candles.
+            Each luxuriously scented candle is paired with a different crystal
+            and natural accompaniment to maximise it&apos;s power.
           </p>
           <p className={(styles.eonPara, styles.hover)}>
             Our modern lives are so busy; we rarely take time to pause, breath,
@@ -95,7 +95,7 @@ export default function Home() {
           </p>
           <p className={(styles.eonPara, styles.hover)}>
             We all desire a deeper connection with the natural world, and have a
-            duty to protect it. That’s why each of our candles come with a
+            duty to protect it. That&apos;s why each of our candles come with a
             delicately chosen natural accompaniment to amplify the power of the
             candle and bring us closer to nature. We never contribute to
             landfills. All our NZ packaging is plastic free and biodegradable.

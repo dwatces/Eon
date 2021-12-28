@@ -61,27 +61,27 @@
   line-height: 1.6rem;
 }
 
-.containerBits {
+.containerBitsHeader {
+  margin-top: 3vh;
+  cursor: pointer;
+}
+
+.headerUnderline {
+  border-bottom: 2px solid #a793bc;
+}
+
+.bitsText {
+  width: 70%;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+.containerBuy {
   margin-top: 3vh;
   display: flex;
   justify-content: space-between;
   align-items: space-between;
-  width: 60%;
-  margin-left: 5vw;
-}
-
-.containerBitsHeader {
-  border-bottom: 2px solid #a793bc;
-  cursor: pointer;
-}
-
-.containerBuy {
-  margin-top: 10vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: space-between;
   width: 100%;
-  margin-left: 5vw;
   font-size: 1.5rem;
 }
 

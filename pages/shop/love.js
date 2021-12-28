@@ -5,6 +5,9 @@ import styles from "../../styles/Candles.module.css";
 import Candle from "../../public/candle.png";
 
 const Love = (props) => {
+  const [crystal, setCrystal] = useState(false);
+  const [flower, setFlower] = useState(false);
+
   return (
     <Layout>
       <main className={styles.main}>
@@ -57,14 +60,53 @@ const Love = (props) => {
               chips and rose buds to amplify and attract love in your life.
             </p>
             <div className={styles.containerBits}>
-              <h3 className={styles.containerBitsHeader}>Rose Quartz</h3>
-              <h3 className={styles.containerBitsHeader}>Rose Buds</h3>
+              <h3
+                className={styles.containerBitsHeader}
+                onMouseEnter={(e) => {
+                  setCrystal(true);
+                }}
+              >
+                <span className={styles.headerUnderline}>Rose Quartz</span>
+              </h3>
+              {crystal && (
+                <p
+                  className={styles.bitsText}
+                  onMouseLeave={(e) => {
+                    setCrystal(false);
+                  }}
+                >
+                  Rose quartz signify universal love and peace. The crystal
+                  helps align and amplify loving energies with spouses, family,
+                  and friends, by promoting forgiveness and trust. Rose quartz
+                  is particularly comforting in times of heartache and grief.
+                </p>
+              )}
+              <h3
+                className={styles.containerBitsHeader}
+                onMouseEnter={(e) => {
+                  setFlower(true);
+                }}
+              >
+                <span className={styles.headerUnderline}>Rose Bud</span>
+              </h3>
+              {flower && (
+                <p
+                  className={styles.bitsText}
+                  onMouseLeave={(e) => {
+                    setFlower(false);
+                  }}
+                >
+                  Red rose buds signify beauty, purity, love, and courage. This
+                  special bud is handpicked by our candle creators, to channel
+                  into the worlds divine love.
+                </p>
+              )}
             </div>
             <div className={styles.containerBuy}>
               <p>
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
-              <p className={styles.candleCart}>add 2 cart</p>
+              <p className={styles.candleCart}>add2cart</p>
             </div>
           </div>
         </div>

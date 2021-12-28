@@ -39,7 +39,7 @@ const About = () => {
               </h1>
               <p className={styles.crystalsText}>
                 We&apos;re Kiwis that love to bring positive energies into all
-                lifes. Our boutique candles are more than just pleasant scents.
+                lives. Our boutique candles are more than just pleasant scents.
                 All our candles are handcrafted, combining both the energy of
                 crystals, and the natural world, to provide uplifting aromas to
                 elevate you to the spirtiaul realm.
