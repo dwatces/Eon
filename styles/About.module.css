@@ -191,15 +191,8 @@
     width: 95%;
     margin: 8% 5%;
   }
-}
-
-@media only screen and (max-width: 400px) {
   .contactHeader {
     font-size: clamp(30px, 12vw, 60px);
-  }
-
-  .links {
-    padding-top: 30px;
   }
 }
 
@@ -216,11 +209,60 @@
   .contactFormWrapper {
     border-radius: 0 0 10px 10px;
   }
-}
 
-@media only screen and (max-width: 800px) {
   .contactHeader {
     font-size: clamp(40px, 10vw, 60px);
+  }
+}
+
+  @media only screen and (max-width: 1024px) {
+    .crystalsText {
+    margin-top: 1.5vh !important;
+    margin-left: 3rem; 
+    font-size: 1rem !important;
+    width: 90% !important
+  }
+  .crystals{
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../public/crystalsLaptop.png") !important;  margin-bottom: 10vh;
+    height: 65vh;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-position: bottom !important;
+  }
+
+  .crystalHeader{
+    display: flex;
+    margin-top: 11rem;
+    width: 100vw !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .envText {
+    margin-left: 3rem; 
+    font-size: 1rem !important;
+    width: 90% !important;
+    margin-top: 3rem;
+  }
+
+  .nzNatural {
+    height: 63vh;
+  }
+
+  .crystalHeaderAbout {
+    margin-left: 39vw;
+  }
+
+  .contactHeader{
+    margin-left: -13rem;
+  }
+
+  .contactBox{
+    margin-bottom: -13rem;
+  }
+
+  .formLabel{
+    margin-left: -2rem;
   }
 }
 
@@ -234,4 +276,8 @@
   .contactBox {
     margin-top: 5vh !important;
   }
+}
+
+.links {
+  padding-top: 30px;
 }
