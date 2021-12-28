@@ -207,3 +207,13 @@
     z-index: 2;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .middleLinks {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 18vw;
+  }
+}
