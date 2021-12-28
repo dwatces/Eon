@@ -161,6 +161,7 @@
   width: 25vw !important;
   margin-left: 2vw;
   margin-right: 2vw;
+  cursor: pointer;
 }
 
 .eonCandle {

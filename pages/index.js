@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
 import Logo from "../public/eon-logo.png";
@@ -80,7 +81,7 @@ export default function Home() {
             daily anxieties, and bring good fortune. That’s why we seamlessly
             blend elegance throughout our crystal imbued candles. Each
             luxuriously scented candle is paired with a different crystal and
-            natural accompaniment to maximise it's power.
+            natural accompaniment to maximise it&apos;s power.
           </p>
           <p className={(styles.eonPara, styles.hover)}>
             Our modern lives are so busy; we rarely take time to pause, breath,
@@ -103,115 +104,124 @@ export default function Home() {
           </p>
         </div>
         <div className={styles.row}>
-          <div className={styles.rowItem}>
-            <Image
-              src={Candle1}
-              alt="candle"
-              className={styles.eonCandle}
-              width={350}
-              height={250}
-              responsive="true"
-              onMouseEnter={(e) => {
-                setCandle1(true);
-              }}
-              onMouseLeave={(e) => {
-                setCandle1(false);
-              }}
-            />
-            {candle1 && (
-              <>
-                <h2 className={styles.candleTitle}>love</h2>
-                <p className={styles.candleDescription}>
-                  Rose Otto, Ylang Ylang, Orange & Patchouli
-                </p>
-                <p className={styles.candleEmbellishments}>
-                  Rose Quartz Chips & Rose Bud
-                </p>
-                <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-              </>
-            )}
-          </div>
-          <div className={styles.rowItem}>
-            <Image
-              src={Candle2}
-              alt="candle"
-              className={styles.eonCandle}
-              width={350}
-              height={250}
-              onMouseEnter={(e) => {
-                setCandle2(true);
-              }}
-              onMouseLeave={(e) => {
-                setCandle2(false);
-              }}
-            />
-            {candle2 && (
-              <>
-                <h2 className={styles.candleTitle}> hapiness </h2>
-                <p className={styles.candleDescription}>
-                  Wild Orange, Clary Sage & Lemon
-                </p>
-                <p className={styles.candleEmbellishments}>
-                  Citrine Chips & Jasmine Flower Petals
-                </p>
-                <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-              </>
-            )}
-          </div>
-          <div className={styles.rowItem}>
-            <Image
-              src={Candle1}
-              alt="candle"
-              className={styles.eonCandle}
-              width={350}
-              height={250}
-              onMouseEnter={(e) => {
-                setCandle3(true);
-              }}
-              onMouseLeave={(e) => {
-                setCandle3(false);
-              }}
-            />
-            {candle3 && (
-              <>
-                <h2 className={styles.candleTitle}>dreams</h2>
-                <p className={styles.candleDescription}>
-                  Lavender, Chamomile & Frankincense
-                </p>
-                <p className={styles.candleEmbellishments}>
-                  Amethyst Chips & Cornflowers
-                </p>
-                <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-              </>
-            )}
-          </div>
-          <div className={styles.rowItem}>
-            <Image
-              src={Candle2}
-              alt="candle"
-              className={styles.eonCandle}
-              width={350}
-              height={250}
-              onMouseEnter={(e) => {
-                setCandle4(true);
-              }}
-              onMouseLeave={(e) => {
-                setCandle4(false);
-              }}
-            />
-            {candle4 && (
-              <>
-                <h2 className={styles.candleTitle}>summer</h2>
-                <p className={styles.candleDescription}>
-                  Coconut, Mango & Lime
-                </p>
-                <p className={styles.candleEmbellishments}>
-                  Aventurine Chips & Lavender Flowers
-                </p>
-                <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-              </>
-            )}
-          </div>
+          <Link href="/shop/love">
+            <div className={styles.rowItem}>
+              <Image
+                src={Candle1}
+                alt="candle"
+                className={styles.eonCandle}
+                width={350}
+                height={250}
+                responsive="true"
+                onMouseEnter={(e) => {
+                  setCandle1(true);
+                }}
+                onMouseLeave={(e) => {
+                  setCandle1(false);
+                }}
+              />
+              {candle1 && (
+                <>
+                  <h2 className={styles.candleTitle}>love</h2>
+                  <p className={styles.candleDescription}>
+                    Rose Otto, Ylang Ylang, Orange & Patchouli
+                  </p>
+                  <p className={styles.candleEmbellishments}>
+                    Rose Quartz Chips & Rose Bud
+                  </p>
+                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
+                </>
+              )}
+            </div>
+          </Link>
+          <Link href="/shop/happiness">
+            <div className={styles.rowItem}>
+              <Image
+                src={Candle2}
+                alt="candle"
+                className={styles.eonCandle}
+                width={350}
+                height={250}
+                onMouseEnter={(e) => {
+                  setCandle2(true);
+                }}
+                onMouseLeave={(e) => {
+                  setCandle2(false);
+                }}
+              />
+              {candle2 && (
+                <>
+                  <h2 className={styles.candleTitle}> hapiness </h2>
+                  <p className={styles.candleDescription}>
+                    Wild Orange, Clary Sage & Lemon
+                  </p>
+                  <p className={styles.candleEmbellishments}>
+                    Citrine Chips & Jasmine Flower Petals
+                  </p>
+                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
+                </>
+              )}
+            </div>
+          </Link>
+          <Link href="/shop/dreams">
+            <div className={styles.rowItem}>
+              <Image
+                src={Candle1}
+                alt="candle"
+                className={styles.eonCandle}
+                width={350}
+                height={250}
+                onMouseEnter={(e) => {
+                  setCandle3(true);
+                }}
+                onMouseLeave={(e) => {
+                  setCandle3(false);
+                }}
+              />
+
+              {candle3 && (
+                <>
+                  <h2 className={styles.candleTitle}>dreams</h2>
+                  <p className={styles.candleDescription}>
+                    Lavender, Chamomile & Frankincense
+                  </p>
+                  <p className={styles.candleEmbellishments}>
+                    Amethyst Chips & Cornflowers
+                  </p>
+                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
+                </>
+              )}
+            </div>
+          </Link>
+          <Link href="/shop/summer">
+            <div className={styles.rowItem}>
+              <Image
+                src={Candle2}
+                alt="candle"
+                className={styles.eonCandle}
+                width={350}
+                height={250}
+                onMouseEnter={(e) => {
+                  setCandle4(true);
+                }}
+                onMouseLeave={(e) => {
+                  setCandle4(false);
+                }}
+              />
+              {candle4 && (
+                <>
+                  <h2 className={styles.candleTitle}>summer</h2>
+                  <p className={styles.candleDescription}>
+                    Coconut, Mango & Lime
+                  </p>
+                  <p className={styles.candleEmbellishments}>
+                    Aventurine Chips & Lavender Flowers
+                  </p>
+                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
+                </>
+              )}
+            </div>
+          </Link>
         </div>
       </main>
     </LandingLayout>

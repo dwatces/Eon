@@ -38,11 +38,11 @@ const About = () => {
                 </a>
               </h1>
               <p className={styles.crystalsText}>
-                We're Kiwis that love to bring positive energies into all lifes.
-                Our boutique candles are more than just pleasant scents. All our
-                candles are handcrafted, combining both the energy of crystals,
-                and the natural world, to provide uplifting aromas to elevate
-                you to the spirtiaul realm.
+                We&apos;re Kiwis that love to bring positive energies into all
+                lifes. Our boutique candles are more than just pleasant scents.
+                All our candles are handcrafted, combining both the energy of
+                crystals, and the natural world, to provide uplifting aromas to
+                elevate you to the spirtiaul realm.
               </p>
               <p className={styles.crystalsText}>
                 Made in the earth eons ago, crystals carry an inate power to
@@ -58,11 +58,11 @@ const About = () => {
           </div>
           <div className={styles.nzNatural}>
             <p className={styles.envText}>
-              We love our planet, that's why our candles are made of vegan soy
-              wax, and we ship all our candles in recyclable or biodegradeable
-              packaging. Our candle tins are easily repurposable as well! After
-              washing, use our tins as a place to keep trinkets, keepsakes,
-              memories, or anything special!
+              We love our planet, that&apos;s why our candles are made of vegan
+              soy wax, and we ship all our candles in recyclable or
+              biodegradeable packaging. Our candle tins are easily repurposable
+              as well! After washing, use our tins as a place to keep trinkets,
+              keepsakes, memories, or anything special!
             </p>
           </div>
           <section id="contact">
@@ -104,7 +104,6 @@ const About = () => {
                         setMessage(e.target.value);
                       }}
                       className={styles.formArea}
-                      name="message"
                     ></textarea>
                     <label htmlFor="message" className={styles.formLabel}>
                       Message:
