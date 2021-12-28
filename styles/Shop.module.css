@@ -149,3 +149,19 @@
 .candleMain .candleDetail .candleDetailMuted {
   margin-bottom: 3.5rem !important;
 }
+
+@media only screen and (max-width: 1024px) {
+  .message {
+    margin-left: 7vw;
+    font-size: 1rem;
+  }
+
+  .emailInput{
+    font-size: 1rem;
+    
+  }
+  .emailButton{
+    margin-left: 22vw;
+    font-size: 0.9rem !important;
+  }
+}
