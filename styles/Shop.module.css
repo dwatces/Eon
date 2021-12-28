@@ -140,6 +140,14 @@
   line-height: 1.5rem;
 }
 
+.candleMain .candleZoomedDetail {
+  margin-left: 34vw;
+  margin-top: -50vh;
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
 .candleMain .candleDetail .candlePrice {
   font-size: 1rem;
   text-decoration: line-through;
@@ -148,4 +156,39 @@
 
 .candleMain .candleDetail .candleDetailMuted {
   margin-bottom: 3.5rem !important;
+}
+
+/* mobile first */
+
+/*Desktop browsers */
+
+@media only screen and (min-width: 2500px) {
+  .emailButton {
+    margin-left: 10vw !important;
+  }
+  .candleDetail {
+    font-size: 1.2rem;
+  }
+  .candleZoom {
+    font-size: 1.6rem !important;
+  }
+  .candleMain {
+    width: 50vw;
+    height: 63vh;
+  }
+  .candlePic {
+    width: 65%;
+  }
+  .candleZoomedDetail {
+    margin-left: 31vw !important;
+    margin-top: -70vh !important;
+    width: 100% !important;
+    font-size: 1.5rem !important;
+    line-height: 2.5rem !important;
+  }
+  .candleMain .candleZoomedDetail .candlePrice {
+    font-size: 1rem;
+    text-decoration: line-through;
+    margin-right: 5rem;
+  }
 }

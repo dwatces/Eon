@@ -77,7 +77,7 @@ function Shop() {
                       priority
                     />
                   </div>
-                  <div className={styles.candleDetail}>
+                  <div className={styles.candleZoomedDetail}>
                     <h2>love</h2>
                     <p>Rose Otto, Ylang Ylang, Orange & Patchouli</p>
                     <p>Rose Quartz Chips & Rose Bud</p>
@@ -138,7 +138,7 @@ function Shop() {
                       priority
                     />
                   </div>
-                  <div className={styles.candleDetail}>
+                  <div className={styles.candleZoomedDetail}>
                     <h2>happiness</h2>
                     <p>Wild Orange, Clary Sage & Lemon</p>
                     <p>Citrine Chips & Jasmine Flower Petals</p>
@@ -199,7 +199,7 @@ function Shop() {
                       priority
                     />
                   </div>
-                  <div className={styles.candleDetail}>
+                  <div className={styles.candleZoomedDetail}>
                     <h2>dreams</h2>
                     <p>Lavender, Chamomile & Frankincense</p>
                     <p>Amethyst Chips & Cornflowers</p>
@@ -260,7 +260,7 @@ function Shop() {
                       priority
                     />
                   </div>
-                  <div className={styles.candleDetail}>
+                  <div className={styles.candleZoomedDetail}>
                     <h2>summer</h2>
                     <p>Coconut, Mango & Lime</p>
                     <p>Aventurine Chips & Lavender Flowers</p>

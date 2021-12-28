@@ -94,3 +94,30 @@
 .candleCart {
   margin-right: 17.5rem;
 }
+
+/* 
+mobile first */
+
+@media only screen and (min-width: 2500px) {
+  .galleryMainContainer {
+    margin-bottom: 3vh !important;
+  }
+  .candleTitle {
+    font-size: 2.5rem;
+  }
+  .candleDescription {
+    font-size: 1.5rem;
+  }
+
+  .containerBitsHeader {
+    font-size: 1.5rem;
+  }
+  .bitsText {
+    font-size: 1.3rem;
+  }
+  .candleRetail {
+    font-size: 2.2rem;
+  }
+  .candlePrice {
+  }
+}

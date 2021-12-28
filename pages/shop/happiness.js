@@ -45,7 +45,7 @@ const Happiness = (props) => {
             <Image
               src={Candle}
               alt="candle"
-              className={styles.candleSize}
+              className={styles.candleSizeMain}
               responsive="true"
               priority
             />
@@ -108,7 +108,7 @@ const Happiness = (props) => {
               )}
             </div>
             <div className={styles.containerBuy}>
-              <p>
+              <p className={styles.candleRetail}>
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
               <p className={styles.candleCart}>add2cart</p>

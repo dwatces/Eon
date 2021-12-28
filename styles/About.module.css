@@ -109,28 +109,6 @@
   margin-bottom: 3vh;
 }
 
-@media only screen and (max-width: 800px) {
-  .contactLinks,
-  .contactFormWrapper {
-    width: 100%;
-  }
-
-  .contactLinks {
-    border-radius: 10px 10px 0 0;
-  }
-
-  .contactFormWrapper {
-    border-radius: 0 0 10px 10px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .contactBox {
-    width: 95%;
-    margin: 8% 5%;
-  }
-}
-
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -208,10 +186,10 @@
   transform: scale(1.1, 1.1);
   filter: sepia(0.5);
 }
-
-@media only screen and (max-width: 800px) {
-  .contactHeader {
-    font-size: clamp(40px, 10vw, 60px);
+@media only screen and (max-width: 400px) {
+  .contactBox {
+    width: 95%;
+    margin: 8% 5%;
   }
 }
 
@@ -222,5 +200,38 @@
 
   .links {
     padding-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contactLinks,
+  .contactFormWrapper {
+    width: 100%;
+  }
+
+  .contactLinks {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .contactFormWrapper {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contactHeader {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .crystalsText {
+    font-size: 1.2rem;
+  }
+  .envText {
+    font-size: 1.3rem;
+  }
+  .contactBox {
+    margin-top: 5vh !important;
   }
 }

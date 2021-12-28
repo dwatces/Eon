@@ -164,6 +164,19 @@
   cursor: pointer;
 }
 
+@media only screen and (min-width: 2500px) {
+  .eonText {
+    font-size: 1.2rem;
+  }
+  .eonCandle {
+    width: 500px !important;
+    height: 300px !important;
+  }
+  .eonL {
+    margin-top: -10vh;
+  }
+}
+
 .eonCandle {
   -webkit-transform: scale(1);
   transform: scale(1);
