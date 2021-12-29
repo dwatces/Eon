@@ -51,6 +51,8 @@ const Love = (props) => {
             />
           </div>
         </div>
+        <div class={(styles.cursor, styles.cursorSmall)}></div>
+        <canvas class={(styles.cursor, styles.cursorCanvas)} resize></canvas>
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
             <h2 className={styles.candleTitle}>love</h2>
