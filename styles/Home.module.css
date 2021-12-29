@@ -197,7 +197,7 @@
   font-weight: 300;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 420px) {
   .eonContainer {
     flex-direction: row !important;
   }

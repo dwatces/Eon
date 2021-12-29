@@ -109,8 +109,8 @@
   float: left;
   margin-left: 2rem;
   margin-top: -0.3rem;
-  width: 50px;
-  height: 45px;
+  width: 50px !important;
+  height: 45px !important;
   cursor: pointer;
   background: #fff;
   overflow: hidden;
@@ -122,6 +122,30 @@
 .iconE:hover {
   background-color: rgb(29, 134, 29);
   color: white;
+}
+
+.mainNavigationDrawerNav {
+  height: 100%;
+}
+
+.mainNavigationMenuBtn {
+  margin-left: 10rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 6rem;
+  cursor: pointer;
+}
+
+.mainNavigationMenuBtn span {
+  display: block;
+  width: 2.5rem;
+  height: 2.5px;
+  background: #424242;
 }
 
 .iconF {
@@ -208,6 +232,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .mainNavigationMenuBtn {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 370px) {
   .socialButtonF {
     width: 40px;
@@ -218,7 +248,6 @@
     height: 43px;
   }
 }
-
 .socialButtonE {
   width: 40px;
   height: 43px;

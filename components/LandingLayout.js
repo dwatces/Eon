@@ -9,7 +9,7 @@ const LandingLayout = (props) => (
     <Head>
       <title>Eon</title>
       <meta
-        name="eon candles NZ"
+        name="eon candles "
         content="new zealand hand poured crystal energy aura promote vibes peace love dreams happiness"
       />
       <link rel="icon" href="/favicon.ico" />

@@ -132,7 +132,7 @@
   margin-top: -10vh;
 }
 
-.candleMain .candleDetail {
+.candleMain .candleZoomedDetail {
   margin-left: 34vw;
   margin-top: -50vh;
   width: 100%;
@@ -148,13 +148,13 @@
   line-height: 1.5rem;
 }
 
-.candleMain .candleDetail .candlePrice {
+.candleMain .candleZoomedDetail .candlePrice {
   font-size: 1rem;
   text-decoration: line-through;
   margin-right: 5rem;
 }
 
-.candleMain .candleDetail .candleDetailMuted {
+.candleMain .candleZoomedDetail .candleDetailMuted {
   margin-bottom: 3.5rem !important;
 }
 
@@ -199,11 +199,10 @@
     font-size: 1rem;
   }
 
-  .emailInput{
+  .emailInput {
     font-size: 1rem;
-    
   }
-  .emailButton{
+  .emailButton {
     margin-left: 22vw;
     font-size: 0.9rem !important;
   }
