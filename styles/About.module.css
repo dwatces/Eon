@@ -35,7 +35,7 @@
   align-items: center;
   text-align: center;
   line-height: 1.5rem;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .contactHeader {
@@ -50,6 +50,10 @@
 .crystals {
   margin-bottom: 10vh;
   height: 85vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../public/crystals.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
 }
 
 .envText {
@@ -58,16 +62,11 @@
   margin-right: 20rem;
   text-align: center;
   line-height: 1.5rem;
-  font-size: 1.3rem;
-}
-
-.crystalImg {
-  margin-top: -2.5vh !important;
-  padding-bottom: 10vh !important;
+  font-size: 1.2rem;
 }
 
 .nzNatural {
-  margin-top: 4.8rem;
+  margin-top: -6.1rem;
   height: 100vh;
   width: 100vw !important;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
@@ -196,6 +195,8 @@
     width: 90% !important;
   }
   .crystals {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url("../public/crystalsLaptop.png") !important;
     margin-bottom: 10vh;
     height: 65vh;
     background-repeat: no-repeat;
@@ -208,10 +209,6 @@
     margin-top: 11rem;
     width: 100vw !important;
     margin-bottom: 1.5rem !important;
-  }
-
-  .crystalImg {
-    padding-bottom: 3.5vh !important;
   }
 
   .envText {
@@ -242,35 +239,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .crystalHeader {
-    margin-left: -2rem;
-    font-size: 1.9rem !important;
-    width: 85% !important;
-  }
-  .crystalsText {
-    padding-bottom: 1rem !important;
-  }
-  .crystalImg {
-    padding-bottom: 2.5vh !important;
-  }
-  .contactBox {
-    margin-top: -12rem !important;
-    margin-bottom: -10rem !important;
-    width: 100%;
-    margin: 8% 5%;
-  }
-  .formLabel {
-    margin-left: -3rem !important;
-  }
-  .contactHeader {
-    font-size: 1.7rem !important;
-  }
-}
-
 @media screen and (max-width: 425px) {
   .crystalHeader {
-    margin-left: 1rem !important;
     font-size: 1.5rem !important;
   }
   .crystalsText {
@@ -287,13 +257,13 @@
     background-image: none !important;
   }
   .envText {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
     margin-left: 2.5rem !important;
     width: 80% !important;
   }
   .contactBox {
-    margin-top: -15rem !important;
-    width: 100% !important;
+    margin-top: -10rem !important;
+    width: 95%;
     margin: 8% 5%;
   }
   .formLabel {
@@ -306,37 +276,27 @@
 
 @media screen and (max-width: 375px) {
   .crystalHeader {
-    margin-left: 4rem !important;
-    font-size: 1.2rem !important;
+    margin-left: 2.5rem !important;
+    font-size: 1.3rem !important;
   }
-  .crystalsText {
-    margin-left: 7.5rem !important;
-    font-size: 0.85rem !important;
-    padding-bottom: 1rem !important;
-    width: 55% !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .contactLinks,
+  .contactFormWrapper {
+    width: 100%;
   }
-  .envText {
-    margin-left: 3.5rem !important;
-    font-size: 0.95rem !important;
-    padding-bottom: 1rem !important;
-    width: 65% !important;
+
+  .contactLinks {
+    border-radius: 10px 10px 0 0;
   }
-  .contactBox {
-    margin-top: -10rem !important;
-    width: 100% !important;
-    margin: 5% 5%;
+
+  .contactFormWrapper {
+    border-radius: 0 0 10px 10px;
   }
-  .formLabel {
-    margin-left: -3rem !important;
-  }
+
   .contactHeader {
-    font-size: 1.5rem !important;
-  }
-  .formItem {
-    margin-left: 3rem;
-  }
-  .submitBtn {
-    margin-left: 5rem !important;
+    font-size: clamp(40px, 10vw, 60px);
   }
 }
 

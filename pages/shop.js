@@ -18,11 +18,8 @@ function Shop() {
       <main className={styles.main}>
         <div className={styles.mailModal}>
           <p className={styles.message}>
-            <span className={styles.spamFirst}>
-              Join our mailing list to get
-            </span>{" "}
-            10% off your first order!
-            <span className={styles.spam}> (no spam, we promise) </span>
+            Join our mailing list to get 10% off your first order! (no spam, we
+            promise)
           </p>
           <BiMailSend className={styles.mailIcon} />
           <input
