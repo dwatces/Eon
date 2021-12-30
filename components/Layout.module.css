@@ -253,7 +253,7 @@
   height: 43px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1080px) {
   .middleLinks {
     margin-top: 0.5rem;
     display: flex;
