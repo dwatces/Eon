@@ -164,19 +164,6 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 2500px) {
-  .eonText {
-    font-size: 1.2rem;
-  }
-  .eonCandle {
-    width: 500px !important;
-    height: 300px !important;
-  }
-  .eonL {
-    margin-top: -10vh;
-  }
-}
-
 .eonCandle {
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -197,7 +184,7 @@
   font-weight: 300;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 425px) {
   .eonContainer {
     flex-direction: row !important;
   }
@@ -208,9 +195,9 @@
   }
   .eonText {
     flex-direction: column !important;
-    font-size: 1rem;
-    margin-bottom: 10rem !important;
-    height: 60rem !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 10rem;
+    height: 55rem !important;
   }
   .eonIcon {
     display: none !important;
@@ -222,4 +209,28 @@
     width: 10rem !important;
     height: 5rem !important;
   } */
+}
+
+@media screen and (max-width: 350px) {
+  .eonTitle {
+    width: 5rem !important;
+    font-size: 1rem !important;
+  }
+  .eonText {
+    height: 66rem !important;
+    margin-bottom: 15rem !important;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .eonText {
+    font-size: 1.2rem;
+  }
+  .eonCandle {
+    width: 500px !important;
+    height: 300px !important;
+  }
+  .eonL {
+    margin-top: -10vh;
+  }
 }
