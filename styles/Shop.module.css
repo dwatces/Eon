@@ -154,7 +154,6 @@
 /* mobile first */
 
 /*Desktop browsers */
-<<<<<<< HEAD
 
 @media only screen and (min-width: 980px) {
   .message {
@@ -218,19 +217,13 @@
 }
 
 @media only screen and (min-width: 1080px) {
-=======
-@media only screen and (min-width: 1080px ) and (max-width:1600px) {
->>>>>>> parent of 4de81ad (add more shop breakpoints for desktops...)
   .message {
     margin-left: 15vw;
     font-size: 1rem;
   }
-<<<<<<< HEAD
   .mailModal {
     height: 2.5rem;
   }
-=======
->>>>>>> parent of 4de81ad (add more shop breakpoints for desktops...)
 
   .emailInput {
     font-size: 1rem;
@@ -280,7 +273,6 @@
   .candleMain .candlePic {
     width: 55%;
     padding-top: 4rem;
-<<<<<<< HEAD
     margin-top: -15vh !important;
   }
 }
@@ -387,13 +379,6 @@
     font-size: 1rem !important;
   }
 }
-=======
-    margin-top: -12vh !important;
-  }
-
-}
-
->>>>>>> parent of 4de81ad (add more shop breakpoints for desktops...)
 
 @media only screen and (min-width: 2500px) {
   .emailButton {
