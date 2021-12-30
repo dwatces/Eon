@@ -98,7 +98,27 @@
 /* 
 mobile first */
 
-@media only screen and (min-width: 1080px ) and (max-width:1600px) {
+@media only screen and (min-width: 980px ) {
+  .candleDescription{
+    font-size: 0.9rem;
+    width: 27rem;
+  }
+
+  .bitsText{
+    font-size: 0.9rem;
+  }
+
+  .candleContentHeader{
+    font-size: 0.9rem;
+    margin-top: -60rem;
+    margin-left: 67vw;
+  }
+
+  .containerBuy{
+    margin-top: 1rem;
+  }
+}
+@media only screen and (min-width: 1180px ) and (max-width:1600px) {
   .candleDescription{
     font-size: 1.2rem;
   }
