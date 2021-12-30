@@ -222,21 +222,21 @@
   }
 }
 
-@media only screen and (min-width: 1080px ) and (max-width:1600px){
-  .eonText{
+@media only screen and (min-width: 1080px) and (max-width: 1600px) {
+  .eonText {
     margin-top: 0rem;
     font-size: 0.9rem;
   }
-  .hover{
+  .hover {
     margin-top: 0rem !important;
   }
 
   .candleDescription {
-    font-size: 0.9rem ;
+    font-size: 0.9rem;
   }
 
-  .candleEmbellishments{
-    font-size: 0.9rem ;
+  .candleEmbellishments {
+    font-size: 0.9rem;
   }
 
   .veganWax {
@@ -244,15 +244,15 @@
     font-size: 0.8rem;
   }
 
-  .main{
+  .main {
     margin-top: 1rem;
   }
 
-  .eonLink{
+  .eonLink {
     margin-top: -1rem;
   }
 
-  .row{
+  .row {
     margin-top: 5rem;
   }
 }
