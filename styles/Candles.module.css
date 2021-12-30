@@ -98,13 +98,35 @@
 /* 
 mobile first */
 
+@media only screen and (min-width: 1080px ) and (max-width:1600px) {
+  .candleDescription{
+    font-size: 1.2rem;
+  }
+
+  .bitsText{
+    font-size: 1rem;
+  }
+
+  .candleContentHeader{
+    font-size: 1rem;
+    margin-top: -60rem;
+    margin-left: 58vw;
+  }
+
+  .containerBuy{
+    margin-top: 1rem;
+  }
+}
+
 @media only screen and (min-width: 2500px) {
   .galleryMainContainer {
     margin-bottom: 3vh !important;
   }
+
   .candleTitle {
     font-size: 2.5rem;
   }
+
   .candleDescription {
     font-size: 1.5rem;
   }
@@ -112,9 +134,11 @@ mobile first */
   .containerBitsHeader {
     font-size: 1.5rem;
   }
+
   .bitsText {
     font-size: 1.3rem;
   }
+
   .candleRetail {
     font-size: 2.2rem;
   }
