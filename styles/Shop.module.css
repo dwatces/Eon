@@ -14,7 +14,7 @@
 
 .mailModal {
   width: 100vw;
-  max-width: 100% !important;
+  max-width: 100%;
   float: right;
   height: 5vh;
   background-color: #a793bce8;
@@ -159,6 +159,48 @@
 }
 
 /* mobile first */
+@media only screen and (max-width: 1024px) {
+  .message {
+    margin-left: 7vw;
+    font-size: 1rem;
+  }
+
+  .emailInput {
+    font-size: 1rem;
+  }
+  .emailButton {
+    margin-left: 22vw;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .spamFirst {
+    display: none;
+  }
+  .spam {
+    display: none;
+  }
+  .mailIcon {
+    display: none;
+  }
+  .message {
+    margin-left: 2vw !important;
+    font-size: 1rem !important;
+    margin-left: 2rem !important;
+  }
+  .emailInput {
+    font-size: 0.8rem !important;
+    width: 6rem !important;
+  }
+  .emailButton {
+    padding: 0.1rem !important;
+    margin-left: 8rem !important;
+  }
+  .candleContainer {
+    flex-direction: column;
+  }
+}
 
 /*Desktop browsers */
 
@@ -190,20 +232,5 @@
     font-size: 1rem;
     text-decoration: line-through;
     margin-right: 5rem;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .message {
-    margin-left: 7vw;
-    font-size: 1rem;
-  }
-
-  .emailInput {
-    font-size: 1rem;
-  }
-  .emailButton {
-    margin-left: 22vw;
-    font-size: 0.9rem !important;
   }
 }

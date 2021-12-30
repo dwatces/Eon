@@ -184,6 +184,12 @@
   font-weight: 300;
 }
 
+@media screen and (max-width: 768px) {
+  .row {
+    padding-top: 35rem;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .eonContainer {
     flex-direction: row !important;
@@ -195,15 +201,17 @@
   }
   .eonText {
     flex-direction: column !important;
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
     margin-bottom: 10rem;
-    height: 55rem !important;
+    height: 50rem !important;
   }
   .eonIcon {
     display: none !important;
   }
   .row {
     flex-direction: column !important;
+    padding-top: 0 !important;
+    padding-bottom: 8vh !important;
   }
   /* .eonCandle {
     width: 10rem !important;
@@ -211,14 +219,17 @@
   } */
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 380px) {
   .eonTitle {
     width: 5rem !important;
     font-size: 1rem !important;
   }
   .eonText {
-    height: 66rem !important;
+    height: 60rem !important;
     margin-bottom: 15rem !important;
+  }
+  .row {
+    padding-bottom: 0 !important;
   }
 }
 
