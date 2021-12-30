@@ -196,13 +196,13 @@
 }
 
 /*Desktop browsers */
- 
-@media only screen and (min-width: 980px)  {
+
+@media only screen and (min-width: 980px) {
   .message {
     margin-left: 8vw;
     font-size: 1rem;
   }
-  .mailModal{
+  .mailModal {
     height: 2.5rem;
   }
 
@@ -226,7 +226,7 @@
     margin-top: 5vh;
   }
 
-  .candleContainer{
+  .candleContainer {
     height: 60rem !important;
   }
 
@@ -234,10 +234,10 @@
     margin-top: 3vh;
     margin-left: 3vh;
   }
-   .candleMain{
-     width: 40rem;
-     height: 23em;
-   }
+  .candleMain {
+    width: 40rem;
+    height: 23em;
+  }
 
   .candleZoomedDetail {
     margin-left: 34vw !important;
@@ -251,19 +251,19 @@
     margin-right: 5rem;
   }
 
-  .candleMain .candlePic{
+  .candleMain .candlePic {
     width: 55%;
     padding-top: 4rem;
     margin-top: -15vh !important;
   }
 }
 
-@media only screen and (min-width: 1080px)  {
+@media only screen and (min-width: 1080px) {
   .message {
     margin-left: 15vw;
     font-size: 1rem;
   }
-  .mailModal{
+  .mailModal {
     height: 2.5rem;
   }
 
@@ -287,7 +287,7 @@
     margin-top: 5vh;
   }
 
-  .candleContainer{
+  .candleContainer {
     height: 60rem !important;
   }
 
@@ -295,10 +295,10 @@
     margin-top: 3vh;
     margin-left: 3vh;
   }
-   .candleMain{
-     width: 40rem;
-     height: 23em;
-   }
+  .candleMain {
+    width: 40rem;
+    height: 23em;
+  }
 
   .candleZoomedDetail {
     margin-left: 34vw !important;
@@ -312,14 +312,14 @@
     margin-right: 5rem;
   }
 
-  .candleMain .candlePic{
+  .candleMain .candlePic {
     width: 55%;
     padding-top: 4rem;
     margin-top: -15vh !important;
   }
 }
 
-@media only screen and (min-width: 1180px)  {
+@media only screen and (min-width: 1180px) {
   .message {
     margin-left: 15vw;
     font-size: 1rem;
@@ -345,7 +345,7 @@
     margin-top: 5vh;
   }
 
-  .candleContainer{
+  .candleContainer {
     height: 60rem !important;
   }
 
@@ -353,10 +353,10 @@
     margin-top: 3vh;
     margin-left: 3vh;
   }
-   .candleMain{
-     width: 43rem;
-     height: 23em;
-   }
+  .candleMain {
+    width: 43rem;
+    height: 23em;
+  }
 
   .candleZoomedDetail {
     margin-left: 33vw !important;
@@ -366,12 +366,11 @@
   }
 }
 
-@media only screen and (min-width: 1280px)  {
-
-   .candleMain{
-     width: 42rem;
-     height: 23em;
-   }
+@media only screen and (min-width: 1280px) {
+  .candleMain {
+    width: 42rem;
+    height: 23em;
+  }
 
   .candleZoomedDetail {
     margin-left: 29vw !important;
@@ -381,11 +380,11 @@
   }
 }
 
-@media only screen and (min-width: 1380px)  {
-   .candleMain{
-     width: 46rem;
-     height: 23em;
-   }
+@media only screen and (min-width: 1380px) {
+  .candleMain {
+    width: 46rem;
+    height: 23em;
+  }
 
   .candleZoomedDetail {
     margin-left: 31vw !important;
@@ -395,32 +394,32 @@
   }
 }
 
-@media only screen and (min-width: 1480px)  {
-  .candleMain{
+@media only screen and (min-width: 1480px) {
+  .candleMain {
     width: 50rem;
     height: 23em;
   }
 
- .candleZoomedDetail {
-   margin-left: 31vw !important;
-   margin-top: -45vh !important;
-   width: 40% !important;
-   font-size: 1rem !important;
- }
+  .candleZoomedDetail {
+    margin-left: 31vw !important;
+    margin-top: -45vh !important;
+    width: 40% !important;
+    font-size: 1rem !important;
+  }
 }
 
-@media only screen and (min-width: 1680px)  {
-  .candleMain{
+@media only screen and (min-width: 1680px) {
+  .candleMain {
     width: 55rem;
     height: 23em;
   }
 
- .candleZoomedDetail {
-   margin-left: 31vw !important;
-   margin-top: -50vh !important;
-   width: 40% !important;
-   font-size: 1rem !important;
- }
+  .candleZoomedDetail {
+    margin-left: 31vw !important;
+    margin-top: -50vh !important;
+    width: 40% !important;
+    font-size: 1rem !important;
+  }
 }
 
 @media only screen and (min-width: 2500px) {
@@ -453,7 +452,3 @@
     margin-right: 5rem;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4de81ada3ec66824775f69ce36b66cc3f299bd21

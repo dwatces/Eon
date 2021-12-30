@@ -351,8 +351,6 @@
     width: 90% !important;
   }
   .crystals {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url("../public/crystalsLaptop.png") !important;
     margin-bottom: 10vh;
     height: 65vh;
     background-repeat: no-repeat;
