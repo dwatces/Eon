@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/About.module.css";
+import Image from "next/image";
+import Crystal from "../public/crystals.png";
 import Layout from "../components/Layout";
 const axios = require("axios");
 
@@ -55,6 +57,12 @@ const About = () => {
                 selves.
               </p>
             </div>
+            <Image
+              src={Crystal}
+              alt="crystal"
+              priority
+              className={styles.crystalImg}
+            />
           </div>
           <div className={styles.nzNatural}>
             <p className={styles.envText}>

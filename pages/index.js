@@ -48,7 +48,9 @@ export default function Home() {
           </div>
           <div className={styles.eonLink}>
             <h2>
-              <span className={styles.eonTitle}>Oneness</span>
+              <a href="#oneness">
+                <span className={styles.eonTitle}>Oneness</span>
+              </a>
             </h2>
             <Image
               src={Earth}
@@ -61,7 +63,9 @@ export default function Home() {
           </div>
           <div className={styles.eonLink}>
             <h2>
-              <span className={styles.eonTitle}>Nature</span>
+              <a href="#nature">
+                <span className={styles.eonTitle}>Nature</span>
+              </a>
             </h2>
             <Image
               src={Leaf}
@@ -74,7 +78,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.eonText}>
-          <p className={(styles.eonPara, styles.hover)}>
+          <p id="oneness" className={(styles.eonPara, styles.hover)}>
             Crystals have been used in traditions, dating back millennia, to
             amplify the positive energy in our lives and ward against the
             negative. The power of crystals release fear, ground us from our
@@ -83,8 +87,7 @@ export default function Home() {
             Each luxuriously scented candle is paired with a different crystal
             and natural accompaniment to maximise it&apos;s power.
           </p>
-
-          <p className={(styles.eonPara, styles.hover)}>
+          <p id="nature" className={(styles.eonPara, styles.hover)}>
             Our modern lives are so busy; we rarely take time to pause, breath,
             and reconnect with the energies of the universe. We are all one,
             with each other, with the Earth, and beyond. Crystals are ancient,
