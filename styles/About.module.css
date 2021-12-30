@@ -340,6 +340,58 @@
   }
 }
 
+@media only screen and (min-width: 1080px) {
+  .main {
+    padding-bottom: 3rem;
+  }
+  .crystalsText {
+    margin-top: 1.5vh !important;
+    margin-left: 3rem;
+    font-size: 1rem !important;
+    width: 90% !important;
+  }
+  .crystals {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url("../public/crystalsLaptop.png") !important;
+    margin-bottom: 10vh;
+    height: 65vh;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-position: bottom !important;
+  }
+
+  .crystalHeader {
+    display: flex;
+    margin-top: 11rem;
+    width: 100vw !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .envText {
+    margin-left: 3rem;
+    font-size: 1rem !important;
+    width: 90% !important;
+    margin-top: 3rem;
+  }
+
+  .nzNatural {
+    height: 50vh;
+  }
+
+  .crystalHeaderAbout {
+    margin-left: 43vw;
+  }
+
+  .contactBox {
+    margin-bottom: -5rem;
+    padding-top: 9rem;
+  }
+
+  .formLabel {
+    margin-left: -2rem;
+  }
+}
+
 @media only screen and (min-width: 2500px) {
   .crystalsText {
     font-size: 1.2rem;
