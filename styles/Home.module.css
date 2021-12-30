@@ -220,6 +220,7 @@
     height: 66rem !important;
     margin-bottom: 15rem !important;
   }
+<<<<<<< HEAD
 }
 
 @media only screen and (min-width: 1080px) and (max-width: 1600px) {
@@ -255,6 +256,8 @@
   .row {
     margin-top: 5rem;
   }
+=======
+>>>>>>> parent of 8f560e5 (merging with ben laptop)
 }
 
 @media only screen and (min-width: 2500px) {
