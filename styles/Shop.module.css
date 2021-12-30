@@ -96,6 +96,7 @@
 .candlePic {
   width: 100%;
   cursor: pointer;
+  margin-top: 5vh;
 }
 
 .candleDetail {
@@ -193,7 +194,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1080px) {
   .message {
     margin-left: 7vw;
     font-size: 1rem;
