@@ -297,6 +297,7 @@
 
   .contactHeader {
     font-size: clamp(40px, 10vw, 60px);
+<<<<<<< HEAD
   }
 }
 
@@ -347,6 +348,8 @@
 
   .formLabel {
     margin-left: -2rem;
+=======
+>>>>>>> parent of 8f560e5 (merging with ben laptop)
   }
 }
 

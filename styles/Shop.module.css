@@ -152,6 +152,7 @@
 }
 
 /* mobile first */
+<<<<<<< HEAD
 
 /*Desktop browsers */
 
@@ -230,6 +231,8 @@
     font-size: 0.9rem !important;
   }
 }
+=======
+>>>>>>> parent of 8f560e5 (merging with ben laptop)
 
 @media only screen and (min-width: 1080px) {
   @media only screen and (min-width: 1080px) and (max-width: 1600px) {
@@ -425,5 +428,20 @@
       text-decoration: line-through;
       margin-right: 5rem;
     }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .message {
+    margin-left: 7vw;
+    font-size: 1rem;
+  }
+
+  .emailInput {
+    font-size: 1rem;
+  }
+  .emailButton {
+    margin-left: 22vw;
+    font-size: 0.9rem !important;
   }
 }
