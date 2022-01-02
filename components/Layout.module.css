@@ -193,16 +193,9 @@
   display: none;
 }
 
-@media (min-width: 2000px) {
-  .middleLinks {
-    margin-left: 35vw !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .middleLinks {
-    margin-left: 15vw !important;
-  }
+.socialButtonE {
+  width: 40px;
+  height: 43px;
 }
 
 @media (max-width: 720px) {
@@ -238,6 +231,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .middleLinks {
+    margin-left: 15vw !important;
+  }
+}
+
 @media only screen and (max-width: 370px) {
   .socialButtonF {
     width: 40px;
@@ -248,18 +247,20 @@
     height: 43px;
   }
 }
-.socialButtonE {
-  width: 40px;
-  height: 43px;
-}
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (min-width: 1080px ) and (max-width:1600px) {
   .middleLinks {
     margin-top: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 18vw;
+    margin-left: 25vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  .middleLinks {
+    margin-left: 35vw !important;
   }
 }
 
