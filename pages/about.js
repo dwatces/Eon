@@ -62,7 +62,7 @@ const About = () => {
               src={Crystal}
               alt="crystal"
               width={800}
-              height={125}
+              height={130}
               layout="responsive"
               priority
               className={styles.crystalImg}

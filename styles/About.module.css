@@ -341,7 +341,7 @@
 
 @media (min-width: 1200px) {
   .crystalsText {
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 2rem !important;
   }
   .contactHeader {
     margin-left: 15rem !important;
@@ -352,9 +352,15 @@
 }
 
 @media (min-width: 1600px) {
+  .crystalHeader {
+    margin-top: 20rem !important;
+  }
   .crystalsText {
-    margin-bottom: -0.3rem !important;
+    margin-bottom: 1rem !important;
     font-size: 1.3rem !important;
+  }
+  .crystalImg {
+    display: none !important;
   }
   .crystalHeaderAbout {
     margin-left: 42vw !important;
@@ -383,5 +389,11 @@
   }
   .contactBox {
     margin-top: 5vh !important;
+  }
+  .contactHeader {
+    margin-left: 30rem !important;
+  }
+  .formLabel {
+    margin-left: 30rem !important;
   }
 }
