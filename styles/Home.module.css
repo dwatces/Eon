@@ -233,26 +233,29 @@
   }
 }
 
-@media only screen and (min-width: 1080px ) and (max-width:1600px){
+@media only screen and (min-width: 980px ) and (max-width: 1080px){
+  .eonTitle {
+    font-size: 1.5rem !important;
+  }
   .eonText{
     margin-top: 0rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .hover{
     margin-top: 0rem !important;
   }
 
   .candleDescription {
-    font-size: 0.9rem ;
+    font-size: 0.8rem ;
   }
 
   .candleEmbellishments{
-    font-size: 0.9rem ;
+    font-size: 0.8rem ;
   }
 
   .veganWax {
     font-weight: 100;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .main{
@@ -264,8 +267,56 @@
   }
 
   .row{
-    margin-top: 5rem;
+    margin-top: 9rem;
+    margin-bottom: 10rem;
   }
+
+  .rowItem {
+    width: 50% !important;
+  } 
+}
+
+@media only screen and (min-width: 1080px ) and (max-width: 1600px){
+  .eonTitle {
+    font-size: 1.5rem !important;
+  }
+  .eonText{
+    margin-top: 0rem;
+    font-size: 0.8rem;
+  }
+  .hover{
+    margin-top: 0rem !important;
+  }
+
+  .candleDescription {
+    font-size: 0.8rem ;
+  }
+
+  .candleEmbellishments{
+    font-size: 0.8rem ;
+  }
+
+  .veganWax {
+    font-weight: 100;
+    font-size: 0.7rem;
+  }
+
+  .main{
+    margin-top: 1rem;
+  }
+
+  .eonLink{
+    margin-top: -1rem;
+  }
+
+  .row{
+    margin-top: 6rem;
+    margin-bottom: 12rem;
+  }
+
+  .rowItem {
+    width: 50% !important;
+  } 
 }
 
 @media only screen and (min-width: 2500px) {
