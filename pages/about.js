@@ -56,10 +56,13 @@ const About = () => {
                 level of being; which we must nurture to bring out our best
                 selves.
               </p>
+              <br />
             </div>
             <Image
               src={Crystal}
               alt="crystal"
+              width={800}
+              height={125}
               layout="responsive"
               priority
               className={styles.crystalImg}
@@ -74,57 +77,55 @@ const About = () => {
               keepsakes, memories, or anything special!
             </p>
           </div>
-          <section id="contact">
-            <div className={styles.contactBox}>
-              <h2 className={styles.contactHeader}>CONTACT US</h2>
-              <div className={styles.contactFormWrapper}>
-                <form onSubmit={handleSubmit} id="contact-form">
-                  <div className={styles.formItem}>
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                      name="name"
-                    />
-                    <label htmlFor="name" className={styles.formLabel}>
-                      Name:
-                    </label>
-                  </div>
-                  <div className={styles.formItem}>
-                    <input
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                      }}
-                    />
-                    <label htmlFor="email" className={styles.formLabel}>
-                      Email:
-                    </label>
-                  </div>
-                  <div className={styles.formItem}>
-                    <textarea
-                      name="message"
-                      value={message}
-                      onChange={(e) => {
-                        setMessage(e.target.value);
-                      }}
-                      className={styles.formArea}
-                    ></textarea>
-                    <label htmlFor="message" className={styles.formLabel}>
-                      Message:
-                    </label>
-                  </div>
-                  <button type="submit" className={styles.submitBtn}>
-                    Send
-                  </button>
-                </form>
-              </div>
+          <div className={styles.contactBox} id="contact">
+            <h2 className={styles.contactHeader}>CONTACT US</h2>
+            <div className={styles.contactFormWrapper}>
+              <form onSubmit={handleSubmit} id="contact-form">
+                <div className={styles.formItem}>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                    name="name"
+                  />
+                  <label htmlFor="name" className={styles.formLabel}>
+                    Name:
+                  </label>
+                </div>
+                <div className={styles.formItem}>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                  <label htmlFor="email" className={styles.formLabel}>
+                    Email:
+                  </label>
+                </div>
+                <div className={styles.formItem}>
+                  <input
+                    name="message"
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                    }}
+                    className={styles.formArea}
+                  ></input>
+                  <label htmlFor="message" className={styles.formLabel}>
+                    Message:
+                  </label>
+                </div>
+                <button type="submit" className={styles.submitBtn}>
+                  Send
+                </button>
+              </form>
             </div>
-          </section>
+          </div>
         </main>
       </Layout>
     </div>
