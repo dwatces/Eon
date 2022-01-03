@@ -188,60 +188,6 @@
   filter: sepia(0.5);
 }
 
-@media only screen and (max-width: 1080px) {
-  .crystalsText {
-    margin-top: 1.5vh !important;
-    margin-left: 3rem;
-    font-size: 1rem !important;
-    width: 90% !important;
-  }
-  .crystals {
-    margin-bottom: 10vh;
-    height: 65vh;
-    background-repeat: no-repeat;
-    background-size: 100vw;
-    background-position: bottom !important;
-  }
-
-  .crystalHeader {
-    display: flex;
-    margin-top: 11rem;
-    width: 100vw !important;
-    margin-bottom: 1.5rem !important;
-  }
-
-  .crystalImg {
-    padding-bottom: 3.5vh !important;
-  }
-
-  .envText {
-    margin-left: 3rem;
-    font-size: 1rem !important;
-    width: 90% !important;
-    margin-top: 3rem;
-  }
-
-  .nzNatural {
-    height: 63vh;
-  }
-
-  .crystalHeaderAbout {
-    margin-left: 39vw;
-  }
-
-  .contactHeader {
-    margin-left: -13rem;
-  }
-
-  .contactBox {
-    margin-bottom: -13rem;
-  }
-
-  .formLabel {
-    margin-left: -2rem;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .crystalHeader {
     margin-left: -2rem;
@@ -304,7 +250,7 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 380px) {
   .crystalHeader {
     margin-left: 4rem !important;
     font-size: 1.2rem !important;
@@ -340,8 +286,8 @@
   }
 }
 
-@media only screen and (min-width: 1080px) {
-  .main{
+@media only screen and (min-width: 1080px) and (max-width: 1600px) {
+  .main {
     padding-bottom: 3rem;
   }
   .crystalsText {
@@ -351,13 +297,8 @@
     width: 90% !important;
   }
   .crystals {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url("../public/crystalsLaptop.png") !important;
     margin-bottom: 10vh;
     height: 65vh;
-    background-repeat: no-repeat;
-    background-size: 100vw;
-    background-position: bottom !important;
   }
 
   .crystalHeader {
@@ -374,21 +315,28 @@
     margin-top: 3rem;
   }
 
+  .formLabel {
+    margin-left: -2rem;
+  }
+
+  .crystalImg {
+    padding-bottom: 3.5vh !important;
+  }
+
   .nzNatural {
-    height: 50vh;
+    height: 63vh;
   }
 
   .crystalHeaderAbout {
-    margin-left: 43vw;
+    margin-left: 39vw;
+  }
+
+  .contactHeader {
+    margin-left: -13rem;
   }
 
   .contactBox {
-    margin-bottom: -5rem;
-    padding-top: 9rem;
-  }
-
-  .formLabel {
-    margin-left: -2rem;
+    margin-bottom: -13rem;
   }
 }
 
@@ -402,8 +350,4 @@
   .contactBox {
     margin-top: 5vh !important;
   }
-}
-
-.links {
-  padding-top: 30px;
 }

@@ -60,6 +60,7 @@ const About = () => {
             <Image
               src={Crystal}
               alt="crystal"
+              layout="responsive"
               priority
               className={styles.crystalImg}
             />
