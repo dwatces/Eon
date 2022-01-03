@@ -386,21 +386,43 @@
   }
 }
 
-@media only screen and (min-width: 1480px) and (max-width: 1679px) {
+@media only screen and (min-width: 1480px) and (max-width: 1579px) {
   .candleMain {
     width: 50rem;
     height: 23em;
   }
 }
 
-@media only screen and (min-width: 1680px) and (max-width:1780px) {
+@media only screen and (min-width: 1580px) and (max-width: 1679px) {
+  .emailButton{
+    margin-left: 17rem;
+  }
+  
   .candleMain {
     width: 55rem;
     height: 23em;
   }
 
   .candleZoomedDetail {
-    margin-left: 31vw !important;
+    margin-left: 33vw !important;
+    margin-top: -50vh !important;
+    width: 40% !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media only screen and (min-width: 1680px) and (max-width:1780px) {
+  .emailButton{
+    margin-left: 15rem;
+  }
+  
+  .candleMain {
+    width: 55rem;
+    height: 23em;
+  }
+
+  .candleZoomedDetail {
+    margin-left: 33vw !important;
     margin-top: -50vh !important;
     width: 40% !important;
     font-size: 1rem !important;
