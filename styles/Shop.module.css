@@ -189,7 +189,7 @@
 
 /*Desktop browsers */
 
-@media only screen and (min-width: 980px) {
+@media only screen and (min-width: 980px) and (max-width: 1079px) {
   .message {
     margin-left: 8vw;
     font-size: 1rem;
@@ -250,7 +250,7 @@
   }
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1080px) and (max-width: 1179px) {
   .message {
     margin-left: 15vw;
     font-size: 1rem;
@@ -311,7 +311,7 @@
   }
 }
 
-@media only screen and (min-width: 1180px) {
+@media only screen and (min-width: 1180px) and (max-width: 1279px) {
   .message {
     margin-left: 15vw;
     font-size: 1rem;
@@ -358,7 +358,7 @@
   }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) and (max-width: 1379px) {
   .candleMain {
     width: 42rem;
     height: 23em;
@@ -372,7 +372,7 @@
   }
 }
 
-@media only screen and (min-width: 1380px) {
+@media only screen and (min-width: 1380px) and (max-width: 1479px) {
   .candleMain {
     width: 46rem;
     height: 23em;
@@ -386,14 +386,14 @@
   }
 }
 
-@media only screen and (min-width: 1480px) {
+@media only screen and (min-width: 1480px) and (max-width: 1679px) {
   .candleMain {
     width: 50rem;
     height: 23em;
   }
 }
 
-@media only screen and (min-width: 1680px) {
+@media only screen and (min-width: 1680px) and (max-width:1780px) {
   .candleMain {
     width: 55rem;
     height: 23em;
