@@ -1,6 +1,17 @@
 import Head from "next/head";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import Client from "shopify-buy";
+
+const client = Client.buildClient({
+  domain: "eon-candles.myshopify.com",
+  storefrontAccessToken: "30d3d76cf24c2919bfa53d50b1f157d5",
+});
+
+client.product.fetchAll().then((products) => {
+  // Do something with the products
+  console.log(products);
+});
 
 const Layout = (props) => (
   <>
@@ -8,7 +19,7 @@ const Layout = (props) => (
       <title>Eon</title>
       <meta
         name="eon candles NZ "
-        content="new zealand hand poured crystal energy aura promote vibes peace love dreams happiness"
+        content="new zealand hand poured crystal energy aura promote good vibes peace love dreams happiness"
       />
       <link rel="icon" href="/favicon.ico" />
       <meta
