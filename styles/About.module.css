@@ -87,7 +87,6 @@
 }
 
 .contactFormWrapper {
-  background-color: #ffffff8f;
   width: 25vw;
   height: 25vh;
   margin-bottom: 3vh;
@@ -115,7 +114,7 @@
 
 .formArea {
   outline: 0;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.45);
   border-radius: 4px;
   margin-bottom: 20px;
   padding: 12px;

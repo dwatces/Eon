@@ -1,17 +1,6 @@
 import Head from "next/head";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import Client from "shopify-buy";
-
-const client = Client.buildClient({
-  domain: "eon-candles.myshopify.com",
-  storefrontAccessToken: "30d3d76cf24c2919bfa53d50b1f157d5",
-});
-
-client.product.fetchAll().then((products) => {
-  // Do something with the products
-  console.log(products);
-});
 
 const Layout = (props) => (
   <>
