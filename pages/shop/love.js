@@ -1,25 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import { useRouter } from "next/router";
-import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 import Layout from "../../components/Layout";
-import products from "../../components/products";
+import { love } from "../../components/products";
+import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
 import altPicFlower from "../../public/Flower-love.png";
 import altPicCrystal from "../../public/crystal-love.png";
 import altPicLit from "../../public/lit-love.png";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
-
 const Love = (props) => {
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
   const { cartCount, addItem } = useShoppingCart();
-  const router = useRouter();
   const [qty, setQty] = useState(1);
   const [adding, setAdding] = useState(false);
   const toastId = useRef();
@@ -30,7 +25,7 @@ const Love = (props) => {
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? "s" : ""}...`
     );
-    addItem(products, qty);
+    addItem(love, qty);
   };
 
   useEffect(() => {
@@ -144,16 +139,29 @@ const Love = (props) => {
               <p className={styles.candleRetail}>
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
-              {/* <form action="/api/checkout_sessions" method="POST"> */}
+              <p className={styles.quantity}>Quantity:</p>
+              <button
+                className={styles.candleQuantity}
+                onClick={() => setQty((prev) => prev - 1)}
+                disabled={qty <= 1}
+              >
+                <AiOutlineMinus />
+              </button>
+              <p>{qty}</p>
+              <button
+                className={styles.candleQuantity}
+                onClick={() => setQty((prev) => prev + 1)}
+              >
+                <AiOutlinePlus />
+              </button>
               <button
                 className={styles.submitButton}
                 onClick={handleOnAddToCart}
                 type="button"
-                // role="link"
+                disabled={adding}
               >
                 ADD TO CART
               </button>
-              {/* </form> */}
             </div>
           </div>
         </div>

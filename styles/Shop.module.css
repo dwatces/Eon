@@ -72,6 +72,21 @@
   transform: scale(1.1, 1.1);
 }
 
+.submitButton {
+  height: 2.2rem;
+  width: 8rem;
+  margin-left: 1rem;
+  margin-top: 1.3rem;
+  background: #b8e0ab;
+  border-radius: 4px;
+  color: black;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+}
+
 .candleContainer {
   margin-top: 1vh;
   display: flex;
@@ -150,7 +165,6 @@
 .candleMain .candleZoomedDetail .candleDetailMuted {
   margin-bottom: 3.5rem !important;
 }
-
 
 /* Mobile Browsers */
 @media screen and (max-width: 425px) {
@@ -249,7 +263,6 @@
     padding-top: 4rem;
     margin-top: -15vh;
   }
-  
 }
 
 @media only screen and (min-width: 1080px) and (max-width: 1179px) {
@@ -432,7 +445,6 @@
     height: 23em;
   }
 
-
   .candleMain .candlePic {
     width: 45%;
     padding-top: 4rem;
@@ -441,14 +453,14 @@
 }
 
 @media only screen and (min-width: 1580px) and (max-width: 1679px) {
-  .emailButton{
+  .emailButton {
     margin-left: 17rem;
   }
 
   .mailModal {
     height: 3rem;
   }
- 
+
   .candleMain {
     width: 55rem;
     height: 23em;
@@ -463,17 +475,16 @@
 
   .candleMain .candlePic {
     width: 45% !important;
-      padding-top: 4rem;
-      margin-top: -15vh;
+    padding-top: 4rem;
+    margin-top: -15vh;
   }
-
 }
 
-@media only screen and (min-width: 1680px) and (max-width:1780px) {
-  .emailButton{
+@media only screen and (min-width: 1680px) and (max-width: 1780px) {
+  .emailButton {
     margin-left: 15rem;
   }
-  
+
   .candleMain {
     width: 55rem;
     height: 23em;
@@ -488,12 +499,12 @@
 
   .candleMain .candlePic {
     width: 55% !important;
-      padding-top: 4rem;
-      margin-top: -15vh;
+    padding-top: 4rem;
+    margin-top: -15vh;
   }
 }
 
-@media only screen and(min-width: 1680px) and (max-width:1780px) and (max-height: 900px) {
+@media only screen and(min-width: 1680px) and (max-width: 1780px) and (max-height: 900px) {
   .candleZoomedDetail {
     margin-top: -46vh !important;
   }

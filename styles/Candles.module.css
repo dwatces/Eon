@@ -91,9 +91,23 @@
   margin-right: 7.5rem;
 }
 
+.quantity {
+  margin-right: 1rem;
+  margin-top: 1.7rem;
+  font-size: 1.3rem;
+  color: grey;
+}
+
+.candleQuantity {
+  margin-top: 2rem !important;
+  border: unset;
+  background-color: unset;
+}
+
 .submitButton {
-  height: 2.5rem;
+  height: 2.2rem;
   width: 8rem;
+  margin-left: 1rem;
   margin-top: 1.3rem;
   background: #b8e0ab;
   border-radius: 4px;
