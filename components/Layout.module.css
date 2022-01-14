@@ -14,6 +14,7 @@
 .logo {
   margin-left: 5vw;
   justify-content: center;
+  cursor: pointer;
 }
 
 .navbar {
@@ -28,8 +29,28 @@
   z-index: 100;
 }
 
+.buttonCart {
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+
+.Cartlink {
+  margin-left: 35rem;
+  margin-right: 2rem;
+  font-size: 1rem;
+  color: #424242;
+  cursor: pointer;
+  width: 2.5rem !important;
+  height: 2rem !important;
+}
+
+.cartCount {
+  font-size: 1.5rem;
+  margin-left: -4rem;
+}
+
 .middleLinks {
-  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,22 +58,23 @@
 }
 
 .link {
-  margin-top: 0.5rem;
   margin-left: 2rem;
   margin-right: 2rem;
   font-size: 1.3rem;
   color: #424242;
+  cursor: pointer;
+}
+
+.cartItems {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 1.3rem;
+  color: #424242;
+  cursor: pointer;
 }
 
 .link:hover {
   border-bottom: 2px solid black;
-}
-
-.cartLink {
-  margin-top: 0.5rem;
-  margin-right: 5vw;
-  font-size: 1.2rem;
-  margin-left: auto;
 }
 
 .footer {
@@ -248,7 +270,7 @@
   }
 }
 
-@media only screen and (min-width: 1080px ) and (max-width:1600px) {
+@media only screen and (min-width: 1080px) and (max-width: 1600px) {
   .middleLinks {
     margin-top: 0.5rem;
     display: flex;
@@ -263,4 +285,3 @@
     margin-left: 35vw !important;
   }
 }
-

@@ -1,12 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useShoppingCart } from "../../hooks/use-shopping-cart";
+import { useRouter } from "next/router";
+import { loadStripe } from "@stripe/stripe-js";
+import { toast } from "react-hot-toast";
 import Image from "next/image";
 import Layout from "../../components/Layout";
+import products from "../../components/products";
 import styles from "../../styles/Candles.module.css";
-import Candle from "../../public/candle.png";
+import altPicFlower from "../../public/Flower-love.png";
+import altPicCrystal from "../../public/crystal-love.png";
+import altPicLit from "../../public/lit-love.png";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const Love = (props) => {
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
+  const { cartCount, addItem } = useShoppingCart();
+  const router = useRouter();
+  const [qty, setQty] = useState(1);
+  const [adding, setAdding] = useState(false);
+  const toastId = useRef();
+  const firstRun = useRef(true);
+
+  const handleOnAddToCart = () => {
+    setAdding(true);
+    toastId.current = toast.loading(
+      `Adding ${qty} item${qty > 1 ? "s" : ""}...`
+    );
+    addItem(products, qty);
+  };
+
+  useEffect(() => {
+    if (firstRun.current) {
+      firstRun.current = false;
+      return;
+    }
+
+    setAdding(false);
+    toast.success(`${qty} love added`, {
+      id: toastId.current,
+    });
+    setQty(1);
+  }, [cartCount]);
 
   return (
     <Layout>
@@ -14,7 +52,7 @@ const Love = (props) => {
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -23,7 +61,7 @@ const Love = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicLit}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -32,7 +70,7 @@ const Love = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicCrystal}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -43,7 +81,7 @@ const Love = (props) => {
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -57,7 +95,7 @@ const Love = (props) => {
             <p className={styles.candleDescription}>
               Our rose otto, ylang ylang, orange, and patchouli scented candle
               not only smells divine, but is precisely paired with rose quartz
-              chips and rose buds to amplify and attract love in your life.
+              chips and rose bud to amplify and attract love in your life.
             </p>
             <div className={styles.containerBits}>
               <h3
@@ -106,7 +144,16 @@ const Love = (props) => {
               <p className={styles.candleRetail}>
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
-              <p className={styles.candleCart}>add2cart</p>
+              {/* <form action="/api/checkout_sessions" method="POST"> */}
+              <button
+                className={styles.submitButton}
+                onClick={handleOnAddToCart}
+                type="button"
+                // role="link"
+              >
+                ADD TO CART
+              </button>
+              {/* </form> */}
             </div>
           </div>
         </div>

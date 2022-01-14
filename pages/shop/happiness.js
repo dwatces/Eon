@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import styles from "../../styles/Candles.module.css";
-import Candle from "../../public/candle.png";
+import altPicFlower from "../../public/Flower-Happy2.png";
+import altPicCrystal from "../../public/Crystal-Happy.png";
+import altPicLit from "../../public/lit-happy.png";
 
 const Happiness = (props) => {
   const [crystal, setCrystal] = useState(false);
@@ -14,7 +16,7 @@ const Happiness = (props) => {
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -23,7 +25,7 @@ const Happiness = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicLit}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -32,7 +34,7 @@ const Happiness = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicCrystal}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -43,7 +45,7 @@ const Happiness = (props) => {
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSizeMain}
               responsive="true"
@@ -77,10 +79,10 @@ const Happiness = (props) => {
                     setCrystal(false);
                   }}
                 >
-                  Citrine enables the promotion of prosperity, joy, and energy.
-                  This powerful crystal provides creative and intuitive energy
-                  that may overcome fears. Use this crystal to channel joy into
-                  your home and life.
+                  Citrine enables prosperity, joy, and energy. This powerful
+                  crystal provides creative and intuitive energy that may
+                  overcome fears. Use this crystal to channel joy into your home
+                  and life.
                 </p>
               )}
               <h3

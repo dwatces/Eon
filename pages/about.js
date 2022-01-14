@@ -71,10 +71,10 @@ const About = () => {
           <div className={styles.nzNatural}>
             <p className={styles.envText}>
               We love our planet, that&apos;s why our candles are made of vegan
-              soy wax, and we ship all our candles in recyclable or
+              soy wax, and we ship all our candles in recyclable and
               biodegradeable packaging. Our candle tins are easily repurposable
               as well! After washing, use our tins as a place to keep trinkets,
-              keepsakes, memories, or anything special!
+              keepsakes, or anything special!
             </p>
           </div>
           <div className={styles.contactBox} id="contact">

@@ -15,9 +15,9 @@
 }
 
 .galleryImage {
-  width: 10vw;
-  height: 10vh;
-  margin-bottom: 15vh;
+  width: 12.5vw;
+  height: 12.5vh;
+  margin-bottom: 12vh;
 }
 
 .galleryMainContainer {
@@ -29,8 +29,8 @@
 }
 
 .mainImage {
-  width: 30vw;
-  height: 60vh;
+  width: 25vw;
+  height: 50vh;
   margin-bottom: 40vh;
   margin-top: -100vh;
 }
@@ -79,8 +79,8 @@
 .containerBuy {
   margin-top: 3vh;
   display: flex;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   font-size: 1.5rem;
 }
@@ -88,77 +88,91 @@
 .candlePrice {
   font-size: 1rem;
   text-decoration: line-through;
-  margin-right: 5rem;
+  margin-right: 7.5rem;
 }
 
-.candleCart {
-  margin-right: 17.5rem;
+.submitButton {
+  height: 2.5rem;
+  width: 8rem;
+  margin-top: 1.3rem;
+  background: #b8e0ab;
+  border-radius: 4px;
+  color: black;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+}
+
+.submitButton:hover {
+  opacity: 0.8;
 }
 
 /* 
 mobile first */
 
-@media only screen and (min-width: 980px ) and (max-width: 1179px) {
-  .candleDescription{
+@media only screen and (min-width: 980px) and (max-width: 1179px) {
+  .candleDescription {
     font-size: 0.9rem;
     width: 27rem;
   }
 
-  .bitsText{
+  .bitsText {
     font-size: 0.9rem;
   }
 
-  .candleContentHeader{
+  .candleContentHeader {
     font-size: 0.9rem;
     margin-top: -55rem;
     margin-left: 67vw;
   }
 
-  .containerBuy{
+  .containerBuy {
     margin-top: 1rem;
   }
 }
 
-@media only screen and (min-width: 1180px ) and (max-width: 1600px) {
-  .candleDescription{
+@media only screen and (min-width: 1180px) and (max-width: 1600px) {
+  .candleDescription {
     font-size: 1.2rem;
   }
 
-  .bitsText{
+  .bitsText {
     font-size: 1rem;
   }
 
-  .candleContentHeader{
+  .candleContentHeader {
     font-size: 1rem;
     margin-top: -60rem;
     margin-left: 58vw;
   }
 
-  .containerBuy{
+  .containerBuy {
     margin-top: 1rem;
   }
 }
 
-@media only screen and (min-width: 1180px ) and (max-height: 800px) and (max-width: 1600px)  {
-  .candleDescription{
+@media only screen and (min-width: 1180px) and (max-height: 800px) and (max-width: 1600px) {
+  .candleDescription {
     font-size: 1rem;
   }
 
-  .candleContentHeader{
+  .candleContentHeader {
     padding-top: 10rem;
-   }
+  }
 
-  .bitsText{
+  .bitsText {
     font-size: 0.9rem;
   }
 
-  .candleContentHeader{
+  .candleContentHeader {
     font-size: 0.9rem;
     margin-top: -60rem;
     margin-left: 58vw;
   }
 
-  .containerBuy{
+  .containerBuy {
     margin-top: 1rem;
   }
 }

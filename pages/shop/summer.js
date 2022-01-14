@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import styles from "../../styles/Candles.module.css";
-import Candle from "../../public/candle.png";
+import altPicFlower from "../../public/Flower-Summer.png";
+import altPicCrystal from "../../public/crystal-summer.png";
+import altPicLit from "../../public/Lit-Summer.png";
 
 const Summer = (props) => {
   const [crystal, setCrystal] = useState(false);
@@ -14,7 +16,7 @@ const Summer = (props) => {
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -23,7 +25,7 @@ const Summer = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicLit}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -32,7 +34,7 @@ const Summer = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicCrystal}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -43,7 +45,7 @@ const Summer = (props) => {
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"

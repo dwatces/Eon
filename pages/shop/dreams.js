@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import styles from "../../styles/Candles.module.css";
-import Candle from "../../public/candle.png";
+import altPicCrystal from "../../public/Crystal-dreams.png";
+import altPicFlower from "../../public/Flower-Dream.png";
+import altPicLit from "../../public/lit-dreams.png";
 
 const Dreams = (props) => {
   const [crystal, setCrystal] = useState(false);
@@ -13,7 +15,7 @@ const Dreams = (props) => {
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -22,7 +24,7 @@ const Dreams = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicLit}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -31,7 +33,7 @@ const Dreams = (props) => {
           </div>
           <div className={styles.galleryImage}>
             <Image
-              src={Candle}
+              src={altPicCrystal}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -42,7 +44,7 @@ const Dreams = (props) => {
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
             <Image
-              src={Candle}
+              src={altPicFlower}
               alt="candle"
               className={styles.candleSize}
               responsive="true"
@@ -76,7 +78,7 @@ const Dreams = (props) => {
                     setFlower(false);
                   }}
                 >
-                  The most powerful and protective stone, amethyst will help you
+                  A most powerful and protective stone, amethyst will help you
                   gain a calm mind and spirit by warding off negative energies
                   and promoting spiritual harmony. Amethyst is known to promote
                   peaceful and restful sleep.
@@ -100,7 +102,7 @@ const Dreams = (props) => {
                 >
                   Cornflowers symbolise wealth and good fortune in all aspects
                   of our lives; not just with money, but through love and health
-                  too.
+                  as well.
                 </p>
               )}
             </div>

@@ -7,8 +7,10 @@ import Image from "next/image";
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
 import Leaf from "../public/linden-leaf.svg";
-import Candle1 from "../public/candle1.png";
-import Candle2 from "../public/candle2.png";
+import love from "../public/top-love.png";
+import dream from "../public/top-dream.png";
+import happy from "../public/top-happy.png";
+import summer from "../public/top-summer.png";
 
 export default function Home() {
   const [candle1, setCandle1] = useState(false);
@@ -111,7 +113,7 @@ export default function Home() {
           <Link href="/shop/love">
             <div className={styles.rowItem}>
               <Image
-                src={Candle1}
+                src={love}
                 alt="candle"
                 className={styles.eonCandle}
                 width={350}
@@ -141,7 +143,7 @@ export default function Home() {
           <Link href="/shop/happiness">
             <div className={styles.rowItem}>
               <Image
-                src={Candle2}
+                src={happy}
                 alt="candle"
                 className={styles.eonCandle}
                 width={350}
@@ -170,7 +172,7 @@ export default function Home() {
           <Link href="/shop/dreams">
             <div className={styles.rowItem}>
               <Image
-                src={Candle1}
+                src={dream}
                 alt="candle"
                 className={styles.eonCandle}
                 width={350}
@@ -200,7 +202,7 @@ export default function Home() {
           <Link href="/shop/summer">
             <div className={styles.rowItem}>
               <Image
-                src={Candle2}
+                src={summer}
                 alt="candle"
                 className={styles.eonCandle}
                 width={350}
