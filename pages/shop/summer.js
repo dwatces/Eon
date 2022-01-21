@@ -3,7 +3,7 @@ import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
 import Layout from "../../components/Layout";
-import { summer } from "../../components/products";
+import { products } from "../../components/products";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -22,10 +22,7 @@ const Summer = (props) => {
 
   const handleOnAddToCart = () => {
     setAdding(true);
-    toastId.current = toast.loading(
-      `Adding ${qty} item${qty > 1 ? "s" : ""}...`
-    );
-    addItem(summer, qty);
+    addItem(products[3], qty);
   };
 
   useEffect(() => {

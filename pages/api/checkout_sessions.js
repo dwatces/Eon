@@ -1,6 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
+  console.log(req.body.items);
   if (req.method === "POST") {
     try {
       // Create Checkout Sessions from body params.
@@ -18,7 +19,6 @@ export default async function handler(req, res) {
                 currency: "nzd",
               },
               display_name: "New Zealand",
-              // Delivers between 5-7 business days
               delivery_estimate: {
                 minimum: {
                   unit: "business_day",
@@ -32,23 +32,12 @@ export default async function handler(req, res) {
             },
           },
         ],
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: "price_1KE0vaIILjXbtSkj59ZfrGpZ",
-            adjustable_quantity: {
-              enabled: true,
-              minimum: 1,
-              maximum: 10,
-            },
-            quantity: 1,
-          },
-        ],
+        line_items: req.body.items ?? [],
         mode: "payment",
         success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/shop`,
       });
-      res.redirect(303, session.url);
+      res.status(200).json(session);
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
     }

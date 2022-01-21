@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import SideDrawer from "./navigation/SideDrawer";
@@ -8,17 +10,38 @@ import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
 import { IoMdCart } from "react-icons/io";
 
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+
 const NavBar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { totalPrice, cartCount } = useShoppingCart();
+  const { cartDetails, cartCount } = useShoppingCart();
   const router = useRouter();
 
+  console.log(cartDetails);
   const openDrawer = () => {
     setDrawerOpen(true);
   };
 
   const closeDrawer = () => {
     setDrawerOpen(false);
+  };
+
+  const redirectToCheckout = async () => {
+    // Create Stripe checkout
+    const {
+      data: { id },
+    } = await axios.post("/api/checkout_sessions", {
+      items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
+        price: id,
+        quantity,
+      })),
+    });
+
+    // Redirect to checkout
+
+    await stripePromise.redirectToCheckout({ sessionId: id });
   };
 
   return (
@@ -87,17 +110,10 @@ const NavBar = () => {
             </span>
           </li>
           <span className={styles.cartItems}>
-            <form
-              action="/api/checkout_sessions"
-              className={styles.Cartlink}
-              method="POST"
-            >
-              <button className={styles.buttonCart} type="submit" role="link">
-                <IoMdCart size="small" />
-              </button>
-            </form>
+            <button onClick={redirectToCheckout} className={styles.buttonCart}>
+              <IoMdCart className={styles.Cartlink} size="small" />
+            </button>
           </span>
-
           <span className={styles.cartCount}>{cartCount}</span>
         </ul>
       </nav>
