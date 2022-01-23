@@ -6,6 +6,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import SideDrawer from "./navigation/SideDrawer";
+import getStripe from "./get-stripe";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
 import { IoMdCart } from "react-icons/io";
@@ -19,7 +20,6 @@ const NavBar = () => {
   const { cartDetails, cartCount } = useShoppingCart();
   const router = useRouter();
 
-  console.log(cartDetails);
   const openDrawer = () => {
     setDrawerOpen(true);
   };
@@ -39,9 +39,8 @@ const NavBar = () => {
       })),
     });
 
-    // Redirect to checkout
-
-    await stripePromise.redirectToCheckout({ sessionId: id });
+    const stripe = await getStripe();
+    await stripe.redirectToCheckout({ sessionId: id });
   };
 
   return (
