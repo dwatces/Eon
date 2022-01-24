@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import { toast } from "react-hot-toast";
+import Lightbox from "react-image-lightbox";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import { products } from "../../components/products";
@@ -10,8 +11,17 @@ import styles from "../../styles/Candles.module.css";
 import altPicFlower from "../../public/Flower-Happy2.png";
 import altPicCrystal from "../../public/Crystal-Happy.png";
 import altPicLit from "../../public/lit-happy.png";
+import mainPic from "../../public/lid-happiness.png";
 
 const Happiness = (props) => {
+  const images = [
+    "/lid-happiness.png",
+    "/Flower-Happy2.png",
+    "/Crystal-Happy.png",
+    "/lit-happy.png",
+  ];
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
   const { cartCount, addItem } = useShoppingCart();
@@ -23,6 +33,10 @@ const Happiness = (props) => {
   const handleOnAddToCart = () => {
     setAdding(true);
     addItem(products[1], qty);
+  };
+
+  const open = () => {
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -43,42 +57,50 @@ const Happiness = (props) => {
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
-            <Image
-              src={altPicFlower}
-              alt="candle"
-              className={styles.candleSize}
-              responsive="true"
-              priority
-            />
+            <button className={styles.buttonImage} type="button" onClick={open}>
+              <Image
+                src={altPicFlower}
+                alt="candle"
+                className={styles.candleSize}
+                responsive="true"
+                priority
+              />
+            </button>
           </div>
           <div className={styles.galleryImage}>
-            <Image
-              src={altPicLit}
-              alt="candle"
-              className={styles.candleSize}
-              responsive="true"
-              priority
-            />
+            <button className={styles.buttonImage} type="button" onClick={open}>
+              <Image
+                src={altPicLit}
+                alt="candle"
+                className={styles.candleSize}
+                responsive="true"
+                priority
+              />
+            </button>
           </div>
           <div className={styles.galleryImage}>
-            <Image
-              src={altPicCrystal}
-              alt="candle"
-              className={styles.candleSize}
-              responsive="true"
-              priority
-            />
+            <button className={styles.buttonImage} type="button" onClick={open}>
+              <Image
+                src={altPicCrystal}
+                alt="candle"
+                className={styles.candleSize}
+                responsive="true"
+                priority
+              />
+            </button>
           </div>
         </div>
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
-            <Image
-              src={altPicFlower}
-              alt="candle"
-              className={styles.candleSizeMain}
-              responsive="true"
-              priority
-            />
+            <button className={styles.buttonImage} type="button" onClick={open}>
+              <Image
+                src={mainPic}
+                alt="candle"
+                className={styles.candleSizeMain}
+                responsive="true"
+                priority
+              />
+            </button>
           </div>
         </div>
         <div className={styles.candleContent}>
@@ -167,6 +189,16 @@ const Happiness = (props) => {
             </div>
           </div>
         </div>
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[photoIndex + 1]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => setIsOpen(false)}
+            onMovePrevRequest={() => setPhotoIndex(0)}
+            onMoveNextRequest={() => setPhotoIndex(photoIndex + 1)}
+          />
+        )}
       </main>
     </Layout>
   );

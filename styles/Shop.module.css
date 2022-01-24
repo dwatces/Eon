@@ -14,6 +14,7 @@
 
 .mailModal {
   width: 100vw;
+  margin-top: 3vh !important;
   max-width: 100%;
   float: right;
   height: 5vh;
@@ -28,12 +29,29 @@
   font-size: 1.5rem;
 }
 
+.validate {
+  display: inline-block;
+  margin-bottom: 2rem !important;
+}
+
 .message {
   display: inline-block;
   text-align: center;
-  margin-left: 25vw;
+  margin-left: 30vw;
   font-size: 1.1rem;
   margin-top: 1rem;
+}
+
+.orderComplete {
+  margin-bottom: 10rem;
+}
+
+.orderConfirm {
+  margin-bottom: 5rem;
+}
+
+.distance {
+  margin-left: 1rem;
 }
 
 .emailInput {
@@ -88,7 +106,7 @@
 }
 
 .candleContainer {
-  margin-top: 1vh;
+  margin-top: 8vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -114,8 +132,9 @@
 }
 
 .candleDetail {
-  margin-top: 10vh;
-  margin-left: 1vw;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  font-size: 1.2rem;
   width: 100%;
   height: 50%;
   line-height: 1rem;

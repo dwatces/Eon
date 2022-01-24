@@ -1,5 +1,6 @@
 .main {
   min-height: 100vh;
+  width: 100vw;
   padding: 5rem 0;
   flex: 1;
   display: flex;
@@ -43,10 +44,15 @@
 .contactHeader {
   margin-top: 5rem;
   color: #fff;
-  font-size: clamp(30px, 6vw, 60px);
+  font-size: 1.5rem;
   letter-spacing: 2px;
   text-align: center;
   transform: scale(0.95, 1);
+  margin-bottom: -50rem;
+}
+
+.email {
+  margin-left: 2rem;
 }
 
 .crystals {
@@ -77,12 +83,10 @@
 }
 
 .contactHeader {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-top: -40vh;
   color: black;
-  justify-content: center;
-  align-items: center;
-  transform: translate(100%);
+  text-align: center;
   margin-bottom: -5vh;
 }
 
@@ -183,6 +187,10 @@
   .submitBtn {
     left: -50% !important;
   }
+  .contactBox {
+    margin-left: 14rem;
+    margin-bottom: -10rem;
+  }
 }
 
 @media (min-width: 375px) {
@@ -216,18 +224,23 @@
   .submitBtn {
     margin-left: 10vw !important;
   }
+  .contactBox {
+    margin-left: 15rem;
+    margin-bottom: -10rem;
+  }
 }
 
 @media (min-width: 425px) {
   .crystalHeader {
     font-size: 1.5rem !important;
+    margin-left: -1rem;
   }
   .crystalHeaderAbout {
     margin-left: 38vw !important;
   }
   .crystalsText {
     margin-left: 3rem !important;
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     padding-bottom: 1rem !important;
     width: 80% !important;
   }
@@ -235,15 +248,15 @@
     height: 45rem !important;
   }
   .envText {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     margin-left: 2.5rem !important;
     width: 80% !important;
   }
-  .formLabel {
-    margin-left: -1rem;
-  }
-  .contactHeader {
-    margin-left: 2rem;
+
+  .contactBox {
+    margin-left: 17.5rem;
+    width: 100% !important;
+    margin-bottom: -10rem;
   }
 }
 
@@ -273,19 +286,23 @@
   .crystalHeader {
     font-size: 1.9rem !important;
     width: 85% !important;
+    margin-left: 2rem;
   }
   .crystalsText {
     padding-bottom: 1rem !important;
+    margin-left: 5rem !important;
+    font-size: 1.2rem !important;
   }
   .envText {
     margin-top: 7.5rem;
     margin-left: 5rem !important;
     margin-right: 10rem;
+    font-size: 1.3rem !important;
   }
   .contactBox {
     margin-top: -7.5rem !important;
-    width: 100%;
-    margin-right: 20vw !important;
+    margin-left: 25rem;
+    margin-bottom: -10rem;
   }
   .formLabel {
     margin-left: -3rem !important;
@@ -296,6 +313,10 @@
 }
 
 @media (min-width: 992px) {
+  .crystalHeaderText {
+    margin-bottom: 1.5rem;
+  }
+
   .crystalHeaderAbout {
     margin-left: 38vw !important;
   }
@@ -324,8 +345,8 @@
     height: 50vh;
   }
   .contactBox {
-    margin-top: 5rem !important;
-    margin-bottom: 1rem !important;
+    margin-top: 2rem !important;
+    margin-left: 35rem;
   }
   .formLabel {
     margin-left: 5rem !important;
@@ -345,6 +366,16 @@
   .contactHeader {
     margin-left: 15rem !important;
   }
+
+  .crystalHeaderText {
+    margin-bottom: 0.2rem;
+  }
+
+  .contactBox {
+    margin-top: -10rem;
+    margin-left: 30rem;
+  }
+
   .formLabel {
     margin-left: 10rem !important;
   }
@@ -377,22 +408,24 @@
   .submitBtn {
     margin-left: 2vw !important;
   }
+  .contactBox {
+    margin-left: 35rem !important;
+  }
 }
 
 @media (min-width: 2500px) {
+  .crystalHeader {
+    font-size: 2.5rem !important;
+  }
   .crystalsText {
-    font-size: 1.2rem;
+    font-size: 1.4rem !important;
+    line-height: 1.5rem !important;
   }
   .envText {
-    font-size: 1.3rem;
+    font-size: 1.6rem !important;
+    line-height: 2.5rem !important;
   }
   .contactBox {
-    margin-top: 5vh !important;
-  }
-  .contactHeader {
-    margin-left: 30rem !important;
-  }
-  .formLabel {
-    margin-left: 30rem !important;
+    margin-left: 55rem !important;
   }
 }

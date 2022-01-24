@@ -79,7 +79,7 @@
 
 .footer {
   padding: 1rem 0;
-  height: 2rem;
+  height: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -259,7 +259,7 @@
   }
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 425px) {
   .socialButtonF {
     width: 40px;
     height: 43px;

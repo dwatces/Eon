@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import { CartProvider } from "/hooks/use-shopping-cart";
+import "react-image-lightbox/style.css";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";

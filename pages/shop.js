@@ -1,44 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BiMailSend } from "react-icons/bi";
-import Candle from "../public/candle.png";
 import styles from "../styles/Shop.module.css";
 import Layout from "../components/Layout";
+import dreams from "../public/lid-dreams.png";
+import happiness from "../public/lid-happiness.png";
+import love from "../public/lid-love.png";
+import summer from "../public/lid-summer.png";
 
 function Shop() {
-  const [summer, setSummer] = useState(false);
-  const [love, setLove] = useState(false);
-  const [happy, setHappy] = useState(false);
-  const [dreams, setDreams] = useState(false);
-
   return (
     <Layout>
       <main className={styles.main}>
         <div className={styles.mailModal}>
           <p className={styles.message}>
             <span className={styles.spamFirst}>
-              Join our mailing list to get
-            </span>{" "}
-            10% off your first order!
+              Join our mailing list to receive promotional offers!
+            </span>
             <span className={styles.spam}> (no spam, we promise) </span>
           </p>
           <BiMailSend className={styles.mailIcon} />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder=" email address"
-            className={styles.emailInput}
-          ></input>
-          <span className={styles.emailButton}>Subscribe</span>
+          <form
+            action="https://eoncandles.us20.list-manage.com/subscribe/post?u=ede5da5ded002e22cfde82864&amp;id=f5e61a041d"
+            method="post"
+            w
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            className={styles.validate}
+            target="_blank"
+            novalidate
+          >
+            <input
+              type="email"
+              id="mce-EMAIL"
+              name="EMAIL"
+              placeholder=" email address"
+              className={styles.emailInput}
+            ></input>
+          </form>
         </div>
         <div className={styles.candleContainer}>
           <Link href="/shop/love">
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
-                  src={Candle}
+                  src={love}
                   alt="candle"
                   className={styles.candleSize}
                   responsive="true"
@@ -60,7 +67,7 @@ function Shop() {
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
-                  src={Candle}
+                  src={happiness}
                   alt="candle"
                   className={styles.candleSize}
                   responsive="true"
@@ -82,7 +89,7 @@ function Shop() {
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
-                  src={Candle}
+                  src={dreams}
                   alt="candle"
                   className={styles.candleSize}
                   responsive="true"
@@ -104,7 +111,7 @@ function Shop() {
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
-                  src={Candle}
+                  src={summer}
                   alt="candle"
                   className={styles.candleSize}
                   responsive="true"
