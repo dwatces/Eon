@@ -229,18 +229,12 @@
   }
   .mailModal {
     height: 2.5rem;
+    margin-top: -0.1rem !important;
   }
 
   .emailInput {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-top: 0.8rem;
-  }
-  .emailButton {
-    margin-left: 22vw;
-    margin-bottom: 5rem !important;
-    margin-top: 5rem !important;
-    padding: 0.2rem;
-    font-size: 0.9rem !important;
   }
 
   .candleChild {
@@ -264,18 +258,6 @@
     height: 23em;
   }
 
-  .candleZoomedDetail {
-    margin-left: 34vw !important;
-    margin-top: -40vh !important;
-    width: 40% !important;
-    font-size: 1rem !important;
-  }
-  .candleMain .candleZoomedDetail .candlePrice {
-    font-size: 0.7rem;
-    text-decoration: line-through;
-    margin-right: 5rem;
-  }
-
   .candleMain .candlePic {
     width: 55%;
     padding-top: 4rem;
@@ -290,6 +272,7 @@
   }
   .mailModal {
     height: 2.5rem;
+    margin-top: -0.1rem !important;
   }
 
   .emailInput {
@@ -348,6 +331,14 @@
   .message {
     margin-left: 15vw;
     font-size: 1rem;
+  }
+
+  .mailModal {
+    margin-top: -0.1rem !important;
+  }
+
+  .candleDetail {
+    margin-top: -0.1rem !important;
   }
 
   .emailInput {

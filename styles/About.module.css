@@ -328,7 +328,7 @@
   }
   .nzNatural {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url("../public/NZNature.jpg") !important;
+      url("../public/NZNature.webp") !important;
     background-repeat: no-repeat;
     background-size: 100vw;
   }
@@ -362,6 +362,11 @@
 @media (min-width: 1200px) {
   .crystalsText {
     margin-bottom: 2rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .envText {
+    line-height: 2.5rem !important;
   }
   .contactHeader {
     margin-left: 15rem !important;

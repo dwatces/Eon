@@ -109,7 +109,12 @@ const NavBar = () => {
             </span>
           </li>
           <span className={styles.cartItems}>
-            <button onClick={redirectToCheckout} className={styles.buttonCart}>
+            <button
+              onClick={redirectToCheckout}
+              className={styles.buttonCart}
+              name="cartButton"
+              aria-label="cartButton"
+            >
               <IoMdCart className={styles.Cartlink} size="small" />
             </button>
           </span>

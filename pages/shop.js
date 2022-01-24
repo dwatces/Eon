@@ -29,7 +29,7 @@ function Shop() {
             name="mc-embedded-subscribe-form"
             className={styles.validate}
             target="_blank"
-            novalidate
+            noValidate
           >
             <input
               type="email"

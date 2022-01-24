@@ -168,6 +168,7 @@ const Happiness = (props) => {
                 className={styles.candleQuantity}
                 onClick={() => setQty((prev) => prev - 1)}
                 disabled={qty <= 1}
+                aria-label="decrease quantity by one"
               >
                 <AiOutlineMinus />
               </button>
@@ -175,6 +176,7 @@ const Happiness = (props) => {
               <button
                 className={styles.candleQuantity}
                 onClick={() => setQty((prev) => prev + 1)}
+                aria-label="increase quantity by one"
               >
                 <AiOutlinePlus />
               </button>

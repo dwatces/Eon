@@ -1,23 +1,10 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import useSWR from "swr";
 import styles from "../styles/Shop.module.css";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
-import { fetcher } from "../lib/utils";
 import { AiOutlineCheck } from "react-icons/ai";
 import { FaHandPeace } from "react-icons/fa";
 
 const Success = () => {
-  const {
-    query: { session_id },
-  } = useRouter();
-
   const { clearCart } = useShoppingCart();
-
-  const { data, error } = useSWR(
-    () => `/api/checkout_sessions/${session_id}`,
-    fetcher
-  );
 
   clearCart();
 
@@ -29,7 +16,7 @@ const Success = () => {
         </h1>
 
         <h2>
-          You will be emailed your tracking number within the day
+          You will be emailed an invoice and tracking number within the hour
           <FaHandPeace className={styles.distance} />
         </h2>
       </div>

@@ -1,9 +1,7 @@
-import { useState } from "react";
 import styles from "../styles/About.module.css";
 import Image from "next/image";
 import Crystal from "../public/crystals.png";
 import Layout from "../components/Layout";
-const axios = require("axios");
 
 const About = () => {
   return (
@@ -57,7 +55,7 @@ const About = () => {
             keepsakes, or anything special!
           </p>
         </div>
-        <div className={styles.contactBox} id="contact">
+        <div className={styles.contactBox}>
           <h2 className={styles.contactHeader}>
             Connect with us:
             <br />

@@ -15,6 +15,10 @@ function MyApp({ Component, pageProps }) {
           name="eon candles "
           content="new zealand hand poured crystal energy aura promote vibes peace love dreams happiness"
         />
+        <meta
+          name="description"
+          content="new zealand hand poured crystal energy candals, aura promoting vibes, peace, special candal, gift, spirit, heaven"
+        ></meta>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="viewport"
@@ -31,13 +35,10 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap"
           rel="stylesheet"
         />
-        <link rel="preload" as="image" href="../public/heroBanner.png" />
-        <link rel="preload" as="image" href="../public/crystals.png" />
-        <link rel="preload" as="image" href="../public/NZNature.png" />
       </Head>
       <CartProvider>
-        <html>
-          <NavBar />
+        <NavBar />
+        <html lang="en">
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
             <Component {...pageProps} />
             <Footer />

@@ -5,19 +5,35 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://facebook.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      name="facebook"
+      aria-label="facebook"
+    >
       <div className={styles.socialButtonF}>
         <FaFacebookF className={styles.iconF} />
       </div>
     </a>
 
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://instagram.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      name="instagram"
+      aria-label="instagram"
+    >
       <div className={styles.socialButtonI}>
         <FaInstagram className={styles.iconI} />
       </div>
     </a>
 
-    <a href="http://localhost:3000/about#contact">
+    <a
+      href="http://localhost:3000/about#contact"
+      name="emailUs"
+      aria-label="Contact Us"
+    >
       <div className={styles.socialButtonE}>
         <FaEnvelope className={styles.iconE} />
       </div>

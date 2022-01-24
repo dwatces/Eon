@@ -89,7 +89,10 @@ export default function Home() {
             Each luxuriously scented candle is paired with a different crystal
             and natural accompaniment to maximise it&apos;s power.
           </p>
-          <p id="nature" className={(styles.eonPara, styles.hover)}>
+          <p
+            id="nature"
+            className={(styles.eonPara, styles.lastPara, styles.hover)}
+          >
             Our modern lives are so busy; we rarely take time to pause, breath,
             and reconnect with the energies of the universe. We are all one,
             with each other, with the Earth, and beyond. Crystals are ancient,
@@ -126,18 +129,6 @@ export default function Home() {
                   setCandle1(false);
                 }}
               />
-              {candle1 && (
-                <>
-                  <h2 className={styles.candleTitle}>love</h2>
-                  <p className={styles.candleDescription}>
-                    Rose Otto, Ylang Ylang, Orange & Patchouli
-                  </p>
-                  <p className={styles.candleEmbellishments}>
-                    Rose Quartz Chips & Rose Bud
-                  </p>
-                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-                </>
-              )}
             </div>
           </Link>
           <Link href="/shop/happiness">
@@ -155,18 +146,6 @@ export default function Home() {
                   setCandle2(false);
                 }}
               />
-              {candle2 && (
-                <>
-                  <h2 className={styles.candleTitle}> hapiness </h2>
-                  <p className={styles.candleDescription}>
-                    Wild Orange, Clary Sage & Lemon
-                  </p>
-                  <p className={styles.candleEmbellishments}>
-                    Citrine Chips & Jasmine Flower Petals
-                  </p>
-                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-                </>
-              )}
             </div>
           </Link>
           <Link href="/shop/dreams">
@@ -184,19 +163,6 @@ export default function Home() {
                   setCandle3(false);
                 }}
               />
-
-              {candle3 && (
-                <>
-                  <h2 className={styles.candleTitle}>dreams</h2>
-                  <p className={styles.candleDescription}>
-                    Lavender, Chamomile & Frankincense
-                  </p>
-                  <p className={styles.candleEmbellishments}>
-                    Amethyst Chips & Cornflowers
-                  </p>
-                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-                </>
-              )}
             </div>
           </Link>
           <Link href="/shop/summer">
@@ -214,18 +180,6 @@ export default function Home() {
                   setCandle4(false);
                 }}
               />
-              {candle4 && (
-                <>
-                  <h2 className={styles.candleTitle}>summer</h2>
-                  <p className={styles.candleDescription}>
-                    Coconut, Mango & Lime
-                  </p>
-                  <p className={styles.candleEmbellishments}>
-                    Aventurine Chips & Lavender Flowers
-                  </p>
-                  <p className={styles.veganWax}>Hand Poured Vegan Soy Wax</p>
-                </>
-              )}
             </div>
           </Link>
         </div>
