@@ -113,7 +113,7 @@ export default function Home() {
           </p>
         </div>
         <div className={styles.row}>
-          <Link href="/shop/love">
+          <Link href="/shop/love" passHref>
             <div className={styles.rowItem}>
               <Image
                 src={love}
@@ -131,7 +131,7 @@ export default function Home() {
               />
             </div>
           </Link>
-          <Link href="/shop/happiness">
+          <Link href="/shop/happiness" passHref>
             <div className={styles.rowItem}>
               <Image
                 src={happy}
@@ -148,7 +148,7 @@ export default function Home() {
               />
             </div>
           </Link>
-          <Link href="/shop/dreams">
+          <Link href="/shop/dreams" passHref>
             <div className={styles.rowItem}>
               <Image
                 src={dream}
@@ -165,7 +165,7 @@ export default function Home() {
               />
             </div>
           </Link>
-          <Link href="/shop/summer">
+          <Link href="/shop/summer" passHref>
             <div className={styles.rowItem}>
               <Image
                 src={summer}

@@ -129,75 +129,199 @@
   opacity: 0.8;
 }
 
+.mobileGallery {
+  display: none;
+}
+
 /* 
 mobile first */
+@media only screen and (min-width: 320px) {
+  .galleryContainer {
+    margin-top: 7.5vh;
+  }
+  .candleSize {
+    display: none !important;
+  }
+  .mobileGallery {
+    display: unset !important;
+    display: inline-block !important;
+  }
+  .galleryBack {
+    margin-left: -5vw;
+    margin-bottom: -10vh !important;
+    font-size: 1.6rem;
+  }
 
-@media only screen and (min-width: 980px) and (max-width: 1179px) {
+  .galleryForward {
+    font-size: 1.6rem;
+    margin-right: -20vw;
+    margin-bottom: 5vh !important;
+  }
+
+  .mainImage {
+    margin-right: 5vw !important;
+    margin-left: 20vw !important;
+    margin-bottom: 50vh !important;
+    width: 65vw !important;
+  }
+  .candleContent {
+    justify-self: space-between !important;
+    align-items: space-between !important;
+    flex: 1 !important;
+    flex-wrap: wrap !important;
+    margin-right: 35vw !important;
+    width: 60vw !important;
+  }
+  .candleTitle {
+    margin-top: 20vh !important;
+    margin-right: 5vw !important;
+  }
   .candleDescription {
-    font-size: 0.9rem;
-    width: 27rem;
+    font-size: 1rem;
   }
-
-  .bitsText {
-    font-size: 0.9rem;
+  .containerBits {
+    display: none !important;
   }
-
-  .candleContentHeader {
-    font-size: 0.9rem;
-    margin-top: -55rem;
-    margin-left: 67vw;
-  }
-
   .containerBuy {
-    margin-top: 1rem;
+    justify-content: space-between !important;
+    align-items: space-between !important;
+    flex: 1 !important;
+    flex-wrap: wrap !important;
+    line-height: 0.2rem !important;
+  }
+  .candleQuantity {
+    margin-top: 1.2rem !important;
+  }
+  .candlePrice {
+    margin-right: 20vw !important;
+  }
+
+  .quantity {
+    margin-right: 2vw !important;
+    margin-left: -10vw !important;
+  }
+  .submitButton {
+    margin-right: 10vw !important;
   }
 }
 
-@media only screen and (min-width: 1180px) and (max-width: 1600px) {
+@media only screen and (min-width: 375px) {
+  .galleryForward {
+    margin-bottom: 8vh !important;
+  }
   .candleDescription {
-    font-size: 1.2rem;
-  }
-
-  .bitsText {
-    font-size: 1rem;
-  }
-
-  .candleContentHeader {
-    font-size: 1rem;
-    margin-top: -60rem;
-    margin-left: 58vw;
-  }
-
-  .containerBuy {
-    margin-top: 1rem;
+    font-size: 1.2rem !important;
   }
 }
 
-@media only screen and (min-width: 1180px) and (max-height: 800px) and (max-width: 1600px) {
+@media only screen and (min-width: 425px) {
+  .galleryBack {
+    margin-bottom: -11vh !important;
+  }
   .candleDescription {
-    font-size: 1rem;
+    font-size: 1.25rem !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .candleDescription {
+    font-size: 1.3rem !important;
+    margin-top: 13vh !important;
+  }
+  .galleryBack {
+    margin-left: -6vw;
+    margin-bottom: 17vh !important;
+    font-size: 2rem !important;
   }
 
-  .candleContentHeader {
-    padding-top: 10rem;
+  .galleryForward {
+    font-size: 2rem !important;
+    margin-right: -50vw !important;
+    margin-bottom: 16vh !important;
   }
+  .mainImage {
+    width: 50vw !important;
+    margin-bottom: 40vh !important;
+  }
+}
 
+@media only screen and (min-width: 1024px) {
+  .galleryContainer {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 15vh;
+    margin-bottom: 30vh;
+    margin-left: -70vw;
+  }
+  .candleSize {
+    display: unset !important;
+  }
+  .mainImage {
+    width: 40vw !important;
+    margin-bottom: 60vh !important;
+  }
+  .galleryBack {
+    display: none !important;
+  }
+  .galleryForward {
+    display: none !important;
+  }
+  .candleTitle {
+    margin-bottom: -5rem !important;
+  }
+  .galleryMainContainer {
+    margin-top: -3rem !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mainImage {
+    width: 30vw !important;
+    margin-bottom: 57.5vh !important;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .mainImage {
+    width: 25vw !important;
+    margin-bottom: 57.5vh !important;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .mainImage {
+    margin-left: 30vw !important;
+    width: 20vw !important;
+  }
+  .containerBits {
+    display: inline-block !important;
+  }
+  .containerBitsHeader {
+    margin-right: 5rem !important;
+    display: inline-block !important;
+  }
   .bitsText {
-    font-size: 0.9rem;
+    width: 30vw !important;
+    flex-wrap: nowrap !important;
   }
-
-  .candleContentHeader {
-    font-size: 0.9rem;
-    margin-top: -60rem;
-    margin-left: 58vw;
-  }
-
   .containerBuy {
-    margin-top: 1rem;
+    justify-content: center !important;
+  }
+  .quantity {
+    margin-left: -15vw !important;
+  }
+  .submitButton {
+    margin-left: 5vw !important;
   }
 }
 
 @media only screen and (min-width: 2500px) {
+  .mainImage {
+    margin-left: 25vw !important;
+    width: 17.5vw !important;
+  }
   .galleryMainContainer {
     margin-bottom: 3vh !important;
   }

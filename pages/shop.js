@@ -41,7 +41,7 @@ function Shop() {
           </form>
         </div>
         <div className={styles.candleContainer}>
-          <Link href="/shop/love">
+          <Link href="/shop/love" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -63,7 +63,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="/shop/happiness">
+          <Link href="/shop/happiness" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -85,7 +85,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="/shop/dreams">
+          <Link href="/shop/dreams" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -107,7 +107,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="/shop/summer">
+          <Link href="/shop/summer" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import { toast } from "react-hot-toast";
 import Image from "next/image";
+import { ProductJsonLd } from "next-seo";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
@@ -12,8 +12,10 @@ import altPicFlower from "../../public/Flower-love.png";
 import altPicCrystal from "../../public/crystal-love.png";
 import altPicLit from "../../public/lit-love.png";
 import mainPic from "../../public/lid-love.png";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
-const Love = (props) => {
+const Love = () => {
   const images = [
     "/lid-love.png",
     "/Flower-love.png",
@@ -24,13 +26,10 @@ const Love = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { cartCount, addItem } = useShoppingCart();
+  const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
-  const [adding, setAdding] = useState(false);
-  const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
-    setAdding(true);
     addItem(products[0], qty);
   };
 
@@ -38,18 +37,17 @@ const Love = (props) => {
     setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (firstRun.current) {
-      firstRun.current = false;
-      return;
-    }
-
-    setAdding(false);
-    toast.success(`${qty} love added`, {
-      id: products[0].id,
-    });
-    setQty(1);
-  }, [cartCount]);
+  <ProductJsonLd
+    productName="love candle"
+    description="ose otto, ylang ylang, orange, and patchouli scented candle not only smells divine, but is precisely paired with rose quartz chips and rose bud to amplify and attract love in your life."
+    manufacturerName="Eon"
+    material="candle"
+    award="best scented candle in NZ"
+    aggregateRating={{
+      ratingValue: "4.9",
+      reviewCount: "29",
+    }}
+  />;
 
   return (
     <Layout>
@@ -91,15 +89,23 @@ const Love = (props) => {
         </div>
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
+            <IoIosArrowBack
+              onClick={open}
+              className={(styles.mobileGallery, styles.galleryBack)}
+            />
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={mainPic}
                 alt="candle"
-                className={styles.candleSize}
+                className={styles.candleMain}
                 responsive="true"
                 priority
               />
             </button>
+            <IoIosArrowForward
+              onClick={open}
+              className={(styles.mobileGallery, styles.galleryForward)}
+            />
           </div>
         </div>
         <div className={styles.candleContent}>
@@ -119,19 +125,7 @@ const Love = (props) => {
               >
                 <span className={styles.headerUnderline}>Rose Quartz</span>
               </h3>
-              {crystal && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setCrystal(false);
-                  }}
-                >
-                  Rose quartz signify universal love and peace. The crystal
-                  helps align and amplify loving energies with spouses, family,
-                  and friends, by promoting forgiveness and trust. Rose quartz
-                  is particularly comforting in times of heartache and grief.
-                </p>
-              )}
+
               <h3
                 className={styles.containerBitsHeader}
                 onMouseEnter={(e) => {
@@ -152,15 +146,29 @@ const Love = (props) => {
                   into the worlds divine love.
                 </p>
               )}
+              {crystal && (
+                <p
+                  className={styles.bitsText}
+                  onMouseLeave={(e) => {
+                    setCrystal(false);
+                  }}
+                >
+                  Rose quartz signify universal love and peace. The crystal
+                  helps align and amplify loving energies with spouses, family,
+                  and friends, by promoting forgiveness and trust. Rose quartz
+                  is particularly comforting in times of heartache and grief.
+                </p>
+              )}
             </div>
             <div className={styles.containerBuy}>
               <p className={styles.candleRetail}>
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
+
               <p className={styles.quantity}>Quantity:</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev - 1)}
+                onClick={() => setQty(qty - 1)}
                 disabled={qty <= 1}
                 aria-label="decrease quantity by one"
               >
@@ -169,7 +177,7 @@ const Love = (props) => {
               <p>{qty}</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev + 1)}
+                onClick={() => setQty(qty + 1)}
                 aria-label="increase quantity by one"
               >
                 <AiOutlinePlus />
@@ -178,7 +186,6 @@ const Love = (props) => {
                 className={styles.submitButton}
                 onClick={handleOnAddToCart}
                 type="button"
-                disabled={adding}
               >
                 ADD TO CART
               </button>

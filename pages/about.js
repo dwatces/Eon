@@ -11,10 +11,10 @@ const About = () => {
           <div className={styles.crystalHeaderText}>
             <h1 className={styles.crystalHeader}>
               <span className={styles.crystalHeaderAbout}>About</span>
-              <span className={styles.headerSplit}>
-                <span className={styles.split}></span>
-              </span>
-              <a href="#contact" className={styles.crystalHeaderContact}>
+
+              <span className={styles.split}></span>
+
+              <a href="#contact">
                 <span>Contact Us</span>
               </a>
             </h1>
@@ -55,7 +55,7 @@ const About = () => {
             keepsakes, or anything special!
           </p>
         </div>
-        <div className={styles.contactBox}>
+        <div className={styles.contactBox} id="contact">
           <h2 className={styles.contactHeader}>
             Connect with us:
             <br />

@@ -174,8 +174,10 @@
     margin-left: 9rem !important;
     font-size: 1rem !important;
     width: 50% !important;
+    line-height: 1.8rem !important;
   }
   .envText {
+    margin-top: 20rem !important;
     margin-left: 2rem !important;
     font-size: 1rem !important;
     line-height: 2rem !important;
@@ -189,7 +191,7 @@
   }
   .contactBox {
     margin-left: 14rem;
-    margin-bottom: -10rem;
+    margin-bottom: -15rem;
   }
 }
 
@@ -204,8 +206,10 @@
     margin-left: 7.5rem !important;
     font-size: 1rem !important;
     width: 55% !important;
+    line-height: 1.8rem !important;
   }
   .envText {
+    margin-top: 20rem !important;
     margin-left: 2.5rem !important;
     font-size: 1.1rem !important;
     padding-bottom: 1rem !important;
@@ -241,6 +245,7 @@
   .crystalsText {
     margin-left: 3rem !important;
     font-size: 1rem !important;
+    line-height: 1.8rem !important;
     padding-bottom: 1rem !important;
     width: 80% !important;
   }
@@ -294,7 +299,7 @@
     font-size: 1.2rem !important;
   }
   .envText {
-    margin-top: 7.5rem;
+    margin-top: 10rem !important;
     margin-left: 5rem !important;
     margin-right: 10rem;
     font-size: 1.3rem !important;
@@ -316,7 +321,9 @@
   .crystalHeaderText {
     margin-bottom: 1.5rem;
   }
-
+  .crystalImg {
+    display: none !important;
+  }
   .crystalHeaderAbout {
     margin-left: 38vw !important;
   }
@@ -339,7 +346,7 @@
     margin-left: 3rem;
     font-size: 1.25rem !important;
     width: 90% !important;
-    margin-top: 3rem;
+    margin-top: 3rem !important;
   }
   .nzNatural {
     height: 50vh;
@@ -362,7 +369,7 @@
 @media (min-width: 1200px) {
   .crystalsText {
     margin-bottom: 2rem !important;
-    line-height: 2.5rem !important;
+    line-height: 2.2rem !important;
   }
 
   .envText {
@@ -421,12 +428,14 @@
 @media (min-width: 2500px) {
   .crystalHeader {
     font-size: 2.5rem !important;
+    margin-bottom: 4rem !important;
   }
   .crystalsText {
     font-size: 1.4rem !important;
     line-height: 1.5rem !important;
   }
   .envText {
+    margin-top: 5rem !important;
     font-size: 1.6rem !important;
     line-height: 2.5rem !important;
   }

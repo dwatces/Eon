@@ -29,6 +29,10 @@
   z-index: 100;
 }
 
+.nav__hamburger {
+  display: none;
+}
+
 .buttonCart {
   background-color: unset;
   border: unset;
@@ -211,6 +215,15 @@
   padding: 0;
 }
 
+.btbIcon {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease-in-out;
+}
+
 .nav__hamburger {
   display: none;
 }
@@ -245,17 +258,37 @@
     display: flex;
     z-index: 2;
   }
-}
-
-@media (min-width: 768px) {
-  .mainNavigationMenuBtn {
-    display: none;
+  .nav__hamburger {
+    display: flex;
+    z-index: 2;
+    margin-left: 0.8em;
   }
-}
-
-@media (max-width: 900px) {
   .middleLinks {
-    margin-left: 15vw !important;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-stat;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    width: 20%;
+    height: 15%;
+    z-index: 2;
+    background-color: #f5bbc3;
+  }
+  .link {
+    margin-left: 2rem !important;
+    margin-right: 4rem !important;
+    font-size: 1.3rem !important;
+  }
+  .Cartlink {
+    margin-right: 37rem;
+  }
+  .linkHome {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .cartCount {
+    display: none;
   }
 }
 
@@ -267,6 +300,24 @@
   .socialButtonI {
     width: 40px;
     height: 43px;
+  }
+}
+
+@media (min-width: 721px) {
+  .cartCount {
+    display: unset !important;
+  }
+  .cartCount {
+    margin-left: -4rem !important;
+  }
+  .Cartlink {
+    margin-left: 1rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .middleLinks {
+    margin-left: 15vw !important;
   }
 }
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import { toast } from "react-hot-toast";
+import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
@@ -10,7 +10,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
 import altPicFlower from "../../public/Flower-Summer.png";
 import altPicCrystal from "../../public/crystal-summer.png";
-import altPicLit from "../../public/Lit-Summer.png";
+import altPicLit from "../../public/lit-summer.png";
 import mainPic from "../../public/lid-summer.png";
 
 const Summer = (props) => {
@@ -18,20 +18,16 @@ const Summer = (props) => {
     "/lid-summer.png",
     "/Flower-Summer.png",
     "/crystal-summer.png",
-    "/Lit-Summer.png",
+    "/lit-summer.png",
   ];
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { cartCount, addItem } = useShoppingCart();
+  const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
-  const [adding, setAdding] = useState(false);
-  const toastId = useRef();
-  const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
-    setAdding(true);
     addItem(products[3], qty);
   };
 
@@ -39,18 +35,17 @@ const Summer = (props) => {
     setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (firstRun.current) {
-      firstRun.current = false;
-      return;
-    }
-
-    setAdding(false);
-    toast.success(`${qty} summer added`, {
-      id: toastId.current,
-    });
-    setQty(1);
-  }, [cartCount]);
+  <ProductJsonLd
+    productName="summer candle"
+    description="Bring on the summer vibes with our coconut, mango, and lime scented candle. Paired with both aventurine crystal shards for good blessings and lavender flowers for peace and grace."
+    manufacturerName="Eon"
+    material="candle"
+    award="best scented candle in NZ"
+    aggregateRating={{
+      ratingValue: "4.9",
+      reviewCount: "72",
+    }}
+  />;
 
   return (
     <Layout>
@@ -120,6 +115,16 @@ const Summer = (props) => {
               >
                 <span className={styles.headerUnderline}>Aventurine</span>
               </h3>
+              <h3
+                className={styles.containerBitsHeader}
+                onMouseEnter={(e) => {
+                  setFlower(true);
+                }}
+              >
+                <span className={styles.headerUnderline}>
+                  Lavender Flowers{" "}
+                </span>
+              </h3>
               {crystal && (
                 <p
                   className={styles.bitsText}
@@ -133,16 +138,6 @@ const Summer = (props) => {
                   summer&apos;s evening.
                 </p>
               )}
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>
-                  Lavender Flowers{" "}
-                </span>
-              </h3>
               {flower && (
                 <p
                   className={styles.bitsText}
@@ -162,7 +157,7 @@ const Summer = (props) => {
               <p className={styles.quantity}>Quantity:</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev - 1)}
+                onClick={() => setQty(qty - 1)}
                 disabled={qty <= 1}
                 aria-label="decrease quantity by one"
               >
@@ -171,7 +166,7 @@ const Summer = (props) => {
               <p>{qty}</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev + 1)}
+                onClick={() => setQty(qty + 1)}
                 aria-label="increase quantity by one"
               >
                 <AiOutlinePlus />
@@ -180,7 +175,6 @@ const Summer = (props) => {
                 className={styles.submitButton}
                 onClick={handleOnAddToCart}
                 type="button"
-                disabled={adding}
               >
                 ADD TO CART
               </button>

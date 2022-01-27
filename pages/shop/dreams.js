@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import { toast } from "react-hot-toast";
+import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
@@ -24,14 +24,10 @@ const Dreams = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { cartCount, addItem } = useShoppingCart();
+  const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
-  const [adding, setAdding] = useState(false);
-  const toastId = useRef();
-  const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
-    setAdding(true);
     addItem(products[2], qty);
   };
 
@@ -39,18 +35,17 @@ const Dreams = (props) => {
     setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (firstRun.current) {
-      firstRun.current = false;
-      return;
-    }
-
-    setAdding(false);
-    toast.success(`${qty} dreams added`, {
-      id: toastId.current,
-    });
-    setQty(1);
-  }, [cartCount]);
+  <ProductJsonLd
+    productName="dreams candle"
+    description="Follow your dreams with our lavender, chamomile, and frankincense candle. Paired with the powerful energy of amethyst crystals to provide clarity of mind, and cornflowers to bring wealth and good fortune."
+    manufacturerName="Eon"
+    material="candle"
+    award="best scented candle in NZ"
+    aggregateRating={{
+      ratingValue: "4.4",
+      reviewCount: "89",
+    }}
+  />;
 
   return (
     <Layout>
@@ -121,6 +116,14 @@ const Dreams = (props) => {
               >
                 <span className={styles.headerUnderline}>Amethyst</span>
               </h3>
+              <h3
+                className={styles.containerBitsHeader}
+                onMouseEnter={(e) => {
+                  setFlower(true);
+                }}
+              >
+                <span className={styles.headerUnderline}>Cornflowers</span>
+              </h3>
               {crystal && (
                 <p
                   className={styles.bitsText}
@@ -135,14 +138,6 @@ const Dreams = (props) => {
                   peaceful and restful sleep.
                 </p>
               )}
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Cornflowers</span>
-              </h3>
               {flower && (
                 <p
                   className={styles.bitsText}
@@ -164,7 +159,7 @@ const Dreams = (props) => {
               <p className={styles.quantity}>Quantity:</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev - 1)}
+                onClick={() => setQty(qty - 1)}
                 disabled={qty <= 1}
                 aria-label="decrease quantity by one"
               >
@@ -173,7 +168,7 @@ const Dreams = (props) => {
               <p>{qty}</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev + 1)}
+                onClick={() => setQty(qty + 1)}
                 aria-label="increase quantity by one"
               >
                 <AiOutlinePlus />
@@ -182,7 +177,6 @@ const Dreams = (props) => {
                 className={styles.submitButton}
                 onClick={handleOnAddToCart}
                 type="button"
-                disabled={adding}
               >
                 ADD TO CART
               </button>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import { toast } from "react-hot-toast";
 import Lightbox from "react-image-lightbox";
+import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import { products } from "../../components/products";
@@ -13,7 +13,7 @@ import altPicCrystal from "../../public/Crystal-Happy.png";
 import altPicLit from "../../public/lit-happy.png";
 import mainPic from "../../public/lid-happiness.png";
 
-const Happiness = (props) => {
+const Happiness = () => {
   const images = [
     "/lid-happiness.png",
     "/Flower-Happy2.png",
@@ -24,14 +24,10 @@ const Happiness = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { cartCount, addItem } = useShoppingCart();
+  const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
-  const [adding, setAdding] = useState(false);
-  const toastId = useRef();
-  const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
-    setAdding(true);
     addItem(products[1], qty);
   };
 
@@ -39,18 +35,17 @@ const Happiness = (props) => {
     setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (firstRun.current) {
-      firstRun.current = false;
-      return;
-    }
-
-    setAdding(false);
-    toast.success(`${qty} happiness added`, {
-      id: toastId.current,
-    });
-    setQty(1);
-  }, [cartCount]);
+  <ProductJsonLd
+    productName="happiness candle"
+    description="all the good in life with the beautiful scents of wild orange, clary sage, and lemon. This candle comes paired with citrine chips that channel happiness, and jasmine flower petals for clarity and perspective."
+    manufacturerName="Eon"
+    material="candle"
+    award="best scented candle in NZ"
+    aggregateRating={{
+      ratingValue: "4.8",
+      reviewCount: "166",
+    }}
+  />;
 
   return (
     <Layout>
@@ -122,6 +117,16 @@ const Happiness = (props) => {
               >
                 <span className={styles.headerUnderline}>Citrine</span>
               </h3>
+              <h3
+                className={styles.containerBitsHeader}
+                onMouseEnter={(e) => {
+                  setFlower(true);
+                }}
+              >
+                <span className={styles.headerUnderline}>
+                  Jasmine Flower Petals
+                </span>
+              </h3>
               {crystal && (
                 <p
                   className={styles.bitsText}
@@ -135,16 +140,6 @@ const Happiness = (props) => {
                   and life.
                 </p>
               )}
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>
-                  Jasmine Flower Petals
-                </span>
-              </h3>
               {flower && (
                 <p
                   className={styles.bitsText}
@@ -166,7 +161,7 @@ const Happiness = (props) => {
               <p className={styles.quantity}>Quantity:</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev - 1)}
+                onClick={() => setQty(qty - 1)}
                 disabled={qty <= 1}
                 aria-label="decrease quantity by one"
               >
@@ -175,7 +170,7 @@ const Happiness = (props) => {
               <p>{qty}</p>
               <button
                 className={styles.candleQuantity}
-                onClick={() => setQty((prev) => prev + 1)}
+                onClick={() => setQty(qty + 1)}
                 aria-label="increase quantity by one"
               >
                 <AiOutlinePlus />
@@ -184,7 +179,6 @@ const Happiness = (props) => {
                 className={styles.submitButton}
                 onClick={handleOnAddToCart}
                 type="button"
-                disabled={adding}
               >
                 ADD TO CART
               </button>
