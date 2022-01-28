@@ -22,16 +22,16 @@ export default function Home() {
     <LandingLayout>
       <main className={styles.main}>
         <div className={styles.eonL}>
-          <span className={styles.logo}>
+          <h1 className={styles.logo}>
             <Image
               src={Logo}
-              alt="logo"
+              alt="logo home"
               className={styles.eonLogo}
               width={100}
               height={50}
               priority
             />
-          </span>
+          </h1>
           <div className={styles.underline}></div>
         </div>
         <div className={styles.eonContainer}>
@@ -86,8 +86,9 @@ export default function Home() {
             negative. The power of crystals release fear, ground us from our
             daily anxieties, and bring good fortune. That&apos;s why we
             seamlessly blend elegance throughout our crystal imbued candles.
-            Each luxuriously scented candle is paired with a different crystal
-            and natural accompaniment to maximise it&apos;s power.
+            Each luxuriously scented candle is paired with a special crystal and
+            natural accompaniment to maximise the power each candle will
+            provide.
           </p>
           <p
             id="nature"
@@ -98,9 +99,9 @@ export default function Home() {
             with each other, with the Earth, and beyond. Crystals are ancient,
             formed in the earth eons ago. Using their power we can reconnect
             with the universe that created us. We believe the simple act of
-            taking the time to light one of our candles and enjoy its scent
-            allows the mind to calm and opens you to receive the positive
-            energies that are all around us.
+            taking the time to light one of our candles and enjoy their scent,
+            will allow the mind to calm. This process of mindfulness may open
+            you to receive the positive energies that are all around us.
           </p>
           <p className={(styles.eonPara, styles.hover)}>
             We all desire a deeper connection with the natural world, and have a

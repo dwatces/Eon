@@ -30,7 +30,7 @@ const Footer = () => (
     </a>
 
     <a
-      href="http://localhost:3000/about#contact"
+      href="http://www.eoncandles.co.nz/about#contact"
       name="emailUs"
       aria-label="Contact Us"
     >
