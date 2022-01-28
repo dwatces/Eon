@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
             site_name: "Eon",
           }}
         />
-        <title>Eon</title>
+        <title>Eon Candles</title>
         <meta
           name="description"
           content="New Zealand hand crafted candles with crystal and natural energy, promoting peaceful and spiritual auras"
@@ -46,6 +46,37 @@ function MyApp({ Component, pageProps }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap"
           rel="stylesheet"
+        />
+        <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/shop"
+          key="canonical"
+        />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/about"
+          key="canonical"
+        />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/shop/love"
+          key="canonical"
+        />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/shop/dreams"
+          key="canonical"
+        />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/shop/happiness"
+          key="canonical"
+        />
+        <link
+          rel="canonical"
+          href="hhttps://eoncandles.co.nz/shop/summer"
+          key="canonical"
         />
       </Head>
 

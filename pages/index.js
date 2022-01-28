@@ -25,7 +25,7 @@ export default function Home() {
           <h1 className={styles.logo}>
             <Image
               src={Logo}
-              alt="logo home"
+              alt=" Eon candles home"
               className={styles.eonLogo}
               width={100}
               height={50}

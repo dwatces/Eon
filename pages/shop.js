@@ -40,6 +40,7 @@ function Shop() {
             ></input>
           </form>
         </div>
+        <h1 style={{ display: "none" }}>Candle Shop</h1>
         <div className={styles.candleContainer}>
           <Link href="/shop/love" passHref>
             <div className={styles.candleChild}>
