@@ -217,10 +217,10 @@
 
 .btbIcon {
   cursor: pointer;
-  float: left !important;
+  right: 0 !important;
   padding: 0;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.5rem !important;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -258,11 +258,7 @@
     display: flex;
     z-index: 2;
   }
-  .nav__hamburger {
-    display: flex;
-    z-index: 2;
-    margin-left: 0.8em;
-  }
+
   .middleLinks {
     display: none;
     flex-direction: column;
@@ -271,20 +267,27 @@
     position: fixed;
     inset: 0;
     width: 20%;
-    height: 15%;
+    height: 22%;
     z-index: 2;
     background-color: #f5bbc3;
   }
   .link {
+    margin-top: 2rem !important;
     margin-left: 2rem !important;
     margin-right: 4rem !important;
     font-size: 1.3rem !important;
+  }
+  .logo {
+    display: none !important;
+  }
+  .link:hover {
+    border: unset !important;
   }
   .Cartlink {
     margin-right: 37rem;
   }
   .linkHome {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .cartCount {

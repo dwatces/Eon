@@ -8,8 +8,8 @@ import getStripe from "./get-stripe";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
 import { IoMdCart } from "react-icons/io";
-import { MdOutlineMenuOpen } from "react-icons/md";
-import { MdCloseFullscreen } from "react-icons/md";
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
@@ -34,7 +34,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={styles.navbar} role="navigation">
         <Link href="/" passHref>
           <span className={styles.logo} onClick={toggleNav}>
             <Image
@@ -100,9 +100,9 @@ const NavBar = () => {
           aria-label="toggle navigation"
         >
           {showNav ? (
-            <MdOutlineMenuOpen size="small" />
+            <CloseIcon fontSize="large" />
           ) : (
-            <MdCloseFullscreen size="small" />
+            <MenuIcon fontSize="large" />
           )}
         </button>
       </nav>
