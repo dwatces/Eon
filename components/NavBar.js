@@ -8,8 +8,8 @@ import getStripe from "./get-stripe";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
 import { IoMdCart } from "react-icons/io";
-import { AiOutlineClose } from "react-icons/ai";
-import { AiOutlineMenu } from "react-icons/ai";
+import { MdOutlineMenuOpen } from "react-icons/md";
+import { MdCloseFullscreen } from "react-icons/md";
 
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
@@ -34,29 +34,6 @@ const NavBar = () => {
 
   return (
     <>
-      {/* <div style={{ display: showNav ? "flex" : null }}>
-          <ul className={styles.middleLinks}>
-            <li className={router.pathname == "/" ? "active" : ""}>
-              <span className={styles.link}>
-                <Link href="/">Home</Link>
-              </span>
-            </li>
-            <li className={router.pathname == "/shop" ? "active" : ""}>
-              <span className={styles.link}>
-                <Link href="/shop" className={styles.link}>
-                  Shop
-                </Link>
-              </span>
-            </li>
-            <li className={router.pathname == "/about" ? "active" : ""}>
-              <span className={styles.link}>
-                <Link href="/about" className={styles.link}>
-                  About
-                </Link>
-              </span>
-            </li>
-          </ul>
-        </div> */}
       <nav className={styles.navbar}>
         <Link href="/" passHref>
           <span className={styles.logo} onClick={toggleNav}>
@@ -123,9 +100,9 @@ const NavBar = () => {
           aria-label="toggle navigation"
         >
           {showNav ? (
-            <AiOutlineClose size="small" />
+            <MdOutlineMenuOpen size="small" />
           ) : (
-            <AiOutlineMenu size="small" />
+            <MdCloseFullscreen size="small" />
           )}
         </button>
       </nav>

@@ -216,8 +216,8 @@
 }
 
 .btbIcon {
-  display: block;
   cursor: pointer;
+  float: left !important;
   padding: 0;
   font-weight: 500;
   font-size: 0.9rem;

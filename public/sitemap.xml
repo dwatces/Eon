@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>http://eoncandles.co.nz/</loc>
+  <changefreq>weekly</changefreq>
+  <lastmod>2022-01-28</lastmod>
+</url>
+<url>
+  <loc>http://eoncandles.co.nz/shop</loc>
+  <changefreq>weekly</changefreq>
+  <lastmod>2022-01-28</lastmod>
+</url>
+<url>
+  <loc>http://eoncandles.co.nz/about</loc>
+  <changefreq>weekly</changefreq>
+  <lastmod>2022-01-28</lastmod>
+</url>
+<url>
+  <loc>http://www.eoncandles.co.nz/about#contact</loc>
+  <changefreq>weekly</changefreq>
+  <lastmod>2022-01-28</lastmod>
+</url>
+</urlset>

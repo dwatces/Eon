@@ -50,32 +50,32 @@ function MyApp({ Component, pageProps }) {
         <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/shop"
+          href="https://eoncandles.co.nz/shop"
           key="canonical"
         />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/about"
+          href="https://eoncandles.co.nz/about"
           key="canonical"
         />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/shop/love"
+          href="https://eoncandles.co.nz/shop/love"
           key="canonical"
         />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/shop/dreams"
+          href="https://eoncandles.co.nz/shop/dreams"
           key="canonical"
         />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/shop/happiness"
+          href="https://eoncandles.co.nz/shop/happiness"
           key="canonical"
         />
         <link
           rel="canonical"
-          href="hhttps://eoncandles.co.nz/shop/summer"
+          href="https://eoncandles.co.nz/shop/summer"
           key="canonical"
         />
       </Head>
