@@ -222,6 +222,7 @@
   font-weight: 500;
   font-size: 1.5rem !important;
   transition: transform 0.2s ease-in-out;
+  color: black !important;
 }
 
 .nav__hamburger {
