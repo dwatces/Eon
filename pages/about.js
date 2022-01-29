@@ -31,8 +31,9 @@ const About = () => {
               from the negative. Our vegan soy wax candles each have a unique,
               beautiful scent profile, derived from all natural ingredients. We
               pair each scent with a magically chosen crystal and natural
-              accompaniment. This enables you to reach a higher level of being;
-              which we must nurture to bring out our best selves.
+              accompaniment. Once light by fire, the energy released is
+              amplified, in turn, enabling you to reach a higher level of being;
+              in which we must nurture to bring out our best selves.
             </p>
             <br />
           </div>

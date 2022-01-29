@@ -41,7 +41,7 @@ export default function Home() {
             </h2>
             <Image
               src={Fire}
-              alt="logo"
+              alt="flame"
               className={styles.eonIcon}
               width={100}
               height={50}
@@ -56,7 +56,7 @@ export default function Home() {
             </h2>
             <Image
               src={Earth}
-              alt="logo"
+              alt="earth"
               className={styles.eonIcon}
               width={100}
               height={50}
@@ -71,7 +71,7 @@ export default function Home() {
             </h2>
             <Image
               src={Leaf}
-              alt="logo"
+              alt="nature"
               className={styles.eonIcon}
               width={100}
               height={50}
@@ -85,10 +85,10 @@ export default function Home() {
             amplify the positive energy in our lives and ward against the
             negative. The power of crystals release fear, ground us from our
             daily anxieties, and bring good fortune. That&apos;s why we
-            seamlessly blend elegance throughout our crystal imbued candles.
-            Each luxuriously scented candle is paired with a special crystal and
-            natural accompaniment to maximise the power each candle will
-            provide.
+            seamlessly blend elegance throughout our 100% natural soy wax, hand
+            poured candles. Each luxuriously scented candle is paired with a
+            special crystal and natural accompaniment to maximise the power each
+            candle will provide.
           </p>
           <p
             id="nature"
@@ -118,7 +118,7 @@ export default function Home() {
             <div className={styles.rowItem}>
               <Image
                 src={love}
-                alt="candle"
+                alt="topdown love"
                 className={styles.eonCandle}
                 width={350}
                 height={250}
@@ -136,7 +136,7 @@ export default function Home() {
             <div className={styles.rowItem}>
               <Image
                 src={happy}
-                alt="candle"
+                alt="topdown happy"
                 className={styles.eonCandle}
                 width={350}
                 height={250}
@@ -153,7 +153,7 @@ export default function Home() {
             <div className={styles.rowItem}>
               <Image
                 src={dream}
-                alt="candle"
+                alt="topdown dream"
                 className={styles.eonCandle}
                 width={350}
                 height={250}
@@ -170,7 +170,7 @@ export default function Home() {
             <div className={styles.rowItem}>
               <Image
                 src={summer}
-                alt="candle"
+                alt="topdown summer"
                 className={styles.eonCandle}
                 width={350}
                 height={250}

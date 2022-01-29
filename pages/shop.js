@@ -47,7 +47,7 @@ function Shop() {
               <div className={styles.candlePic}>
                 <Image
                   src={love}
-                  alt="candle"
+                  alt="candle love"
                   className={styles.candleSize}
                   responsive="true"
                   priority
@@ -69,7 +69,7 @@ function Shop() {
               <div className={styles.candlePic}>
                 <Image
                   src={happiness}
-                  alt="candle"
+                  alt="candle happiness"
                   className={styles.candleSize}
                   responsive="true"
                   priority
@@ -91,7 +91,7 @@ function Shop() {
               <div className={styles.candlePic}>
                 <Image
                   src={dreams}
-                  alt="candle"
+                  alt="candle dreams"
                   className={styles.candleSize}
                   responsive="true"
                   priority
@@ -113,7 +113,7 @@ function Shop() {
               <div className={styles.candlePic}>
                 <Image
                   src={summer}
-                  alt="candle"
+                  alt="candle summer"
                   className={styles.candleSize}
                   responsive="true"
                   priority

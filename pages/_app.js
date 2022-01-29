@@ -11,6 +11,15 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Q27LWP');`,
+          }}
+        ></script>
         <DefaultSeo
           openGraph={{
             type: "candle website, crystal and nature, healing energy, spiritual, positive  and harmony",
@@ -22,7 +31,7 @@ function MyApp({ Component, pageProps }) {
         <title>Eon Candles</title>
         <meta
           name="description"
-          content="New Zealand hand crafted candles with crystal and natural energy, promoting peaceful and spiritual auras"
+          content="New Zealand based, hand crafted candles with crystal and natural energy, promoting peaceful and spiritual auras"
         ></meta>
         <meta property="og:title" content="Eon" />
         <meta
@@ -83,6 +92,12 @@ function MyApp({ Component, pageProps }) {
       <CartProvider>
         <NavBar />
         <html lang="en">
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q27LWP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
+          ></noscript>
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
             <Component {...pageProps} />
             <Footer />
