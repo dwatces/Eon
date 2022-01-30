@@ -170,7 +170,7 @@ export default function Home() {
             <div className={styles.rowItem}>
               <Image
                 src={summer}
-                alt="topdown summer"
+                alt="topdown"
                 className={styles.eonCandle}
                 width={350}
                 height={250}

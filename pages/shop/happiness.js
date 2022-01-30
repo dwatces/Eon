@@ -55,7 +55,7 @@ const Happiness = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicFlower}
-                alt="candle"
+                alt="happy flower"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -66,7 +66,7 @@ const Happiness = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicLit}
-                alt="candle"
+                alt="happy lit"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -77,7 +77,7 @@ const Happiness = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicCrystal}
-                alt="candle"
+                alt="happy crystal"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -90,7 +90,7 @@ const Happiness = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={mainPic}
-                alt="candle"
+                alt="happy main"
                 className={styles.candleSizeMain}
                 responsive="true"
                 priority

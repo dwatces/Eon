@@ -177,7 +177,7 @@
     line-height: 1.8rem !important;
   }
   .envText {
-    margin-top: 20rem !important;
+    margin-top: 15rem !important;
     margin-left: 2rem !important;
     font-size: 1rem !important;
     line-height: 2rem !important;
@@ -191,7 +191,17 @@
   }
   .contactBox {
     margin-left: 14rem;
-    margin-bottom: -15rem;
+    margin-top: 5rem !important;
+    margin-bottom: -5rem;
+  }
+  .crystalImg {
+    display: none !important;
+  }
+}
+
+@media (min-width: 335px) {
+  .crystalHeaderAbout {
+    margin-left: 57.5vw !important;
   }
 }
 
@@ -262,6 +272,9 @@
     margin-left: 17.5rem;
     width: 100% !important;
     margin-bottom: -10rem;
+  }
+  .crystalImg {
+    display: unset !important;
   }
 }
 

@@ -6,7 +6,7 @@ import { FaEnvelope } from "react-icons/fa";
 const Footer = () => (
   <footer className={styles.footer}>
     <a
-      href="https://facebook.com"
+      href="https://www.facebook.com/Eon-Candles-108966791697898"
       target="_blank"
       rel="noopener noreferrer"
       name="facebook"

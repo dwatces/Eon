@@ -57,7 +57,7 @@ const Love = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicFlower}
-                alt="candle"
+                alt="love flower"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -68,7 +68,7 @@ const Love = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicLit}
-                alt="candle"
+                alt="love lit"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -79,7 +79,7 @@ const Love = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicCrystal}
-                alt="candle"
+                alt="love crystal"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -96,7 +96,7 @@ const Love = () => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={mainPic}
-                alt="candle"
+                alt="love main"
                 className={styles.candleMain}
                 responsive="true"
                 priority

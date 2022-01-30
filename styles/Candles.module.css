@@ -137,7 +137,7 @@
 mobile first */
 @media only screen and (min-width: 320px) {
   .galleryContainer {
-    margin-top: 7.5vh;
+    margin-top: 5vh;
   }
   .candleSize {
     display: none !important;
@@ -210,7 +210,7 @@ mobile first */
     margin-bottom: 8vh !important;
   }
   .candleDescription {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
 }
 
@@ -219,7 +219,7 @@ mobile first */
     margin-bottom: -11vh !important;
   }
   .candleDescription {
-    font-size: 1.25rem !important;
+    font-size: 1.2rem !important;
   }
 }
 

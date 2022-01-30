@@ -35,7 +35,7 @@ const NavBar = () => {
   return (
     <>
       <nav className={styles.navbar} role="navigation">
-        <Link href="/" passHref>
+        <Link href="eoncandles.co.nz" passHref>
           <span className={styles.logo} onClick={toggleNav}>
             <Image
               src={logo}
@@ -56,7 +56,7 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/">Home</Link>
+              <Link href="eoncandles.co.nz">Home</Link>
             </span>
           </li>
           <li
@@ -65,7 +65,7 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/shop/" className={styles.link}>
+              <Link href="eoncandles.co.nz/shop" className={styles.link}>
                 Shop
               </Link>
             </span>
@@ -76,7 +76,7 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/about/" className={styles.link}>
+              <Link href="eoncandles.co.nz/about" className={styles.link}>
                 About
               </Link>
             </span>
@@ -104,6 +104,17 @@ const NavBar = () => {
           ) : (
             <MenuIcon fontSize="large" />
           )}
+          <span className={styles.cartItems} onClick={toggleNav}>
+            <button
+              onClick={redirectToCheckout}
+              className={styles.buttonCart}
+              name="cartButton"
+              aria-label="cartButton"
+            >
+              <IoMdCart className={styles.Cartlink} size="small" />
+            </button>
+          </span>
+          <span className={styles.cartCount}>{cartCount}</span>
         </button>
       </nav>
     </>

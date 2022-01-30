@@ -3,7 +3,6 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { CartProvider } from "/hooks/use-shopping-cart";
 import "react-image-lightbox/style.css";
-
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -46,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           content="width=device-width, initial-scale=1.0"
           key="viewport"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -55,7 +54,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link
           href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap"
           rel="stylesheet"
-        />
+        /> */}
+        <link
+          rel="preload"
+          href="/fonts/Raleway-Regular.ttf"
+          as="font"
+          crossOrigin=""
+        ></link>
         <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
         <link
           rel="canonical"

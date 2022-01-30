@@ -12,8 +12,10 @@ import altPicFlower from "../../public/Flower-Summer.png";
 import altPicCrystal from "../../public/crystal-summer.png";
 import altPicLit from "../../public/lit-summer.png";
 import mainPic from "../../public/lid-summer.png";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
-const Summer = (props) => {
+const Summer = () => {
   const images = [
     "/lid-summer.png",
     "/Flower-Summer.png",
@@ -55,7 +57,7 @@ const Summer = (props) => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicFlower}
-                alt="candle"
+                alt="summer flower"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -66,7 +68,7 @@ const Summer = (props) => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicLit}
-                alt="candle"
+                alt="summer lit"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -77,7 +79,7 @@ const Summer = (props) => {
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={altPicCrystal}
-                alt="candle"
+                alt="summer crystal"
                 className={styles.candleSize}
                 responsive="true"
                 priority
@@ -87,15 +89,23 @@ const Summer = (props) => {
         </div>
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
+            <IoIosArrowBack
+              onClick={open}
+              className={(styles.mobileGallery, styles.galleryBack)}
+            />
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={mainPic}
-                alt="candle"
-                className={styles.candleSize}
+                alt="summer main"
+                className={styles.candleMain}
                 responsive="true"
                 priority
               />
             </button>
+            <IoIosArrowForward
+              onClick={open}
+              className={(styles.mobileGallery, styles.galleryForward)}
+            />
           </div>
         </div>
         <div className={styles.candleContent}>
