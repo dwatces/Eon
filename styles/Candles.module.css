@@ -178,6 +178,8 @@ mobile first */
   }
   .candleDescription {
     font-size: 1rem;
+    margin-left: -20vw !important;
+    width: 100vw !important;
   }
   .containerBits {
     display: none !important;
@@ -211,6 +213,7 @@ mobile first */
   }
   .candleDescription {
     font-size: 1.1rem !important;
+    width: 90vw !important;
   }
 }
 
@@ -264,6 +267,10 @@ mobile first */
   }
   .galleryBack {
     display: none !important;
+  }
+  .candleDescription {
+    width: unset !important;
+    margin-left: unset !important;
   }
   .galleryForward {
     display: none !important;

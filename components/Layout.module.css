@@ -266,6 +266,7 @@
 
   .middleLinks {
     display: none;
+    margin-top: 2.5rem !important;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
