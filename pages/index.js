@@ -104,13 +104,13 @@ export default function Home() {
             you to receive the positive energies that are all around us.
           </p>
           <p className={(styles.eonPara, styles.hover)}>
-            We all desire a deeper connection with the natural world, and have a
-            duty to protect it. That&apos;s why each of our candles come with a
-            delicately chosen natural accompaniment to amplify the power of the
-            candle and bring us closer to nature. We never contribute to
-            landfills. All our NZ packaging is plastic free and biodegradable.
-            The petite candle tins are also re-usable! They make excellent
-            storage for crystals, trinkets, or keep sakes.
+            We all desire a deeper connection with the natural world, and have
+            the honour and duty to protect it. That&apos;s why each of our
+            candles come with a delicately chosen natural accompaniment to
+            amplify the power of the candle and bring us closer to nature. We
+            never contribute to landfills. All our NZ packaging is plastic free
+            and biodegradable. The petite candle tins are also re-usable! They
+            make excellent storage for crystals, trinkets, or keep sakes.
           </p>
         </div>
         <div className={styles.row}>

@@ -42,7 +42,7 @@ function Shop() {
         </div>
         <h1 style={{ display: "none" }}>Candle Shop</h1>
         <div className={styles.candleContainer}>
-          <Link href="eoncandles.co.nz/shop/love" passHref>
+          <Link href="/shop/love" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -64,7 +64,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="eoncandles.co.nz/shop/happiness" passHref>
+          <Link href="/shop/happiness" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -86,7 +86,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="eoncandles.co.nz/shop/dreams" passHref>
+          <Link href="/shop/dreams" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -108,7 +108,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="eoncandles.co.nz/shop/summer" passHref>
+          <Link href="/shop/summer" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image

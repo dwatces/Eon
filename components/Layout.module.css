@@ -222,6 +222,8 @@
   font-weight: 500;
   font-size: 1.5rem !important;
   transition: transform 0.2s ease-in-out;
+  color: black !important;
+  outline: none !important;
   text-decoration: none !important;
   display: flex;
   align-items: space-between !important;
@@ -265,17 +267,17 @@
   .middleLinks {
     display: none;
     flex-direction: column;
-    justify-content: flex-stat;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
     inset: 0;
-    width: 20%;
-    height: 25%;
+    width: 25%;
+    height: 30%;
     z-index: 2;
     background-color: #f5bbc3;
   }
   .link {
-    margin-top: 2rem !important;
+    margin-top: 1rem !important;
     margin-left: 2rem !important;
     margin-right: 4rem !important;
     font-size: 1.3rem !important;

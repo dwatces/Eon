@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <title>Eon Candles</title>
         <meta
           name="description"
-          content="New Zealand based, hand crafted candles with crystal and natural energy, promoting peaceful and spiritual auras"
+          content="Kiwi handcrafted candles with crystal and natural energy, promoting peaceful and positive vibes."
         ></meta>
         <meta property="og:title" content="Eon" />
         <meta
@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <CartProvider>
         <NavBar />
-        <html lang="en">
+        <html lang="en-nz">
           <noscript
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q27LWP"
