@@ -218,12 +218,6 @@
   }
 }
 
-@media screen and (min-width: 320px) {
-  .eonText {
-    height: 60rem !important;
-  }
-}
-
 @media screen and (min-width: 375px) {
   .eonText {
     height: 65rem !important;
