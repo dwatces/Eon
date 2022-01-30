@@ -100,9 +100,9 @@ const NavBar = () => {
           aria-label="toggle navigation"
         >
           {showNav ? (
-            <CloseIcon fontSize="large" />
+            <CloseIcon color="warning" fontSize="large" />
           ) : (
-            <MenuIcon fontSize="large" />
+            <MenuIcon color="warning" fontSize="large" />
           )}
           <span className={styles.cartItems} onClick={toggleNav}>
             <button
