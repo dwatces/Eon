@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Image from "next/image";
+import axios from "axios";
+import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
@@ -26,11 +28,29 @@ const Love = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { addItem } = useShoppingCart();
+  const { addItem, cartDetails } = useShoppingCart();
   const [qty, setQty] = useState(1);
+  const [cartClicked, setCartClicked] = useState(false);
 
-  const handleOnAddToCart = () => {
-    addItem(products[0], qty);
+  const handleOnAddToCart = async () => {
+    if (!cartClicked) {
+      addItem(products[0], qty);
+      setCartClicked(true);
+    }
+
+    if (cartClicked) {
+      const {
+        data: { id },
+      } = await axios.post("../api/checkout_sessions", {
+        items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
+          price: id,
+          quantity,
+        })),
+      });
+
+      const stripe = await getStripe();
+      await stripe.redirectToCheckout({ sessionId: id });
+    }
   };
 
   const open = () => {
@@ -193,7 +213,7 @@ const Love = () => {
                 onClick={handleOnAddToCart}
                 type="button"
               >
-                ADD TO CART
+                {!cartClicked ? "ADD TO CART" : "CHECKOUT"}
               </button>
             </div>
           </div>
