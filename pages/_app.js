@@ -72,7 +72,17 @@ function MyApp({ Component, pageProps }) {
           key="canonical"
         /> */}
       </Head>
-
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
+      ></script>
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+      window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+      gtag('config', 'UA-219103442-1&apos');
+    `}
+      </Script>
       <CartProvider>
         <NavBar />
         <html lang="en-uk">
