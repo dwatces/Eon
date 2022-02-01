@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import Script from "next/script";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { CartProvider } from "/hooks/use-shopping-cart";
@@ -39,7 +40,6 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0"
           key="viewport"
         />
-
         <link
           rel="canonical"
           href="https://eoncandles.co.nz/shop"
@@ -75,22 +75,18 @@ function MyApp({ Component, pageProps }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
         ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}; gtag(&apos;js&apos;, new Date());
-          gtag(&apos;config&apos;, &apos;UA-219103442-1&apos;);
-        </script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+          gtag('config', 'UA-219103442-1&apos');
+        `}
+        </Script>
       </Head>
 
       <CartProvider>
         <NavBar />
         <html lang="en-uk">
-          <noscript
-            dangerouslySetInnerHTML={{
-              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q27LWP"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-            }}
-          ></noscript>
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
             <Component {...pageProps} />
             <Footer />
