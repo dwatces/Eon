@@ -173,7 +173,7 @@ mobile first */
     width: 60vw !important;
   }
   .candleTitle {
-    margin-top: 20vh !important;
+    margin-top: 30vh !important;
     margin-right: 5vw !important;
   }
   .candleDescription {
@@ -185,11 +185,15 @@ mobile first */
     display: none !important;
   }
   .containerBuy {
+    width: 100% important;
     justify-content: space-between !important;
     align-items: space-between !important;
     flex: 1 !important;
     flex-wrap: wrap !important;
     line-height: 0.2rem !important;
+  }
+  .candleRetail {
+    margin-left: -20vw !important;
   }
   .candleQuantity {
     margin-top: 1.2rem !important;
@@ -224,9 +228,16 @@ mobile first */
   .candleDescription {
     font-size: 1.25rem !important;
   }
+  .candleRetail {
+    margin-left: -15vw !important;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  .candleTitle {
+    margin-top: 35vh !important;
+    margin-bottom: -10vh !important;
+  }
   .candleDescription {
     font-size: 1.3rem !important;
     margin-top: 13vh !important;
@@ -246,9 +257,18 @@ mobile first */
     width: 50vw !important;
     margin-bottom: 40vh !important;
   }
+  .candleRetail {
+    margin-left: 10vw !important;
+  }
+  .submitButton {
+    margin-left: 20vw !important;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .candleTitle {
+    margin-top: 25vh !important;
+  }
   .galleryContainer {
     display: flex;
     flex-direction: column !important;
@@ -281,6 +301,9 @@ mobile first */
   .galleryMainContainer {
     margin-top: -3rem !important;
   }
+  .candleRetail {
+    margin-left: 5vw !important;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -298,6 +321,10 @@ mobile first */
 }
 
 @media only screen and (min-width: 1600px) {
+  .candleTitle {
+    margin-top: 20vh !important;
+    margin-bottom: -10vh !important;
+  }
   .mainImage {
     margin-left: 30vw !important;
     width: 20vw !important;
