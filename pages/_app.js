@@ -16,8 +16,8 @@ function MyApp({ Component, pageProps }) {
         ></script>
         <script>
           window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}; gtag('js', new Date()); gtag('config',
-          'UA-219103442-1');
+          {dataLayer.push(arguments)}; gtag(&apos;js&apos;, new Date());
+          gtag(&apos;config&apos;, &apos;UA-219103442-1&apos;);
         </script>
 
         <DefaultSeo
