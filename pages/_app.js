@@ -10,16 +10,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}; gtag(&apos;js&apos;, new Date());
-          gtag(&apos;config&apos;, &apos;UA-219103442-1&apos;);
-        </script>
-
         <DefaultSeo
           openGraph={{
             type: "candle website, crystal and nature, healing energy, spiritual, positive  and harmony",
@@ -81,6 +71,15 @@ function MyApp({ Component, pageProps }) {
           href="https://eoncandles.co.nz/shop/summer"
           key="canonical"
         /> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}; gtag(&apos;js&apos;, new Date());
+          gtag(&apos;config&apos;, &apos;UA-219103442-1&apos;);
+        </script>
       </Head>
 
       <CartProvider>
