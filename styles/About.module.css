@@ -177,7 +177,7 @@
     line-height: 1.8rem !important;
   }
   .envText {
-    margin-top: 30rem !important;
+    margin-top: 20rem !important;
     margin-left: 2rem !important;
     font-size: 1rem !important;
     line-height: 2rem !important;
@@ -240,6 +240,7 @@
   }
   .contactBox {
     margin-left: 15rem;
+    margin-top: -10rem;
     margin-bottom: -10rem;
   }
 }

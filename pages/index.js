@@ -84,11 +84,11 @@ export default function Home() {
             Crystals have been used in traditions, dating back millennia, to
             amplify the positive energy in our lives and ward against the
             negative. The power of crystals release fear, ground us from our
-            daily anxieties, and bring good fortune. That&apos;s why we
-            seamlessly blend elegance throughout our 100% natural soy wax, hand
-            poured candles. Each luxuriously scented candle is paired with a
-            special crystal and natural accompaniment to maximise the power each
-            candle will provide.
+            daily anxieties, and bring good fortune. That&apos;s why here at
+            Eon, we seamlessly blend elegance throughout our 100% natural soy
+            wax, hand poured candles. Each luxuriously scented candle is paired
+            with a special crystal and natural accompaniment to maximise the
+            power each candle can provide.
           </p>
           <p
             id="nature"

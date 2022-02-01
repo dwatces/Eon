@@ -19,6 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5Q27LWP');`,
           }}
         ></script>
+
         <DefaultSeo
           openGraph={{
             type: "candle website, crystal and nature, healing energy, spiritual, positive  and harmony",
@@ -30,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <title>Eon Candles</title>
         <meta
           name="description"
-          content="Kiwi handcrafted candles with crystal and natural energy, promoting peaceful and positive vibes."
+          content="New Zealand handcrafted candles imbued with crystal and natural energy, promoting peaceful and positive vibes."
         ></meta>
         <meta property="og:title" content="Eon" />
         <meta
@@ -39,29 +40,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         <meta property="og:url" content="https://www.eoncandles.co.nz" />
         <meta property="og:type" content="website" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:site_name" content="Eon Candles" />
+        <meta property="og:image" href="/public/eon-logo.png" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
           key="viewport"
         />
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap"
-          rel="stylesheet"
-        /> */}
-        <link
-          rel="preload"
-          href="/fonts/Raleway-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        ></link>
-        <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
+
         <link
           rel="canonical"
           href="https://eoncandles.co.nz/shop"
@@ -72,7 +59,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://eoncandles.co.nz/about"
           key="canonical"
         />
-        <link
+        <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
+        {/* <link
           rel="canonical"
           href="https://eoncandles.co.nz/shop/love"
           key="canonical"
@@ -91,12 +79,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           rel="canonical"
           href="https://eoncandles.co.nz/shop/summer"
           key="canonical"
-        />
+        /> */}
       </Head>
 
       <CartProvider>
         <NavBar />
-        <html lang="en-nz">
+        <html lang="en-uk">
           <noscript
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q27LWP"

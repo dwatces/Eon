@@ -12,11 +12,11 @@ const Success = () => {
     <main className={styles.main}>
       <div className={styles.orderComplete}>
         <h1 className={styles.orderConfirm}>
-          Thanks for your order, you beautiful human! <AiOutlineCheck />
+          Thanks for your order, you beautiful human <AiOutlineCheck />
         </h1>
 
-        <h2>
-          You will be emailed an invoice and tracking number within the hour
+        <h2 className={styles.orderInvoice}>
+          You will be emailed an invoice and tracking number soon!
           <FaHandPeace className={styles.distance} />
         </h2>
       </div>

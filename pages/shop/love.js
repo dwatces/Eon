@@ -109,8 +109,14 @@ const Love = () => {
           </div>
         </div>
         <div className={styles.candleContent}>
-          <div className={styles.candleContentHeader}>
-            <h2 className={styles.candleTitle}>love</h2>
+          <div
+            className={styles.candleContentHeader}
+            itemscope
+            itemtype="https://schema.org/Offer"
+          >
+            <h2 className={styles.candleTitle} itemprop="name">
+              love
+            </h2>
             <p className={styles.candleDescription}>
               Our rose otto, ylang ylang, orange, and patchouli scented candle
               not only smells divine, but is precisely paired with rose quartz
@@ -161,7 +167,7 @@ const Love = () => {
               )}
             </div>
             <div className={styles.containerBuy}>
-              <p className={styles.candleRetail}>
+              <p className={styles.candleRetail} itemprop="price">
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
 

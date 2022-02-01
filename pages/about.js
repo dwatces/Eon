@@ -20,8 +20,8 @@ const About = () => {
             </h1>
             <p className={styles.crystalsText}>
               We&apos;re Kiwis that love to bring positive energies into all
-              lives. Our boutique candles are more than just pleasant scents.
-              All our candles are handcrafted, combining both the energy of
+              lives. Our boutique candles are more than just pleasant scents. At
+              Eon, all our candles are handcrafted, combining both the energy of
               crystals, and the natural world, to provide uplifting aromas to
               elevate you to the spirtiaul realm.
             </p>
