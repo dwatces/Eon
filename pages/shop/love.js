@@ -111,10 +111,10 @@ const Love = () => {
         <div className={styles.candleContent}>
           <div
             className={styles.candleContentHeader}
-            itemscope
-            itemtype="https://schema.org/Offer"
+            itemScope
+            itemType="https://schema.org/Offer"
           >
-            <h2 className={styles.candleTitle} itemprop="name">
+            <h2 className={styles.candleTitle} itemProp="name">
               love
             </h2>
             <p className={styles.candleDescription}>
@@ -167,7 +167,7 @@ const Love = () => {
               )}
             </div>
             <div className={styles.containerBuy}>
-              <p className={styles.candleRetail} itemprop="price">
+              <p className={styles.candleRetail} itemProp="price">
                 $25<sup className={styles.candlePrice}>$30</sup>
               </p>
 
