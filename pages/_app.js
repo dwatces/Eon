@@ -71,17 +71,6 @@ function MyApp({ Component, pageProps }) {
           href="https://eoncandles.co.nz/shop/summer"
           key="canonical"
         /> */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
-        ></script>
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-          gtag('config', 'UA-219103442-1&apos');
-        `}
-        </Script>
       </Head>
 
       <CartProvider>
