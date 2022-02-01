@@ -1,5 +1,4 @@
 import React from "react";
-import Script from "next/script";
 import Link from "next/link";
 import Image from "next/image";
 import { BiMailSend } from "react-icons/bi";
@@ -132,17 +131,6 @@ function Shop() {
           </Link>
         </div>
       </main>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
-      ></script>
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-          gtag('config', 'UA-219103442-1&apos');
-        `}
-      </Script>
     </Layout>
   );
 }

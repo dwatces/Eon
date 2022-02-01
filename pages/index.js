@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Script from "next/script";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";

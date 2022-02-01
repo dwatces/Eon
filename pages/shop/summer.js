@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Script from "next/script";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
@@ -203,17 +202,6 @@ const Summer = () => {
           />
         )}
       </main>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
-      ></script>
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-          gtag('config', 'UA-219103442-1&apos');
-        `}
-      </Script>
     </Layout>
   );
 };
