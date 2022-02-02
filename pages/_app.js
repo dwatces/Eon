@@ -44,18 +44,21 @@ function MyApp({ Component, pageProps }) {
           rel="canonical"
           href="https://eoncandles.co.nz/shop"
           key="canonical"
+          hrefLang="en"
         />
         <link
           rel="canonical"
           href="https://eoncandles.co.nz/about"
           key="canonical"
+          hrefLang="en"
         />
-        <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
         <link
-          rel="alternate"
-          href="http://eoncandles.co.nz/"
-          hrefLang="x-default"
+          rel="canonical"
+          href="https://eoncandles.co.nz"
+          key="canonical"
+          hrefLang="en"
         />
+        <link rel="alternate" href="https://eoncandles.co.nz/" hrefLang="x" />
       </Head>
       <script
         async
