@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
         <link
           rel="alternate"
           href="http://eoncandles.co.nz/"
-          hreflang="x-default"
+          hrefLang="x-default"
         />
       </Head>
       <script
