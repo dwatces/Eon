@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
           openGraph={{
             type: "candle website, crystal and nature, healing energy, spiritual, positive  and harmony",
             locale: "en_IE",
-            url: "https://www.eoncandles.co.nz",
+            url: "https://eoncandles.co.nz",
             site_name: "Eon",
           }}
         />
@@ -24,12 +24,12 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="New Zealand handcrafted candles imbued with crystal and natural energy, promoting peaceful and positive vibes."
         ></meta>
-        <meta property="og:title" content="Eon" />
+        <meta property="og:title" content="Eon Candles New Zealand" />
         <meta
           property="og:description"
           content="Visit Eon to purchase vegan soy handcrafted candles, special candles, featuring crystals and nature for healing and peace, promoting positive vibes!"
         />
-        <meta property="og:url" content="https://www.eoncandles.co.nz" />
+        <meta property="og:url" content="https://eoncandles.co.nz" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Eon Candles" />
         <meta property="og:image" href="https://ibb.co/Z8JwnkT" />
@@ -51,26 +51,11 @@ function MyApp({ Component, pageProps }) {
           key="canonical"
         />
         <link rel="canonical" href="https://eoncandles.co.nz" key="canonical" />
-        {/* <link
-          rel="canonical"
-          href="https://eoncandles.co.nz/shop/love"
-          key="canonical"
-        />
         <link
-          rel="canonical"
-          href="https://eoncandles.co.nz/shop/dreams"
-          key="canonical"
+          rel="alternate"
+          href="http://eoncandles.co.nz/"
+          hreflang="x-default"
         />
-        <link
-          rel="canonical"
-          href="https://eoncandles.co.nz/shop/happiness"
-          key="canonical"
-        />
-        <link
-          rel="canonical"
-          href="https://eoncandles.co.nz/shop/summer"
-          key="canonical"
-        /> */}
       </Head>
       <script
         async
@@ -85,7 +70,7 @@ function MyApp({ Component, pageProps }) {
       </Script>
       <CartProvider>
         <NavBar />
-        <html lang="en-uk">
+        <html lang="en-nz">
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
             <Component {...pageProps} />
             <Footer />

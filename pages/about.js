@@ -39,7 +39,7 @@ const About = () => {
           </div>
           <Image
             src={Crystal}
-            alt="crystal"
+            alt="crystal about page"
             width={800}
             height={130}
             layout="responsive"

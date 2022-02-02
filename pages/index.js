@@ -42,7 +42,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Fire}
-                alt="flame"
+                alt="flame icon"
                 className={styles.eonIcon}
                 width={100}
                 height={50}
@@ -57,7 +57,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Earth}
-                alt="earth"
+                alt="earth icon"
                 className={styles.eonIcon}
                 width={100}
                 height={50}
@@ -72,7 +72,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Leaf}
-                alt="nature"
+                alt="nature icon"
                 className={styles.eonIcon}
                 width={100}
                 height={50}
@@ -172,7 +172,7 @@ export default function Home() {
               <div className={styles.rowItem}>
                 <Image
                   src={summer}
-                  alt="topdown"
+                  alt="topdown summer"
                   className={styles.eonCandle}
                   width={350}
                   height={250}

@@ -30,7 +30,7 @@ const Footer = () => (
     </a>
 
     <a
-      href="http://www.eoncandles.co.nz/about#contact"
+      href="http://eoncandles.co.nz/about#contact"
       name="emailUs"
       aria-label="Contact Us"
     >
