@@ -6,7 +6,7 @@ import Link from "next/link";
 const Header = () => (
   <>
     <header>
-      <Link href="/shop">
+      <Link href="/shop" passHref>
         <Image
           src={backgroundImg}
           alt="hero banner"
