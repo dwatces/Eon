@@ -89,7 +89,7 @@ export default function Home() {
               Eon, we seamlessly blend elegance throughout our 100% natural soy
               wax, hand poured candles. Each luxuriously scented candle is
               paired with a special crystal and natural accompaniment to
-              maximise the power each candle can provide.
+              maximise their power.
             </p>
             <p
               id="nature"

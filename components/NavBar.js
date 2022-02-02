@@ -35,7 +35,7 @@ const NavBar = () => {
   return (
     <>
       <nav className={styles.navbar} role="navigation">
-        <Link href="/" passHref>
+        <Link href="/" passHref hrefLang="en">
           <span className={styles.logo} onClick={toggleNav}>
             <Image
               src={logo}
@@ -56,7 +56,9 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/">Home</Link>
+              <Link href="/" hrefLang="en" passHref>
+                Home
+              </Link>
             </span>
           </li>
           <li
@@ -65,7 +67,7 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/shop" className={styles.link}>
+              <Link href="/shop" hrefLang="en" className={styles.link}>
                 Shop
               </Link>
             </span>
@@ -76,7 +78,7 @@ const NavBar = () => {
             }
           >
             <span className={styles.link} onClick={toggleNav}>
-              <Link href="/about" className={styles.link}>
+              <Link href="/about" hrefLang="en" className={styles.link}>
                 About
               </Link>
             </span>
