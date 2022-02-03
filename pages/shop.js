@@ -58,7 +58,9 @@ function Shop() {
                 <p>Rose Otto, Ylang Ylang, Orange & Patchouli</p>
                 <p>Rose Quartz Chips & Rose Bud</p>
                 <p className={styles.candleDetailMuted}>
-                  hand poured vegan soy wax
+                  <p className={styles.candleRetail}>
+                    $25<sup className={styles.candlePrice}>$30</sup>
+                  </p>
                 </p>
               </div>
             </div>
@@ -80,7 +82,7 @@ function Shop() {
                 <p>Wild Orange, Clary Sage & Lemon</p>
                 <p>Citrine Chips & Jasmine Flower Petals</p>
                 <p className={styles.candleDetailMuted}>
-                  hand poured vegan soy wax
+                  $25<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
@@ -102,7 +104,7 @@ function Shop() {
                 <p>Lavender, Chamomile & Frankincense</p>
                 <p>Amethyst Chips & Cornflowers</p>
                 <p className={styles.candleDetailMuted}>
-                  hand poured vegan soy wax
+                  $25<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
@@ -124,7 +126,7 @@ function Shop() {
                 <p>Coconut, Mango & Lime</p>
                 <p>Aventurine Chips & Lavender Flowers</p>
                 <p className={styles.candleDetailMuted}>
-                  hand poured vegan soy wax
+                  $25<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
