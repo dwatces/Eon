@@ -4,12 +4,16 @@
   max-width: 100%;
   margin-left: 0.5rem !important;
   margin-top: 3rem !important;
-  margin-bottom: -20rem !important;
+
   min-width: initial !important;
   max-width: none !important;
   min-height: initial !important;
   max-height: none !important;
   cursor: pointer;
+}
+
+.mobileHeader {
+  display: none;
 }
 
 .logo {
@@ -313,6 +317,18 @@
   }
   .header {
     display: none !important;
+  }
+  .mobileHeader {
+    display: unset !important;
+  }
+}
+
+@media only screen and (min-width: 426px) {
+  .mobileHeader {
+    display: none !important;
+  }
+  .header {
+    display: unset !important;
   }
 }
 
