@@ -197,7 +197,7 @@
     display: flex;
     flex-direction: column !important;
     width: 100vw !important;
-    margin-top: 1vh !important;
+    margin-top: -5vh !important;
     height: 75vh !important;
   }
   .candleChild {

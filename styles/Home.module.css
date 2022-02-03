@@ -275,9 +275,6 @@
     margin-right: 12.5vw;
     margin-left: 12.5vw;
   }
-  .eonL {
-    margin-top: -40vh !important;
-  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -305,9 +302,6 @@
     height: 40rem !important;
     font-size: 1.25rem !important;
   }
-  .eonL {
-    margin-top: -50vh !important;
-  }
 }
 
 @media screen and (min-width: 1600px) {
@@ -328,9 +322,6 @@
   .row {
     margin-bottom: 10rem !important;
   }
-  .eonL {
-    margin-top: -60vh !important;
-  }
 }
 
 @media only screen and (min-width: 2500px) {
@@ -347,6 +338,6 @@
     height: 300px !important;
   }
   .eonL {
-    margin-top: -90vh !important;
+    margin-top: -10vh;
   }
 }
