@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
 import Logo from "../public/eon-logo.png";
+import MobileLogo from "../public/hero-mobile.webp";
 import Image from "next/image";
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
@@ -23,10 +24,10 @@ export default function Home() {
       <LandingLayout>
         <main className={styles.main}>
           <div className={styles.eonL}>
-            <h1 className={styles.logo}>
+            <h1 className={(styles.logo, styles.desktopLogo)}>
               <Image
                 src={Logo}
-                alt=" Eon candles home"
+                alt=" Eon candles home desktop"
                 className={styles.eonLogo}
                 width={100}
                 height={50}

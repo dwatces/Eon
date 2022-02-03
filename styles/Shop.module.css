@@ -208,9 +208,6 @@
     font-size: 0.8rem;
     margin-left: 1.5rem !important;
   }
-  .candleDetailMuted {
-    display: none !important;
-  }
   .orderConfirm {
     font-size: 1.4rem !important;
     text-align: center !important;
@@ -324,10 +321,6 @@
     width: 50%;
     padding-top: 4rem;
     margin-top: -15vh;
-  }
-
-  .candleDetailMuted {
-    display: unset !important;
   }
 }
 
