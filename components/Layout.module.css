@@ -244,6 +244,9 @@
 }
 
 @media (max-width: 720px) {
+  .header {
+    display: none !important;
+  }
   .navbar {
     justify-content: space-between;
   }

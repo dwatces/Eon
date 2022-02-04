@@ -188,6 +188,7 @@
     flex-wrap: wrap !important;
   }
   .rowItem {
+    margin-left: 0.5rem;
     width: 9rem !important;
   }
   .DesktopTop {
@@ -230,6 +231,7 @@
   }
   .rowItem {
     width: 10rem !important;
+    margin-left: 1rem;
   }
 }
 
@@ -258,10 +260,14 @@
   }
   .rowItem {
     width: 12rem !important;
+    margin-left: 0.5rem;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .eonL {
+    margin-top: 5vh !important;
+  }
   .DesktopTop {
     display: flex !important;
     margin-top: 20vh;
