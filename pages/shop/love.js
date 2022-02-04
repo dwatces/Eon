@@ -95,6 +95,7 @@ const Love = () => {
               />
             </button>
           </div>
+          <h1 style={{ display: "none" }}>Crystal Candle Love</h1>
           <div className={styles.galleryImage}>
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image

@@ -11,14 +11,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <DefaultSeo
-          openGraph={{
-            type: "candle website, crystal and nature, healing energy, spiritual, positive  and harmony",
-            locale: "en_IE",
-            url: "https://eoncandles.co.nz",
-            site_name: "Eon",
-          }}
-        />
         <title>Eon Candles</title>
         <meta
           name="description"
@@ -27,7 +19,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Eon Candles New Zealand" />
         <meta
           property="og:description"
-          content="Visit Eon to purchase vegan soy handcrafted candles, special candles, featuring crystals and nature for healing and peace, promoting positive vibes!"
+          content="Visit Eon to purchase vegan soy handcrafted candles, featuring crystals and nature for healing and peace, promoting positive vibes!"
         />
         <meta property="og:url" content="https://eoncandles.co.nz" />
         <meta property="og:type" content="website" />
@@ -75,6 +67,9 @@ function MyApp({ Component, pageProps }) {
         <NavBar />
         <html lang="en-nz">
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
+            <p style={{ display: "none" }}>
+              Crystal Candles, candle with crystals
+            </p>
             <Component {...pageProps} />
             <Footer />
           </body>

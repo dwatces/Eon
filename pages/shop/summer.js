@@ -83,6 +83,7 @@ const Summer = () => {
               />
             </button>
           </div>
+          <h1 style={{ display: "none" }}>Crystal Candle Summer</h1>
           <div className={styles.galleryImage}>
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
