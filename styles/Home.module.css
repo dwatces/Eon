@@ -179,6 +179,9 @@
   .eonContainer {
     flex-direction: row !important;
   }
+  .eonLink {
+    margin-left: 1rem;
+  }
   .eonL {
     margin-top: -5vh !important;
   }
