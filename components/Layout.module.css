@@ -327,9 +327,6 @@
   .mobileHeader {
     display: none !important;
   }
-  .header {
-    display: unset !important;
-  }
 }
 
 @media (min-width: 721px) {
@@ -341,6 +338,9 @@
   }
   .Cartlink {
     margin-left: 1rem !important;
+  }
+  .header {
+    display: unset !important;
   }
 }
 

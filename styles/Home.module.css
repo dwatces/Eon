@@ -64,6 +64,10 @@
   border-bottom: 2px solid black;
 }
 
+.mobileTop {
+  display: none !important;
+}
+
 .midsec {
   margin-top: 1rem;
   margin-left: 3.5rem;
@@ -144,19 +148,6 @@
   animation-direction: alternate;
 }
 
-.row {
-  margin-top: 10vh;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  margin-bottom: 20vh;
-  width: 100vw;
-  height: 26vh;
-  display: flex;
-  align-items: space-between;
-  justify-content: space-between;
-  text-align: center;
-}
-
 .rowItem {
   width: 25vw !important;
   margin-left: 2vw;
@@ -187,6 +178,20 @@
 @media screen and (min-width: 320px) {
   .eonContainer {
     flex-direction: row !important;
+  }
+  .eonL {
+    margin-top: -5vh !important;
+  }
+  .mobileTop {
+    display: flex !important;
+    flex: 1;
+    flex-wrap: wrap !important;
+  }
+  .rowItem {
+    width: 9rem !important;
+  }
+  .DesktopTop {
+    display: none !important;
   }
   .eonTitle {
     width: 5rem !important;
@@ -223,11 +228,17 @@
     height: 62.5rem !important;
     margin-bottom: 15rem !important;
   }
+  .rowItem {
+    width: 10rem !important;
+  }
 }
 
 @media screen and (min-width: 425px) {
   .eonContainer {
     flex-direction: row !important;
+  }
+  .eonL {
+    margin-top: -10vh !important;
   }
   .eonTitle {
     font-size: 1.4rem !important;
@@ -245,9 +256,34 @@
   .eonIcon {
     display: none !important;
   }
+  .rowItem {
+    width: 12rem !important;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .DesktopTop {
+    display: flex !important;
+    margin-top: 20vh;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 20vh;
+    width: 100vw;
+    height: 26vh;
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .rowItem {
+    width: 25vw !important;
+    margin-left: 2vw !important;
+    margin-right: 2vw !important;
+    cursor: pointer !important;
+  }
+  .mobileTop {
+    display: none !important;
+  }
   .eonIcon {
     display: unset !important;
   }
@@ -264,16 +300,13 @@
     margin-top: 10rem !important;
     padding-bottom: 0 !important;
     display: flex !important;
+    flex-direction: row !important;
     justify-content: space-between !important;
     align-items: space-between !important;
     width: 100vw !important;
     flex-wrap: wrap !important;
     margin-bottom: 7rem;
     line-height: 5rem !important;
-  }
-  .rowItem {
-    margin-right: 12.5vw;
-    margin-left: 12.5vw;
   }
 }
 
@@ -301,6 +334,9 @@
   .eonText {
     height: 40rem !important;
     font-size: 1.25rem !important;
+  }
+  .DesktopTop {
+    margin-top: 15vh;
   }
 }
 

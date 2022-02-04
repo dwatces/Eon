@@ -3,7 +3,10 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
 import Logo from "../public/eon-logo.png";
-import MobileLogo from "../public/hero-mobile.webp";
+import MobileSummer from "../public/mobile-summer.png";
+import MobileDreams from "../public/mobile-dreams.png";
+import MobileLove from "../public/mobile-love.png";
+import MobileHappy from "../public/mobile-happy.png";
 import Image from "next/image";
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
@@ -35,6 +38,72 @@ export default function Home() {
               />
             </h1>
             <div className={styles.underline}></div>
+            <div className={(styles.row, styles.mobileTop)}>
+              <Link href="/shop/love" passHref>
+                <div className={styles.rowItem}>
+                  <Image
+                    src={MobileLove}
+                    alt="topdown love"
+                    className={styles.eonCandle}
+                    responsive="true"
+                    onMouseEnter={(e) => {
+                      setCandle1(true);
+                    }}
+                    onMouseLeave={(e) => {
+                      setCandle1(false);
+                    }}
+                  />
+                </div>
+              </Link>
+              <Link href="/shop/happiness" passHref>
+                <div className={styles.rowItem}>
+                  <Image
+                    src={MobileHappy}
+                    alt="topdown happy"
+                    className={styles.eonCandle}
+                    responsive="true"
+                    onMouseEnter={(e) => {
+                      setCandle2(true);
+                    }}
+                    onMouseLeave={(e) => {
+                      setCandle2(false);
+                    }}
+                  />
+                </div>
+              </Link>
+              <Link href="/shop/dreams" passHref>
+                <div className={styles.rowItem}>
+                  <Image
+                    src={MobileDreams}
+                    alt="topdown dream"
+                    className={styles.eonCandle}
+                    responsive="true"
+                    onMouseEnter={(e) => {
+                      setCandle3(true);
+                    }}
+                    onMouseLeave={(e) => {
+                      setCandle3(false);
+                    }}
+                  />
+                </div>
+              </Link>
+              <Link href="/shop/summer" passHref>
+                <div className={styles.rowItem}>
+                  <Image
+                    src={MobileSummer}
+                    alt="topdown summer"
+                    className={styles.eonCandle}
+                    responsive="true"
+                    onMouseEnter={(e) => {
+                      setCandle4(true);
+                    }}
+                    onMouseLeave={(e) => {
+                      setCandle4(false);
+                    }}
+                  />
+                </div>
+              </Link>
+            </div>
           </div>
           <div className={styles.eonContainer}>
             <div className={styles.eonLink}>
@@ -116,7 +185,7 @@ export default function Home() {
               They make excellent storage for crystals, trinkets, or keep sakes.
             </p>
           </div>
-          <div className={styles.row}>
+          <div className={(styles.row, styles.DesktopTop)}>
             <Link href="/shop/love" passHref>
               <div className={styles.rowItem}>
                 <Image
