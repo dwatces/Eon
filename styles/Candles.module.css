@@ -14,6 +14,12 @@
   margin-left: -70vw;
 }
 
+.continueStripe {
+  margin-top: 2rem;
+  margin-left: 5rem;
+  font-size: 1.2rem !important;
+}
+
 .galleryImage {
   width: 12.5vw;
   height: 12.5vh;
@@ -206,8 +212,12 @@ mobile first */
     margin-right: 2vw !important;
     margin-left: -10vw !important;
   }
+  .continueStripe {
+    margin-left: 5vw !important;
+    line-height: 6vw !important;
+  }
   .submitButton {
-    margin-right: 10vw !important;
+    margin-right: 5vw !important;
   }
 }
 
@@ -262,6 +272,9 @@ mobile first */
   }
   .submitButton {
     margin-left: 20vw !important;
+  }
+  .continueStripe {
+    line-height: unset !important;
   }
 }
 

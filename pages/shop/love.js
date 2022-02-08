@@ -209,13 +209,18 @@ const Love = () => {
               >
                 <AiOutlinePlus />
               </button>
-              <button
-                className={styles.submitButton}
-                onClick={handleOnAddToCart}
-                type="button"
-              >
-                {!cartClicked ? "ADD TO CART" : "CHECKOUT"}
-              </button>
+              <p className={styles.continueStripe}>
+                {cartClicked
+                  ? "Continue to Stripe to complete your order:"
+                  : null}
+                <button
+                  className={styles.submitButton}
+                  onClick={handleOnAddToCart}
+                  type="button"
+                >
+                  {!cartClicked ? "ADD TO CART" : "CHECKOUT"}
+                </button>
+              </p>
             </div>
           </div>
         </div>
