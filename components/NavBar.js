@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import getStripe from "./get-stripe";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.png";
 import { IoMdCart } from "react-icons/io";
@@ -16,21 +14,6 @@ const NavBar = () => {
   const toggleNav = () => setNav(!showNav);
   const { cartDetails, cartCount } = useShoppingCart();
   const router = useRouter();
-
-  const redirectToCheckout = async () => {
-    // Create Stripe checkout
-    const {
-      data: { id },
-    } = await axios.post("/api/checkout_sessions", {
-      items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
-        price: id,
-        quantity,
-      })),
-    });
-
-    const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
-  };
 
   return (
     <>
@@ -84,14 +67,15 @@ const NavBar = () => {
             </span>
           </li>
           <span className={styles.cartItems} onClick={toggleNav}>
-            <button
-              onClick={redirectToCheckout}
-              className={styles.buttonCart}
-              name="cartButton"
-              aria-label="cartButton"
-            >
-              <IoMdCart className={styles.Cartlink} size="small" />
-            </button>
+            <Link href="/cart" passHref>
+              <button
+                className={styles.buttonCart}
+                name="cartButton"
+                aria-label="cartButton"
+              >
+                <IoMdCart className={styles.Cartlink} size="small" />
+              </button>
+            </Link>
           </span>
           <span className={styles.cartCount}>{cartCount}</span>
         </ul>
@@ -104,17 +88,22 @@ const NavBar = () => {
           {showNav ? (
             <CloseIcon color="warning" fontSize="large" />
           ) : (
-            <MenuIcon color="warning" fontSize="large" />
+            <>
+              <MenuIcon color="warning" fontSize="large" />
+              <IoMdCart className={styles.CartlinkMobile} size="small" />
+            </>
           )}
           <span className={styles.cartItems} onClick={toggleNav}>
-            <button
-              onClick={redirectToCheckout}
-              className={styles.buttonCart}
-              name="cartButton"
-              aria-label="cartButton"
-            >
-              <IoMdCart className={styles.Cartlink} size="small" />
-            </button>
+            <Link href="/cart" passHref>
+              <button
+                onClick="/cart"
+                className={styles.buttonCart}
+                name="cartButton"
+                aria-label="cartButton"
+              >
+                <IoMdCart className={styles.Cartlink} size="small" />
+              </button>
+            </Link>
           </span>
           <span className={styles.cartCount}>{cartCount}</span>
         </button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import axios from "axios";
+import Link from "next/link";
 import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
@@ -204,20 +205,21 @@ const Dreams = () => {
               >
                 <AiOutlinePlus />
               </button>
-
-              <p className={styles.continueStripe}>
-                {cartClicked
-                  ? "Continue to Stripe to complete your order:"
-                  : null}
-
+              {!cartClicked ? (
                 <button
                   className={styles.submitButton}
                   onClick={handleOnAddToCart}
                   type="button"
                 >
-                  {!cartClicked ? "ADD TO CART" : "CHECKOUT"}
+                  ADD TO CART
                 </button>
-              </p>
+              ) : (
+                <Link href="/cart">
+                  <button className={styles.submitButton} type="button">
+                    CHECKOUT
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

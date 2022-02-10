@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         line_items: req.body.items ?? [],
         mode: "payment",
         success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/shop`,
+        cancel_url: `${req.headers.origin}/cart`,
       });
       res.status(200).json(session);
     } catch (err) {

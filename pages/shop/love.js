@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Image from "next/image";
+import Link from "next/link";
 import axios from "axios";
 import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
@@ -209,18 +210,21 @@ const Love = () => {
               >
                 <AiOutlinePlus />
               </button>
-              <p className={styles.continueStripe}>
-                {cartClicked
-                  ? "Continue to Stripe to complete your order:"
-                  : null}
+              {!cartClicked ? (
                 <button
                   className={styles.submitButton}
                   onClick={handleOnAddToCart}
                   type="button"
                 >
-                  {!cartClicked ? "ADD TO CART" : "CHECKOUT"}
+                  ADD TO CART
                 </button>
-              </p>
+              ) : (
+                <Link href="/cart">
+                  <button className={styles.submitButton} type="button">
+                    CHECKOUT
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -78,6 +78,10 @@
   cursor: pointer;
 }
 
+.checkoutMenu {
+  margin-top: 3rem;
+}
+
 .headerUnderline {
   border-bottom: 2px solid #a793bc;
 }
@@ -219,6 +223,11 @@ mobile first */
   .submitButton {
     margin-right: 5vw !important;
   }
+  .checkoutMenu {
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 375px) {
@@ -228,6 +237,9 @@ mobile first */
   .candleDescription {
     font-size: 1.1rem !important;
     width: 90vw !important;
+  }
+  .checkoutMenu {
+    font-size: 1.1rem;
   }
 }
 
@@ -240,6 +252,9 @@ mobile first */
   }
   .candleRetail {
     margin-left: -15vw !important;
+  }
+  .checkoutMenu {
+    font-size: 1.2rem;
   }
 }
 
@@ -291,23 +306,14 @@ mobile first */
     margin-bottom: 30vh;
     margin-left: -70vw;
   }
-  .candleSize {
-    display: unset !important;
-  }
   .mainImage {
-    width: 40vw !important;
-    margin-bottom: 60vh !important;
+    width: 30vw !important;
+    margin-bottom: 55vh !important;
   }
   .galleryBack {
     display: none !important;
   }
-  .candleDescription {
-    width: unset !important;
-    margin-left: unset !important;
-  }
-  .galleryForward {
-    display: none !important;
-  }
+
   .candleTitle {
     margin-bottom: -5rem !important;
   }
@@ -323,6 +329,17 @@ mobile first */
   .mainImage {
     width: 30vw !important;
     margin-bottom: 57.5vh !important;
+  }
+  .candleSize {
+    display: unset !important;
+  }
+  .candleDescription {
+    width: unset !important;
+    margin-left: unset !important;
+  }
+
+  .galleryForward {
+    display: none !important;
   }
 }
 

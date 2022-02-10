@@ -2,9 +2,7 @@
   height: 50vh !important;
   width: 100% !important;
   max-width: 100%;
-  margin-left: 0.5rem !important;
   margin-top: 3rem !important;
-
   min-width: initial !important;
   max-width: none !important;
   min-height: initial !important;
@@ -179,6 +177,10 @@
   background: #424242;
 }
 
+.CartlinkMobile {
+  margin-left: 10rem;
+}
+
 .iconF {
   margin-top: 1rem;
   width: 2rem !important;
@@ -236,6 +238,7 @@
 
 .nav__hamburger {
   display: none;
+  width: 20%;
 }
 
 .socialButtonE {
@@ -325,7 +328,11 @@
     display: unset !important;
   }
 }
-
+@media (max-width: 900px) {
+  .middleLinks {
+    margin-left: 15vw !important;
+  }
+}
 @media only screen and (min-width: 426px) {
   .mobileHeader {
     display: none !important;
@@ -333,6 +340,9 @@
 }
 
 @media (min-width: 721px) {
+  .header {
+    height: 25vh !important;
+  }
   .cartCount {
     display: unset !important;
   }
@@ -347,13 +357,10 @@
   }
 }
 
-@media (max-width: 900px) {
-  .middleLinks {
-    margin-left: 15vw !important;
-  }
-}
-
 @media only screen and (min-width: 1080px) and (max-width: 1600px) {
+  .header {
+    height: 40vh !important;
+  }
   .middleLinks {
     margin-top: 0.5rem;
     display: flex;
@@ -363,8 +370,17 @@
   }
 }
 
+@media screen and (min-width: 1600px) {
+  .header {
+    height: 50vh !important;
+  }
+}
+
 @media (min-width: 2000px) {
   .middleLinks {
     margin-left: 35vw !important;
+  }
+  .header {
+    height: 80vh !important;
   }
 }
