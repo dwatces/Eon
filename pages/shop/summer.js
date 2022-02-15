@@ -137,53 +137,10 @@ const Summer = () => {
               scented candle. Paired with both aventurine crystal shards for
               good blessings and lavender flowers for peace and grace.
             </p>
-            <div className={styles.containerBits}>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setCrystal(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Aventurine</span>
-              </h3>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>
-                  Lavender Flowers{" "}
-                </span>
-              </h3>
-              {crystal && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setCrystal(false);
-                  }}
-                >
-                  This high energy crystal will attract abundance and prosperity
-                  to your life. It is a comforter and a harmoniser, bringing
-                  luck and blessings to your life. A perfect accompaniment to a
-                  summer&apos;s evening.
-                </p>
-              )}
-              {flower && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setFlower(false);
-                  }}
-                >
-                  These flowers represent serenity, grace, peace, and calmness.
-                  These energies are exactly what summer is all about!
-                </p>
-              )}
-            </div>
+
             <div className={styles.containerBuy}>
               <p className={styles.candleRetail}>
-                $25<sup className={styles.candlePrice}>$30</sup>
+                $20<sup className={styles.candlePrice}>$30</sup>
               </p>
               <p className={styles.quantity}>Quantity:</p>
               <button

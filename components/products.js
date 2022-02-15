@@ -1,29 +1,29 @@
 export const products = [
   {
-    id: "price_1KE0vaIILjXbtSkj59ZfrGpZ",
+    id: "price_1KTa4GIILjXbtSkjqSx6HWRR",
     name: "love",
-    price: "$25",
+    price: "$20",
     currency: "NZD",
   },
 
   {
-    id: "price_1KHeJjIILjXbtSkjRJj0j6yS",
+    id: "price_1KTa3qIILjXbtSkjkD1GsKS9",
     name: "happiness",
-    price: "$25",
+    price: "$20",
     currency: "NZD",
   },
 
   {
-    id: "price_1KHeK9IILjXbtSkjXFx97A61",
+    id: "price_1KTa3YIILjXbtSkj77yFEYtG",
     name: "dreams",
-    price: "$25",
+    price: "$20",
     currency: "NZD",
   },
 
   {
-    id: "price_1KHeKWIILjXbtSkjEWhDH2E3",
+    id: "price_1KTa2yIILjXbtSkj71FY8dLm",
     name: "summer",
-    price: "$25",
+    price: "$20",
     currency: "NZD",
   },
 ];

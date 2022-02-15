@@ -40,6 +40,10 @@
   align-items: center;
 }
 
+.candleRetail {
+  font-size: 1.2rem;
+}
+
 .mainImage {
   width: 25vw;
   height: 50vh;
@@ -116,6 +120,7 @@
 
 .candleQuantity {
   margin-top: 2rem !important;
+  font-size: 1.1rem;
   border: unset;
   background-color: unset;
 }

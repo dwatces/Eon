@@ -129,55 +129,10 @@ const Happiness = () => {
               channel happiness, and jasmine flower petals for clarity and
               perspective.
             </p>
-            <div className={styles.containerBits}>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setCrystal(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Citrine</span>
-              </h3>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>
-                  Jasmine Flower Petals
-                </span>
-              </h3>
-              {crystal && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setCrystal(false);
-                  }}
-                >
-                  Citrine enables prosperity, joy, and energy. This powerful
-                  crystal provides creative and intuitive energy that may
-                  overcome fears. Use this crystal to channel joy into your home
-                  and life.
-                </p>
-              )}
-              {flower && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setFlower(false);
-                  }}
-                >
-                  These petals represent clarity and appreciation. We can all
-                  use a reminder now and then of the good that we give and
-                  receive; use the energy of jasmine petals to gain a new
-                  perspective and understanding of how wonderful life can be.
-                </p>
-              )}
-            </div>
+
             <div className={styles.containerBuy}>
               <p className={styles.candleRetail}>
-                $25<sup className={styles.candlePrice}>$30</sup>
+                $20<sup className={styles.candlePrice}>$30</sup>
               </p>
               <p className={styles.quantity}>Quantity:</p>
               <button

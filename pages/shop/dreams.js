@@ -139,54 +139,10 @@ const Dreams = () => {
               provide clarity of mind, and cornflowers to bring wealth and good
               fortune.
             </p>
-            <div className={styles.containerBits}>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setCrystal(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Amethyst</span>
-              </h3>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Cornflowers</span>
-              </h3>
-              {crystal && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setCrystal(false);
-                    setFlower(false);
-                  }}
-                >
-                  A most powerful and protective stone, amethyst will help you
-                  gain a calm mind and spirit by warding off negative energies
-                  and promoting spiritual harmony. Amethyst is known to promote
-                  peaceful and restful sleep.
-                </p>
-              )}
-              {flower && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setFlower(false);
-                    setCrystal(false);
-                  }}
-                >
-                  Cornflowers symbolise wealth and good fortune in all aspects
-                  of our lives; not just with money, but through love and health
-                  as well.
-                </p>
-              )}
-            </div>
+
             <div className={styles.containerBuy}>
               <p className={styles.candleRetail}>
-                $25<sup className={styles.candlePrice}>$30</sup>
+                $20<sup className={styles.candlePrice}>$30</sup>
               </p>
               <p className={styles.quantity}>Quantity:</p>
               <button

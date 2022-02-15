@@ -144,53 +144,10 @@ const Love = () => {
               not only smells divine, but is precisely paired with rose quartz
               chips and rose bud to amplify and attract love in your life.
             </p>
-            <div className={styles.containerBits}>
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setCrystal(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Rose Quartz</span>
-              </h3>
 
-              <h3
-                className={styles.containerBitsHeader}
-                onMouseEnter={(e) => {
-                  setFlower(true);
-                }}
-              >
-                <span className={styles.headerUnderline}>Rose Bud</span>
-              </h3>
-              {flower && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setFlower(false);
-                  }}
-                >
-                  Red rose buds signify beauty, purity, love, and courage. This
-                  special bud is handpicked by our candle creators, to channel
-                  into the worlds divine love.
-                </p>
-              )}
-              {crystal && (
-                <p
-                  className={styles.bitsText}
-                  onMouseLeave={(e) => {
-                    setCrystal(false);
-                  }}
-                >
-                  Rose quartz signify universal love and peace. The crystal
-                  helps align and amplify loving energies with spouses, family,
-                  and friends, by promoting forgiveness and trust. Rose quartz
-                  is particularly comforting in times of heartache and grief.
-                </p>
-              )}
-            </div>
             <div className={styles.containerBuy}>
               <p className={styles.candleRetail} itemProp="price">
-                $25<sup className={styles.candlePrice}>$30</sup>
+                $20<sup className={styles.candlePrice}>$30</sup>
               </p>
 
               <p className={styles.quantity}>Quantity:</p>

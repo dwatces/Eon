@@ -333,7 +333,9 @@
     height: 2.5rem;
     margin-top: -0.1rem !important;
   }
-
+  .candleDescription {
+    width: 100% !important;
+  }
   .emailInput {
     font-size: 1rem;
     margin-top: 0.8rem;

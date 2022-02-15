@@ -59,7 +59,7 @@ function Shop() {
                 <p>Rose Quartz Chips & Rose Bud</p>
                 <p className={styles.candleDetailMuted}>
                   <p className={styles.candleRetail}>
-                    $25<sup className={styles.candlePrice}>$30</sup>
+                    $20<sup className={styles.candlePrice}>$30</sup>
                   </p>
                 </p>
               </div>
@@ -82,7 +82,7 @@ function Shop() {
                 <p>Wild Orange, Clary Sage & Lemon</p>
                 <p>Citrine Chips & Jasmine Flower Petals</p>
                 <p className={styles.candleDetailMuted}>
-                  $25<sup className={styles.candlePrice}>$30</sup>
+                  $20<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ function Shop() {
                 <p>Lavender, Chamomile & Frankincense</p>
                 <p>Amethyst Chips & Cornflowers</p>
                 <p className={styles.candleDetailMuted}>
-                  $25<sup className={styles.candlePrice}>$30</sup>
+                  $20<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ function Shop() {
                 <p>Coconut, Mango & Lime</p>
                 <p>Aventurine Chips & Lavender Flowers</p>
                 <p className={styles.candleDetailMuted}>
-                  $25<sup className={styles.candlePrice}>$30</sup>
+                  $20<sup className={styles.candlePrice}>$30</sup>
                 </p>
               </div>
             </div>
