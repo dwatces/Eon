@@ -52,6 +52,7 @@ const Cart = () => {
                         alt={`${name}`}
                         width={200}
                         height={200}
+                        priority
                       />
                     </div>
                     <div className={styles.cartItemDetails}>

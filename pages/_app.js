@@ -36,19 +36,19 @@ function MyApp({ Component, pageProps }) {
           rel="canonical"
           href="https://eoncandles.co.nz/shop"
           key="canonical"
-          hrefLang="en"
+          hrefLang="en-nz"
         />
         <link
           rel="canonical"
           href="https://eoncandles.co.nz/about"
           key="canonical"
-          hrefLang="en"
+          hrefLang="en-nz"
         />
         <link
           rel="canonical"
           href="https://eoncandles.co.nz"
           key="canonical"
-          hrefLang="en"
+          hrefLang="en-nz"
         />
         <link rel="alternate" href="https://eoncandles.co.nz/" hrefLang="x" />
       </Head>
