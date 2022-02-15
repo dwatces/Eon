@@ -183,13 +183,14 @@ mobile first */
     width: 60vw !important;
   }
   .candleTitle {
-    margin-top: 30vh !important;
+    display: none;
     margin-right: 5vw !important;
   }
   .candleDescription {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-top: 25vh !important;
     margin-left: -20vw !important;
-    width: 100vw !important;
+    width: 90vw !important;
   }
   .containerBits {
     display: none !important;
@@ -241,6 +242,11 @@ mobile first */
   .checkoutMenu {
     font-size: 1.1rem;
   }
+
+  .candleDescription {
+    font-size: 1rem !important;
+    width: 90vw !important;
+  }
 }
 
 @media only screen and (min-width: 425px) {
@@ -260,12 +266,16 @@ mobile first */
 
 @media only screen and (min-width: 768px) {
   .candleTitle {
+    display: flex !important;
     margin-top: 35vh !important;
     margin-bottom: -10vh !important;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
   }
   .candleDescription {
     font-size: 1.3rem !important;
-    margin-top: 13vh !important;
+    margin-top: 15vh !important;
   }
   .galleryBack {
     margin-left: -6vw;
@@ -307,11 +317,18 @@ mobile first */
     margin-left: -70vw;
   }
   .mainImage {
-    width: 30vw !important;
+    width: 35vw !important;
     margin-bottom: 55vh !important;
   }
   .galleryBack {
-    display: none !important;
+    margin-left: -10vw;
+    margin-bottom: 10vh !important;
+    font-size: 2.5rem !important;
+  }
+  .galleryForward {
+    font-size: 2.5rem !important;
+    margin-right: -50vw !important;
+    margin-bottom: 10vh !important;
   }
 
   .candleTitle {
@@ -337,7 +354,9 @@ mobile first */
     width: unset !important;
     margin-left: unset !important;
   }
-
+  .galleryBack {
+    display: none !important;
+  }
   .galleryForward {
     display: none !important;
   }
