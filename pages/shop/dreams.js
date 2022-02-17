@@ -134,49 +134,48 @@ const Dreams = () => {
           <div className={styles.candleContentHeader}>
             <h2 className={styles.candleTitle}>dreams</h2>
             <p className={styles.candleDescription}>
+              <div className={styles.containerBuy}>
+                <p className={styles.candleRetail}>
+                  $20<sup className={styles.candlePrice}>$30</sup>
+                </p>
+                <p className={styles.quantity}>Quantity:</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty - 1)}
+                  disabled={qty <= 1}
+                  aria-label="decrease quantity by one"
+                >
+                  <AiOutlineMinus />
+                </button>
+                <p>{qty}</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty + 1)}
+                  aria-label="increase quantity by one"
+                >
+                  <AiOutlinePlus />
+                </button>
+                {!cartClicked ? (
+                  <button
+                    className={styles.submitButton}
+                    onClick={handleOnAddToCart}
+                    type="button"
+                  >
+                    ADD TO CART
+                  </button>
+                ) : (
+                  <Link href="/cart">
+                    <button className={styles.submitButton} type="button">
+                      CHECKOUT
+                    </button>
+                  </Link>
+                )}
+              </div>
               Follow your dreams with our lavender, chamomile, and frankincense
               candle. Paired with the powerful energy of amethyst crystals to
               provide clarity of mind, and cornflowers to bring wealth and good
               fortune.
             </p>
-
-            <div className={styles.containerBuy}>
-              <p className={styles.candleRetail}>
-                $20<sup className={styles.candlePrice}>$30</sup>
-              </p>
-              <p className={styles.quantity}>Quantity:</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty - 1)}
-                disabled={qty <= 1}
-                aria-label="decrease quantity by one"
-              >
-                <AiOutlineMinus />
-              </button>
-              <p>{qty}</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty + 1)}
-                aria-label="increase quantity by one"
-              >
-                <AiOutlinePlus />
-              </button>
-              {!cartClicked ? (
-                <button
-                  className={styles.submitButton}
-                  onClick={handleOnAddToCart}
-                  type="button"
-                >
-                  ADD TO CART
-                </button>
-              ) : (
-                <Link href="/cart">
-                  <button className={styles.submitButton} type="button">
-                    CHECKOUT
-                  </button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
         {isOpen && (

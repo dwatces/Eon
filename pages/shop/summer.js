@@ -133,48 +133,47 @@ const Summer = () => {
           <div className={styles.candleContentHeader}>
             <h2 className={styles.candleTitle}>summer</h2>
             <p className={styles.candleDescription}>
+              <div className={styles.containerBuy}>
+                <p className={styles.candleRetail}>
+                  $20<sup className={styles.candlePrice}>$30</sup>
+                </p>
+                <p className={styles.quantity}>Quantity:</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty - 1)}
+                  disabled={qty <= 1}
+                  aria-label="decrease quantity by one"
+                >
+                  <AiOutlineMinus />
+                </button>
+                <p>{qty}</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty + 1)}
+                  aria-label="increase quantity by one"
+                >
+                  <AiOutlinePlus />
+                </button>
+                {!cartClicked ? (
+                  <button
+                    className={styles.submitButton}
+                    onClick={handleOnAddToCart}
+                    type="button"
+                  >
+                    ADD TO CART
+                  </button>
+                ) : (
+                  <Link href="/cart">
+                    <button className={styles.submitButton} type="button">
+                      CHECKOUT
+                    </button>
+                  </Link>
+                )}
+              </div>
               Bring on the summer vibes with our coconut, mango, and lime
               scented candle. Paired with both aventurine crystal shards for
               good blessings and lavender flowers for peace and grace.
             </p>
-
-            <div className={styles.containerBuy}>
-              <p className={styles.candleRetail}>
-                $20<sup className={styles.candlePrice}>$30</sup>
-              </p>
-              <p className={styles.quantity}>Quantity:</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty - 1)}
-                disabled={qty <= 1}
-                aria-label="decrease quantity by one"
-              >
-                <AiOutlineMinus />
-              </button>
-              <p>{qty}</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty + 1)}
-                aria-label="increase quantity by one"
-              >
-                <AiOutlinePlus />
-              </button>
-              {!cartClicked ? (
-                <button
-                  className={styles.submitButton}
-                  onClick={handleOnAddToCart}
-                  type="button"
-                >
-                  ADD TO CART
-                </button>
-              ) : (
-                <Link href="/cart">
-                  <button className={styles.submitButton} type="button">
-                    CHECKOUT
-                  </button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
         {isOpen && (

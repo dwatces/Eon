@@ -140,49 +140,48 @@ const Love = () => {
               love
             </h2>
             <p className={styles.candleDescription}>
+              <div className={styles.containerBuy}>
+                <p className={styles.candleRetail} itemProp="price">
+                  $20<sup className={styles.candlePrice}>$30</sup>
+                </p>
+
+                <p className={styles.quantity}>Quantity:</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty - 1)}
+                  disabled={qty <= 1}
+                  aria-label="decrease quantity by one"
+                >
+                  <AiOutlineMinus />
+                </button>
+                <p>{qty}</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty + 1)}
+                  aria-label="increase quantity by one"
+                >
+                  <AiOutlinePlus />
+                </button>
+                {!cartClicked ? (
+                  <button
+                    className={styles.submitButton}
+                    onClick={handleOnAddToCart}
+                    type="button"
+                  >
+                    ADD TO CART
+                  </button>
+                ) : (
+                  <Link href="/cart">
+                    <button className={styles.submitButton} type="button">
+                      CHECKOUT
+                    </button>
+                  </Link>
+                )}
+              </div>
               Our rose otto, ylang ylang, orange, and patchouli scented candle
               not only smells divine, but is precisely paired with rose quartz
               chips and rose bud to amplify and attract love in your life.
             </p>
-
-            <div className={styles.containerBuy}>
-              <p className={styles.candleRetail} itemProp="price">
-                $20<sup className={styles.candlePrice}>$30</sup>
-              </p>
-
-              <p className={styles.quantity}>Quantity:</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty - 1)}
-                disabled={qty <= 1}
-                aria-label="decrease quantity by one"
-              >
-                <AiOutlineMinus />
-              </button>
-              <p>{qty}</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty + 1)}
-                aria-label="increase quantity by one"
-              >
-                <AiOutlinePlus />
-              </button>
-              {!cartClicked ? (
-                <button
-                  className={styles.submitButton}
-                  onClick={handleOnAddToCart}
-                  type="button"
-                >
-                  ADD TO CART
-                </button>
-              ) : (
-                <Link href="/cart">
-                  <button className={styles.submitButton} type="button">
-                    CHECKOUT
-                  </button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
         {isOpen && (
