@@ -122,52 +122,52 @@ const Happiness = () => {
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
             <h2 className={styles.candleTitle}>happiness</h2>
+
             <p className={styles.candleDescription}>
+              <div className={styles.containerBuy}>
+                <p className={styles.candleRetail}>
+                  $20<sup className={styles.candlePrice}>$30</sup>
+                </p>
+                <p className={styles.quantity}>Quantity:</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty - 1)}
+                  disabled={qty <= 1}
+                  aria-label="decrease quantity by one"
+                >
+                  <AiOutlineMinus />
+                </button>
+                <p>{qty}</p>
+                <button
+                  className={styles.candleQuantity}
+                  onClick={() => setQty(qty + 1)}
+                  aria-label="increase quantity by one"
+                >
+                  <AiOutlinePlus />
+                </button>
+
+                {!cartClicked ? (
+                  <button
+                    className={styles.submitButton}
+                    onClick={handleOnAddToCart}
+                    type="button"
+                  >
+                    ADD TO CART
+                  </button>
+                ) : (
+                  <Link href="/cart">
+                    <button className={styles.submitButton} type="button">
+                      CHECKOUT
+                    </button>
+                  </Link>
+                )}
+              </div>
               Fill the room with positive energies and appreciation for all the
               good in life with the beautiful scents of wild orange, clary sage,
               and lemon. This candle comes paired with citrine chips that
               channel happiness, and jasmine flower petals for clarity and
               perspective.
             </p>
-
-            <div className={styles.containerBuy}>
-              <p className={styles.candleRetail}>
-                $20<sup className={styles.candlePrice}>$30</sup>
-              </p>
-              <p className={styles.quantity}>Quantity:</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty - 1)}
-                disabled={qty <= 1}
-                aria-label="decrease quantity by one"
-              >
-                <AiOutlineMinus />
-              </button>
-              <p>{qty}</p>
-              <button
-                className={styles.candleQuantity}
-                onClick={() => setQty(qty + 1)}
-                aria-label="increase quantity by one"
-              >
-                <AiOutlinePlus />
-              </button>
-
-              {!cartClicked ? (
-                <button
-                  className={styles.submitButton}
-                  onClick={handleOnAddToCart}
-                  type="button"
-                >
-                  ADD TO CART
-                </button>
-              ) : (
-                <Link href="/cart">
-                  <button className={styles.submitButton} type="button">
-                    CHECKOUT
-                  </button>
-                </Link>
-              )}
-            </div>
           </div>
         </div>
         {isOpen && (
