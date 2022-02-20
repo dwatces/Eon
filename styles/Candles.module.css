@@ -56,6 +56,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 80% !important;
 }
 
 .candleContentHeader {
@@ -69,6 +70,7 @@
 
 .candleTitle {
   text-align: center;
+  margin-left: 5rem;
   font-size: 2.3rem;
 }
 
@@ -181,12 +183,13 @@ mobile first */
     width: 65vw !important;
   }
   .candleContent {
+    margin-top: 1.5rem;
     justify-self: space-between !important;
     align-items: space-between !important;
     flex: 1 !important;
     flex-wrap: wrap !important;
     margin-right: 35vw !important;
-    width: 60vw !important;
+    width: 70vw !important;
   }
   .candleTitle {
     display: none;
@@ -195,7 +198,7 @@ mobile first */
   .candleDescription {
     font-size: 0.9rem;
     margin-top: 25vh !important;
-    margin-left: -20vw !important;
+    margin-left: -23vw !important;
     width: 90vw !important;
   }
   .containerBits {
@@ -254,6 +257,10 @@ mobile first */
     font-size: 1rem !important;
     width: 90vw !important;
   }
+
+  .candleContent {
+    margin-top: 4rem;
+  }
 }
 
 @media only screen and (min-width: 425px) {
@@ -272,6 +279,9 @@ mobile first */
   .containerBuy {
     margin-top: -3vh !important;
   }
+  .candleContent {
+    margin-top: 2rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -282,10 +292,12 @@ mobile first */
     align-items: center;
     text-align: center;
     justify-content: center;
+    margin-right: 15vw !important;
   }
   .candleDescription {
     font-size: 1.3rem !important;
     margin-top: 15vh !important;
+    margin-left: -20vw !important;
   }
   .galleryBack {
     margin-left: -6vw;
@@ -313,13 +325,18 @@ mobile first */
   }
   .containerBuy {
     margin-top: -1vh !important;
-    margin-left: 5vw !important;
+    margin-left: 15vw !important;
+    width: 50vw;
+  }
+
+  .candleContent {
+    width: 60% !important;
   }
 }
-
 @media only screen and (min-width: 1024px) {
   .candleTitle {
     margin-top: 25vh !important;
+    margin-left: 15vw;
   }
   .galleryContainer {
     display: flex;
@@ -331,6 +348,7 @@ mobile first */
     margin-left: -70vw;
   }
   .mainImage {
+    margin-left: 30vw !important;
     width: 35vw !important;
     margin-bottom: 55vh !important;
   }
@@ -354,6 +372,15 @@ mobile first */
   .candleRetail {
     margin-left: 5vw !important;
   }
+  .containerBuy {
+    margin-top: -1vh !important;
+    margin-left: 5vw !important;
+    width: 80vw !important;
+  }
+  .submitButton {
+    margin-top: 0.5rem;
+    width: 15%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -373,6 +400,18 @@ mobile first */
   }
   .galleryForward {
     display: none !important;
+  }
+  .candleDescription {
+    width: 70vw !important;
+  }
+  .containerBuy {
+    margin-top: -1vh !important;
+    margin-left: 5vw !important;
+    width: 40vw !important;
+  }
+  .submitButton {
+    margin-top: 0.5rem;
+    width: 25%;
   }
 }
 
@@ -411,7 +450,8 @@ mobile first */
     margin-left: -15vw !important;
   }
   .submitButton {
-    margin-left: 5vw !important;
+    margin-left: 17.5vw !important;
+    width: 20%;
   }
 }
 
@@ -426,10 +466,13 @@ mobile first */
 
   .candleTitle {
     font-size: 2.5rem;
+    margin-left: 15rem;
   }
 
   .candleDescription {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    width: 80% !important;
+    margin-left: 5vw !important;
   }
 
   .containerBitsHeader {
@@ -442,5 +485,17 @@ mobile first */
 
   .candleRetail {
     font-size: 2.2rem;
+  }
+  .containerBuy {
+    margin-top: -1vh !important;
+    margin-left: 5vw !important;
+    width: 40vw !important;
+  }
+  .candleRetail {
+    margin-top: 1rem;
+  }
+  .submitButton {
+    margin-left: 5vw !important;
+    width: 15%;
   }
 }

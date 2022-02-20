@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
-import Logo from "../public/eon-logo.png";
-import MobileSummer from "../public/mobile-summer.png";
-import MobileDreams from "../public/mobile-dreams.png";
-import MobileLove from "../public/mobile-love.png";
-import MobileHappy from "../public/mobile-happy.png";
+import Logo from "../public/eon-logo.webp";
+import MobileSummer from "../public/mobile-summer.webp";
+import MobileDreams from "../public/mobile-dreams.webp";
+import MobileLove from "../public/mobile-love.webp";
+import MobileHappy from "../public/mobile-happy.webp";
 import Image from "next/image";
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
 import Leaf from "../public/linden-leaf.svg";
-import love from "../public/top-love.png";
-import dream from "../public/top-dream.png";
-import happy from "../public/top-happy.png";
-import summer from "../public/top-summer.png";
+import love from "../public/top-love.webp";
+import dream from "../public/top-dream.webp";
+import happy from "../public/top-happy.webp";
+import summer from "../public/top-summer.webp";
 
 export default function Home() {
   const [candle1, setCandle1] = useState(false);
@@ -114,8 +114,8 @@ export default function Home() {
                 src={Fire}
                 alt="flame icon"
                 className={styles.eonIcon}
-                width={100}
-                height={50}
+                width={80}
+                height={30}
                 priority
               />
             </div>
@@ -129,8 +129,8 @@ export default function Home() {
                 src={Earth}
                 alt="earth icon"
                 className={styles.eonIcon}
-                width={100}
-                height={50}
+                width={80}
+                height={30}
                 priority
               />
             </div>
@@ -144,8 +144,8 @@ export default function Home() {
                 src={Leaf}
                 alt="nature icon"
                 className={styles.eonIcon}
-                width={100}
-                height={50}
+                width={80}
+                height={30}
                 priority
               />
             </div>

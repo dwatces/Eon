@@ -11,10 +11,11 @@ import { products } from "../../components/products";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
-import altPicFlower from "../../public/Flower-Summer.png";
-import altPicCrystal from "../../public/crystal-summer.png";
-import altPicLit from "../../public/lit-summer.png";
-import mainPic from "../../public/lid-summer.png";
+import altPicFlower from "../../public/Flower-Summer.webp";
+import "react-image-lightbox/style.css";
+import altPicCrystal from "../../public/crystal-summer.webp";
+import altPicLit from "../../public/lit-summer.webp";
+import mainPic from "../../public/lid-summer.webp";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 

@@ -4,10 +4,10 @@ import Image from "next/image";
 import { BiMailSend } from "react-icons/bi";
 import styles from "../styles/Shop.module.css";
 import Layout from "../components/Layout";
-import dreams from "../public/lid-dreams.png";
-import happiness from "../public/lid-happiness.png";
-import love from "../public/lid-love.png";
-import summer from "../public/lid-summer.png";
+import dreams from "../public/lid-dreams.webp";
+import happiness from "../public/lid-happiness.webp";
+import love from "../public/lid-love.webp";
+import summer from "../public/lid-summer.webp";
 
 function Shop() {
   return (

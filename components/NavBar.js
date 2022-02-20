@@ -4,7 +4,7 @@ import { useShoppingCart } from "../hooks/use-shopping-cart";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Layout.module.css";
-import logo from "../public/eon-logo.png";
+import logo from "../public/eon-logo.webp";
 import { IoMdCart } from "react-icons/io";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";

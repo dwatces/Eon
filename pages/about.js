@@ -1,6 +1,6 @@
 import styles from "../styles/About.module.css";
 import Image from "next/image";
-import Crystal from "../public/crystals.png";
+import Crystal from "../public/crystals.webp";
 import Layout from "../components/Layout";
 
 const About = () => {
@@ -20,10 +20,10 @@ const About = () => {
             </h1>
             <p className={styles.crystalsText}>
               We&apos;re Kiwis that love to bring positive energies into all
-              lives. Our boutique candles are more than just pleasant scents. At
-              Eon, all our candles are handcrafted, combining both the energy of
-              crystals, and the natural world, to provide uplifting aromas for
-              peace, positivity and healing.
+              lives. Our boutique soy candles are more than just pleasant
+              scents. At Eon, all our candles are handcrafted, combining both
+              the energy of crystals, and the natural world, to provide
+              uplifting aromas for peace, positivity and healing.
             </p>
             <p className={styles.crystalsText}>
               Made in the earth eons ago, crystals carry an inate power to
@@ -33,7 +33,8 @@ const About = () => {
               pair each scent with a magically chosen crystal and natural
               accompaniment. Once light by fire, the energy released is
               amplified, in turn, enabling you to reach a higher level of being;
-              in which we must nurture to bring out our best selves.
+              in which we must nurture to bring out our best selves, order
+              online today!
             </p>
             <br />
           </div>

@@ -34,8 +34,8 @@ const Cart = () => {
           ) : (
             <>
               <h2>Your Shopping Cart is Empty</h2>
-              <p>
-                Check out our candles <Link href="/shop">here</Link>
+              <p className={styles.shopLink}>
+                <Link href="/shop">Check out our candles here</Link>
               </p>
             </>
           )}

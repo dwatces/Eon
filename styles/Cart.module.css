@@ -29,6 +29,13 @@
   margin-top: 2rem;
 }
 
+.shopLink {
+  text-align: center;
+  margin-top: 3rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .cartItemDetails {
   display: flex;
   flex-direction: column;
@@ -238,5 +245,12 @@
   }
   .buttonCheckout {
     font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .cartItemImage {
+    height: -4vh;
+    width: 5vw;
   }
 }

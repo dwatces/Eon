@@ -17,7 +17,7 @@ const Footer = () => (
       </div>
     </a>
 
-    <a
+    {/* <a
       href="https://instagram.com"
       target="_blank"
       rel="noopener noreferrer"
@@ -27,7 +27,7 @@ const Footer = () => (
       <div className={styles.socialButtonI}>
         <FaInstagram className={styles.iconI} />
       </div>
-    </a>
+    </a> */}
 
     <a
       href="http://eoncandles.co.nz/about#contact"

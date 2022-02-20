@@ -15,6 +15,7 @@
 .mailModal {
   width: 100vw;
   margin-top: 3vh !important;
+  margin-bottom: 3vh !important;
   max-width: 100%;
   float: right;
   height: 5vh;
@@ -110,7 +111,6 @@
 }
 
 .candleContainer {
-  margin-top: 8vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -128,6 +128,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: space-between;
+  border: 1px solid rgba(128, 128, 128, 0.281);
+  border-radius: 4rem;
 }
 
 .candlePic {
@@ -290,7 +292,7 @@
   }
 
   .candleChild {
-    height: 35vh !important;
+    height: 30vh !important;
     flex-direction: row !important;
   }
 
@@ -304,7 +306,7 @@
     height: 60rem !important;
     width: 90vw !important;
     flex-direction: row !important;
-    margin-top: 10vh !important;
+    margin-top: 15vh !important;
   }
 
   .candlePic {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import axios from "axios";
 import Link from "next/link";
+import "react-image-lightbox/style.css";
 import getStripe from "../../components/get-stripe";
 import Lightbox from "react-image-lightbox";
 import { ProductJsonLd } from "next-seo";
@@ -11,10 +12,10 @@ import { products } from "../../components/products";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
-import altPicFlower from "../../public/Flower-Happy2.png";
-import altPicCrystal from "../../public/Crystal-Happy.png";
-import altPicLit from "../../public/lit-happy.png";
-import mainPic from "../../public/lid-happiness.png";
+import altPicFlower from "../../public/Flower-Happy2.webp";
+import altPicCrystal from "../../public/Crystal-Happy.webp";
+import altPicLit from "../../public/lit-happy.webp";
+import mainPic from "../../public/lid-happiness.webp";
 
 const Happiness = () => {
   const images = [

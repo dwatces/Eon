@@ -1,9 +1,8 @@
 import "../styles/globals.css";
+import React, { lazy } from "react";
 import Script from "next/script";
 import Head from "next/head";
-import { DefaultSeo } from "next-seo";
 import { CartProvider } from "/hooks/use-shopping-cart";
-import "react-image-lightbox/style.css";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -12,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Eon Candles</title>
+        Content-Encoding: gzip | compress | deflate | br| identity
         <meta
           name="description"
           content="New Zealand handcrafted candles imbued with crystal and natural energy, promoting peaceful and positive vibes."
@@ -33,6 +33,11 @@ function MyApp({ Component, pageProps }) {
           key="viewport"
         />
         <link
+          rel="alternate"
+          hrefLang="en-nz"
+          href="https://eoncandles.co.nz"
+        />
+        <link
           rel="canonical"
           href="https://eoncandles.co.nz/shop"
           key="canonical"
@@ -44,19 +49,13 @@ function MyApp({ Component, pageProps }) {
           key="canonical"
           hrefLang="en-nz"
         />
-        <link
-          rel="canonical"
-          href="https://eoncandles.co.nz"
-          key="canonical"
-          hrefLang="en-nz"
-        />
-        <link rel="alternate" href="https://eoncandles.co.nz/" hrefLang="x" />
+        <link rel="alternate" hrefLang="x" href="https://eoncandles.co.nz/" />
       </Head>
       <script
-        async
+        defer
         src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
       ></script>
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script defer id="google-analytics" strategy="afterInteractive">
         {`
       window.dataLayer = window.dataLayer || [];
        function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
@@ -65,7 +64,7 @@ function MyApp({ Component, pageProps }) {
       </Script>
       <CartProvider>
         <NavBar />
-        <html lang="en-nz">
+        <html lang="en-NZ">
           <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
             <p style={{ display: "none" }}>
               Crystal Candles, candle with crystals
