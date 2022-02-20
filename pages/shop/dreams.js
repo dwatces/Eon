@@ -175,7 +175,12 @@ const Dreams = () => {
               Follow your dreams with our lavender, chamomile, and frankincense
               candle. Paired with the powerful energy of amethyst crystals to
               provide clarity of mind, and cornflowers to bring wealth and good
-              fortune.
+              fortune. Amethyst stones are a symbol of peace, of cleansing and
+              calming energies. The relaxing scent of this candle paired with
+              the clarity of mind form the amethyst crystals will help ground
+              you and help you focus on what really matters to you in life
+              whatever that may be. We truely believe this candle helps us reach
+              for the stars.
             </p>
           </div>
         </div>

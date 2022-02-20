@@ -51,17 +51,6 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="alternate" hrefLang="x" href="https://eoncandles.co.nz/" />
       </Head>
-      <script
-        defer
-        src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
-      ></script>
-      <Script defer id="google-analytics" strategy="afterInteractive">
-        {`
-      window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-      gtag('config', 'UA-219103442-1');
-    `}
-      </Script>
       <CartProvider>
         <NavBar />
         <html lang="en-NZ">
@@ -72,6 +61,17 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
             <Footer />
           </body>
+          <script
+            defer
+            src="https://www.googletagmanager.com/gtag/js?id=UA-219103442-1"
+          ></script>
+          <Script defer id="google-analytics" strategy="afterInteractive">
+            {`
+      window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+      gtag('config', 'UA-219103442-1');
+    `}
+          </Script>
         </html>
       </CartProvider>
     </>

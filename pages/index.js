@@ -152,14 +152,16 @@ export default function Home() {
           </div>
           <div className={styles.eonText}>
             <p id="oneness" className={(styles.eonPara, styles.hover)}>
-              Crystals have been used in traditions, dating back millennia, to
-              amplify the positive energy in our lives and ward against the
-              negative. The power of crystals release fear, ground us from our
-              daily anxieties, and bring good fortune. That&apos;s why here at
-              Eon, we seamlessly blend elegance throughout our 100% natural soy
-              wax, hand poured candles. Each luxuriously scented candle is
-              paired with a special crystal and natural accompaniment to
-              maximise their power.
+              Crystals have been used in traditions dating back millennia for
+              their powerful ability to amplify the positive energies in our
+              lives and ward against negative. Crystals have the power to allow
+              us to release our fears, ground us from our daily anxieties, and
+              bring us good fortune. That's why here at Eon, our 100% natural,
+              soy wax, hand poured candles are paired with a specially selected,
+              powerful crystals and a natural accompaniments to spread the power
+              of crystals throughout your home. Each candle scent is a seamless
+              blend of natural ingredients that create a luxurious, relaxing,
+              and endlessly enjoyable scent that you will love.
             </p>
             <p
               id="nature"
@@ -167,22 +169,25 @@ export default function Home() {
             >
               Our modern lives are so busy; we rarely take time to pause,
               breath, and reconnect with the energies of the universe. We are
-              all one, with each other, with the Earth, and beyond. Crystals are
-              ancient, formed in the earth eons ago. Using their power we can
-              reconnect with the universe that created us. We believe the simple
-              act of taking the time to light one of our candles and enjoy their
-              scent, will allow the mind to calm. This process of mindfulness
-              may open you to receive the positive energies that are all around
-              us.
+              all one with each other, with the Earth, and greater universe
+              beyond. Crystals are ancient, formed in the earth eons ago; using
+              their power we can reconnect with the universe that created us. We
+              believe the simple act of taking a moment to slow down, light a
+              candle, breath deeply, and relax into the the candles' peace
+              promoting scent allows the mind to calm and reconnect with the
+              energies of the universe. This process of mindfulness opens you to
+              receive the positive energies that are all around us just waiting
+              to be received.
             </p>
             <p className={(styles.eonPara, styles.hover)}>
               We all desire a deeper connection with the natural world, and have
-              the honour and duty to protect it. That&apos;s why each of our
-              candles come with a delicately chosen natural accompaniment to
-              amplify the power of the candle and bring us closer to nature. We
-              never contribute to landfills. All our NZ packaging is plastic
-              free and biodegradable. The petite candle tins are also re-usable!
-              They make excellent storage for crystals, trinkets, or keep sakes.
+              the honour and duty to protect it. That's why each of our candles
+              come with a delicately chosen natural accompaniment to amplify the
+              power of the candle and bring us closer to nature. We never
+              contribute to landfills, all our NZ packaging is plastic free and
+              biodegradable. The petite candle tins are also re-usable! They
+              make excellent storage for crystals, trinkets, or keep sakes after
+              your candle has been enjoyed.
             </p>
           </div>
           <div className={(styles.row, styles.DesktopTop)}>

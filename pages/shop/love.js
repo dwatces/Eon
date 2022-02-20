@@ -180,8 +180,17 @@ const Love = () => {
                 )}
               </div>
               Our rose otto, ylang ylang, orange, and patchouli scented candle
-              not only smells divine, but is precisely paired with rose quartz
-              chips and rose bud to amplify and attract love in your life.
+              smells divine and has been precisely paired with rose quartz chips
+              and rose buds to amplify and attract love into your life. Rose
+              Quartz is a very popular crystal, and one of our favourites for
+              its powerful and varied benefits. Rose Quartz is calming;
+              providing a reassuring and gentle atmosphere to any room. Rose
+              quartz promotes love, friendship, healing and deep inner peace but
+              most importantly, rose quartz has the powerful ability to dispel
+              negativity and replace it with positive energies. This is why we
+              chose to imbue our rose otto, ylang ylang, orange, and patchouli
+              crystal with rose quarts, we truely believe it will amplify the
+              loves in your life to new heights!
             </p>
           </div>
         </div>

@@ -61,7 +61,7 @@
 }
 
 .envText {
-  margin-top: 15rem;
+  margin-top: 20vh !important;
   text-align: center;
   line-height: 1.5rem;
   font-size: 1.3rem;
@@ -177,7 +177,7 @@
     line-height: 1.8rem !important;
   }
   .envText {
-    margin-top: 30rem !important;
+    margin-top: 40rem !important;
     margin-left: 2rem !important;
     font-size: 1rem !important;
     line-height: 2rem !important;
@@ -191,7 +191,7 @@
   }
   .contactBox {
     margin-left: 14rem;
-    margin-top: 30rem !important;
+    margin-top: 45rem !important;
     margin-bottom: -5rem;
   }
   .crystalImg {
@@ -215,11 +215,11 @@
   .crystalsText {
     margin-left: 7.5rem !important;
     font-size: 1rem !important;
-    width: 55% !important;
+    width: 60% !important;
     line-height: 1.8rem !important;
   }
   .envText {
-    margin-top: 20rem !important;
+    margin-top: 30rem !important;
     margin-left: 2.5rem !important;
     font-size: 1.1rem !important;
     padding-bottom: 1rem !important;
@@ -240,8 +240,8 @@
   }
   .contactBox {
     margin-left: 15rem;
-    margin-top: 30rem !important;
-    margin-bottom: 10rem;
+    margin-top: 40rem !important;
+    margin-bottom: -5rem;
   }
 }
 
@@ -319,7 +319,7 @@
     font-size: 1.3rem !important;
   }
   .contactBox {
-    margin-top: -7.5rem !important;
+    margin-top: 5rem !important;
     margin-left: 25rem;
     margin-bottom: -10rem;
   }

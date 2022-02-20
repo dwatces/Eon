@@ -204,7 +204,8 @@
   }
   .candleChild {
     flex-direction: column !important;
-    height: 29vh !important;
+    height: 30vh !important;
+    border: none !important;
   }
   .candleDetail {
     font-size: 0.8rem;

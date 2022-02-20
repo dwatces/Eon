@@ -155,7 +155,7 @@
 mobile first */
 @media only screen and (min-width: 320px) {
   .galleryContainer {
-    margin-top: 5vh;
+    margin-top: 2vh;
   }
   .candleSize {
     display: none !important;
@@ -165,7 +165,8 @@ mobile first */
     display: inline-block !important;
   }
   .galleryBack {
-    margin-left: -5vw;
+    margin-top: -0.5rem !important;
+    margin-left: -6vw;
     margin-bottom: -10vh !important;
     font-size: 1.6rem;
   }
@@ -179,7 +180,7 @@ mobile first */
   .mainImage {
     margin-right: 5vw !important;
     margin-left: 20vw !important;
-    margin-bottom: 52.5vh !important;
+    margin-bottom: 50vh !important;
     width: 65vw !important;
   }
   .candleContent {
@@ -196,7 +197,7 @@ mobile first */
     margin-right: 5vw !important;
   }
   .candleDescription {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-top: 25vh !important;
     margin-left: -23vw !important;
     width: 90vw !important;
@@ -216,7 +217,7 @@ mobile first */
     margin-left: -20vw !important;
   }
   .candleQuantity {
-    margin-top: 1.2rem !important;
+    margin-top: 1rem !important;
     font-size: 0.9rem;
   }
   .candlePrice {
@@ -268,7 +269,7 @@ mobile first */
     margin-bottom: -11vh !important;
   }
   .candleDescription {
-    font-size: 1.25rem !important;
+    font-size: 1rem !important;
   }
   .candleRetail {
     margin-left: -15vw !important;
@@ -295,7 +296,7 @@ mobile first */
     margin-right: 15vw !important;
   }
   .candleDescription {
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important;
     margin-top: 15vh !important;
     margin-left: -20vw !important;
   }

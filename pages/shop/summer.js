@@ -173,7 +173,14 @@ const Summer = () => {
               </div>
               Bring on the summer vibes with our coconut, mango, and lime
               scented candle. Paired with both aventurine crystal shards for
-              good blessings and lavender flowers for peace and grace.
+              good blessings and lavender flowers for peace and grace. This
+              candle smells like summers by the beach, the scent will bring you
+              back to good times in the sun with family and friends and the
+              powerful adventurine crystal shards will help you seize the day.
+              Adventurine is a stone of positive prosperity, it promotes
+              compassion, leadership and perseverance by amplifying the natural
+              strengths within you. It also helps you let go of negative
+              emotions and focus on the positives.
             </p>
           </div>
         </div>

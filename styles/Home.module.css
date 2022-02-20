@@ -210,7 +210,7 @@
   .eonText {
     flex-direction: column !important;
     font-size: 1rem !important;
-    height: 70rem !important;
+    height: 87.5rem !important;
     margin-bottom: 15rem !important;
   }
   .row {
@@ -228,7 +228,7 @@
 
 @media screen and (min-width: 375px) {
   .eonText {
-    height: 62.5rem !important;
+    height: 70rem !important;
     margin-bottom: 15rem !important;
   }
   .rowItem {
@@ -253,7 +253,7 @@
     flex-direction: column !important;
     font-size: 1.05rem !important;
     margin-bottom: 10rem;
-    height: 60rem !important;
+    height: 65rem !important;
     margin-bottom: 10rem !important;
     margin-top: 2rem !important;
   }
@@ -300,7 +300,7 @@
   }
   .eonText {
     font-size: 1.2rem !important;
-    height: 45rem !important;
+    height: 60rem !important;
     margin-bottom: -1rem !important;
     line-height: 2rem !important;
   }
@@ -342,6 +342,7 @@
   .eonText {
     height: 40rem !important;
     font-size: 1.25rem !important;
+    height: 50rem !important;
   }
   .DesktopTop {
     margin-top: 15vh;
@@ -361,7 +362,7 @@
     font-size: 1.3rem !important;
     line-height: 2.2rem !important;
     width: 85vw !important;
-    height: 60vh !important;
+    height: 70vh !important;
   }
   .row {
     margin-bottom: 10rem !important;

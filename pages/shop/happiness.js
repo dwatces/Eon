@@ -167,7 +167,11 @@ const Happiness = () => {
               good in life with the beautiful scents of wild orange, clary sage,
               and lemon. This candle comes paired with citrine chips that
               channel happiness, and jasmine flower petals for clarity and
-              perspective.
+              perspective. Citrine is a powerful crystal with a deep, cheerful
+              colouring, it promotes optimism, happiness and it is believed to
+              manifest financial good fortunes. The sight and scents of this
+              candle will help you appreciate the little things and spread cheer
+              and happiness throughout your home and life.
             </p>
           </div>
         </div>
