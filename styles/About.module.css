@@ -12,10 +12,8 @@
 
 .crystalHeader {
   margin-top: 15rem !important;
-  display: flex;
+  display: block;
   margin-top: 12rem;
-  text-align: center !important;
-  width: 100vw !important;
   margin-bottom: 2rem !important;
 }
 

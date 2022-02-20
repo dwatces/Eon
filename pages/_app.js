@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
       <CartProvider>
         <NavBar />
         <html lang="en-NZ">
-          <body styles={{ maxWidth: "100%", width: "100vw", height: "100vh" }}>
+          <body styles={{ width: "100vw", height: "100vh" }}>
             <p style={{ display: "none" }}>
               Crystal Candles, candle with crystals
             </p>

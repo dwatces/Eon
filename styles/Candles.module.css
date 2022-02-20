@@ -1,5 +1,4 @@
 .main {
-  max-height: 100vh;
   max-width: 100vw;
   overflow: hidden;
 }
@@ -217,8 +216,9 @@ mobile first */
     margin-left: -20vw !important;
   }
   .candleQuantity {
-    margin-top: 1rem !important;
+    margin-top: 1.2rem !important;
     font-size: 0.9rem;
+    margin: 0.2rem;
   }
   .candlePrice {
     margin-right: 20vw !important;
@@ -283,6 +283,9 @@ mobile first */
   .candleContent {
     margin-top: 2rem;
   }
+  .candleQuantity {
+    margin: 1rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -329,7 +332,9 @@ mobile first */
     margin-left: 15vw !important;
     width: 50vw;
   }
-
+  .candleQuantity {
+    margin: -0.1rem;
+  }
   .candleContent {
     width: 60% !important;
   }
@@ -382,8 +387,11 @@ mobile first */
     margin-top: 0.5rem;
     width: 15%;
   }
+  .continueStripe {
+    margin-top: 0.5rem;
+    margin-left: 5vw;
+  }
 }
-
 @media only screen and (min-width: 1200px) {
   .mainImage {
     width: 30vw !important;
@@ -420,6 +428,9 @@ mobile first */
   .mainImage {
     width: 25vw !important;
     margin-bottom: 57.5vh !important;
+  }
+  .candleQuantity {
+    margin: 1rem;
   }
 }
 
