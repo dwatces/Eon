@@ -285,6 +285,7 @@ mobile first */
   }
   .candleQuantity {
     margin: 1rem;
+    width: 5%;
   }
 }
 
