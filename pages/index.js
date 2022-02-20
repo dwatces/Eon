@@ -156,12 +156,12 @@ export default function Home() {
               their powerful ability to amplify the positive energies in our
               lives and ward against negative. Crystals have the power to allow
               us to release our fears, ground us from our daily anxieties, and
-              bring us good fortune. That's why here at Eon, our 100% natural,
-              soy wax, hand poured candles are paired with a specially selected,
-              powerful crystals and a natural accompaniments to spread the power
-              of crystals throughout your home. Each candle scent is a seamless
-              blend of natural ingredients that create a luxurious, relaxing,
-              and endlessly enjoyable scent that you will love.
+              bring us good fortune. That&apos;s why here at Eon, our 100%
+              natural, soy wax, hand poured candles are paired with a specially
+              selected, powerful crystals and a natural accompaniments to spread
+              the power of crystals throughout your home. Each candle scent is a
+              seamless blend of natural ingredients that create a luxurious,
+              relaxing, and endlessly enjoyable scent that you will love.
             </p>
             <p
               id="nature"
@@ -173,7 +173,7 @@ export default function Home() {
               beyond. Crystals are ancient, formed in the earth eons ago; using
               their power we can reconnect with the universe that created us. We
               believe the simple act of taking a moment to slow down, light a
-              candle, breath deeply, and relax into the the candles' peace
+              candle, breath deeply, and relax into the the candles&apos; peace
               promoting scent allows the mind to calm and reconnect with the
               energies of the universe. This process of mindfulness opens you to
               receive the positive energies that are all around us just waiting
@@ -181,13 +181,13 @@ export default function Home() {
             </p>
             <p className={(styles.eonPara, styles.hover)}>
               We all desire a deeper connection with the natural world, and have
-              the honour and duty to protect it. That's why each of our candles
-              come with a delicately chosen natural accompaniment to amplify the
-              power of the candle and bring us closer to nature. We never
-              contribute to landfills, all our NZ packaging is plastic free and
-              biodegradable. The petite candle tins are also re-usable! They
-              make excellent storage for crystals, trinkets, or keep sakes after
-              your candle has been enjoyed.
+              the honour and duty to protect it. That&apos;s why each of our
+              candles come with a delicately chosen natural accompaniment to
+              amplify the power of the candle and bring us closer to nature. We
+              never contribute to landfills, all our NZ packaging is plastic
+              free and biodegradable. The petite candle tins are also re-usable!
+              They make excellent storage for crystals, trinkets, or keep sakes
+              after your candle has been enjoyed.
             </p>
           </div>
           <div className={(styles.row, styles.DesktopTop)}>

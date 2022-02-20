@@ -18,7 +18,7 @@ const About = () => {
               </a>
             </h1>
             <p className={styles.crystalsText}>
-              We're Kiwis that love to bring positive energies into all lives.
+              We&apos;re Kiwis that love to bring positive energies into all lives.
               Our boutique candles are more than just pleasant scents. At Eon,
               all our candles are handcrafted, combining both the energy of
               crystals, and the natural world, to provide uplifting aromas for
@@ -52,7 +52,7 @@ const About = () => {
         <br />
         <div className={styles.nzNatural}>
           <p className={styles.envText}>
-            We love our planet, and our clean, green country that's why our
+            We love our planet, and our clean, green country that&apos;s why our
             candles are made of vegan soy wax, and we ship all our candles in
             recyclable and bio-degradeable packaging. Cardboard boxes filled
             with natural wood wool, wrapped in a compostable bag keeps your
