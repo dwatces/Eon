@@ -163,10 +163,7 @@ export default function Home() {
               seamless blend of natural ingredients that create a luxurious,
               relaxing, and endlessly enjoyable scent that you will love.
             </p>
-            <p
-              id="nature"
-              className={(styles.eonPara, styles.lastPara, styles.hover)}
-            >
+            <p id="nature" className={(styles.eonPara, styles.hover)}>
               Our modern lives are so busy; we rarely take time to pause,
               breath, and reconnect with the energies of the universe. We are
               all one with each other, with the Earth, and greater universe
@@ -190,6 +187,10 @@ export default function Home() {
               after your candle has been enjoyed.
             </p>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
           <div className={(styles.row, styles.DesktopTop)}>
             <Link href="/shop/love" passHref>
               <div className={styles.rowItem}>
@@ -197,8 +198,8 @@ export default function Home() {
                   src={love}
                   alt="topdown love"
                   className={styles.eonCandle}
-                  width={350}
-                  height={250}
+                  width={700}
+                  height={600}
                   responsive="true"
                   onMouseEnter={(e) => {
                     setCandle1(true);
@@ -215,8 +216,8 @@ export default function Home() {
                   src={happy}
                   alt="topdown happy"
                   className={styles.eonCandle}
-                  width={350}
-                  height={250}
+                  width={700}
+                  height={600}
                   onMouseEnter={(e) => {
                     setCandle2(true);
                   }}
@@ -232,8 +233,8 @@ export default function Home() {
                   src={dream}
                   alt="topdown dream"
                   className={styles.eonCandle}
-                  width={350}
-                  height={250}
+                  width={700}
+                  height={600}
                   onMouseEnter={(e) => {
                     setCandle3(true);
                   }}
@@ -249,8 +250,8 @@ export default function Home() {
                   src={summer}
                   alt="topdown summer"
                   className={styles.eonCandle}
-                  width={350}
-                  height={250}
+                  width={700}
+                  height={600}
                   onMouseEnter={(e) => {
                     setCandle4(true);
                   }}

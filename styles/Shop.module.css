@@ -243,6 +243,9 @@
     margin-top: -8rem !important;
     height: 3.2rem !important;
   }
+  .message {
+    margin-top: 1.5rem !important;
+  }
   .spamFirst {
     display: unset !important;
   }
@@ -280,6 +283,7 @@
   .message {
     margin-left: 25vw;
     font-size: 1rem;
+    margin-top: unset !important;
   }
   .mailModal {
     height: 2.5rem !important;
@@ -516,6 +520,9 @@
 }
 
 @media only screen and (min-width: 2500px) {
+  .mailModal {
+    margin-top: -4rem !important;
+  }
   .emailButton {
     margin-left: 10vw !important;
   }

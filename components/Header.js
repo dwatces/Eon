@@ -10,7 +10,7 @@ const Header = () => (
         <Image
           src={backgroundImg}
           alt="hero banner"
-          width={2000}
+          width={2200}
           height={600}
           layout="responsive"
           className={styles.header}

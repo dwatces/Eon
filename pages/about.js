@@ -1,5 +1,4 @@
 import styles from "../styles/About.module.css";
-import Image from "next/image";
 import Layout from "../components/Layout";
 
 const About = () => {
@@ -18,9 +17,9 @@ const About = () => {
               </a>
             </h1>
             <p className={styles.crystalsText}>
-              We&apos;re Kiwis that love to bring positive energies into all lives.
-              Our boutique candles are more than just pleasant scents. At Eon,
-              all our candles are handcrafted, combining both the energy of
+              We&apos;re Kiwis that love to bring positive energies into all
+              lives. Our boutique candles are more than just pleasant scents. At
+              Eon, all our candles are handcrafted, combining both the energy of
               crystals, and the natural world, to provide uplifting aromas for
               peace, positivity and healing. Our scents are made using all
               natural ingredients chosen with love and care to create beautiful

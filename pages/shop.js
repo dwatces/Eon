@@ -65,7 +65,6 @@ function Shop() {
               </div>
             </div>
           </Link>
-
           <Link href="/shop/happiness" passHref>
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>

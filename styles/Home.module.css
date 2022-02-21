@@ -207,6 +207,10 @@
   .lastPara {
     margin-top: -5rem !important;
   }
+
+  .DesktopTop {
+    margin-bottom: 30vh !important;
+  }
   .eonText {
     flex-direction: column !important;
     font-size: 1rem !important;
