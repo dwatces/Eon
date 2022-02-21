@@ -242,6 +242,9 @@
 }
 
 @media screen and (min-width: 425px) {
+  .eonText {
+    height: 80rem !important;
+  }
   .eonContainer {
     flex-direction: row !important;
   }

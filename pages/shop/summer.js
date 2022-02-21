@@ -5,6 +5,7 @@ import Link from "next/link";
 import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
+import Head from 'next/head'
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
@@ -72,6 +73,10 @@ const Summer = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Summer</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>

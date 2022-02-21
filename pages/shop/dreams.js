@@ -5,6 +5,7 @@ import Link from "next/link";
 import "react-image-lightbox/style.css";
 import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
+import Head from 'next/head'
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
@@ -73,6 +74,10 @@ const Dreams = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Dreams</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
@@ -82,8 +87,7 @@ const Dreams = () => {
                 alt="dreams flower"
                 className={styles.candleSize}
                 responsive="true"
-                priority
-              />
+                priority />
             </button>
           </div>
           <div className={styles.galleryImage}>
@@ -93,8 +97,7 @@ const Dreams = () => {
                 alt="dreams lit"
                 className={styles.candleSize}
                 responsive="true"
-                priority
-              />
+                priority />
             </button>
           </div>
           <h1 style={{ display: "none" }}>Crystal Candle Dreams</h1>
@@ -105,8 +108,7 @@ const Dreams = () => {
                 alt="dreams crystal"
                 className={styles.candleSize}
                 responsive="true"
-                priority
-              />
+                priority />
             </button>
           </div>
         </div>
@@ -114,21 +116,18 @@ const Dreams = () => {
           <div className={styles.mainImage}>
             <IoIosArrowBack
               onClick={open}
-              className={(styles.mobileGallery, styles.galleryBack)}
-            />
+              className={(styles.mobileGallery, styles.galleryBack)} />
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
                 src={mainPic}
                 alt="dreams main"
                 className={styles.candleMain}
                 responsive="true"
-                priority
-              />
+                priority />
             </button>
             <IoIosArrowForward
               onClick={open}
-              className={(styles.mobileGallery, styles.galleryForward)}
-            />
+              className={(styles.mobileGallery, styles.galleryForward)} />
           </div>
         </div>
         <div className={styles.candleContent}>
@@ -191,11 +190,12 @@ const Dreams = () => {
             prevSrc={images[(photoIndex + images.length - 1) % images.length]}
             onCloseRequest={() => setIsOpen(false)}
             onMovePrevRequest={() => setPhotoIndex(0)}
-            onMoveNextRequest={() => setPhotoIndex(photoIndex + 1)}
-          />
+            onMoveNextRequest={() => setPhotoIndex(photoIndex + 1)} />
         )}
       </main>
-    </Layout>
+
+    </Layout >
+
   );
 };
 

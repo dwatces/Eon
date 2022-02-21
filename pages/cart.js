@@ -75,6 +75,7 @@ const Cart = () => {
             <p className={styles.proceed}>
               Click below to proceed to Stripe to complete your order:
             </p>
+            <p>(Please note this may take a few seconds)</p>
             <div className={styles.cartCheckout}>
               <button
                 className={styles.buttonCheckout}

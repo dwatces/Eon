@@ -246,6 +246,9 @@ mobile first */
   .galleryForward {
     margin-bottom: 8vh !important;
   }
+  .galleryBack {
+    margin-top: 8vh !important;
+  }
   .candleDescription {
     font-size: 1.1rem !important;
     width: 90vw !important;
@@ -286,6 +289,12 @@ mobile first */
   .candleQuantity {
     margin: 1rem;
     width: 5%;
+  }
+}
+
+@media only screen and (min-width: 426px) {
+  .galleryBack {
+    margin-bottom: 9.5vh !important;
   }
 }
 

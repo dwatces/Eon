@@ -8,6 +8,7 @@ import MobileDreams from "../public/mobile-dreams.webp";
 import MobileLove from "../public/mobile-love.webp";
 import MobileHappy from "../public/mobile-happy.webp";
 import Image from "next/image";
+import Head from 'next/head'
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
 import Leaf from "../public/linden-leaf.svg";
@@ -25,6 +26,11 @@ export default function Home() {
   return (
     <>
       <LandingLayout>
+        <Head>
+          <title>Eon | Home</title>
+          <meta name="description" content="Eon is a candle shop in the heart of the city of Auckland. We offer a wide range of candles, including our own vegan soy wax handmade candles, imbued with crystal and natural elements to increase the candles power!" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
         <main className={styles.main}>
           <div className={styles.eonL}>
             <h1 className={(styles.logo, styles.desktopLogo)}>

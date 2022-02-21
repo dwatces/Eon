@@ -1,9 +1,15 @@
 import styles from "../styles/About.module.css";
 import Layout from "../components/Layout";
+import Head from 'next/head'
 
 const About = () => {
   return (
     <Layout>
+      <Head>
+        <title>About Page</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="This is the about page for eon candles, describing our methods and beliefs" />;
+      </Head>
       <main className={styles.main}>
         <div className={styles.crystals}>
           <div className={styles.crystalHeaderText}>

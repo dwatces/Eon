@@ -3,6 +3,7 @@ import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import Head from 'next/head'
 import getStripe from "../../components/get-stripe";
 import "react-image-lightbox/style.css";
 import { ProductJsonLd } from "next-seo";
@@ -73,6 +74,10 @@ const Love = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Love</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Head from 'next/head'
 import Image from "next/image";
 import { BiMailSend } from "react-icons/bi";
 import styles from "../styles/Shop.module.css";
@@ -11,7 +12,13 @@ import summer from "../public/lid-summer.webp";
 
 function Shop() {
   return (
+
     <Layout>
+      <Head>
+        <title>Candle Shop</title>
+        <meta name="description" content="Shop for Eons candle products" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <main className={styles.main}>
         <div className={styles.mailModal}>
           <p className={styles.message}>
