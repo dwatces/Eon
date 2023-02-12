@@ -31,7 +31,6 @@ function Shop() {
           <form
             action="https://eoncandles.us20.list-manage.com/subscribe/post?u=ede5da5ded002e22cfde82864&amp;id=f5e61a041d"
             method="post"
-            w
             id="mc-embedded-subscribe-form"
             name="mc-embedded-subscribe-form"
             className={styles.validate}
