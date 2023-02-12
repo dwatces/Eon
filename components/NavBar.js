@@ -6,8 +6,8 @@ import Link from "next/link";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.webp";
 import { IoMdCart } from "react-icons/io";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
