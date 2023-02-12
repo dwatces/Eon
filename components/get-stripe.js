@@ -5,7 +5,7 @@ let stripePromise = null;
 const getStripe = async () => {
   if (!stripePromise) {
     stripePromise = await loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+      pk_live_51KE0EfIILjXbtSkj5J1V7alYhwwpzCnHeF4zx8M5JKUZ0ksN4MKbglfxvoGXJdh5YCdkGKjPEGrKf3gLoLuIROWD00kFMnNZti
     );
   }
   return stripePromise;
