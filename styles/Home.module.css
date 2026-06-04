@@ -1,395 +1,185 @@
+/* ============================================================
+   Home / landing
+   ============================================================ */
+
 .main {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
+/* ---------- Brand intro ---------- */
 .eonL {
-  text-align: center;
-  background: none !important;
-}
-
-.eonContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  width: 100vw;
-}
-
-.eonLink {
-  margin-top: 1rem;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) 1.5rem 0;
   text-align: center;
 }
 
 .logo {
+  display: flex;
   justify-content: center;
-  width: 100vw;
-  height: 5vh;
+  margin: 0 auto;
 }
 
-.eonTitle {
-  margin-top: 0.5rem !important;
-  width: 4.5em !important;
-  height: 2rem !important;
-  color: #424242;
-  display: inline-block;
+.eonLogo {
+  width: auto;
+  height: auto;
 }
 
-.eonIcon {
-  margin-left: -0.5rem !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  width: 4.5rem !important;
-  height: 2.3rem !important;
-}
-
-.eonIcon:hover {
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
+.tagline {
+  max-width: 34ch;
+  margin: 1.25rem auto 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .underline {
-  margin-left: 5vw;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  width: 90vw;
-  border-bottom: 2px solid black;
+  width: 64px;
+  height: 2px;
+  margin: 1.75rem auto 0;
+  background: var(--terracotta);
+  border: none;
+  border-radius: 2px;
 }
 
-.mobileTop {
-  display: none !important;
+/* ---------- Pillars: Energy / Oneness / Nature ---------- */
+.eonContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  max-width: var(--container);
+  margin: clamp(2.75rem, 6vw, 4.5rem) auto 0;
+  padding: 0 1.5rem;
 }
 
-.midsec {
-  margin-top: 1rem;
-  margin-left: 3.5rem;
+.eonLink {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 2.25rem 1.25rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
+.eonLink:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.eonTitle {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.eonIcon {
+  width: 2.75rem !important;
+  height: 2.75rem !important;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* ---------- Philosophy ---------- */
 .eonText {
   display: flex;
-  justify-content: space-between;
-  align-items: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 720px;
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding: 0 1.5rem;
   text-align: center;
-  font-size: 1.1rem;
-  width: 100vw;
-  height: 20vh;
-  line-height: 1.5rem !important;
-  transition: 1s;
 }
 
 .eonPara {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: rgba(56, 55, 55, 0.767);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
 }
 
-.animateEon {
-  display: inline-block;
-  -webkit-transition: all 700ms ease;
-  transition: all 700ms ease;
-  cursor: pointer;
-  text-align: center;
-  letter-spacing: 2px;
-  color: black;
-}
-
+/* neutralise the old jumpy hover animation */
 .hover {
-  margin-left: 2rem !important;
-  margin-right: 3rem !important;
-  margin-top: 1rem !important;
-  height: 20vh !important;
   position: relative;
-  transition-duration: 0.3s;
-  transition-property: transform;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  transform: translateZ(0);
 }
-.hover:before {
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  content: "";
-  top: 100%;
-  height: 15px;
+
+/* ---------- Product showcase ---------- */
+.showcaseHeading {
+  display: none;
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  text-align: center;
+}
+
+.mobileTop,
+.DesktopTop {
   width: 100%;
-  opacity: 0;
-  transition-duration: 0.3s;
-  transition-property: transform opacity;
+  max-width: var(--container);
+  margin: clamp(1.75rem, 4vw, 2.5rem) auto clamp(2.5rem, 6vw, 4rem);
+  padding: 0 1.5rem;
+  gap: 1.25rem;
 }
-.hover:hover {
-  transform: translateY(-6px);
-  animation-name: hover;
-  animation-duration: 1.5s;
-  animation-delay: 0.3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  font-weight: 600;
+
+/* mobile: 2-up grid near top */
+.mobileTop {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
-.hover:hover:before {
-  opacity: 0.6;
-  transform: translateY(6px);
-  animation-name: shadow;
-  animation-duration: 1.5s;
-  animation-delay: 0.3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+
+/* desktop showcase hidden until wide */
+.DesktopTop {
+  display: none;
 }
 
 .rowItem {
-  width: 25vw !important;
-  margin-left: 2vw;
-  margin-right: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
+  transition: transform 0.25s var(--ease);
+}
+
+.rowItem:hover {
+  transform: translateY(-4px);
 }
 
 .eonCandle {
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  border-radius: var(--radius-sm);
 }
 
-.eonCandle:hover {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-.candleDescription {
-  font-size: 1.2rem;
-}
-
-.veganWax {
-  font-weight: 300;
-}
-
-@media screen and (min-width: 320px) {
+/* ---------- Breakpoint ---------- */
+@media (min-width: 761px) {
   .eonContainer {
-    flex-direction: row !important;
+    gap: 1.75rem;
   }
-  .eonLink {
-    margin-left: 1rem;
-  }
-  .eonL {
-    margin-top: -5vh !important;
-  }
+
   .mobileTop {
-    display: flex !important;
-    flex: 1;
-    flex-wrap: wrap !important;
-  }
-  .rowItem {
-    margin-left: 0.5rem;
-    width: 9rem !important;
-  }
-  .DesktopTop {
-    display: none !important;
-  }
-  .eonTitle {
-    width: 5rem !important;
-    font-size: 1.3rem !important;
-    margin-top: -2rem !important;
-  }
-  .eonIcon {
-    display: none !important;
-  }
-  .lastPara {
-    margin-top: -5rem !important;
+    display: none;
   }
 
   .DesktopTop {
-    margin-bottom: 30vh !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
-  .eonText {
-    flex-direction: column !important;
-    font-size: 1rem !important;
-    height: 87.5rem !important;
-    margin-bottom: 15rem !important;
-  }
-  .row {
-    padding-bottom: 0 !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: space-between !important;
-    flex: 1 !important;
-    width: 80vw !important;
-    flex-wrap: wrap;
-    margin-bottom: 7rem;
-    line-height: 5rem !important;
+
+  .showcaseHeading {
+    display: block;
   }
 }
 
-@media screen and (min-width: 375px) {
-  .eonText {
-    height: 70rem !important;
-    margin-bottom: 15rem !important;
-  }
-  .rowItem {
-    width: 10rem !important;
-    margin-left: 1rem;
-  }
-}
-
-@media screen and (min-width: 425px) {
-  .eonText {
-    height: 80rem !important;
-  }
+@media (max-width: 600px) {
   .eonContainer {
-    flex-direction: row !important;
-  }
-  .eonL {
-    margin-top: -10vh !important;
-  }
-  .eonTitle {
-    font-size: 1.4rem !important;
-    width: 7rem !important;
-    height: 1rem !important;
-  }
-  .eonText {
-    flex-direction: column !important;
-    font-size: 1.05rem !important;
-    margin-bottom: 10rem;
-    height: 65rem !important;
-    margin-bottom: 10rem !important;
-    margin-top: 2rem !important;
-  }
-  .eonIcon {
-    display: none !important;
-  }
-  .rowItem {
-    width: 12rem !important;
-    margin-left: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .eonL {
-    margin-top: 5vh !important;
-  }
-  .DesktopTop {
-    display: flex !important;
-    margin-top: 20vh;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 20vh;
-    width: 100vw;
-    height: 26vh;
-    display: flex;
-    align-items: space-between;
-    justify-content: space-between;
-    text-align: center;
-  }
-  .rowItem {
-    width: 25vw !important;
-    margin-left: 2vw !important;
-    margin-right: 2vw !important;
-    cursor: pointer !important;
-  }
-  .mobileTop {
-    display: none !important;
-  }
-  .eonIcon {
-    display: unset !important;
-  }
-  .eonTitle {
-    font-size: 1.5rem !important;
-  }
-  .eonText {
-    font-size: 1.2rem !important;
-    height: 60rem !important;
-    margin-bottom: -1rem !important;
-    line-height: 2rem !important;
-  }
-  .row {
-    margin-top: 10rem !important;
-    padding-bottom: 0 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: space-between !important;
-    width: 100vw !important;
-    flex-wrap: wrap !important;
-    margin-bottom: 7rem;
-    line-height: 5rem !important;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .eonTitle {
-    font-size: 1.7rem !important;
-  }
-  .eonText {
-    line-height: 2.5rem !important;
-  }
-  .row {
-    flex-direction: column !important;
-  }
-  .rowItem {
-    margin-left: unset;
-    margin-right: unset;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .eonTitle {
-    font-size: 2rem !important;
-    margin-right: 1.5rem;
-  }
-  .eonText {
-    height: 40rem !important;
-    font-size: 1.25rem !important;
-    height: 50rem !important;
-  }
-  .DesktopTop {
-    margin-top: 15vh;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .eonTitle {
-    margin-left: 5rem !important;
-    margin-right: 5rem !important;
-    width: 8rem !important;
-    margin-right: unset !important;
-  }
-
-  .eonText {
-    margin-top: 3rem !important;
-    font-size: 1.3rem !important;
-    line-height: 2.2rem !important;
-    width: 85vw !important;
-    height: 70vh !important;
-  }
-  .row {
-    margin-bottom: 10rem !important;
-  }
-}
-
-@media only screen and (min-width: 2500px) {
-  .eonTitle {
-    font-size: 2.5rem;
-  }
-
-  .eonText {
-    font-size: 1.8em;
-    line-height: 2.5rem !important;
-  }
-  .eonCandle {
-    width: 500px !important;
-    height: 300px !important;
-  }
-  .eonL {
-    margin-top: -10vh;
+    grid-template-columns: 1fr;
   }
 }

@@ -35,7 +35,7 @@ const NavBar = () => {
         >
           <li
             className={
-              (router.pathname == "/" ? "active" : "", styles.linkHome)
+              `${router.pathname === "/" ? "active" : ""} ${styles.linkHome}`
             }
           >
             <span className={styles.link} onClick={toggleNav}>
@@ -46,7 +46,7 @@ const NavBar = () => {
           </li>
           <li
             className={
-              (router.pathname == "/shop" ? "active" : "", styles.linkHome)
+              `${router.pathname.startsWith("/shop") ? "active" : ""} ${styles.linkHome}`
             }
           >
             <span className={styles.link} onClick={toggleNav}>
@@ -57,7 +57,7 @@ const NavBar = () => {
           </li>
           <li
             className={
-              (router.pathname == "/about" ? "active" : "", styles.linkHome)
+              `${router.pathname === "/about" ? "active" : ""} ${styles.linkHome}`
             }
           >
             <span className={styles.link} onClick={toggleNav}>
@@ -82,7 +82,7 @@ const NavBar = () => {
         <button
           type="button"
           onClick={toggleNav}
-          className={(styles.btbIcon, styles.nav__hamburger)}
+          className={`${styles.btbIcon} ${styles.nav__hamburger}`}
           aria-label="toggle navigation"
         >
           {showNav ? (

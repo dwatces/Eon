@@ -33,7 +33,7 @@ export default function Home() {
         </Head>
         <main className={styles.main}>
           <div className={styles.eonL}>
-            <h1 className={(styles.logo, styles.desktopLogo)}>
+            <h1 className={styles.logo}>
               <Image
                 src={Logo}
                 alt=" Eon candles home desktop"
@@ -43,8 +43,12 @@ export default function Home() {
                 priority
               />
             </h1>
+            <p className={styles.tagline}>
+              Hand-poured soy candles, paired with crystals for calm, positive
+              energy.
+            </p>
             <div className={styles.underline}></div>
-            <div className={(styles.row, styles.mobileTop)}>
+            <div className={styles.mobileTop}>
               <Link href="/shop/love" passHref>
                 <div className={styles.rowItem}>
                   <Image
@@ -157,7 +161,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.eonText}>
-            <p id="oneness" className={(styles.eonPara, styles.hover)}>
+            <p id="oneness" className={`${styles.eonPara} ${styles.hover}`}>
               Crystals have been used in traditions dating back millennia for
               their powerful ability to amplify the positive energies in our
               lives and ward against negative. Crystals have the power to allow
@@ -169,7 +173,7 @@ export default function Home() {
               seamless blend of natural ingredients that create a luxurious,
               relaxing, and endlessly enjoyable scent that you will love.
             </p>
-            <p id="nature" className={(styles.eonPara, styles.hover)}>
+            <p id="nature" className={`${styles.eonPara} ${styles.hover}`}>
               Our modern lives are so busy; we rarely take time to pause,
               breath, and reconnect with the energies of the universe. We are
               all one with each other, with the Earth, and greater universe
@@ -182,7 +186,7 @@ export default function Home() {
               receive the positive energies that are all around us just waiting
               to be received.
             </p>
-            <p className={(styles.eonPara, styles.hover)}>
+            <p className={`${styles.eonPara} ${styles.hover}`}>
               We all desire a deeper connection with the natural world, and have
               the honour and duty to protect it. That&apos;s why each of our
               candles come with a delicately chosen natural accompaniment to
@@ -193,11 +197,8 @@ export default function Home() {
               after your candle has been enjoyed.
             </p>
           </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <div className={(styles.row, styles.DesktopTop)}>
+          <h2 className={styles.showcaseHeading}>Our Candles</h2>
+          <div className={styles.DesktopTop}>
             <Link href="/shop/love" passHref>
               <div className={styles.rowItem}>
                 <Image

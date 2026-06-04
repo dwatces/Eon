@@ -1,457 +1,107 @@
+/* ============================================================
+   About
+   ============================================================ */
+
 .main {
-  min-height: 100vh;
-  width: 100vw;
-  padding: 5rem 0;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: -15rem;
-}
-
-.crystalHeader {
-  margin-top: 15rem !important;
-  display: block;
-  margin-top: 12rem;
-  margin-bottom: 2rem !important;
-}
-
-.crystalHeaderAbout {
-  margin-left: 40vw;
-}
-
-.split {
-  margin-left: 4vw;
-  margin-right: 3vw;
-  border-right: 2px solid black;
-}
-
-.crystalsText {
-  margin-top: 3vh !important;
-  margin-left: 25rem;
-  margin-right: 20rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  line-height: 1.5rem;
-  font-size: 1.15rem;
-}
-
-.contactHeader {
-  margin-top: 5rem;
-  color: #fff;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  text-align: center;
-  transform: scale(0.95, 1);
-  margin-bottom: -50rem;
-}
-
-.email {
-  margin-left: 2rem;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 .crystals {
-  margin-bottom: 5vh;
-  height: 85vh;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) 1.5rem 0;
+}
+
+.crystalHeaderText {
+  text-align: center;
+}
+
+.crystalHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+.crystalHeaderAbout {
+  color: var(--ink);
+}
+
+.crystalHeader a {
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+}
+
+.crystalHeader a:hover {
+  color: var(--terracotta);
+}
+
+.split {
+  display: inline-block;
+  width: 1px;
+  height: 1.6rem;
+  background: var(--border-strong);
+}
+
+.crystalsText {
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- Sustainability band ---------- */
+.nzNatural {
+  width: 100%;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(3rem, 7vw, 4.5rem) 1.5rem;
+  background: var(--sage-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .envText {
-  margin-top: 20vh !important;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
   text-align: center;
-  line-height: 1.5rem;
-  font-size: 1.3rem;
 }
 
-.nzNatural {
-  height: 60vh;
-  margin-bottom: 7.5rem;
-  width: 100vw !important;
-}
-
+/* ---------- Contact ---------- */
 .contactBox {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100vw !important;
-  height: 20vh;
-  margin-right: 75vw;
+  width: 100%;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem 0;
 }
 
 .contactHeader {
-  font-size: 1.2rem;
-  margin-top: -40vh;
-  color: black;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.9;
   text-align: center;
-  margin-bottom: -5vh;
+  color: var(--ink);
 }
 
-.contactFormWrapper {
-  width: 25vw;
-  height: 25vh;
-  margin-bottom: 3vh;
+.email {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.05rem;
+  color: var(--terracotta);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease);
 }
 
-.formItem {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: space-between;
-  margin-left: 1rem;
-  padding: 0.5rem;
-  height: 1.5rem;
-}
-
-.formLabel {
-  position: absolute;
-  top: 10px;
-  margin-left: -3rem;
-  color: black;
-  font-size: 1.2rem;
-  pointer-events: none;
-  user-select: none;
-}
-
-.formArea {
-  outline: 0;
-  border: 1px solid rgba(0, 0, 0, 0.45);
-  border-radius: 4px;
-  margin-bottom: 20px;
-  padding: 12px;
-  font-size: clamp(15px, 1.5vw, 18px);
-  height: 2rem;
-  width: 50vw;
-}
-
-.formLabel:focus + .formLabel,
-.formLabel:valid + .formLabel,
-.formArea:focus + .formArea,
-.formArea:valid + .formArea {
-  font-size: clamp(13px, 1.3vw, 16px);
-  color: #777;
-  top: -20px;
-  transition: all 0.225s ease;
-}
-
-.submitBtn {
-  margin-top: 7vh !important;
-  margin-left: 7vw !important;
-  background-color: #f5bbc3;
-  filter: drop-shadow(2px 2px 3px #0003);
-  color: black;
-  font-size: clamp(16px, 1.6vw, 18px);
-  display: block;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  transition: 0.2s;
-}
-
-.submitBtn:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.submitBtn:active {
-  transform: scale(1.1, 1.1);
-  filter: sepia(0.5);
-}
-
-@media (min-width: 320px) {
-  .crystalHeaderAbout {
-    margin-left: 65vw !important;
-  }
-  .crystalHeader {
-    width: 100% !important;
-    font-size: 1.3rem !important;
-  }
-  .crystalsText {
-    margin-left: 9rem !important;
-    font-size: 1rem !important;
-    width: 50% !important;
-    line-height: 1.8rem !important;
-  }
-  .envText {
-    margin-top: 40rem !important;
-    margin-left: 2rem !important;
-    font-size: 1rem !important;
-    line-height: 2rem !important;
-    width: 80% !important;
-  }
-  .formLabel {
-    left: -50% !important;
-  }
-  .submitBtn {
-    left: -50% !important;
-  }
-  .contactBox {
-    margin-left: 14rem;
-    margin-top: 45rem !important;
-    margin-bottom: -5rem;
-  }
-  .crystalImg {
-    display: none !important;
-  }
-}
-
-@media (min-width: 335px) {
-  .crystalHeaderAbout {
-    margin-left: 57.5vw !important;
-  }
-}
-
-@media (min-width: 375px) {
-  .crystalHeader {
-    font-size: 1.3rem !important;
-  }
-  .crystalHeaderAbout {
-    margin-left: 22vh !important;
-  }
-  .crystalsText {
-    margin-left: 7.5rem !important;
-    font-size: 1rem !important;
-    width: 60% !important;
-    line-height: 1.8rem !important;
-  }
-  .envText {
-    margin-top: 30rem !important;
-    margin-left: 2.5rem !important;
-    font-size: 1.1rem !important;
-    padding-bottom: 1rem !important;
-    line-height: 2rem !important;
-    width: 80% !important;
-  }
-  .formLabel {
-    left: -100% !important;
-  }
-  .formItem {
-    margin-left: 2rem !important;
-  }
-  .formArea {
-    width: 50vw !important;
-  }
-  .submitBtn {
-    margin-left: 10vw !important;
-  }
-  .contactBox {
-    margin-left: 15rem;
-    margin-top: 40rem !important;
-    margin-bottom: -5rem;
-  }
-}
-
-@media (min-width: 425px) {
-  .crystalHeader {
-    font-size: 1.5rem !important;
-    margin-left: -1rem;
-  }
-  .crystalHeaderAbout {
-    margin-left: 38vw !important;
-  }
-  .crystalsText {
-    margin-left: 3rem !important;
-    font-size: 1rem !important;
-    line-height: 1.8rem !important;
-    padding-bottom: 1rem !important;
-    width: 80% !important;
-  }
-  .crystals {
-    height: 45rem !important;
-  }
-  .envText {
-    font-size: 1.1rem !important;
-    margin-left: 2.5rem !important;
-  }
-
-  .contactBox {
-    margin-left: 17.5rem;
-    width: 100% !important;
-    margin-bottom: -10rem;
-    height: -50vh;
-  }
-  .crystalImg {
-    display: unset !important;
-  }
-}
-
-@media (min-width: 576px) {
-  .crystalHeader {
-    font-size: 1.6rem !important;
-  }
-  .crystalHeaderAbout {
-    margin-left: 30vw !important;
-  }
-  .nzNatural {
-    height: 50vh !important;
-  }
-  .envText {
-    margin-top: 10rem;
-  }
-  .contactBox {
-    margin-right: 50vw !important;
-    height: 40vh;
-  }
-  .submitBtn {
-    margin-left: 7vw !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .crystalHeader {
-    font-size: 1.9rem !important;
-    width: 85% !important;
-    margin-left: 2rem;
-  }
-  .crystalsText {
-    padding-bottom: 1rem !important;
-    margin-left: 5rem !important;
-    font-size: 1.2rem !important;
-  }
-  .envText {
-    margin-top: 10rem !important;
-    margin-left: 5rem !important;
-    margin-right: 10rem;
-    font-size: 1.3rem !important;
-  }
-  .contactBox {
-    margin-top: 5rem !important;
-    margin-left: 25rem;
-    margin-bottom: -10rem;
-  }
-  .formLabel {
-    margin-left: -3rem !important;
-  }
-  .contactHeader {
-    font-size: 1.7rem !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .crystalHeaderText {
-    margin-bottom: 1.5rem;
-  }
-  .crystalImg {
-    display: none !important;
-  }
-  .crystalHeaderAbout {
-    margin-left: 38vw !important;
-  }
-  .crystalsText {
-    margin-top: 1.5vh !important;
-    margin-left: 3rem;
-    font-size: 1.2rem !important;
-    width: 90% !important;
-  }
-  .nzNatural {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url("../public/NZNature.webp") !important;
-    background-repeat: no-repeat;
-    background-size: 100vw;
-  }
-  .crystalImg {
-    margin-bottom: 0.85rem !important;
-  }
-  .envText {
-    margin-left: 3rem;
-    font-size: 1.25rem !important;
-    width: 90% !important;
-    margin-top: 3rem !important;
-  }
-  .nzNatural {
-    height: 50vh;
-  }
-  .contactBox {
-    margin-top: 2rem !important;
-    margin-left: 35rem;
-  }
-  .formLabel {
-    margin-left: 5rem !important;
-  }
-  .contactHeader {
-    font-size: 1.9rem !important;
-  }
-  .submitBtn {
-    margin-left: 4vw !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  .crystalsText {
-    margin-bottom: 2rem !important;
-    line-height: 2.2rem !important;
-  }
-
-  .envText {
-    line-height: 2.5rem !important;
-  }
-  .contactHeader {
-    margin-left: 15rem !important;
-  }
-
-  .crystalHeaderText {
-    margin-bottom: 0.2rem;
-  }
-
-  .contactBox {
-    margin-top: -10rem;
-    margin-left: 30rem;
-  }
-
-  .formLabel {
-    margin-left: 10rem !important;
-  }
-}
-
-@media (min-width: 1600px) {
-  .crystalHeader {
-    margin-top: 20rem !important;
-  }
-  .crystalsText {
-    margin-bottom: 1rem !important;
-    font-size: 1.3rem !important;
-  }
-  .crystalImg {
-    display: none !important;
-  }
-  .crystalHeaderAbout {
-    margin-left: 42vw !important;
-  }
-  .envText {
-    margin-top: 5rem;
-    font-size: 1.4rem !important;
-  }
-  .contactHeader {
-    margin-left: 25rem !important;
-  }
-  .formLabel {
-    margin-left: 17.5rem !important;
-  }
-  .submitBtn {
-    margin-left: 2vw !important;
-  }
-  .contactBox {
-    margin-left: 35rem !important;
-  }
-}
-
-@media (min-width: 2500px) {
-  .crystalHeader {
-    font-size: 2.5rem !important;
-    margin-bottom: 4rem !important;
-  }
-  .crystalsText {
-    font-size: 1.4rem !important;
-    line-height: 1.5rem !important;
-  }
-  .envText {
-    margin-top: 5rem !important;
-    font-size: 1.6rem !important;
-    line-height: 2.5rem !important;
-  }
-  .contactBox {
-    margin-left: 55rem !important;
-  }
+.email:hover {
+  border-color: var(--terracotta);
 }

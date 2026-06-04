@@ -1,528 +1,257 @@
+/* ============================================================
+   Product detail (love / happiness / dreams / summer)
+   ============================================================ */
+
 .main {
-  max-width: 100vw;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "main"
+    "details";
+  gap: 1.75rem;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) 1.5rem clamp(3rem, 6vw, 4.5rem);
 }
 
+/* ---------- Thumbnails (large screens) ---------- */
 .galleryContainer {
-  display: flex;
+  grid-area: thumbs;
+  display: none;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 15vh;
-  margin-bottom: 30vh;
-  margin-left: -70vw;
-}
-
-.continueStripe {
-  margin-top: 2rem;
-  margin-left: 5rem;
-  font-size: 1.2rem !important;
+  gap: 0.9rem;
 }
 
 .galleryImage {
-  width: 12.5vw;
-  height: 12.5vh;
-  margin-bottom: 12vh;
-}
-
-.buttonImage {
-  background: unset;
-  border: unset;
+  width: 84px;
+  overflow: hidden;
+  background: var(--cream-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
+.galleryImage:hover {
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+}
+
+.candleSize {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Main image ---------- */
 .galleryMainContainer {
-  margin-left: -20vw;
+  grid-area: main;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-}
-
-.candleRetail {
-  font-size: 1.2rem;
+  justify-content: center;
 }
 
 .mainImage {
-  width: 25vw;
-  height: 50vh;
-  margin-bottom: 40vh;
-  margin-top: -100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: var(--cream-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
 
-.candleContent {
+.buttonImage {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: zoom-in;
+}
+
+.candleMain {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* ---------- Gallery arrows (small/medium screens) ---------- */
+.mobileGallery {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+}
+
+.galleryBack,
+.galleryForward {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   align-items: center;
-  width: 80% !important;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 1.4rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.galleryBack:hover,
+.galleryForward:hover {
+  background: var(--terracotta);
+  color: #fff;
+}
+
+.galleryBack {
+  left: 0.4rem;
+}
+
+.galleryForward {
+  right: 0.4rem;
+}
+
+/* ---------- Details ---------- */
+.candleContent {
+  grid-area: details;
+  display: flex;
+  align-items: center;
 }
 
 .candleContentHeader {
-  width: 60vw;
-  height: 60vh;
-  margin-left: 55vw;
-  margin-right: 5vw;
-  margin-bottom: 40vh;
-  margin-top: -100vh;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
 }
 
 .candleTitle {
-  text-align: center;
-  margin-left: 5rem;
-  font-size: 2.3rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
 }
 
 .candleDescription {
-  font-size: 1.3rem;
-  line-height: 1.6rem;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
 }
 
-.containerBitsHeader {
-  margin-top: 3vh;
-  cursor: pointer;
-}
-
-.checkoutMenu {
-  margin-top: 3rem;
-}
-
-.headerUnderline {
-  border-bottom: 2px solid #a793bc;
-}
-
-.bitsText {
-  width: 70%;
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-}
-
+/* price + quantity + add-to-cart block */
 .containerBuy {
-  margin-top: -8vh;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 70%;
-  font-size: 1.5rem;
-  margin-bottom: 5vh;
-  margin-left: 22vw !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 0.75rem 0 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.candleRetail {
+  flex-basis: 100%;
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--terracotta);
 }
 
 .candlePrice {
+  margin-left: 0.55rem;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
+  color: var(--muted);
   text-decoration: line-through;
 }
 
 .quantity {
-  margin-right: 1rem;
-  margin-top: 1.7rem;
-  font-size: 1.3rem;
-  color: #696565;
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
 }
 
 .candleQuantity {
-  margin-top: 2rem !important;
-  font-size: 1.1rem;
-  border: unset;
-  background-color: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.candleQuantity:hover:not(:disabled) {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.candleQuantity:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .submitButton {
-  height: 2.2rem;
-  width: 8rem;
-  margin-left: 1rem;
-  margin-top: 1.3rem;
-  background: #b8e0ab;
-  border-radius: 4px;
-  color: black;
-  border: 0;
+  flex-basis: 100%;
+  height: 3rem;
+  margin-top: 0.4rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.86rem;
   font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--terracotta);
+  border: none;
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
 .submitButton:hover {
-  opacity: 0.8;
+  background: var(--terracotta-dark);
+  transform: translateY(-1px);
 }
 
-.mobileGallery {
-  display: none;
-}
-
-/* 
-mobile first */
-@media only screen and (min-width: 320px) {
-  .galleryContainer {
-    margin-top: 2vh;
-  }
-  .candleSize {
-    display: none !important;
-  }
-  .mobileGallery {
-    display: unset !important;
-    display: inline-block !important;
-  }
-  .galleryBack {
-    margin-top: -0.5rem !important;
-    margin-left: -6vw;
-    margin-bottom: -10vh !important;
-    font-size: 1.6rem;
-  }
-
-  .galleryForward {
-    font-size: 1.6rem;
-    margin-right: -20vw;
-    margin-bottom: 5vh !important;
-  }
-
-  .mainImage {
-    margin-right: 5vw !important;
-    margin-left: 20vw !important;
-    margin-bottom: 50vh !important;
-    width: 65vw !important;
-  }
-  .candleContent {
-    margin-top: 1.5rem;
-    justify-self: space-between !important;
-    align-items: space-between !important;
-    flex: 1 !important;
-    flex-wrap: wrap !important;
-    margin-right: 35vw !important;
-    width: 70vw !important;
-  }
-  .candleTitle {
-    display: none;
-    margin-right: 5vw !important;
-  }
-  .candleDescription {
-    font-size: 0.8rem;
-    margin-top: 25vh !important;
-    margin-left: -23vw !important;
-    width: 90vw !important;
-  }
-  .containerBits {
-    display: none !important;
-  }
-  .containerBuy {
-    width: 100% important;
-    justify-content: space-between !important;
-    align-items: space-between !important;
-    flex: 1 !important;
-    flex-wrap: wrap !important;
-    line-height: 0.2rem !important;
-  }
-  .candleRetail {
-    margin-left: -20vw !important;
-  }
-  .candleQuantity {
-    margin-top: 1.2rem !important;
-    font-size: 0.9rem;
-    margin: 0.2rem;
-  }
-  .candlePrice {
-    margin-right: 20vw !important;
-  }
-
-  .quantity {
-    margin-right: 2vw !important;
-    margin-left: -10vw !important;
-  }
-  .continueStripe {
-    margin-left: 5vw !important;
-    line-height: 6vw !important;
-  }
-  .submitButton {
-    margin-right: 5vw !important;
-  }
-  .checkoutMenu {
-    margin-top: 2rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-}
-
-@media only screen and (min-width: 375px) {
-  .galleryForward {
-    margin-bottom: 8vh !important;
-  }
-  .galleryBack {
-    margin-top: 8vh !important;
-  }
-  .candleDescription {
-    font-size: 1.1rem !important;
-    width: 90vw !important;
-  }
-  .checkoutMenu {
-    font-size: 1.1rem;
-  }
-
-  .candleDescription {
-    font-size: 1rem !important;
-    width: 90vw !important;
-  }
-
-  .candleContent {
-    margin-top: 4rem;
-  }
-}
-
-@media only screen and (min-width: 425px) {
-  .galleryBack {
-    margin-bottom: -12vh !important;
-  }
-  .candleDescription {
-    font-size: 1rem !important;
-  }
-  .candleRetail {
-    margin-left: -15vw !important;
-  }
-  .checkoutMenu {
-    font-size: 1.2rem;
-  }
-  .containerBuy {
-    margin-top: -3vh !important;
-  }
-  .candleContent {
-    margin-top: 2rem;
-  }
-  .candleQuantity {
-    margin: 1rem;
-    width: 5%;
-  }
-}
-
-@media only screen and (min-width: 426px) {
-  .galleryBack {
-    margin-bottom: 9.5vh !important;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .candleTitle {
-    display: flex !important;
-    margin-top: 35vh !important;
-    margin-bottom: -10vh !important;
+/* ---------- Layout breakpoints ---------- */
+@media (min-width: 768px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "main details";
     align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin-right: 20vw !important;
-  }
-  .candleDescription {
-    font-size: 1.1rem !important;
-    margin-top: 15vh !important;
-    margin-left: -20vw !important;
-  }
-  .galleryBack {
-    margin-left: -6vw;
-    margin-bottom: 17vh !important;
-    font-size: 2rem !important;
-  }
-
-  .galleryForward {
-    font-size: 2rem !important;
-    margin-right: -50vw !important;
-    margin-bottom: 16vh !important;
-  }
-  .mainImage {
-    width: 50vw !important;
-    margin-bottom: 40vh !important;
-  }
-  .candleRetail {
-    margin-left: 10vw !important;
-  }
-  .submitButton {
-    margin-left: 20vw !important;
-  }
-  .continueStripe {
-    line-height: unset !important;
-  }
-  .containerBuy {
-    margin-top: -1vh !important;
-    margin-left: 15vw !important;
-    width: 50vw;
-  }
-  .candleQuantity {
-    margin: -0.1rem;
-  }
-  .candleContent {
-    width: 60% !important;
+    gap: clamp(2rem, 5vw, 4rem);
   }
 }
-@media only screen and (min-width: 1024px) {
-  .candleTitle {
-    margin-top: 25vh !important;
-    margin-left: 15vw;
+
+@media (min-width: 1200px) {
+  .main {
+    grid-template-columns: 84px 1fr 1.05fr;
+    grid-template-areas: "thumbs main details";
   }
+
   .galleryContainer {
     display: flex;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin-top: 15vh;
-    margin-bottom: 30vh;
-    margin-left: -70vw;
   }
-  .mainImage {
-    margin-left: 30vw !important;
-    width: 35vw !important;
-    margin-bottom: 55vh !important;
-  }
-  .galleryBack {
-    margin-left: -10vw;
-    margin-bottom: 10vh !important;
-    font-size: 2.5rem !important;
-  }
+
+  .galleryBack,
   .galleryForward {
-    font-size: 2.5rem !important;
-    margin-right: -50vw !important;
-    margin-bottom: 10vh !important;
-  }
-
-  .candleTitle {
-    margin-bottom: -5rem !important;
-  }
-  .galleryMainContainer {
-    margin-top: -3rem !important;
-  }
-  .candleRetail {
-    margin-left: 5vw !important;
-  }
-  .containerBuy {
-    margin-top: -1vh !important;
-    margin-left: 5vw !important;
-    width: 90vw !important;
-  }
-  .submitButton {
-    margin-top: 0.5rem;
-    width: 15%;
-  }
-  .continueStripe {
-    margin-top: 0.5rem;
-    margin-left: 5vw;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .mainImage {
-    width: 30vw !important;
-    margin-bottom: 57.5vh !important;
-  }
-  .candleSize {
-    display: unset !important;
-  }
-  .candleDescription {
-    width: unset !important;
-    margin-left: unset !important;
-  }
-  .galleryBack {
-    display: none !important;
-  }
-  .galleryForward {
-    display: none !important;
-  }
-  .candleDescription {
-    width: 70vw !important;
-  }
-  .containerBuy {
-    margin-top: -1vh !important;
-    margin-left: 5vw !important;
-    width: 60% !important;
-  }
-  .submitButton {
-    margin-top: 0.5rem;
-    width: 25%;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .mainImage {
-    width: 25vw !important;
-    margin-bottom: 57.5vh !important;
-  }
-  .candleQuantity {
-    margin: 1rem;
-  }
-  .candleTitle {
-    margin-left: 22vw;
-  }
-}
-
-@media only screen and (min-width: 1600px) {
-  .candleTitle {
-    margin-top: 20vh !important;
-    margin-bottom: -10vh !important;
-    text-align: center;
-    margin-left: 15vw !important;
-  }
-  .mainImage {
-    margin-left: 30vw !important;
-    width: 20vw !important;
-  }
-  .containerBits {
-    display: inline-block !important;
-  }
-  .containerBitsHeader {
-    margin-right: 5rem !important;
-    display: inline-block !important;
-  }
-  .bitsText {
-    width: 30vw !important;
-    flex-wrap: nowrap !important;
-  }
-  .containerBuy {
-    margin-right: 10vw;
-    justify-content: center !important;
-  }
-  .quantity {
-    margin-left: -15vw !important;
-  }
-  .submitButton {
-    margin-left: 17.5vw !important;
-    width: 20%;
-  }
-}
-
-@media only screen and (min-width: 2500px) {
-  .mainImage {
-    margin-left: 25vw !important;
-    width: 17.5vw !important;
-  }
-  .galleryMainContainer {
-    margin-bottom: 3vh !important;
-  }
-
-  .candleTitle {
-    font-size: 2.5rem;
-    margin-left: 15rem;
-  }
-
-  .candleDescription {
-    font-size: 1.7rem;
-    width: 80% !important;
-    margin-left: 5vw !important;
-  }
-
-  .containerBitsHeader {
-    font-size: 1.5rem;
-  }
-
-  .bitsText {
-    font-size: 1.3rem;
-  }
-
-  .candleRetail {
-    font-size: 2.2rem;
-  }
-  .containerBuy {
-    margin-top: -1vh !important;
-    margin-left: 5vw !important;
-    width: 40vw !important;
-  }
-  .candleRetail {
-    margin-top: 1rem;
-  }
-  .submitButton {
-    margin-left: 5vw !important;
-    width: 15%;
+    display: none;
   }
 }

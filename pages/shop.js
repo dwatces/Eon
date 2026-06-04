@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Head from 'next/head'
 import Image from "next/image";
-import { BiMailSend } from "react-icons/bi";
 import styles from "../styles/Shop.module.css";
 import Layout from "../components/Layout";
 import dreams from "../public/lid-dreams.webp";
@@ -20,32 +19,6 @@ function Shop() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.mailModal}>
-          <p className={styles.message}>
-            <span className={styles.spamFirst}>
-              Join our mailing list to receive promotional offers!
-            </span>
-            <span className={styles.spam}> (no spam, we promise) </span>
-          </p>
-          <BiMailSend className={styles.mailIcon} />
-          <form
-            action="https://eoncandles.us20.list-manage.com/subscribe/post?u=ede5da5ded002e22cfde82864&amp;id=f5e61a041d"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            className={styles.validate}
-            target="_blank"
-            noValidate
-          >
-            <input
-              type="email"
-              id="mce-EMAIL"
-              name="EMAIL"
-              placeholder=" email address"
-              className={styles.emailInput}
-            ></input>
-          </form>
-        </div>
         <h1 style={{ display: "none" }}>Crystal Candles</h1>
         <div className={styles.candleContainer}>
           <Link href="/shop/love" passHref>

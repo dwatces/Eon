@@ -1,558 +1,153 @@
+/* ============================================================
+   Shop — mailing list + product grid
+   ============================================================ */
+
 .main {
-  min-height: 100vh;
-  max-height: 100vh;
-  min-width: 100vw;
-  max-width: 100vw;
-  padding-top: 3rem;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  overflow: hidden !important;
+  width: 100%;
+  padding-bottom: 3rem;
 }
 
+/* ---------- Mailing list banner ---------- */
 .mailModal {
-  width: 100vw;
-  margin-top: 3vh !important;
-  margin-bottom: 3vh !important;
-  max-width: 100%;
-  float: right;
-  height: 5vh;
-  background-color: #a793bce8;
-  margin: 0 auto;
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1.1rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: var(--sage-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.message {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+}
+
+.spam {
+  color: var(--muted);
+}
+
+.mailIcon {
+  font-size: 1.4rem;
+  color: var(--sage-deep);
+}
+
+.validate {
+  display: inline-flex;
+  margin: 0;
+}
+
+.emailInput {
+  height: 2.4rem;
+  width: min(17rem, 72vw);
+  padding: 0 1.1rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  outline: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.emailInput:focus {
+  border-color: var(--sage-deep);
+  box-shadow: 0 0 0 3px var(--sage-soft);
 }
 
 .candlePrice {
   text-decoration: line-through;
 }
 
-.mailIcon {
-  margin-left: 1rem;
-  margin-bottom: -0.4rem;
-  font-size: 1.5rem;
-}
-
-.validate {
-  display: inline-block;
-  margin-bottom: 2rem !important;
-}
-
-.message {
-  display: inline-block;
-  text-align: center;
-  margin-left: 30vw;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.orderComplete {
-  margin-bottom: 10rem;
-}
-
-.orderConfirm {
-  margin-bottom: 5rem;
-}
-
-.distance {
-  margin-left: 1rem;
-}
-
-.emailInput {
-  display: inline-block;
-  position: absolute;
-  border: none;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  border-radius: 2rem;
-  height: 1.3rem;
-  font-size: 1.1rem;
-  outline: none;
-}
-
-.emailInput:focus {
-  border: 1px solid #604081;
-}
-
-.emailButton {
-  cursor: pointer;
-  margin-left: 13vw;
-  padding: 0.3rem;
-  background-color: #cec1da;
-  border: 1px solid #a793bc;
-  border-radius: 2rem;
-  filter: drop-shadow(2px 2px 3px #0003);
-  user-select: none;
-  transition: 0.2s;
-}
-
-.emailButton:hover {
-  transform: scale(1.05, 1.05) !important;
-}
-
-.emailButton:active {
-  transform: scale(1.1, 1.1);
-}
-
-.submitButton {
-  height: 2.2rem;
-  width: 8rem;
-  margin-left: 1rem;
-  margin-top: 1.3rem;
-  background: #b8e0ab;
-  border-radius: 4px;
-  color: black;
-  border: 0;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-}
-
+/* ---------- Product grid ---------- */
 .candleContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
-  flex-wrap: wrap;
-  margin-right: 2vw;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: var(--container);
+  margin: clamp(2.25rem, 5vw, 3.5rem) auto 0;
+  padding: 0 1.5rem;
 }
 
 .candleChild {
-  margin-left: 3vw;
-  width: 40vw;
-  height: 45vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
-  border: 1px solid rgba(128, 128, 128, 0.281);
-  border-radius: 4rem;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.candleChild:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--border-strong);
 }
 
 .candlePic {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  background: var(--cream-deep);
   cursor: pointer;
+}
+
+.candleSize {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .candleDetail {
-  margin-top: 2vh;
-  margin-left: 2vw;
-  font-size: 1.2rem;
-  width: 100%;
-  height: 50%;
-  line-height: 1rem;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.4rem 1.5rem 1.6rem;
 }
 
-.candleDetailMuted {
-  font-weight: 390;
+.candleDetail h2 {
+  margin-bottom: 0.15rem;
+  font-size: 1.5rem;
+  text-transform: capitalize;
 }
 
-.candleZoom {
-  margin-top: 0.5rem;
-  font-size: 1.5rem !important;
+.candleDetail p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
-.candleMain {
-  position: absolute;
-  background-color: #f5bbc3f1;
-  border-radius: 4rem;
-  z-index: 100;
-  top: 25%;
-  left: 25%;
-  width: 55vw;
-  height: 50vh;
+.candleDetailMuted,
+.candleRetail {
+  margin-top: 0.7rem !important;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  color: var(--terracotta) !important;
 }
 
-.candleMain .candlePic {
-  width: 65%;
-  margin-top: -10vh;
-}
-
-.candleMain .candleZoomedDetail {
-  margin-left: 34vw;
-  margin-top: -50vh;
-  width: 100%;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-}
-
-.candleMain .candleZoomedDetail .candlePrice {
-  font-size: 1rem;
+.candlePrice {
+  margin-left: 0.4rem;
+  font-size: 0.82rem;
+  font-family: "Raleway", sans-serif;
+  color: var(--muted) !important;
   text-decoration: line-through;
-  margin-right: 5rem;
-}
-
-.candleMain .candleZoomedDetail .candleDetailMuted {
-  margin-bottom: 3.5rem !important;
-}
-
-/* Mobile Browsers */
-@media only screen and (min-width: 320px) {
-  .mailModal {
-    display: none !important;
-  }
-  .candleContainer {
-    display: flex;
-    flex-direction: column !important;
-    width: 100vw !important;
-    margin-top: -5vh !important;
-    height: 75vh !important;
-  }
-  .candleChild {
-    flex-direction: column !important;
-    height: 30vh !important;
-    border: none !important;
-  }
-  .candleDetail {
-    font-size: 0.8rem;
-    margin-left: 1.5rem !important;
-  }
-  .orderConfirm {
-    font-size: 1.4rem !important;
-    text-align: center !important;
-  }
-  .orderInvoice {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-}
-
-@media only screen and (min-width: 375px) {
-  .candleDetail {
-    font-size: 0.9rem !important;
-  }
-}
-
-@media only screen and (min-width: 425px) {
-  .candleContainer {
-    margin-top: -5vh !important;
-  }
-  .candleDetail {
-    font-size: 1rem !important;
-    margin-left: 1.8rem !important;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .mailModal {
-    display: unset !important;
-    margin-top: -8rem !important;
-    height: 3.2rem !important;
-  }
-  .message {
-    margin-top: 1.5rem !important;
-  }
-  .spamFirst {
-    display: unset !important;
-  }
-  .spam {
-    display: none;
-  }
-  .spamFirst {
-    margin-left: -10rem;
-  }
-  .candleDetail {
-    font-size: 0.9rem;
-    margin-top: -1vh;
-  }
-  .candleContainer {
-    margin-left: 10vw;
-    margin-top: 2rem !important;
-  }
-  .candlePic {
-    width: 30vw !important;
-  }
-  .orderConfirm {
-    font-size: 2rem !important;
-  }
-  .orderInvoice {
-    font-size: 1.5rem !important;
-  }
-}
-
-/*Desktop browsers */
-
-@media only screen and (min-width: 880px) {
-  .spam {
-    display: unset !important;
-  }
-  .message {
-    margin-left: 25vw;
-    font-size: 1rem;
-    margin-top: unset !important;
-  }
-  .mailModal {
-    height: 2.5rem !important;
-    margin-top: -0.1rem !important;
-  }
-
-  .emailInput {
-    font-size: 0.8rem;
-    margin-top: 0.85rem;
-    width: 10rem;
-  }
-
-  .candleChild {
-    height: 30vh !important;
-    flex-direction: row !important;
-  }
-
-  .candleDetail {
-    margin-top: 3vh;
-    font-size: 1rem !important;
-  }
-
-  .candleContainer {
-    margin-right: 15vw !important;
-    height: 60rem !important;
-    width: 90vw !important;
-    flex-direction: row !important;
-    margin-top: 15vh !important;
-  }
-
-  .candlePic {
-    margin-top: 3vh;
-    margin-left: 3vh;
-    width: 60vw !important;
-  }
-  .candleMain {
-    width: 40rem;
-    height: 23em;
-  }
-
-  .candleMain .candlePic {
-    width: 50%;
-    padding-top: 4rem;
-    margin-top: -15vh;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .message {
-    margin-left: 25vw;
-    font-size: 1rem;
-  }
-  .mailModal {
-    height: 2.5rem;
-    margin-top: -0.1rem !important;
-  }
-  .candleDescription {
-    width: 100% !important;
-  }
-  .emailInput {
-    font-size: 1rem;
-    margin-top: 0.8rem;
-  }
-
-  .candleChild {
-    height: 35vh;
-  }
-
-  .candleDetail {
-    margin-top: 3vh;
-    font-size: 1.1rem !important;
-  }
-
-  .candleContainer {
-    margin-left: 5vw !important;
-    height: 60rem !important;
-  }
-
-  .candlePic {
-    margin-top: 3vh;
-    margin-left: 3vh;
-    width: 50vw !important;
-  }
-
-  .candleMain .candlePic {
-    width: 55%;
-    padding-top: 4rem;
-    margin-top: -15vh !important;
-  }
-  .orderConfirm {
-    font-size: 2.2rem !important;
-  }
-  .orderInvoice {
-    font-size: 1.8rem !important;
-  }
-}
-
-@media only screen and (min-width: 1180px) and (max-width: 1279px) {
-  .message {
-    margin-left: 30vw !important;
-    font-size: 1rem;
-  }
-
-  .mailModal {
-    margin-top: -0.1rem !important;
-  }
-
-  .candleDetail {
-    margin-top: -0.1rem !important;
-  }
-
-  .emailInput {
-    font-size: 1rem;
-    margin-top: 0.8rem;
-  }
-
-  .candleChild {
-    height: 35vh;
-  }
-
-  .candleDetail {
-    margin-top: 5vh;
-  }
-
-  .candleContainer {
-    height: 60rem !important;
-  }
-
-  .candlePic {
-    margin-top: 3vh;
-    margin-left: 3vh;
-  }
-  .candleMain {
-    width: 43rem;
-    height: 23em;
-  }
-
-  .candleMain .candlePic {
-    width: 40% !important;
-    padding-top: 4rem;
-    margin-top: -15vh;
-  }
-}
-
-@media only screen and (min-width: 1280px) and (max-width: 1379px) {
-  .candleMain {
-    width: 42rem;
-    height: 23em;
-  }
-
-  .message {
-    margin-left: 35vw !important;
-    font-size: 1rem;
-  }
-
-  .mailModal {
-    height: 2.6rem;
-  }
-
-  .candleMain .candlePic {
-    width: 55% !important;
-    padding-top: 4rem;
-    margin-top: -13vh;
-  }
-}
-
-@media only screen and (min-width: 1380px) and (max-width: 1479px) {
-  .candleMain {
-    width: 46rem;
-    height: 23em;
-  }
-
-  .message {
-    margin-left: 35rem !important;
-  }
-
-  .candleMain .candlePic {
-    width: 55% !important;
-    padding-top: 4rem;
-    margin-top: -15vh;
-  }
-}
-
-@media only screen and (min-width: 1480px) {
-  .candleMain {
-    width: 50rem;
-    height: 23em;
-  }
-
-  .message {
-    margin-left: 35rem !important;
-  }
-
-  .candleMain .candlePic {
-    width: 45%;
-    padding-top: 4rem;
-    margin-top: -15vh;
-  }
-  .candlePic {
-    width: 30vw !important;
-    height: 25vh !important;
-  }
-}
-
-@media only screen and (min-width: 1580px) {
-  .emailButton {
-    margin-left: 17rem;
-  }
-
-  .mailModal {
-    height: 3rem;
-  }
-  .message {
-    margin-left: 50rem !important;
-  }
-
-  .candleContainer {
-    margin-left: 10vw !important;
-    margin-top: 5vh !important;
-  }
-
-  .candleDetail {
-    font-size: 1.3rem !important;
-    line-height: 1.5rem !important;
-  }
-
-  .emailInput {
-    width: 15rem !important;
-  }
-  .candlePic {
-    width: 25vw !important;
-    height: 30vh !important;
-  }
-}
-
-@media only screen and (min-width: 2500px) {
-  .mailModal {
-    margin-top: -4rem !important;
-  }
-  .emailButton {
-    margin-left: 10vw !important;
-  }
-  .candleDetail {
-    font-size: 1.5rem !important;
-    line-height: 2rem !important;
-  }
-  .candleZoom {
-    font-size: 1.6rem !important;
-  }
-  .candleMain {
-    width: 50vw;
-    height: 63vh;
-  }
-  .candlePic {
-    width: 65%;
-  }
-  .mainModal {
-    height: 25vh !important;
-  }
-
-  .message {
-    margin-left: 60rem !important;
-    font-size: 1.2rem !important;
-  }
-  .emailInput {
-    width: 15rem !important;
-  }
-  .candlePic {
-    width: 20vw !important;
-    height: 30vh !important;
-  }
 }

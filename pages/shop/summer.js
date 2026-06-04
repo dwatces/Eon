@@ -118,7 +118,7 @@ const Summer = () => {
           <div className={styles.mainImage}>
             <IoIosArrowBack
               onClick={open}
-              className={(styles.mobileGallery, styles.galleryBack)}
+              className={`${styles.mobileGallery} ${styles.galleryBack}`}
             />
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
@@ -131,7 +131,7 @@ const Summer = () => {
             </button>
             <IoIosArrowForward
               onClick={open}
-              className={(styles.mobileGallery, styles.galleryForward)}
+              className={`${styles.mobileGallery} ${styles.galleryForward}`}
             />
           </div>
         </div>
