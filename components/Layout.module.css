@@ -64,6 +64,7 @@
 
 /* ---------- Cart ---------- */
 .cartItems {
+  position: relative;
   display: inline-flex;
   align-items: center;
 }
@@ -90,20 +91,22 @@
 }
 
 .cartCount {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 1.2rem;
-  height: 1.2rem;
-  margin-left: -0.5rem;
-  margin-top: -0.7rem;
-  padding: 0 0.32rem;
+  min-width: 1.05rem;
+  height: 1.05rem;
+  padding: 0 0.28rem;
   font-family: "Raleway", sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-weight: 700;
   line-height: 1;
   color: #fff;
   background: var(--terracotta);
+  border: 2px solid var(--cream);
   border-radius: var(--radius-pill);
 }
 

@@ -76,8 +76,10 @@ const NavBar = () => {
                 <IoMdCart className={styles.Cartlink} size="small" />
               </button>
             </Link>
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}</span>
+            )}
           </span>
-          <span className={styles.cartCount}>{cartCount}</span>
         </ul>
         <button
           type="button"
@@ -96,7 +98,6 @@ const NavBar = () => {
           <span className={styles.cartItems} onClick={toggleNav}>
             <Link href="/cart" passHref>
               <button
-                onClick="/cart"
                 className={styles.buttonCart}
                 name="cartButton"
                 aria-label="cartButton"
@@ -104,8 +105,10 @@ const NavBar = () => {
                 <IoMdCart className={styles.Cartlink} size="small" />
               </button>
             </Link>
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}</span>
+            )}
           </span>
-          <span className={styles.cartCount}>{cartCount}</span>
         </button>
       </nav>
     </>
