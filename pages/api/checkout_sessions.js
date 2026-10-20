@@ -24,6 +24,10 @@ const KEY_ERRORS = new Set([
 const isJson = (contentType = "") =>
   /^application\/json(\s*;|$)/i.test(String(contentType).trim());
 
+/**
+ * @param {import("next").NextApiRequest} req
+ * @param {import("next").NextApiResponse} res
+ */
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
@@ -36,7 +40,9 @@ export default async function handler(req, res) {
   }
 
   const parsed = parseCheckoutBody(req.body);
-  if (parsed.error) return res.status(400).json({ error: parsed.error });
+  if (parsed.error !== undefined) {
+    return res.status(400).json({ error: parsed.error });
+  }
   const order = buildOrder(parsed.items);
 
   const checkout = resolveCheckoutMode(process.env);
