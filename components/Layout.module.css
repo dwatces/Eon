@@ -153,7 +153,6 @@
 }
 
 .socialButtonF,
-.socialButtonI,
 .socialButtonE {
   display: inline-flex;
   align-items: center;
@@ -177,11 +176,6 @@
   color: #fff;
   transform: translateY(-2px);
 }
-.socialButtonI:hover {
-  background: #e1306c;
-  color: #fff;
-  transform: translateY(-2px);
-}
 .socialButtonE:hover {
   background: var(--sage-deep);
   color: #fff;
@@ -189,7 +183,6 @@
 }
 
 .iconF,
-.iconI,
 .iconE {
   width: 1.05rem;
   height: 1.05rem;

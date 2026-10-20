@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
@@ -18,11 +17,6 @@ import happy from "../public/top-happy.webp";
 import summer from "../public/top-summer.webp";
 
 export default function Home() {
-  const [candle1, setCandle1] = useState(false);
-  const [candle2, setCandle2] = useState(false);
-  const [candle3, setCandle3] = useState(false);
-  const [candle4, setCandle4] = useState(false);
-
   return (
     <>
       <LandingLayout>
@@ -57,12 +51,6 @@ export default function Home() {
                     src={MobileLove}
                     alt="topdown love"
                     className={styles.eonCandle}
-                    onMouseEnter={(e) => {
-                      setCandle1(true);
-                    }}
-                    onMouseLeave={(e) => {
-                      setCandle1(false);
-                    }}
                   />
                 </div>
               </Link>
@@ -72,12 +60,6 @@ export default function Home() {
                     src={MobileHappy}
                     alt="topdown happy"
                     className={styles.eonCandle}
-                    onMouseEnter={(e) => {
-                      setCandle2(true);
-                    }}
-                    onMouseLeave={(e) => {
-                      setCandle2(false);
-                    }}
                   />
                 </div>
               </Link>
@@ -87,12 +69,6 @@ export default function Home() {
                     src={MobileDreams}
                     alt="topdown dream"
                     className={styles.eonCandle}
-                    onMouseEnter={(e) => {
-                      setCandle3(true);
-                    }}
-                    onMouseLeave={(e) => {
-                      setCandle3(false);
-                    }}
                   />
                 </div>
               </Link>
@@ -102,12 +78,6 @@ export default function Home() {
                     src={MobileSummer}
                     alt="topdown summer"
                     className={styles.eonCandle}
-                    onMouseEnter={(e) => {
-                      setCandle4(true);
-                    }}
-                    onMouseLeave={(e) => {
-                      setCandle4(false);
-                    }}
                   />
                 </div>
               </Link>
@@ -205,12 +175,6 @@ export default function Home() {
                   className={styles.eonCandle}
                   width={700}
                   height={600}
-                  onMouseEnter={(e) => {
-                    setCandle1(true);
-                  }}
-                  onMouseLeave={(e) => {
-                    setCandle1(false);
-                  }}
                 />
               </div>
             </Link>
@@ -222,12 +186,6 @@ export default function Home() {
                   className={styles.eonCandle}
                   width={700}
                   height={600}
-                  onMouseEnter={(e) => {
-                    setCandle2(true);
-                  }}
-                  onMouseLeave={(e) => {
-                    setCandle2(false);
-                  }}
                 />
               </div>
             </Link>
@@ -239,12 +197,6 @@ export default function Home() {
                   className={styles.eonCandle}
                   width={700}
                   height={600}
-                  onMouseEnter={(e) => {
-                    setCandle3(true);
-                  }}
-                  onMouseLeave={(e) => {
-                    setCandle3(false);
-                  }}
                 />
               </div>
             </Link>
@@ -256,12 +208,6 @@ export default function Home() {
                   className={styles.eonCandle}
                   width={700}
                   height={600}
-                  onMouseEnter={(e) => {
-                    setCandle4(true);
-                  }}
-                  onMouseLeave={(e) => {
-                    setCandle4(false);
-                  }}
                 />
               </div>
             </Link>

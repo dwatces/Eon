@@ -5,7 +5,6 @@ import Image from "next/image";
 import styles from "../styles/Shop.module.css";
 import { getCandle } from "../data/candles";
 import { formatNZD } from "../lib/money";
-import Layout from "../components/Layout";
 import dreams from "../public/lid-dreams.webp";
 import happiness from "../public/lid-happiness.webp";
 import love from "../public/lid-love.webp";
@@ -13,7 +12,7 @@ import summer from "../public/lid-summer.webp";
 
 function Shop() {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Candle Shop</title>
         <meta name="description" content="Shop for Eons candle products" />
@@ -105,7 +104,7 @@ function Shop() {
           </Link>
         </div>
       </main>
-    </Layout>
+    </>
   );
 }
 

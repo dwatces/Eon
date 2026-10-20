@@ -1,5 +1,5 @@
 /* ============================================================
-   Shop — mailing list + product grid
+   Shop — product grid
    ============================================================ */
 
 .main {
@@ -8,64 +8,6 @@
   align-items: center;
   width: 100%;
   padding-bottom: 3rem;
-}
-
-/* ---------- Mailing list banner ---------- */
-.mailModal {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem 1.1rem;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background: var(--sage-soft);
-  border-bottom: 1px solid var(--border);
-}
-
-.message {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin: 0;
-  font-size: 0.97rem;
-  color: var(--ink-soft);
-}
-
-.spam {
-  color: var(--muted);
-}
-
-.mailIcon {
-  font-size: 1.4rem;
-  color: var(--sage-deep);
-}
-
-.validate {
-  display: inline-flex;
-  margin: 0;
-}
-
-.emailInput {
-  height: 2.4rem;
-  width: min(17rem, 72vw);
-  padding: 0 1.1rem;
-  font-family: "Raleway", sans-serif;
-  font-size: 0.95rem;
-  color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-pill);
-  outline: none;
-  transition:
-    border-color 0.2s var(--ease),
-    box-shadow 0.2s var(--ease);
-}
-
-.emailInput:focus {
-  border-color: var(--sage-deep);
-  box-shadow: 0 0 0 3px var(--sage-soft);
 }
 
 /* ---------- Product grid ---------- */
@@ -135,8 +77,7 @@
   color: var(--muted);
 }
 
-.candleDetailMuted,
-.candleRetail {
+.candleDetailMuted {
   margin-top: 0.7rem !important;
   font-family: "Fraunces", Georgia, serif;
   font-size: 1.25rem !important;

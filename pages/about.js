@@ -1,10 +1,9 @@
 import styles from "../styles/About.module.css";
-import Layout from "../components/Layout";
 import Head from "next/head";
 
 const About = () => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>About Page</title>
         <meta
@@ -77,7 +76,7 @@ const About = () => {
           </p>
         </div>
       </main>
-    </Layout>
+    </>
   );
 };
 
