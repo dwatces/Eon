@@ -1,31 +1,10 @@
-import AxeBuilder from "@axe-core/playwright";
 import { test, expect } from "./fixtures";
+import { axeViolations } from "./axe";
 
 // Automated accessibility checks: axe-core against WCAG 2.2 A and AA plus
 // axe's best-practice rules, on every page and on the states that only
-// appear after an interaction. Each test runs at 390 and 1440 px.
-
-const TAGS = [
-  "wcag2a",
-  "wcag2aa",
-  "wcag21a",
-  "wcag21aa",
-  "wcag22aa",
-  "best-practice",
-];
-
-async function axeViolations(page) {
-  const { violations } = await new AxeBuilder({ page })
-    .withTags(TAGS)
-    .analyze();
-  return violations.map(
-    (v) =>
-      `${v.id} (${v.impact}): ${v.nodes
-        .slice(0, 5)
-        .map((n) => n.target.join(" "))
-        .join(", ")}`,
-  );
-}
+// appear after an interaction. Each test runs at 390 and 1440 px. The
+// order page's Stripe states are checked in stripe-checkout.spec.js.
 
 const FULL_CART = JSON.stringify({ v: 2, lines: { love: 2, dreams: 1 } });
 

@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import {
   CheckoutError,
+  checkOrder,
   isStripeCheckoutUrl,
   requestCheckout,
 } from "../lib/checkout-client.js";
@@ -101,5 +102,59 @@ describe("requestCheckout", () => {
     await expect(requestCheckout(items, fetchImpl)).rejects.toBeInstanceOf(
       CheckoutError,
     );
+  });
+});
+
+describe("checkOrder", () => {
+  it("asks the API about the session, with the id escaped", async () => {
+    const fetchImpl = reply(200, { status: "unpaid" });
+    await checkOrder("cs_test_a1", fetchImpl);
+    expect(fetchImpl).toHaveBeenCalledWith(
+      "/api/checkout_sessions/cs_test_a1",
+      expect.objectContaining({ cache: "no-store" }),
+    );
+    await checkOrder("cs_test_a/b?c", fetchImpl);
+    expect(fetchImpl.mock.calls[1][0]).toBe(
+      "/api/checkout_sessions/cs_test_a%2Fb%3Fc",
+    );
+  });
+
+  it("returns a paid order with its total", async () => {
+    const paid = { status: "paid", total: 6500, currency: "NZD", live: false };
+    expect(await checkOrder("cs_test_a1", reply(200, paid))).toEqual({
+      kind: "paid",
+      total: 6500,
+      currency: "NZD",
+      live: false,
+    });
+    expect(
+      (await checkOrder("cs_test_a1", reply(200, { ...paid, live: true })))
+        .live,
+    ).toBe(true);
+  });
+
+  it("calls an unknown or unpaid session unconfirmed", async () => {
+    expect(await checkOrder("cs_test_a1", reply(404, { error: "x" }))).toEqual({
+      kind: "unconfirmed",
+    });
+    expect(
+      await checkOrder("cs_test_a1", reply(200, { status: "unpaid" })),
+    ).toEqual({ kind: "unconfirmed" });
+  });
+
+  it("calls anything else an error, and never throws", async () => {
+    const failing = vi.fn().mockRejectedValue(new TypeError("offline"));
+    for (const fetchImpl of [
+      failing,
+      reply(502, { error: "x" }),
+      reply(200),
+      reply(200, { status: "paid", total: "65.00", currency: "NZD" }),
+      reply(200, { status: "paid", total: 6500 }),
+      reply(200, { status: "refunded" }),
+    ]) {
+      expect(await checkOrder("cs_test_a1", fetchImpl)).toEqual({
+        kind: "error",
+      });
+    }
   });
 });

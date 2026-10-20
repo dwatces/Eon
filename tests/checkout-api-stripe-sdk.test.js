@@ -9,10 +9,16 @@ import {
 } from "vitest";
 import { createMocks } from "node-mocks-http";
 import handler from "../pages/api/checkout_sessions.js";
+import checkHandler from "../pages/api/checkout_sessions/[id].js";
 import { setCheckoutEnv } from "./helpers/env.js";
-import { STUB_SESSION_URL, startStripeStub } from "./helpers/stripe-stub.mjs";
+import {
+  STUB_OPEN_SESSION_ID,
+  STUB_SESSION_ID,
+  STUB_SESSION_URL,
+  startStripeStub,
+} from "./helpers/stripe-stub.mjs";
 
-// The checkout route with the real Stripe SDK (not a mock), pointed at a
+// The checkout routes with the real Stripe SDK (not a mock), pointed at a
 // local stub through EON_STRIPE_API_BASE. This checks what the SDK really
 // sends and how its real error types are handled. Nothing leaves the
 // machine: the test network guard would fail the test if it did.
@@ -106,6 +112,60 @@ describe("checkout with the real Stripe SDK against a local stub", () => {
     expect(r.raw).not.toContain("Stub failure");
     const logged = error.mock.calls.flat().join(" ");
     expect(logged).toContain("StripeAPIError");
+    expect(logged).not.toContain("sk_");
+  });
+});
+
+async function checkOrder(id) {
+  restoreEnv = setCheckoutEnv({
+    STRIPE_SECRET_KEY: TEST_KEY,
+    EON_STRIPE_API_BASE: stub.url,
+  });
+  const { req, res } = createMocks({ method: "GET", query: { id } });
+  await checkHandler(req, res);
+  const raw = JSON.stringify(res._getJSONData());
+  return { status: res._getStatusCode(), json: res._getJSONData(), raw };
+}
+
+describe("checking an order with the real Stripe SDK against a local stub", () => {
+  it("retrieves the session and answers paid with the total only", async () => {
+    const r = await checkOrder(STUB_SESSION_ID);
+    expect(r.status).toBe(200);
+    expect(r.json).toEqual({
+      status: "paid",
+      total: 6500,
+      currency: "NZD",
+      live: false,
+    });
+    expect(r.raw).not.toContain("shopper@example.test");
+    expect(stub.requests).toEqual([
+      expect.objectContaining({
+        method: "GET",
+        path: `/v1/checkout/sessions/${STUB_SESSION_ID}`,
+        auth: "present",
+      }),
+    ]);
+  });
+
+  it("answers an open session as unpaid", async () => {
+    const r = await checkOrder(STUB_OPEN_SESSION_ID);
+    expect(r.status).toBe(200);
+    expect(r.json).toEqual({ status: "unpaid" });
+  });
+
+  it("answers a forged session id with a 404", async () => {
+    const r = await checkOrder("cs_test_forged");
+    expect(r.status).toBe(404);
+    expect(stub.requests).toHaveLength(1);
+  });
+
+  it("answers a rejected key with a generic 502", async () => {
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    stub.setMode("auth");
+    const r = await checkOrder(STUB_SESSION_ID);
+    expect(r.status).toBe(502);
+    const logged = error.mock.calls.flat().join(" ");
+    expect(logged).toContain("StripeAuthenticationError");
     expect(logged).not.toContain("sk_");
   });
 });

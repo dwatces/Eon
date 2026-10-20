@@ -2,7 +2,9 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { test, expect } from "./fixtures";
+import { axeViolations } from "./axe";
 import {
+  STUB_SESSION_ID,
   STUB_SESSION_URL,
   startStripeStub,
 } from "../tests/helpers/stripe-stub.mjs";
@@ -140,4 +142,74 @@ test("if Stripe rejects the key, checkout falls back to the demo summary", async
     page.getByRole("table", { name: "Your demo order" }),
   ).toContainText("Total (NZD)$65.00");
   expect(stub.requests).toHaveLength(1);
+});
+
+test("back from a paid Stripe checkout, the order is checked, then the cart empties", async ({
+  page,
+}) => {
+  // Stripe's success URL. The page asks the server, the server asks the
+  // stub, and the stub says this session is complete and paid.
+  await page.goto(`/success?session_id=${STUB_SESSION_ID}`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Thank you");
+  await expect(page.locator("main")).toContainText(
+    "Stripe has confirmed your test payment of $65.00 NZD.",
+  );
+  await expect(page.getByRole("link", { name: "Cart, 0 items" })).toBeVisible();
+  expect(stub.requests).toEqual([
+    expect.objectContaining({
+      method: "GET",
+      path: `/v1/checkout/sessions/${STUB_SESSION_ID}`,
+    }),
+  ]);
+  expect(await axeViolations(page)).toEqual([]);
+});
+
+test.describe("when the order can't be confirmed", () => {
+  // The order check answers 404 for an unknown session and 502 when Stripe
+  // fails, and Chrome logs every failed request as a console error.
+  test.use({ allowedConsole: [/status of (404|502)/] });
+
+  test("a forged session id thanks nobody and leaves the cart alone", async ({
+    page,
+  }) => {
+    await page.goto("/success?session_id=cs_test_forgedbyverifier");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "We couldn't confirm this order",
+    );
+    await expect(page.locator("main")).not.toContainText("Thank you");
+    await expect(
+      page.getByRole("link", { name: "Cart, 3 items" }),
+    ).toBeVisible();
+    expect(stub.requests).toHaveLength(1);
+    expect(await axeViolations(page)).toEqual([]);
+
+    // The cart is still there after a reload.
+    await page.goto("/cart");
+    await expect(
+      page.getByRole("link", { name: "Cart, 3 items" }),
+    ).toBeVisible();
+  });
+
+  test("if Stripe can't be reached, the order page says so and keeps the cart", async ({
+    page,
+  }) => {
+    stub.setMode("error");
+    await page.goto(`/success?session_id=${STUB_SESSION_ID}`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "We couldn't check your order",
+    );
+    await expect(
+      page.getByRole("link", { name: "Cart, 3 items" }),
+    ).toBeVisible();
+    expect(await axeViolations(page)).toEqual([]);
+
+    stub.setMode("ok");
+    await page.getByRole("button", { name: "Try again" }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Thank you",
+    );
+    await expect(
+      page.getByRole("link", { name: "Cart, 0 items" }),
+    ).toBeVisible();
+  });
 });

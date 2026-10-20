@@ -58,7 +58,10 @@
   text-transform: uppercase;
   color: #fff;
   background: var(--accent);
+  border: 0;
   border-radius: var(--radius-pill);
+  font-family: inherit;
+  cursor: pointer;
   transition: background 0.2s var(--ease);
 }
 

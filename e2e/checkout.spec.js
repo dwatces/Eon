@@ -137,11 +137,7 @@ test("a direct visit to /success shows no order and keeps the cart", async ({
   page,
 }) => {
   await fillCart(page);
-  for (const path of [
-    "/success",
-    "/success?demo=1",
-    "/success?session_id=cs_test_a1B2c3",
-  ]) {
+  for (const path of ["/success", "/success?demo=1"]) {
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "There's no order to show here",
@@ -150,6 +146,27 @@ test("a direct visit to /success shows no order and keeps the cart", async ({
       page.getByRole("link", { name: "Cart, 2 items" }),
     ).toBeVisible();
   }
+});
+
+test.describe("a typed-in Stripe session id in demo mode", () => {
+  // The order check answers 404, which Chrome logs as a console error.
+  test.use({ allowedConsole: [/status of 404/] });
+
+  test("is checked with the server, thanks nobody and keeps the cart", async ({
+    page,
+  }) => {
+    await fillCart(page);
+    const check = page.waitForResponse("**/api/checkout_sessions/cs_test_*");
+    await page.goto("/success?session_id=cs_test_a1B2c3");
+    expect((await check).status()).toBe(404);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "We couldn't confirm this order",
+    );
+    await expect(page.locator("main")).not.toContainText("Thank you");
+    await expect(
+      page.getByRole("link", { name: "Cart, 2 items" }),
+    ).toBeVisible();
+  });
 });
 
 test("the checkout API only accepts POST", async ({ request }) => {
