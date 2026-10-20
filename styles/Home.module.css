@@ -49,7 +49,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--terracotta);
+  background: var(--terracotta-dark);
   border-radius: var(--radius-pill);
   transition:
     background 0.2s var(--ease),
@@ -57,7 +57,7 @@
 }
 
 .cta:hover {
-  background: var(--terracotta-dark);
+  background: #8b4630;
   transform: translateY(-1px);
 }
 
