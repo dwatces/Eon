@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import axios from "axios";
 import Link from "next/link";
-import getStripe from "../../components/get-stripe";
 import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Head from "next/head";
@@ -31,29 +29,13 @@ const Summer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [crystal, setCrystal] = useState(false);
   const [flower, setFlower] = useState(false);
-  const { addItem, cartDetails } = useShoppingCart();
+  const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
   const [cartClicked, setCartClicked] = useState(false);
 
-  const handleOnAddToCart = async () => {
-    if (!cartClicked) {
-      addItem(products[3], qty);
-      setCartClicked(true);
-    }
-
-    if (cartClicked) {
-      const {
-        data: { id },
-      } = await axios.post("../api/checkout_sessions", {
-        items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
-          price: id,
-          quantity,
-        })),
-      });
-
-      const stripe = await getStripe();
-      await stripe.redirectToCheckout({ sessionId: id });
-    }
+  const handleOnAddToCart = () => {
+    addItem(products[3], qty);
+    setCartClicked(true);
   };
   const open = () => {
     setIsOpen(true);

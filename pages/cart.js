@@ -1,8 +1,7 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
-import axios from "axios";
-import getStripe from "../components/get-stripe";
 import styles from "../styles/Cart.module.css";
 import { getCandle } from "../data/candles";
 import { formatNZD } from "../lib/money";
@@ -10,19 +9,42 @@ import { formatNZD } from "../lib/money";
 const Cart = () => {
   const { cartDetails, cartCount, removeItem } = useShoppingCart();
 
-  const redirectToCheckout = async () => {
-    const {
-      data: { id },
-    } = await axios.post("/api/checkout_sessions", {
-      items: Object.entries(cartDetails).map(([_, { id, quantity }]) => ({
-        price: id,
-        quantity,
-      })),
-    });
+  const [checkoutState, setCheckoutState] = useState({ status: "idle" });
 
-    const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
+  const startCheckout = async () => {
+    if (checkoutState.status === "pending") return;
+    setCheckoutState({ status: "pending" });
+    try {
+      const response = await fetch("/api/checkout_sessions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: Object.values(cartDetails).map(({ name, quantity }) => ({
+            slug: name,
+            quantity,
+          })),
+        }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || "Checkout failed");
+      if (
+        data.mode === "stripe" &&
+        typeof data.url === "string" &&
+        data.url.startsWith("https://checkout.stripe.com/")
+      ) {
+        window.location.assign(data.url);
+        return;
+      }
+      if (data.mode === "demo" && data.order) {
+        setCheckoutState({ status: "demo", order: data.order });
+        return;
+      }
+      throw new Error("Unexpected checkout response");
+    } catch {
+      setCheckoutState({ status: "error" });
+    }
   };
+
   return (
     <>
       <main className={styles.main}>
@@ -81,16 +103,34 @@ const Cart = () => {
               )}
             </div>{" "}
             <p className={styles.proceed}>
-              Click below to proceed to Stripe to complete your order:
+              This is a portfolio demo shop: checkout shows an order summary and
+              takes no payment.
             </p>
-            <p>(Please note this may take a few seconds)</p>
             <div className={styles.cartCheckout}>
               <button
+                type="button"
                 className={styles.buttonCheckout}
-                onClick={() => redirectToCheckout()}
+                onClick={startCheckout}
+                disabled={checkoutState.status === "pending"}
+                aria-busy={checkoutState.status === "pending"}
               >
-                Checkout
+                {checkoutState.status === "pending"
+                  ? "Starting checkout…"
+                  : "Checkout"}
               </button>
+            </div>
+            <div role="status" className={styles.checkoutMessage}>
+              {checkoutState.status === "demo" && (
+                <p>
+                  Demo order: {formatNZD(checkoutState.order.subtotal)} plus{" "}
+                  {formatNZD(checkoutState.order.shipping)} New Zealand
+                  shipping, {formatNZD(checkoutState.order.total)} in total. No
+                  payment was taken and no order was placed.
+                </p>
+              )}
+              {checkoutState.status === "error" && (
+                <p>We couldn&apos;t start checkout. Please try again.</p>
+              )}
             </div>
           </>
         ) : null}
