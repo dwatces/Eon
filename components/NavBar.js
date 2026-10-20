@@ -9,103 +9,92 @@ import { IoMdCart } from "react-icons/io";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
+const LINKS = [
+  { href: "/", label: "Home", isActive: (path) => path === "/" },
+  {
+    href: "/shop",
+    label: "Shop",
+    isActive: (path) => path.startsWith("/shop"),
+  },
+  { href: "/about", label: "About", isActive: (path) => path === "/about" },
+];
+
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
-  const toggleNav = () => setNav(!showNav);
-  const { count: cartCount } = useShoppingCart();
+  const { count } = useShoppingCart();
   const router = useRouter();
+  const closeNav = () => setNav(false);
 
   return (
-    <>
-      <nav className={styles.navbar} role="navigation">
-        <Link href="/" passHref hrefLang="en-nz">
-          <span className={styles.logo} onClick={toggleNav}>
-            <Image
-              src={logo}
-              className={styles.eonLogo}
-              alt="Logo"
-              width={60}
-              height={30}
-            />
-          </span>
-        </Link>
-        <ul
-          style={{ display: showNav ? "flex" : null }}
-          className={styles.middleLinks}
-        >
+    <nav className={styles.navbar} aria-label="Main">
+      <Link href="/" passHref>
+        <a className={styles.logo} aria-label="Eon home" onClick={closeNav}>
+          <Image
+            src={logo}
+            className={styles.eonLogo}
+            alt=""
+            width={60}
+            height={30}
+          />
+        </a>
+      </Link>
+      <ul
+        id="site-menu"
+        style={{ display: showNav ? "flex" : null }}
+        className={styles.middleLinks}
+      >
+        {LINKS.map(({ href, label, isActive }) => (
           <li
-            className={`${router.pathname === "/" ? "active" : ""} ${styles.linkHome}`}
+            key={href}
+            className={`${isActive(router.pathname) ? "active" : ""} ${styles.linkHome}`}
           >
-            <span className={styles.link} onClick={toggleNav}>
-              <Link href="/" hrefLang="en-nz" passHref>
-                Home
-              </Link>
-            </span>
-          </li>
-          <li
-            className={`${router.pathname.startsWith("/shop") ? "active" : ""} ${styles.linkHome}`}
-          >
-            <span className={styles.link} onClick={toggleNav}>
-              <Link href="/shop" hrefLang="en-nz" className={styles.link}>
-                Shop
-              </Link>
-            </span>
-          </li>
-          <li
-            className={`${router.pathname === "/about" ? "active" : ""} ${styles.linkHome}`}
-          >
-            <span className={styles.link} onClick={toggleNav}>
-              <Link href="/about" hrefLang="en-nz" className={styles.link}>
-                About
-              </Link>
-            </span>
-          </li>
-          <span className={styles.cartItems} onClick={toggleNav}>
-            <Link href="/cart" passHref>
-              <button
-                className={styles.buttonCart}
-                name="cartButton"
-                aria-label="cartButton"
+            <Link href={href} passHref>
+              <a
+                className={styles.link}
+                aria-current={isActive(router.pathname) ? "page" : undefined}
+                onClick={closeNav}
               >
-                <IoMdCart className={styles.Cartlink} size={24} />
-              </button>
+                {label}
+              </a>
             </Link>
-            {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}</span>
+          </li>
+        ))}
+      </ul>
+      <div className={styles.navActions}>
+        <Link href="/cart" passHref>
+          <a
+            className={styles.cartItems}
+            aria-label={`Cart, ${count} ${count === 1 ? "item" : "items"}`}
+            onClick={closeNav}
+          >
+            <IoMdCart
+              className={styles.Cartlink}
+              size={24}
+              aria-hidden="true"
+            />
+            {count > 0 && (
+              <span className={styles.cartCount} aria-hidden="true">
+                {count}
+              </span>
             )}
-          </span>
-        </ul>
+          </a>
+        </Link>
         <button
           type="button"
-          onClick={toggleNav}
+          onClick={() => setNav(!showNav)}
           className={`${styles.btbIcon} ${styles.nav__hamburger}`}
-          aria-label="toggle navigation"
+          aria-label="Menu"
+          aria-expanded={showNav}
+          aria-controls="site-menu"
         >
           {showNav ? (
             <CloseIcon color="warning" fontSize="large" />
           ) : (
-            <>
-              <MenuIcon color="warning" fontSize="large" />
-              <IoMdCart className={styles.CartlinkMobile} size={24} />
-            </>
+            <MenuIcon color="warning" fontSize="large" />
           )}
-          <span className={styles.cartItems} onClick={toggleNav}>
-            <Link href="/cart" passHref>
-              <button
-                className={styles.buttonCart}
-                name="cartButton"
-                aria-label="cartButton"
-              >
-                <IoMdCart className={styles.Cartlink} size={24} />
-              </button>
-            </Link>
-            {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}</span>
-            )}
-          </span>
         </button>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 

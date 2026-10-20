@@ -35,6 +35,15 @@
   display: flex;
   align-items: center;
   gap: clamp(1.25rem, 3vw, 2.5rem);
+  margin-left: auto;
+}
+
+/* cart link and menu toggle */
+.navActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: calc(clamp(1.25rem, 3vw, 2.5rem) - 1rem);
 }
 
 .linkHome {
@@ -69,16 +78,6 @@
   align-items: center;
 }
 
-.buttonCart {
-  display: inline-flex;
-  align-items: center;
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--ink);
-}
-
 .Cartlink {
   width: 1.5rem;
   height: 1.5rem;
@@ -86,7 +85,7 @@
   transition: color 0.2s var(--ease);
 }
 
-.buttonCart:hover .Cartlink {
+.cartItems:hover .Cartlink {
   color: var(--terracotta);
 }
 
@@ -113,10 +112,6 @@
 /* ---------- Hamburger (mobile only) ---------- */
 .btbIcon,
 .nav__hamburger {
-  display: none;
-}
-
-.CartlinkMobile {
   display: none;
 }
 
@@ -223,12 +218,13 @@
     font-size: 1.05rem;
   }
 
-  .cartItems {
-    margin-top: 0.25rem;
+  .navActions {
+    margin-left: auto;
   }
 
   .btbIcon,
   .nav__hamburger {
+    order: -1;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
