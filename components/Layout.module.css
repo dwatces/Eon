@@ -128,8 +128,9 @@
 }
 
 /* ---------- Hero banner (landing only) ---------- */
-/* Wide screens keep the banner's long frame, which the photo fills;
-   phones crop it (object-fit: cover) so the tins stay large. */
+/* Wide screens keep the banner's long frame, which the photo fills.
+   From 481 to 760px the photo shows at its own shape, all four tins
+   whole; phones crop it to the middle two so they stay large. */
 .header {
   display: block;
   width: 100%;
@@ -139,7 +140,7 @@
 
 @media (max-width: 760px) {
   .header {
-    aspect-ratio: 2.2;
+    aspect-ratio: 1600 / 528;
     object-fit: cover;
   }
 }
