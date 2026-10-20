@@ -4,9 +4,7 @@ let stripePromise = null;
 
 const getStripe = async () => {
   if (!stripePromise) {
-    stripePromise = await loadStripe(
-     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    );
+    stripePromise = await loadStripe(NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
   }
   return stripePromise;
 };

@@ -34,9 +34,7 @@ const NavBar = () => {
           className={styles.middleLinks}
         >
           <li
-            className={
-              `${router.pathname === "/" ? "active" : ""} ${styles.linkHome}`
-            }
+            className={`${router.pathname === "/" ? "active" : ""} ${styles.linkHome}`}
           >
             <span className={styles.link} onClick={toggleNav}>
               <Link href="/" hrefLang="en-nz" passHref>
@@ -45,9 +43,7 @@ const NavBar = () => {
             </span>
           </li>
           <li
-            className={
-              `${router.pathname.startsWith("/shop") ? "active" : ""} ${styles.linkHome}`
-            }
+            className={`${router.pathname.startsWith("/shop") ? "active" : ""} ${styles.linkHome}`}
           >
             <span className={styles.link} onClick={toggleNav}>
               <Link href="/shop" hrefLang="en-nz" className={styles.link}>
@@ -56,9 +52,7 @@ const NavBar = () => {
             </span>
           </li>
           <li
-            className={
-              `${router.pathname === "/about" ? "active" : ""} ${styles.linkHome}`
-            }
+            className={`${router.pathname === "/about" ? "active" : ""} ${styles.linkHome}`}
           >
             <span className={styles.link} onClick={toggleNav}>
               <Link href="/about" hrefLang="en-nz" className={styles.link}>

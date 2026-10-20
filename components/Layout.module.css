@@ -155,7 +155,9 @@
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: transform 0.2s var(--ease), background 0.2s var(--ease),
+  transition:
+    transform 0.2s var(--ease),
+    background 0.2s var(--ease),
     color 0.2s var(--ease);
 }
 

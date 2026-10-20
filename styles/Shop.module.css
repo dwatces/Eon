@@ -58,7 +58,9 @@
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   outline: none;
-  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition:
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .emailInput:focus {
@@ -91,7 +93,9 @@
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
     border-color 0.25s var(--ease);
 }
 

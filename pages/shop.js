@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Head from 'next/head'
+import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Shop.module.css";
 import Layout from "../components/Layout";
@@ -11,7 +11,6 @@ import summer from "../public/lid-summer.webp";
 
 function Shop() {
   return (
-
     <Layout>
       <Head>
         <title>Candle Shop</title>

@@ -3,7 +3,7 @@ import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-import Head from 'next/head'
+import Head from "next/head";
 import getStripe from "../../components/get-stripe";
 import "react-image-lightbox/style.css";
 import { ProductJsonLd } from "next-seo";

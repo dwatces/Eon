@@ -69,7 +69,7 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                )
+                ),
               )}
             </div>{" "}
             <p className={styles.proceed}>

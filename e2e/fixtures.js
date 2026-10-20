@@ -14,10 +14,14 @@ export const test = base.extend({
       page.on("request", (req) => {
         const url = new URL(req.url());
         if (/^(data|blob):/.test(url.protocol)) return;
-        if (url.host !== allowedHost) errors.push(`external request: ${url.host}`);
+        if (url.host !== allowedHost)
+          errors.push(`external request: ${url.host}`);
       });
       await use(errors);
-      expect(errors, "console errors, page errors or external requests").toEqual([]);
+      expect(
+        errors,
+        "console errors, page errors or external requests",
+      ).toEqual([]);
     },
     { auto: true },
   ],

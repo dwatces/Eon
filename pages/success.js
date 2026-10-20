@@ -3,7 +3,6 @@ import { useShoppingCart } from "../hooks/use-shopping-cart";
 import { AiOutlineCheck } from "react-icons/ai";
 import { FaHandPeace } from "react-icons/fa";
 
-
 const Success = () => {
   const { clearCart } = useShoppingCart();
 

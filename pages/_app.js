@@ -5,13 +5,11 @@ import { CartProvider } from "../hooks/use-shopping-cart";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
         <title>Eon Candles</title>
-
         Content-Encoding: gzip | compress | deflate | br| identity
         <meta
           name="description"
@@ -52,7 +50,6 @@ function MyApp({ Component, pageProps }) {
           hrefLang="en-nz"
         /> */}
         <link rel="alternate" hrefLang="x" />
-
       </Head>
       <CartProvider>
         <NavBar />

@@ -31,7 +31,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
 }
 
 .galleryImage:hover {
@@ -105,7 +107,9 @@
   box-shadow: var(--shadow-sm);
   cursor: pointer;
   z-index: 2;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease);
 }
 
 .galleryBack:hover,
@@ -195,7 +199,9 @@
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  transition:
+    border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
 }
 
 .candleQuantity:hover:not(:disabled) {
@@ -222,7 +228,9 @@
   border: none;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.2s var(--ease);
 }
 
 .submitButton:hover {

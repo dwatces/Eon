@@ -1,6 +1,3 @@
-
-
-
 module.exports = {
   // Next 12 only lints pages, components and lib by default.
   eslint: {

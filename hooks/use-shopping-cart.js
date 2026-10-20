@@ -51,7 +51,7 @@ const removeItem = (state = {}, product = null, quantity = 0) => {
         cartCount: Math.max(0, state.cartCount - entry.quantity),
         totalPrice: Math.max(
           0,
-          state.totalPrice - product.price * entry.quantity
+          state.totalPrice - product.price * entry.quantity,
         ),
       };
     }
@@ -99,7 +99,7 @@ export const CartProvider = ({ currency = "NZD", children = null }) => {
   const [cart, dispatch] = useLocalStorageReducer(
     "cart",
     cartReducer,
-    initialCartValues
+    initialCartValues,
   );
 
   const contextValue = useMemo(
@@ -110,7 +110,7 @@ export const CartProvider = ({ currency = "NZD", children = null }) => {
       },
       dispatch,
     ],
-    [cart, currency]
+    [cart, currency],
   );
 
   return (
