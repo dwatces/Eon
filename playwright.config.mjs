@@ -26,8 +26,27 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   projects: [
-    { name: "mobile", use: { viewport: { width: 390, height: 844 } } },
-    { name: "desktop", use: { viewport: { width: 1440, height: 900 } } },
+    {
+      name: "mobile",
+      testIgnore: /performance\.spec/,
+      use: { viewport: { width: 390, height: 844 } },
+    },
+    {
+      name: "desktop",
+      testIgnore: /performance\.spec/,
+      use: { viewport: { width: 1440, height: 900 } },
+    },
+    // Performance budgets run once, on an emulated phone.
+    {
+      name: "perf",
+      testMatch: /performance\.spec/,
+      use: {
+        viewport: { width: 390, height: 844 },
+        deviceScaleFactor: 3,
+        isMobile: true,
+        hasTouch: true,
+      },
+    },
   ],
   webServer: {
     command: `npm run build && npm run start -- -H 127.0.0.1 -p ${PORT}`,
