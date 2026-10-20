@@ -21,6 +21,10 @@ const KEY_ERRORS = new Set([
   "StripePermissionError",
 ]);
 
+// A live key without the opt-in is worth one warning per server instance,
+// not one on every checkout.
+let warnedLiveKey = false;
+
 const isJson = (contentType = "") =>
   /^application\/json(\s*;|$)/i.test(String(contentType).trim());
 
@@ -47,7 +51,8 @@ export default async function handler(req, res) {
 
   const checkout = resolveCheckoutMode(process.env);
   if (checkout.mode === "demo") {
-    if (checkout.reason === "live-key-without-opt-in") {
+    if (checkout.reason === "live-key-without-opt-in" && !warnedLiveKey) {
+      warnedLiveKey = true;
       console.warn(
         "Checkout: a live Stripe key is set without EON_ALLOW_LIVE_PAYMENTS=true, so checkout runs in demo mode.",
       );

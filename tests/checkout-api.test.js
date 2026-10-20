@@ -118,13 +118,19 @@ describe("POST /api/checkout_sessions", () => {
     expect(StripeCtor).not.toHaveBeenCalled();
   });
 
-  it("stays in demo mode with a live key and no opt-in, and never logs the key", async () => {
+  it("stays in demo mode with a live key and no opt-in, warns once and never logs the key", async () => {
     restoreEnv = setCheckoutEnv({ STRIPE_SECRET_KEY: "sk_live_canary123" });
     const r = await call();
     expect(r.json.mode).toBe("demo");
     expect(StripeCtor).not.toHaveBeenCalled();
     expect(warn).toHaveBeenCalledTimes(1);
     expect(String(warn.mock.calls[0][0])).not.toContain("sk_");
+    expect(String(warn.mock.calls[0][0])).toContain("EON_ALLOW_LIVE_PAYMENTS");
+
+    // Later checkouts on the same server stay quiet.
+    const again = await call();
+    expect(again.json.mode).toBe("demo");
+    expect(warn).toHaveBeenCalledTimes(1);
   });
 
   it("creates an NZ-only Stripe session with server prices for a test key", async () => {
