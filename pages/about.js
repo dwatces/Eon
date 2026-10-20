@@ -1,5 +1,7 @@
+import Image from "next/image";
 import styles from "../styles/About.module.css";
 import Seo from "../components/Seo";
+import rangePhoto from "../public/hero-mobile.webp";
 
 const About = () => {
   return (
@@ -10,18 +12,10 @@ const About = () => {
         path="/about"
       />
       <main id="main" className={styles.main}>
-        <div className={styles.crystals}>
-          <div className={styles.crystalHeaderText}>
-            <h1 className={styles.crystalHeader}>
-              <span className={styles.crystalHeaderAbout}>About</span>
-
-              <span className={styles.split}></span>
-
-              <a href="#contact">
-                <span>Contact Us</span>
-              </a>
-            </h1>
-            <p className={styles.crystalsText}>
+        <div className={styles.story}>
+          <h1 className={styles.title}>About Eon</h1>
+          <div className={styles.copy}>
+            <p>
               We&apos;re Kiwis who love to bring positive energies into all
               lives. Our boutique candles are more than just pleasant scents. At
               Eon, all our candles are handcrafted, combining both the energy of
@@ -32,7 +26,7 @@ const About = () => {
               natural accompaniments to create a powerful and elegant candle
               that will fit perfectly into your life.
             </p>
-            <p className={styles.crystalsText}>
+            <p>
               Made in the earth eons ago, crystals carry an innate power to
               direct positive energies into our bodies and souls; whilst warding
               from the negative. Our vegan soy wax candles each have a unique,
@@ -47,32 +41,46 @@ const About = () => {
               perseverance and amplify these positive energies within you to new
               heights.
             </p>
-            <br />
           </div>
+          <figure className={styles.figure}>
+            <Image
+              src={rangePhoto}
+              alt="The four Eon candle tins, Dreams, Summer, Love and Happiness, with tumbled crystals"
+              sizes="(min-width: 900px) 340px, (min-width: 480px) 400px, calc(100vw - 3rem)"
+              className={styles.photo}
+            />
+          </figure>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className={styles.nzNatural}>
-          <p className={styles.envText}>
-            We love our planet, and our clean, green country; that&apos;s why
-            our candles are made of vegan soy wax, and we ship all our candles
-            in recyclable and biodegradable packaging. Cardboard boxes filled
-            with natural wood wool, wrapped in a compostable bag keeps your
-            candle safe and sound while it makes its journey through our
-            beautiful Aotearoa to you. Our candle tins are easily repurposable
-            as well! After washing, use our tins as a place to keep trinkets,
-            keepsakes, or anything special to you!
-          </p>
-        </div>
-        <div className={styles.contactBox} id="contact">
-          <h2 className={styles.contactHeader}>Contact</h2>
-          <p className={styles.contactText}>
+        <section className={styles.nzNatural} aria-labelledby="packaging">
+          <div className={styles.band}>
+            <h2 id="packaging" className={styles.sectionTitle}>
+              Packaging
+            </h2>
+            <p>
+              We love our planet, and our clean, green country; that&apos;s why
+              our candles are made of vegan soy wax, and we ship all our candles
+              in recyclable and biodegradable packaging. Cardboard boxes filled
+              with natural wood wool, wrapped in a compostable bag keeps your
+              candle safe and sound while it makes its journey through our
+              beautiful Aotearoa to you. Our candle tins are easily repurposable
+              as well! After washing, use our tins as a place to keep trinkets,
+              keepsakes, or anything special to you!
+            </p>
+          </div>
+        </section>
+        <section
+          className={styles.contactBox}
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+          <h2 id="contact-title" className={styles.sectionTitle}>
+            Contact
+          </h2>
+          <p>
             This site is a portfolio demo of the Eon shop, so it takes no orders
             or enquiries.
           </p>
-        </div>
+        </section>
       </main>
     </>
   );

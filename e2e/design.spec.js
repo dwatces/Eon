@@ -41,7 +41,7 @@ const smallTargets = (page) =>
     return small;
   });
 
-const routes = ["/", "/shop", "/shop/love", "/success", "/cart"];
+const routes = ["/", "/shop", "/shop/love", "/about", "/success", "/cart"];
 
 for (const path of routes) {
   test(`every target on ${path} is at least 44×44`, async ({ page }) => {
@@ -304,4 +304,19 @@ test("every in-page link on the home page has a target", async ({ page }) => {
     "Nature",
     "Our candles",
   ]);
+});
+
+test("the About page has one heading, plain sections and no line breaks", async ({
+  page,
+}) => {
+  await page.goto("/about");
+  const main = page.locator("main");
+  await expect(main.getByRole("heading", { level: 1 })).toHaveText("About Eon");
+  await expect(main.getByRole("heading", { level: 2 })).toHaveText([
+    "Packaging",
+    "Contact",
+  ]);
+  await expect(main.locator("h1 a, h2 a")).toHaveCount(0);
+  await expect(main.locator("br")).toHaveCount(0);
+  await expect(main.locator("#contact")).toContainText("no orders");
 });

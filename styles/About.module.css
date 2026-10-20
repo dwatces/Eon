@@ -7,97 +7,114 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
-.crystals {
+/* ---------- Story: heading, copy and the range photo ---------- */
+/* One column on phones; from 900px the photo sits beside the copy. */
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "title"
+    "copy"
+    "figure";
+  gap: 1.5rem;
   width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: clamp(3rem, 7vw, 5rem) 1.5rem 0;
+  max-width: calc(40rem + 3rem);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem 0;
 }
 
-.crystalHeaderText {
-  text-align: center;
+.title {
+  grid-area: title;
+  font-size: clamp(2.2rem, 5vw, 3rem);
 }
 
-.crystalHeader {
+.copy {
+  grid-area: copy;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   gap: 1.25rem;
-  margin-bottom: 2rem;
-  font-size: clamp(2rem, 5vw, 2.8rem);
 }
 
-.crystalHeaderAbout {
-  color: var(--ink);
-}
-
-.crystalHeader a {
-  color: var(--muted);
-  transition: color 0.2s var(--ease);
-}
-
-.crystalHeader a:hover {
-  color: var(--accent);
-}
-
-.split {
-  display: inline-block;
-  width: 1px;
-  height: 1.6rem;
-  background: var(--border-strong);
-}
-
-.crystalsText {
-  margin: 0 0 1.5rem;
+.copy p,
+.band p,
+.contactBox p {
+  max-width: 65ch;
   font-size: 1.05rem;
-  line-height: 1.85;
+  line-height: 1.8;
   color: var(--ink-soft);
-  text-align: center;
 }
 
-/* ---------- Sustainability band ---------- */
+.figure {
+  grid-area: figure;
+  margin: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Packaging band ---------- */
 .nzNatural {
   width: 100%;
   margin-top: clamp(2.5rem, 6vw, 4rem);
-  padding: clamp(3rem, 7vw, 4.5rem) 1.5rem;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
   background: var(--sage-soft);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
-.envText {
-  max-width: 760px;
+.band {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 40rem;
   margin: 0 auto;
-  font-size: 1.08rem;
-  line-height: 1.85;
-  color: var(--ink-soft);
-  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
 }
 
 /* ---------- Contact ---------- */
 .contactBox {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.5rem;
   width: 100%;
+  max-width: calc(40rem + 3rem);
   padding: clamp(2.5rem, 6vw, 4rem) 1.5rem 0;
 }
 
-.contactHeader {
-  font-size: 1.35rem;
-  font-weight: 500;
-  line-height: 1.9;
-  text-align: center;
-  color: var(--ink);
-}
+@media (min-width: 900px) {
+  .story {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-areas:
+      "title title"
+      "copy figure";
+    column-gap: clamp(2.5rem, 5vw, 4rem);
+    max-width: var(--container);
+  }
 
-.contactText {
-  max-width: 36rem;
-  text-align: center;
-  color: var(--ink-soft);
+  .figure {
+    align-self: start;
+    max-width: none;
+  }
+
+  /* The band and contact text share the story's left edge. */
+  .band {
+    max-width: calc(var(--container) - 3rem);
+  }
+
+  .contactBox {
+    max-width: var(--container);
+  }
 }
