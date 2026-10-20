@@ -35,3 +35,6 @@ yarn-error.log*
 /test-results/
 /playwright-report/
 
+# generated at build by scripts/generate-seo-files.mjs
+/public/robots.txt
+/public/sitemap.xml
