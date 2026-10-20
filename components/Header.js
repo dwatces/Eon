@@ -1,5 +1,5 @@
 import styles from "./Layout.module.css";
-import backgroundImg from "../public/heroDesktop.webp";
+import backgroundImg from "../assets/images/hero-banner.webp";
 import Image from "next/image";
 
 // The home banner, and the largest image on the page: loaded eagerly at

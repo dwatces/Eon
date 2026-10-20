@@ -3,18 +3,18 @@
 // and crystal shots. Only the product page needs all of them.
 
 import { cardImages } from "./card-images";
-import loveFlower from "../public/Flower-love.webp";
-import loveLit from "../public/lit-love.webp";
-import loveCrystal from "../public/crystal-love.webp";
-import happinessFlower from "../public/Flower-Happy2.webp";
-import happinessLit from "../public/lit-happy.webp";
-import happinessCrystal from "../public/Crystal-Happy.webp";
-import dreamsFlower from "../public/Flower-Dream.webp";
-import dreamsLit from "../public/lit-dreams.webp";
-import dreamsCrystal from "../public/Crystal-dreams.webp";
-import summerFlower from "../public/Flower-Summer.webp";
-import summerLit from "../public/lit-summer.webp";
-import summerCrystal from "../public/crystal-summer.webp";
+import loveFlower from "../assets/images/candles/love-flower.webp";
+import loveLit from "../assets/images/candles/love-lit.webp";
+import loveCrystal from "../assets/images/candles/love-crystal.webp";
+import happinessFlower from "../assets/images/candles/happiness-flower.webp";
+import happinessLit from "../assets/images/candles/happiness-lit.webp";
+import happinessCrystal from "../assets/images/candles/happiness-crystal.webp";
+import dreamsFlower from "../assets/images/candles/dreams-flower.webp";
+import dreamsLit from "../assets/images/candles/dreams-lit.webp";
+import dreamsCrystal from "../assets/images/candles/dreams-crystal.webp";
+import summerFlower from "../assets/images/candles/summer-flower.webp";
+import summerLit from "../assets/images/candles/summer-lit.webp";
+import summerCrystal from "../assets/images/candles/summer-crystal.webp";
 
 export const candleImages = {
   love: {

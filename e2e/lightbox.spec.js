@@ -31,7 +31,7 @@ test.describe("product gallery on wide screens", () => {
       "alt",
       "Love candle lit, with the lid off",
     );
-    await expect(mainPhoto(page)).toHaveAttribute("src", /lit-love/);
+    await expect(mainPhoto(page)).toHaveAttribute("src", /love-lit/);
     await expect(lit).toHaveAttribute("aria-pressed", "true");
     await expect(lid).toHaveAttribute("aria-pressed", "false");
   });

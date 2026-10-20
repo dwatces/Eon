@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/About.module.css";
 import Seo from "../components/Seo";
-import rangePhoto from "../public/hero-mobile.webp";
+import rangePhoto from "../assets/images/eon-range.webp";
 
 const About = () => {
   return (

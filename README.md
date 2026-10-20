@@ -63,7 +63,8 @@ lib/            Cart, checkout, money, site URL and font helpers
 styles/         Global design tokens, per-page CSS Modules and the font files
 tests/          Vitest unit, API and component tests
 e2e/            Playwright end-to-end tests
-public/         Product photos, icons and the social card image
+assets/         Product photos, the logo and icons, imported by the code
+public/         The favicon and the social card image
 scripts/        Writes robots.txt and sitemap.xml at build
 ```
 

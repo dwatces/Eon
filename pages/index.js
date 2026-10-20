@@ -5,10 +5,10 @@ import LandingLayout from "../components/LandingLayout";
 import Seo from "../components/Seo";
 import ProductCard from "../components/ProductCard";
 import { candles } from "../data/candles";
-import Logo from "../public/eon-logo.webp";
-import Fire from "../public/burning-embers.svg";
-import Earth from "../public/earth-asia-oceania.svg";
-import Leaf from "../public/linden-leaf.svg";
+import Logo from "../assets/images/eon-logo.webp";
+import Fire from "../assets/icons/burning-embers.svg";
+import Earth from "../assets/icons/earth-asia-oceania.svg";
+import Leaf from "../assets/icons/linden-leaf.svg";
 
 const TILE_SIZES = "(min-width: 1180px) 270px, (min-width: 761px) 25vw, 50vw";
 

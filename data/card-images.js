@@ -3,14 +3,14 @@
 // (data/candle-images.js), so pages that only show cards load just these
 // eight images' details.
 
-import loveLid from "../public/lid-love.webp";
-import happinessLid from "../public/lid-happiness.webp";
-import dreamsLid from "../public/lid-dreams.webp";
-import summerLid from "../public/lid-summer.webp";
-import loveTop from "../public/top-love.webp";
-import happinessTop from "../public/top-happy.webp";
-import dreamsTop from "../public/top-dream.webp";
-import summerTop from "../public/top-summer.webp";
+import loveLid from "../assets/images/candles/love-lid.webp";
+import happinessLid from "../assets/images/candles/happiness-lid.webp";
+import dreamsLid from "../assets/images/candles/dreams-lid.webp";
+import summerLid from "../assets/images/candles/summer-lid.webp";
+import loveTop from "../assets/images/candles/love-top.webp";
+import happinessTop from "../assets/images/candles/happiness-top.webp";
+import dreamsTop from "../assets/images/candles/dreams-top.webp";
+import summerTop from "../assets/images/candles/summer-top.webp";
 
 export const cardImages = {
   love: {
