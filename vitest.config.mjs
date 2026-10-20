@@ -17,9 +17,19 @@ const imageStub = {
 
 export default defineConfig({
   plugins: [imageStub],
+  // Next.js allows JSX in .js files; Vite only transforms .jsx by default.
+  oxc: {
+    include: /\.js$/,
+    exclude: /node_modules/,
+    lang: "jsx",
+    jsx: { runtime: "automatic" },
+  },
   test: {
     include: ["tests/**/*.test.{js,mjs}"],
+    // Unit tests run in Node. Component tests opt in to jsdom with a
+    // `// @vitest-environment jsdom` comment at the top of the file.
     environment: "node",
+    setupFiles: ["tests/setup.js"],
     restoreMocks: true,
     unstubEnvs: true,
   },
