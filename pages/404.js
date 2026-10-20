@@ -17,11 +17,11 @@ export default function NotFound() {
           page may have moved.
         </p>
         <p className={styles.actions}>
+          <Link href="/shop" className={styles.primary}>
+            Shop the candles
+          </Link>
           <Link href="/" className={styles.link}>
             Home
-          </Link>
-          <Link href="/shop" className={styles.link}>
-            Shop the candles
           </Link>
         </p>
       </main>

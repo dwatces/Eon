@@ -226,3 +226,54 @@ test("the footer has text links and a labelled Facebook link", async ({
   expect(box.width).toBeGreaterThanOrEqual(44);
   expect(box.height).toBeGreaterThanOrEqual(44);
 });
+
+test.describe("short pages at 1440×900", () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+  test.use({ allowedConsole: [/status of 404/] });
+
+  for (const path of ["/success", "/cart", "/nope"]) {
+    test(`the footer sits at the bottom of ${path}`, async ({ page }) => {
+      await page.goto(path);
+      await page.waitForLoadState("networkidle");
+      const bottom = await page
+        .locator("footer")
+        .evaluate((el) => el.getBoundingClientRect().bottom);
+      expect(Math.abs(bottom - 900)).toBeLessThanOrEqual(1);
+    });
+  }
+});
+
+test.describe("the 16px gutter at 390 px", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+  test.use({ allowedConsole: [/status of 404/] });
+
+  const paths = ["/", "/shop", "/shop/love", "/about", "/cart", "/nope"];
+  for (const path of paths) {
+    test(`no text or control on ${path} is within 16px of the edge`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      await page.waitForLoadState("networkidle");
+      const close = await page.evaluate(() => {
+        const width = document.documentElement.clientWidth;
+        const found = [];
+        for (const el of document.querySelectorAll("body *")) {
+          const control = el.matches("a[href], button, input, select");
+          const text = [...el.childNodes].some(
+            (node) => node.nodeType === 3 && node.textContent.trim(),
+          );
+          if (!control && !text) continue;
+          const rect = el.getBoundingClientRect();
+          if (rect.width <= 1 || rect.height <= 1 || rect.bottom <= 0) continue;
+          if (rect.left < 15.5 || rect.right > width - 15.5) {
+            found.push(
+              `${el.tagName} ${Math.round(rect.left)}-${Math.round(rect.right)}`,
+            );
+          }
+        }
+        return found;
+      });
+      expect(close).toEqual([]);
+    });
+  }
+});

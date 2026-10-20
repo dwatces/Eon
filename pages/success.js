@@ -110,7 +110,7 @@ export default function Success({ stripeEnabled = false }) {
               <OrderSummary order={view.order} caption="Your demo order" />
             </div>
             <p className={styles.actions}>
-              <Link href="/shop" className={styles.link}>
+              <Link href="/shop" className={styles.primary}>
                 Keep browsing
               </Link>
             </p>
@@ -121,7 +121,7 @@ export default function Success({ stripeEnabled = false }) {
             <h1 className={styles.title}>Thank you</h1>
             <p className={styles.text}>Stripe has confirmed your checkout.</p>
             <p className={styles.actions}>
-              <Link href="/shop" className={styles.link}>
+              <Link href="/shop" className={styles.primary}>
                 Keep browsing
               </Link>
             </p>
@@ -135,7 +135,7 @@ export default function Success({ stripeEnabled = false }) {
               after checkout.
             </p>
             <p className={styles.actions}>
-              <Link href="/shop" className={styles.link}>
+              <Link href="/shop" className={styles.primary}>
                 Browse the candles
               </Link>
               <Link href="/cart" className={styles.link}>

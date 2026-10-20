@@ -16,11 +16,11 @@ export default function ServerError() {
           The server couldn&apos;t load this page. Please try again in a moment.
         </p>
         <p className={styles.actions}>
+          <Link href="/shop" className={styles.primary}>
+            Shop the candles
+          </Link>
           <Link href="/" className={styles.link}>
             Home
-          </Link>
-          <Link href="/shop" className={styles.link}>
-            Shop the candles
           </Link>
         </p>
       </main>
