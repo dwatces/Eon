@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import Lightbox from "../../components/Lightbox";
-import { getCandle } from "../../data/candles";
+import { allSlugs, getCandle } from "../../data/candles";
 import { candleImages } from "../../data/candle-images";
 import { descriptionFor } from "../../data/candle-copy";
 import { formatNZD } from "../../lib/money";
@@ -14,11 +14,23 @@ import styles from "../../styles/Candles.module.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
-const candle = getCandle("love");
-// Photos in catalogue order: lid (the main photo), flower, lit, crystal.
-const photos = candle.imageKeys.map((key) => candleImages[candle.slug][key]);
+export function getStaticPaths() {
+  return {
+    paths: allSlugs().map((slug) => ({ params: { slug } })),
+    fallback: false,
+  };
+}
 
-const Love = () => {
+// Only the slug goes into the page data. The page reads the catalogue,
+// copy and photos itself, so image objects are never serialised.
+export function getStaticProps({ params }) {
+  return { props: { slug: params.slug } };
+}
+
+export default function CandlePage({ slug }) {
+  const candle = getCandle(slug);
+  // Photos in catalogue order: lid (the main photo), flower, lit, crystal.
+  const photos = candle.imageKeys.map((key) => candleImages[slug][key]);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
@@ -32,7 +44,7 @@ const Love = () => {
   return (
     <>
       <Head>
-        <title>Love</title>
+        <title>{candle.name}</title>
       </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
@@ -158,6 +170,4 @@ const Love = () => {
       </main>
     </>
   );
-};
-
-export default Love;
+}

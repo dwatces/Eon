@@ -32,10 +32,44 @@ for (const path of routes) {
 test.describe("missing pages", () => {
   test.use({ allowedConsole: [/status of 404/] });
 
-  test("an unknown path returns 404", async ({ page }) => {
-    const response = await page.goto("/nope");
-    expect(response.status()).toBe(404);
+  for (const path of ["/nope", "/shop/hapiness", "/shop/unknown"]) {
+    test(`${path} returns 404`, async ({ page }) => {
+      const response = await page.goto(path);
+      expect(response.status()).toBe(404);
+    });
+  }
+});
+
+const candles = [
+  ["love", "Love"],
+  ["happiness", "Happiness"],
+  ["dreams", "Dreams"],
+  ["summer", "Summer"],
+];
+
+for (const [slug, name] of candles) {
+  test(`/shop/${slug} has one visible h1, the candle's name`, async ({
+    page,
+  }) => {
+    await page.goto(`/shop/${slug}`);
+    const h1 = page.getByRole("heading", { level: 1 });
+    await expect(h1).toHaveCount(1);
+    await expect(h1).toHaveText(name);
+    await expect(h1).toBeVisible();
   });
+}
+
+test("the shop and home page each list the four candles once", async ({
+  page,
+}) => {
+  for (const path of ["/shop", "/"]) {
+    await page.goto(path);
+    const links = page
+      .locator("main")
+      .getByRole("link", { name: /^(Love|Happiness|Dreams|Summer)$/ });
+    await expect(links).toHaveText(["Love", "Happiness", "Dreams", "Summer"]);
+    await expect(links.first()).toHaveAttribute("href", "/shop/love");
+  }
 });
 
 test("product pages show the catalogue price and a visible h1", async ({

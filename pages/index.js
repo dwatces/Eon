@@ -1,20 +1,16 @@
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import LandingLayout from "../components/LandingLayout";
-import Logo from "../public/eon-logo.webp";
-import MobileSummer from "../public/mobile-summer.webp";
-import MobileDreams from "../public/mobile-dreams.webp";
-import MobileLove from "../public/mobile-love.webp";
-import MobileHappy from "../public/mobile-happy.webp";
 import Image from "next/image";
 import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import LandingLayout from "../components/LandingLayout";
+import ProductCard from "../components/ProductCard";
+import { candles } from "../data/candles";
+import Logo from "../public/eon-logo.webp";
 import Fire from "../public/burning-embers.svg";
 import Earth from "../public/earth-asia-oceania.svg";
 import Leaf from "../public/linden-leaf.svg";
-import love from "../public/top-love.webp";
-import dream from "../public/top-dream.webp";
-import happy from "../public/top-happy.webp";
-import summer from "../public/top-summer.webp";
+
+const TILE_SIZES = "(min-width: 1180px) 270px, (min-width: 761px) 25vw, 50vw";
 
 export default function Home() {
   return (
@@ -43,45 +39,9 @@ export default function Home() {
               Hand-poured soy candles, paired with crystals for calm, positive
               energy.
             </p>
-            <div className={styles.underline}></div>
-            <div className={styles.mobileTop}>
-              <Link href="/shop/love">
-                <div className={styles.rowItem}>
-                  <Image
-                    src={MobileLove}
-                    alt="topdown love"
-                    className={styles.eonCandle}
-                  />
-                </div>
-              </Link>
-              <Link href="/shop/happiness">
-                <div className={styles.rowItem}>
-                  <Image
-                    src={MobileHappy}
-                    alt="topdown happy"
-                    className={styles.eonCandle}
-                  />
-                </div>
-              </Link>
-              <Link href="/shop/dreams">
-                <div className={styles.rowItem}>
-                  <Image
-                    src={MobileDreams}
-                    alt="topdown dream"
-                    className={styles.eonCandle}
-                  />
-                </div>
-              </Link>
-              <Link href="/shop/summer">
-                <div className={styles.rowItem}>
-                  <Image
-                    src={MobileSummer}
-                    alt="topdown summer"
-                    className={styles.eonCandle}
-                  />
-                </div>
-              </Link>
-            </div>
+            <Link href="/shop" className={styles.cta}>
+              Shop the candles
+            </Link>
           </div>
           <div className={styles.eonContainer}>
             <div className={styles.eonLink}>
@@ -165,53 +125,23 @@ export default function Home() {
               after your candle has been enjoyed.
             </p>
           </div>
-          <h2 className={styles.showcaseHeading}>Our Candles</h2>
-          <div className={styles.DesktopTop}>
-            <Link href="/shop/love">
-              <div className={styles.rowItem}>
-                <Image
-                  src={love}
-                  alt="topdown love"
-                  className={styles.eonCandle}
-                  width={700}
-                  height={600}
-                />
-              </div>
-            </Link>
-            <Link href="/shop/happiness">
-              <div className={styles.rowItem}>
-                <Image
-                  src={happy}
-                  alt="topdown happy"
-                  className={styles.eonCandle}
-                  width={700}
-                  height={600}
-                />
-              </div>
-            </Link>
-            <Link href="/shop/dreams">
-              <div className={styles.rowItem}>
-                <Image
-                  src={dream}
-                  alt="topdown dream"
-                  className={styles.eonCandle}
-                  width={700}
-                  height={600}
-                />
-              </div>
-            </Link>
-            <Link href="/shop/summer">
-              <div className={styles.rowItem}>
-                <Image
-                  src={summer}
-                  alt="topdown summer"
-                  className={styles.eonCandle}
-                  width={700}
-                  height={600}
-                />
-              </div>
-            </Link>
-          </div>
+          <section className={styles.showcase} aria-labelledby="our-candles">
+            <h2 id="our-candles" className={styles.showcaseHeading}>
+              Our candles
+            </h2>
+            <ul className={styles.tiles}>
+              {candles.map((candle) => (
+                <li key={candle.slug}>
+                  <ProductCard
+                    candle={candle}
+                    variant="tile"
+                    headingLevel={3}
+                    sizes={TILE_SIZES}
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
         </main>
       </LandingLayout>
     </>

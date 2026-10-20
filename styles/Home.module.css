@@ -37,13 +37,28 @@
   color: var(--muted);
 }
 
-.underline {
-  width: 64px;
-  height: 2px;
-  margin: 1.75rem auto 0;
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  margin-top: 1.75rem;
+  padding: 0 1.75rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
   background: var(--terracotta);
-  border: none;
-  border-radius: 2px;
+  border-radius: var(--radius-pill);
+  transition:
+    background 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.cta:hover {
+  background: var(--terracotta-dark);
+  transform: translateY(-1px);
 }
 
 /* ---------- Pillars: Energy / Oneness / Nature ---------- */
@@ -118,46 +133,22 @@
 }
 
 /* ---------- Product showcase ---------- */
+.showcase {
+  width: 100%;
+  max-width: var(--container);
+  margin: clamp(3rem, 7vw, 5rem) auto clamp(2.5rem, 6vw, 4rem);
+  padding: 0 1.5rem;
+}
+
 .showcaseHeading {
-  display: none;
-  margin: clamp(3rem, 7vw, 5rem) auto 0;
   text-align: center;
 }
 
-.mobileTop,
-.DesktopTop {
-  width: 100%;
-  max-width: var(--container);
-  margin: clamp(1.75rem, 4vw, 2.5rem) auto clamp(2.5rem, 6vw, 4rem);
-  padding: 0 1.5rem;
-  gap: 1.25rem;
-}
-
-/* mobile: 2-up grid near top */
-.mobileTop {
+.tiles {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-}
-
-/* desktop showcase hidden until wide */
-.DesktopTop {
-  display: none;
-}
-
-.rowItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.25s var(--ease);
-}
-
-.rowItem:hover {
-  transform: translateY(-4px);
-}
-
-.eonCandle {
-  border-radius: var(--radius-sm);
+  gap: 1.25rem;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 /* ---------- Breakpoint ---------- */
@@ -166,17 +157,8 @@
     gap: 1.75rem;
   }
 
-  .mobileTop {
-    display: none;
-  }
-
-  .DesktopTop {
-    display: grid;
+  .tiles {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .showcaseHeading {
-    display: block;
   }
 }
 

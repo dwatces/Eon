@@ -1,16 +1,11 @@
-import React from "react";
-import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
+import ProductCard from "../components/ProductCard";
+import { candles } from "../data/candles";
 import styles from "../styles/Shop.module.css";
-import { getCandle } from "../data/candles";
-import { formatNZD } from "../lib/money";
-import dreams from "../public/lid-dreams.webp";
-import happiness from "../public/lid-happiness.webp";
-import love from "../public/lid-love.webp";
-import summer from "../public/lid-summer.webp";
 
-function Shop() {
+const CARD_SIZES = "(min-width: 1180px) 380px, (min-width: 640px) 50vw, 100vw";
+
+export default function Shop() {
   return (
     <>
       <Head>
@@ -19,93 +14,18 @@ function Shop() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.visuallyHidden}>Our candles</h1>
-        <div className={styles.candleContainer}>
-          <Link href="/shop/love">
-            <div className={styles.candleChild}>
-              <div className={styles.candlePic}>
-                <Image
-                  src={love}
-                  alt="candle love"
-                  className={styles.candleSize}
-                  priority
-                />
-              </div>
-              <div className={styles.candleDetail}>
-                <h2>love</h2>
-                <p>Rose Otto, Ylang Ylang, Orange & Patchouli</p>
-                <p>Rose Quartz Chips & Rose Bud</p>
-                <p className={styles.candleDetailMuted}>
-                  {formatNZD(getCandle("love").unitAmount)}
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link href="/shop/happiness">
-            <div className={styles.candleChild}>
-              <div className={styles.candlePic}>
-                <Image
-                  src={happiness}
-                  alt="candle happiness"
-                  className={styles.candleSize}
-                  priority
-                />
-              </div>
-              <div className={styles.candleDetail}>
-                <h2>happiness</h2>
-                <p>Wild Orange, Clary Sage & Lemon</p>
-                <p>Citrine Chips & Jasmine Flower Petals</p>
-                <p className={styles.candleDetailMuted}>
-                  {formatNZD(getCandle("happiness").unitAmount)}
-                </p>
-              </div>
-            </div>
-          </Link>
-
-          <Link href="/shop/dreams">
-            <div className={styles.candleChild}>
-              <div className={styles.candlePic}>
-                <Image
-                  src={dreams}
-                  alt="candle dreams"
-                  className={styles.candleSize}
-                  priority
-                />
-              </div>
-              <div className={styles.candleDetail}>
-                <h2>dreams</h2>
-                <p>Lavender, Chamomile & Frankincense</p>
-                <p>Amethyst Chips & Cornflowers</p>
-                <p className={styles.candleDetailMuted}>
-                  {formatNZD(getCandle("dreams").unitAmount)}
-                </p>
-              </div>
-            </div>
-          </Link>
-
-          <Link href="/shop/summer">
-            <div className={styles.candleChild}>
-              <div className={styles.candlePic}>
-                <Image
-                  src={summer}
-                  alt="candle summer"
-                  className={styles.candleSize}
-                  priority
-                />
-              </div>
-              <div className={styles.candleDetail}>
-                <h2>summer</h2>
-                <p>Coconut, Mango & Lime</p>
-                <p>Aventurine Chips & Lavender Flowers</p>
-                <p className={styles.candleDetailMuted}>
-                  {formatNZD(getCandle("summer").unitAmount)}
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
+        <ul className={styles.candleContainer}>
+          {candles.map((candle, index) => (
+            <li key={candle.slug}>
+              <ProductCard
+                candle={candle}
+                sizes={CARD_SIZES}
+                priority={index === 0}
+              />
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );
 }
-
-export default Shop;
