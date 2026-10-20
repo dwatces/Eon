@@ -1,0 +1,5 @@
+# Formatting-only commits, hidden from git blame.
+# Normalise line endings to LF
+3963ee137c1a0f3d3dcc39ed0b743856602db39a
+# Format the repo with Prettier
+f59c613c4d2bf4a6389500fc8006bd3b58ee5704
