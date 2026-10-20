@@ -15,7 +15,7 @@ Brand and shop site for Eon, a New Zealand candle label, built with Next.js and 
 
 Eon's candles are hand-poured in vegan soy wax, each paired with crystal chips and botanicals. This repo is the label's site: a home page, a shop page, a page for each of the four candles (love, happiness, dreams and summer), an about page, and a cart with a checkout that is priced on the server.
 
-The live site is a portfolio demo: checkout shows an order summary and takes no payment.
+The live site is meant to run as a portfolio demo that takes no payment: with no `STRIPE_SECRET_KEY` set, checkout shows an order summary. What the deployed site actually does depends on the Vercel project's environment variables; see [Before you deploy](#before-you-deploy).
 
 The first version was built between December 2021 and February 2022. In June 2026 the site was restyled with a small design system (cream, terracotta and sage palette, Fraunces and Raleway type) and simpler flex and grid layouts. In October 2026 it moved to Next.js 16 and React 19, checkout gained a demo mode and server-side pricing, the shop was rebuilt for keyboard and screen-reader use, and the repo gained unit, API and end-to-end tests.
 
@@ -24,7 +24,7 @@ The first version was built between December 2021 and February 2022. In June 202
 - **One product route** (`pages/shop/[slug].js`) builds a static page for each candle from the catalogue. Thumbnails choose the main photo, the photo opens a full-screen lightbox built on the native `<dialog>` element (arrow keys, Escape, focus returns to the photo), and Add to cart confirms each add in a live region. The quantity stepper goes from 1 to 10.
 - **A cart kept in `localStorage`** through a pure reducer (`lib/cart.js`), with prices in cents from one catalogue (`data/candles.js`). It shows line totals, NZ shipping and the total, has a stepper and a Remove button on each line, survives a reload and stays in sync across tabs. Carts saved by the first version are migrated, and a corrupt saved cart loads as an empty one.
 - **A checkout API route** (`pages/api/checkout_sessions.js`) that validates the cart and prices it on the server. It runs in demo mode unless a Stripe key is set; see [How checkout works](#how-checkout-works).
-- **An order page** (`/success`) that shows the demo order summary straight after a demo checkout and a thank-you after a Stripe checkout. A direct visit says there's no order to show and leaves the cart alone.
+- **An order page** (`/success`) that shows the demo order summary straight after a demo checkout. After a Stripe checkout it asks the server to check the session with Stripe, and thanks the shopper and empties the cart only for a paid session. A direct visit or a made-up session id leaves the cart alone.
 - **Navigation** with a skip link, a mobile menu that reports its state and closes on Escape, an outside tap, Back or a link, and one cart link named with the item count.
 - **Accessibility checks** with axe-core (WCAG 2.2 A and AA rules plus best practice) on every page and interactive state at 390 and 1440 px, 44 px touch targets, a visible focus ring, reduced motion, no sideways scrolling at 320 px and no clipped text at 200% text size.
 - **Security headers** in `next.config.js`: a Content-Security-Policy that allows only the site's own scripts, fonts and connections, plus HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and `Permissions-Policy`.
@@ -34,13 +34,14 @@ The first version was built between December 2021 and February 2022. In June 202
 ## How checkout works
 
 1. The cart sends only candle slugs and quantities to `POST /api/checkout_sessions`.
-2. The server checks the request: JSON only (`415` otherwise), at most 8 kB, known candles, whole quantities from 1 to 10, each candle once and no other fields (`400` otherwise). It then prices each line, shipping and the total from the catalogue. Nothing the browser sends can change a price.
+2. The server checks the request: JSON only (`415` otherwise), known candles, whole quantities from 1 to 10, each candle once and no other fields (`400` with a JSON `error` otherwise). Before that, Next's body parser answers in plain text: `413` for a body over 8 kB and `400` for malformed JSON. The server then prices each line, shipping and the total from the catalogue. Nothing the browser sends can change a price.
 3. The mode is decided on every request:
-   - **No `STRIPE_SECRET_KEY` (the default, and the live site): demo mode.** The API returns the order summary, the browser shows it on `/success` and empties the cart, and no payment is taken.
+   - **No `STRIPE_SECRET_KEY` (the default, and how the live demo is meant to run): demo mode.** The API returns the order summary, the browser shows it on `/success` and empties the cart, and no payment is taken.
    - **A Stripe test key** (`sk_test_` or `rk_test_`) creates a Stripe Checkout session in test mode: prices in NZD built on the server, New Zealand addresses only and a flat NZ$5 shipping rate (1 to 3 business days). The browser goes to the URL Stripe returns, and only if it is on `checkout.stripe.com`.
-   - **A live key** takes real payments only when `EON_ALLOW_LIVE_PAYMENTS=true` is also set. Without it the shop stays in demo mode and logs one warning that never includes the key.
+   - **A live key** takes real payments only when `EON_ALLOW_LIVE_PAYMENTS=true` is also set. Without it the shop stays in demo mode and logs a warning once per server instance, never including the key.
    - If Stripe rejects the key, checkout falls back to demo mode. Any other Stripe error returns a plain `502` with no details from Stripe.
 4. Stripe's return URLs come from an allow-list: the site URL, this deployment's Vercel URLs, and `localhost` or `127.0.0.1` outside production. The request's `Origin` header is never used, so nobody can point the shop's Stripe page at another site.
+5. Back from Stripe, the order page calls `GET /api/checkout_sessions/:id` with the `session_id` Stripe added to the URL. The server checks the id's shape and that it matches the key's mode (test or live), retrieves the session from Stripe and answers `paid` with the total, or `unpaid`, never the shopper's details. An id Stripe doesn't know is a `404` and any other Stripe error a `502`. In demo mode every id is a `404`, without contacting Stripe. The page thanks the shopper and empties the cart only for a paid session.
 
 ## Tech stack
 
@@ -76,7 +77,19 @@ All are optional, and the build needs none. `.env.example` describes each one.
 | `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | empty                                                       | Still accepted for older deployments, but no longer used.                                                  |
 | `EON_STRIPE_API_BASE`                | empty                                                       | Tests only: sends Stripe API calls to a local stub. Ignored unless the host is `localhost` or `127.0.0.1`. |
 
-The API reads the Stripe settings on every request. The cart and order pages also read them at build time to choose their wording, so set them before `npm run build`.
+The API routes read the Stripe settings on every request. The cart page also reads them at build time to choose its wording, so set them before `npm run build`.
+
+### Before you deploy
+
+The repo can't see the Vercel project's environment variables, so check them in the Vercel dashboard (Settings, Environment Variables, Production) before a deploy:
+
+- **`STRIPE_SECRET_KEY` unset:** demo mode, as described above. This is the intended setup for the live demo.
+- **A test key** (`sk_test_` or `rk_test_`): checkout goes to Stripe's test Checkout instead of the demo order summary. No real card is charged, but remove the key for a pure demo.
+- **A live key without `EON_ALLOW_LIVE_PAYMENTS=true`:** demo mode, with a warning in the function logs once per instance. Remove the key unless live payments are planned.
+- **A live key with `EON_ALLOW_LIVE_PAYMENTS=true`:** real payments. Set this only on purpose.
+- **`EON_STRIPE_API_BASE`** should be unset (it is ignored unless it points at `localhost` or `127.0.0.1`).
+
+Redeploy after changing any of them, because the cart page reads them at build time.
 
 ### Scripts
 
@@ -84,7 +97,7 @@ The API reads the Stripe settings on every request. The cart and order pages als
 - `npm run build` and `npm run start`: production build and server. The build writes `robots.txt` and `sitemap.xml` first.
 - `npm test`: unit, API and component tests (Vitest). A guard fails any test that opens a connection to anything other than localhost.
 - `npm run test:coverage`: the same tests, with at least 90% line coverage required for `lib/` and the API route
-- `npm run test:e2e`: end-to-end tests (Playwright). It builds the site, starts it on `127.0.0.1:7301` in demo mode, and runs the shopping journey, cart, checkout, gallery, navigation, accessibility, SEO and performance specs at 390 and 1440 px. A second server on port 7305, with a local Stripe stub on 7309, covers Stripe test mode, so nothing calls Stripe. Set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first.
+- `npm run test:e2e`: end-to-end tests (Playwright). It builds the site, starts it on `127.0.0.1:7301` in demo mode, and runs the shopping journey, cart, checkout, gallery, navigation, accessibility, SEO and performance specs at 390 and 1440 px. A second server on port 7305, with a local Stripe stub on 7309, covers Stripe test mode (the hand-off, the return to the order page, a forged session id and a Stripe outage), so nothing calls Stripe. Set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first.
 - `npm run lint`, `npm run typecheck`, `npm run format` and `npm run format:check`
 - `npm run check`: lint, type check, format check, tests with coverage and a production build
 
@@ -96,6 +109,7 @@ The API reads the Stripe settings on every request. The cart and order pages als
 pages/          Home, shop, about, cart, success, 404 and 500 pages
 pages/shop/     [slug].js: one statically generated page per candle
 pages/api/      checkout_sessions.js: validates the cart, then demo or Stripe
+                checkout_sessions/[id].js: checks a Stripe session for the order page
 components/     Nav bar, footer, product card and gallery, lightbox, cart controls, SEO tags
 data/           The candle catalogue, product copy and product photos
 hooks/          The cart hook, backed by a small store in lib/
@@ -115,7 +129,8 @@ docs/           README screenshots
 - **Stripe's hosted Checkout, not card fields on the site.** Card details never touch this site, and the browser loads no Stripe script. The cost: less control over how the payment page looks.
 - **A static catalogue in `data/candles.js`, not a CMS.** Every page is prerendered and needs no database. The cost: a new candle or price means a code change and a deploy.
 - **Demo mode by default.** The live demo works end to end without taking money, and a live key set by mistake can't switch real payments on by itself.
-- **What would come next:** a Stripe webhook to record paid orders, a server check of the session before the thank-you page (today it trusts the session id Stripe adds to the return URL), and stock levels if the range grows.
+- **The order page checks each Stripe session as it loads, with no order records.** A typed-in session id can't fake a thank-you or empty a cart, and there is still no database. The cost: the shop keeps no list of paid orders; that lives in the Stripe dashboard.
+- **What would come next:** a Stripe webhook to record paid orders, and stock levels if the range grows.
 
 ## Author
 
