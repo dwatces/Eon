@@ -43,12 +43,17 @@
 /* A fixed frame per variant keeps names and prices lined up; the photo
    fills it without being stretched. */
 .picture {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 2;
+  overflow: hidden;
   background: var(--cream-deep);
 }
 
+/* Positioned so a photo taller than the frame can't stretch it. */
 .image {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -97,12 +102,15 @@
   border-color: var(--border-strong);
 }
 
+/* The price sits at the foot of the card, so prices line up too. */
 .card .details {
+  flex: 1;
   padding: 1.4rem 1.5rem 1.6rem;
 }
 
 .card .price {
-  margin-top: 0.7rem;
+  margin-top: auto;
+  padding-top: 0.7rem;
   font-size: 1.25rem;
 }
 

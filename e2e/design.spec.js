@@ -131,3 +131,42 @@ test("images have descriptive alt text or none", async ({ page }) => {
     }
   }
 });
+
+// Card positions on /shop: [top of each card, top of each name].
+const shopGrid = (page) =>
+  page.locator("main ul > li").evaluateAll((items) =>
+    items.map((li) => ({
+      top: Math.round(li.getBoundingClientRect().top),
+      left: Math.round(li.getBoundingClientRect().left),
+      name: li.querySelector("h2").getBoundingClientRect().top,
+    })),
+  );
+
+const shopLayouts = [
+  { width: 1440, columns: 4 },
+  { width: 768, columns: 2 },
+  { width: 320, columns: 1 },
+];
+
+for (const { width, columns } of shopLayouts) {
+  test.describe(`/shop at ${width} px`, () => {
+    test.use({ viewport: { width, height: 900 } });
+
+    test(`shows ${columns} per row with the names lined up`, async ({
+      page,
+    }) => {
+      await page.goto("/shop");
+      await page.waitForLoadState("networkidle");
+      const cards = await shopGrid(page);
+      expect(cards).toHaveLength(4);
+      const firstRow = cards.filter((card) => card.top === cards[0].top);
+      expect(firstRow).toHaveLength(columns);
+      const names = firstRow.map((card) => card.name);
+      expect(Math.max(...names) - Math.min(...names)).toBeLessThanOrEqual(1);
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth > window.innerWidth,
+      );
+      expect(overflow).toBe(false);
+    });
+  });
+}

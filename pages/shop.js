@@ -3,7 +3,10 @@ import ProductCard from "../components/ProductCard";
 import { candles } from "../data/candles";
 import styles from "../styles/Shop.module.css";
 
-const CARD_SIZES = "(min-width: 1180px) 380px, (min-width: 640px) 50vw, 100vw";
+// One column up to 480px, two up to 1199px, then four across a 1180px
+// container (1.5rem gutters and gaps).
+const CARD_SIZES =
+  "(min-width: 1200px) 265px, (min-width: 481px) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)";
 
 export default function Shop() {
   return (
@@ -14,7 +17,13 @@ export default function Shop() {
         path="/shop"
       />
       <main id="main" className={styles.main}>
-        <h1 className={styles.visuallyHidden}>Our candles</h1>
+        <header className={styles.intro}>
+          <h1 className={styles.title}>Our candles</h1>
+          <p className={styles.lede}>
+            Four hand-poured vegan soy candles, each paired with crystal chips
+            and botanicals.
+          </p>
+        </header>
         <ul className={styles.candleContainer}>
           {candles.map((candle, index) => (
             <li key={candle.slug}>
