@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Script from "next/script";
 import Head from "next/head";
-import { CartProvider } from "/hooks/use-shopping-cart";
+import { CartProvider } from "../hooks/use-shopping-cart";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
