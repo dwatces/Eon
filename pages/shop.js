@@ -18,7 +18,7 @@ function Shop() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
-        <h1 style={{ display: "none" }}>Crystal Candles</h1>
+        <h1 className={styles.visuallyHidden}>Our candles</h1>
         <div className={styles.candleContainer}>
           <Link href="/shop/love" passHref>
             <div className={styles.candleChild}>

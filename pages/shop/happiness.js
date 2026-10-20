@@ -7,6 +7,7 @@ import Lightbox from "react-image-lightbox";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import { products } from "../../components/products";
+import { getCandle } from "../../data/candles";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -14,6 +15,8 @@ import altPicFlower from "../../public/Flower-Happy2.webp";
 import altPicCrystal from "../../public/Crystal-Happy.webp";
 import altPicLit from "../../public/lit-happy.webp";
 import mainPic from "../../public/lid-happiness.webp";
+
+const candle = getCandle("happiness");
 
 const Happiness = () => {
   const images = [
@@ -68,7 +71,6 @@ const Happiness = () => {
               />
             </button>
           </div>
-          <h1 style={{ display: "none" }}>Crystal Candle Happiness</h1>
           <div className={styles.galleryImage}>
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
@@ -96,7 +98,7 @@ const Happiness = () => {
         </div>
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
-            <h2 className={styles.candleTitle}>happiness</h2>
+            <h1 className={styles.candleTitle}>{candle.name}</h1>
 
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>

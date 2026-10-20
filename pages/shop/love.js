@@ -7,6 +7,7 @@ import "react-image-lightbox/style.css";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
+import { getCandle } from "../../data/candles";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -16,6 +17,8 @@ import altPicLit from "../../public/lit-love.webp";
 import mainPic from "../../public/lid-love.webp";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+
+const candle = getCandle("love");
 
 const Love = () => {
   const images = [
@@ -71,7 +74,6 @@ const Love = () => {
               />
             </button>
           </div>
-          <h1 style={{ display: "none" }}>Crystal Candle Love</h1>
           <div className={styles.galleryImage}>
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
@@ -106,17 +108,11 @@ const Love = () => {
           </div>
         </div>
         <div className={styles.candleContent}>
-          <div
-            className={styles.candleContentHeader}
-            itemScope
-            itemType="https://schema.org/Offer"
-          >
-            <h2 className={styles.candleTitle} itemProp="name">
-              love
-            </h2>
+          <div className={styles.candleContentHeader}>
+            <h1 className={styles.candleTitle}>{candle.name}</h1>
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>
-                <p className={styles.candleRetail} itemProp="price">
+                <p className={styles.candleRetail}>
                   $20<sup className={styles.candlePrice}>$30</sup>
                 </p>
 

@@ -7,6 +7,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
+import { getCandle } from "../../data/candles";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -16,6 +17,8 @@ import altPicLit from "../../public/lit-dreams.webp";
 import mainPic from "../../public/lid-dreams.webp";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+
+const candle = getCandle("dreams");
 
 const Dreams = () => {
   const images = [
@@ -71,7 +74,6 @@ const Dreams = () => {
               />
             </button>
           </div>
-          <h1 style={{ display: "none" }}>Crystal Candle Dreams</h1>
           <div className={styles.galleryImage}>
             <button className={styles.buttonImage} type="button" onClick={open}>
               <Image
@@ -107,7 +109,7 @@ const Dreams = () => {
         </div>
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
-            <h2 className={styles.candleTitle}>dreams</h2>
+            <h1 className={styles.candleTitle}>{candle.name}</h1>
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>
                 <p className={styles.candleRetail}>
