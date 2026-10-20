@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import QuantityStepper from "./QuantityStepper";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
@@ -28,6 +28,16 @@ export default function AddToCart({ candle }) {
   const { addItem, lines } = useShoppingCart();
   const [quantity, setQuantity] = useState(1);
   const [status, setStatus] = useState({ count: 0, message: "" });
+  const statusRef = useRef(null);
+
+  // On a phone the message can render below the fold, under the button.
+  // Bring it into view after each add, scrolling as little as possible.
+  // Smooth or instant follows the page's scroll-behavior, which honours
+  // prefers-reduced-motion (styles/globals.css).
+  useEffect(() => {
+    if (status.count === 0) return;
+    statusRef.current?.scrollIntoView?.({ block: "nearest" });
+  }, [status.count]);
 
   const handleAdd = () => {
     const before = lines[candle.slug] ?? 0;
@@ -49,7 +59,7 @@ export default function AddToCart({ candle }) {
       </p>
       {/* Always in the page, so screen readers hear the first message.
           A new key per add makes a repeated message count as new. */}
-      <div role="status" className={styles.status}>
+      <div role="status" className={styles.status} ref={statusRef}>
         {status.message && (
           <p key={status.count}>
             {status.message} <Link href="/cart">View cart</Link>

@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import AddToCart, { addedMessage } from "../../components/AddToCart";
 import { CartProvider } from "../../hooks/use-shopping-cart";
 import { getCandle } from "../../data/candles";
@@ -74,5 +74,22 @@ describe("AddToCart", () => {
     expect(
       screen.getByRole("link", { name: "View cart" }).getAttribute("href"),
     ).toBe("/cart");
+  });
+
+  it("brings the message into view after each add, not before", () => {
+    // jsdom has no scrollIntoView; the component must not need one.
+    const scroll = vi.fn();
+    Element.prototype.scrollIntoView = scroll;
+    try {
+      renderAddToCart();
+      expect(scroll).not.toHaveBeenCalled();
+      fireEvent.click(screen.getByRole("button", { name: "Add to cart" }));
+      fireEvent.click(screen.getByRole("button", { name: "Add to cart" }));
+      expect(scroll).toHaveBeenCalledTimes(2);
+      expect(scroll).toHaveBeenLastCalledWith({ block: "nearest" });
+      expect(scroll.mock.contexts[0]).toBe(message());
+    } finally {
+      delete Element.prototype.scrollIntoView;
+    }
   });
 });

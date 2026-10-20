@@ -28,6 +28,19 @@ test("adding confirms, updates the badge and allows another add", async ({
   ).toHaveText("3");
 });
 
+test("the confirmation is on screen after adding, with the button", async ({
+  page,
+}) => {
+  // On a 390 x 844 phone the button sits at the fold on first load, so
+  // the message under it would render off screen without a scroll.
+  await page.goto("/shop/love");
+  const add = page.getByRole("button", { name: "Add to cart" });
+  await add.click();
+  await expect(message(page)).toContainText("Added 1 Love candle");
+  await expect(message(page)).toBeInViewport({ ratio: 1 });
+  await expect(add).toBeInViewport({ ratio: 1 });
+});
+
 test("the quantity stops at 10", async ({ page }) => {
   await page.goto("/shop/dreams");
   const increase = page.getByRole("button", { name: "Increase quantity" });
