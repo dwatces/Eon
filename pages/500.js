@@ -1,14 +1,15 @@
-import Head from "next/head";
+import Seo from "../components/Seo";
 import Link from "next/link";
 import styles from "../styles/Message.module.css";
 
 export default function ServerError() {
   return (
     <>
-      <Head>
-        <title>Something went wrong | Eon Candles</title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <Seo
+        title="Something went wrong"
+        description="The Eon Candles site couldn't load this page."
+        noindex
+      />
       <main id="main" className={styles.main}>
         <h1 className={styles.title}>Something went wrong</h1>
         <p className={styles.text}>

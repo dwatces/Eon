@@ -12,18 +12,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Eon Candles</title>
-        <meta
-          name="description"
-          content="New Zealand handcrafted candles imbued with crystal and natural energy, promoting peaceful and positive vibes."
-        />
-        <meta property="og:title" content="Eon Candles New Zealand" />
-        <meta
-          property="og:description"
-          content="Vegan soy candles from Eon, a New Zealand candle label, each paired with crystals and botanicals."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Eon Candles" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta

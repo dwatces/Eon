@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Head from "next/head";
+import Seo from "../components/Seo";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -175,9 +175,12 @@ export default function Cart({ paymentsLive: live = false }) {
 
   return (
     <>
-      <Head>
-        <title>Your cart</title>
-      </Head>
+      <Seo
+        title="Your cart"
+        description="Your cart at the Eon Candles demo shop."
+        path="/cart"
+        noindex
+      />
       <main id="main" className={styles.main}>
         <h1 className={styles.title}>Your cart</h1>
         {!hydrated ? (

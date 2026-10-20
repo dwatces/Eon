@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import LandingLayout from "../components/LandingLayout";
+import Seo from "../components/Seo";
 import ProductCard from "../components/ProductCard";
 import { candles } from "../data/candles";
 import Logo from "../public/eon-logo.webp";
@@ -16,13 +16,10 @@ export default function Home() {
   return (
     <>
       <LandingLayout>
-        <Head>
-          <title>Eon | Home</title>
-          <meta
-            name="description"
-            content="Eon is a candle shop in the heart of the city of Auckland. We offer a wide range of candles, including our own vegan soy wax handmade candles, imbued with crystal and natural elements to increase the candles power!"
-          />
-        </Head>
+        <Seo
+          description="Eon is a New Zealand candle label. Four hand-poured soy candles, Love, Happiness, Dreams and Summer, each paired with crystals and botanicals."
+          path="/"
+        />
         <main id="main" className={styles.main}>
           <div className={styles.eonL}>
             <h1 className={styles.logo}>

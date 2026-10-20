@@ -1,14 +1,15 @@
-import Head from "next/head";
+import Seo from "../components/Seo";
 import Link from "next/link";
 import styles from "../styles/Message.module.css";
 
 export default function NotFound() {
   return (
     <>
-      <Head>
-        <title>Page not found | Eon Candles</title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <Seo
+        title="Page not found"
+        description="There's no page at this address on the Eon Candles site."
+        noindex
+      />
       <main id="main" className={styles.main}>
         <h1 className={styles.title}>Page not found</h1>
         <p className={styles.text}>

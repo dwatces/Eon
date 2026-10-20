@@ -1,5 +1,5 @@
 import { useEffect, useSyncExternalStore } from "react";
-import Head from "next/head";
+import Seo from "../components/Seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import OrderSummary from "../components/OrderSummary";
@@ -87,9 +87,12 @@ export default function Success({ stripeEnabled = false }) {
 
   return (
     <>
-      <Head>
-        <title>Order summary</title>
-      </Head>
+      <Seo
+        title="Order summary"
+        description="The order summary from the Eon Candles demo shop."
+        path="/success"
+        noindex
+      />
       <main id="main" className={styles.main}>
         {view.kind === "wait" && (
           <p className={styles.text} aria-busy="true">

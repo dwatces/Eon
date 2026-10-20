@@ -1,16 +1,14 @@
 import styles from "../styles/About.module.css";
-import Head from "next/head";
+import Seo from "../components/Seo";
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About Page</title>
-        <meta
-          name="description"
-          content="This is the about page for eon candles, describing our methods and beliefs"
-        />
-      </Head>
+      <Seo
+        title="About Eon"
+        description="About Eon, a New Zealand candle label that pairs hand-poured vegan soy candles with crystals and botanicals, in tins made to be reused."
+        path="/about"
+      />
       <main id="main" className={styles.main}>
         <div className={styles.crystals}>
           <div className={styles.crystalHeaderText}>

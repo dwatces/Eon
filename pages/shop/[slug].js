@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "../../components/Seo";
 import AddToCart from "../../components/AddToCart";
 import ProductGallery from "../../components/ProductGallery";
 import { allSlugs, getCandle } from "../../data/candles";
@@ -27,9 +27,11 @@ export default function CandlePage({ slug }) {
 
   return (
     <>
-      <Head>
-        <title>{candle.name}</title>
-      </Head>
+      <Seo
+        title={`${candle.name} candle`}
+        description={`${candle.name} candle: ${candle.notes.scent}, paired with ${candle.notes.crystal.toLowerCase()} and ${candle.notes.botanicals.toLowerCase()}. Hand-poured soy wax, ${formatNZD(candle.unitAmount)}.`}
+        path={`/shop/${slug}`}
+      />
       <main id="main" className={styles.main}>
         <div className={styles.gallery}>
           <ProductGallery key={slug} name={candle.name} photos={photos} />
