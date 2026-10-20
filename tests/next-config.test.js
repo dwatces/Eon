@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import nextConfig from "../next.config.js";
 
 const headersFor = async (source) => {
@@ -53,5 +53,21 @@ describe("next.config.js", () => {
   it("hides the X-Powered-By header and turns on strict mode", () => {
     expect(nextConfig.poweredByHeader).toBe(false);
     expect(nextConfig.reactStrictMode).toBe(true);
+  });
+
+  it("keeps Turbopack builds working if one is ever made", async () => {
+    vi.resetModules();
+    process.env.TURBOPACK = "1";
+    try {
+      const { default: turbopackConfig } = await import("../next.config.js");
+      const rules = await turbopackConfig.headers();
+      const csp = rules[0].headers.find(
+        ({ key }) => key === "Content-Security-Policy",
+      ).value;
+      expect(csp).toContain("script-src 'self' 'unsafe-inline'");
+    } finally {
+      delete process.env.TURBOPACK;
+      vi.resetModules();
+    }
   });
 });

@@ -1,12 +1,19 @@
 const { resolveSiteUrl } = require("./lib/site-url.cjs");
 
 // Everything the site loads comes from its own origin: no third-party
-// scripts, fonts or analytics. Production builds use webpack, which adds
-// no inline scripts, so script-src can stay 'self'. Styles allow inline
+// scripts, fonts or analytics. The build script uses webpack, which adds
+// no inline scripts, so script-src stays 'self'. A Turbopack build (for
+// example a hosting build command of plain `next build`) adds an inline
+// bootstrap script to every page, so it falls back to 'unsafe-inline'
+// rather than shipping pages that run no JavaScript. Styles allow inline
 // because next/font and React style attributes need it.
+const builtWithTurbopack = Boolean(process.env.TURBOPACK);
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self'",
+  builtWithTurbopack
+    ? "script-src 'self' 'unsafe-inline'"
+    : "script-src 'self'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",

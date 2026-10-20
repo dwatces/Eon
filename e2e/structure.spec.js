@@ -50,7 +50,11 @@ test.describe("mobile menu", () => {
 test("pages send a strict Content-Security-Policy", async ({ page }) => {
   const response = await page.goto("/shop/love");
   const headers = response.headers();
-  expect(headers["content-security-policy"]).toContain("script-src 'self'");
+  const scriptSrc = headers["content-security-policy"]
+    .split(";")
+    .map((part) => part.trim())
+    .find((part) => part.startsWith("script-src"));
+  expect(scriptSrc).toBe("script-src 'self'");
   expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
   expect(headers["x-powered-by"]).toBeUndefined();
 });
