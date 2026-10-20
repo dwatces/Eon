@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { imageFor } from "../data/candle-images";
+import { cardImage } from "../data/card-images";
 import { formatNZD } from "../lib/money";
 import styles from "./ProductCard.module.css";
 
@@ -18,7 +18,7 @@ export default function ProductCard({
   loading,
 }) {
   const Heading = `h${headingLevel}`;
-  const image = imageFor(candle.slug, variant === "tile" ? "top" : "lid");
+  const image = cardImage(candle.slug, variant === "tile" ? "top" : "lid");
   const href = `/shop/${candle.slug}`;
 
   return (

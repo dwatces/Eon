@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { allSlugs } from "../data/candles.js";
 import { candleImages, imageFor } from "../data/candle-images.js";
+import { cardImage, cardImages } from "../data/card-images.js";
 
 const PLACEHOLDER_ALT = /^\s|\s$|main|topdown|banner|desktop/i;
 
@@ -25,6 +26,19 @@ describe("candle images", () => {
         expect(image.alt.toLowerCase()).toContain(slug);
       }
     }
+  });
+
+  it("keeps the card photos in their own small module", () => {
+    expect(Object.keys(cardImages)).toEqual(allSlugs());
+    for (const [slug, set] of Object.entries(cardImages)) {
+      expect(Object.keys(set).sort()).toEqual(["lid", "top"]);
+      expect(candleImages[slug].lid).toBe(set.lid);
+      expect(candleImages[slug].top).toBe(set.top);
+    }
+    expect(cardImage("dreams", "top").alt).toBe(
+      "Dreams candle seen from above",
+    );
+    expect(cardImage("nope")).toBeNull();
   });
 
   it("looks images up by slug and kind", () => {

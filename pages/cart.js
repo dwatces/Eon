@@ -8,7 +8,7 @@ import ProductCard from "../components/ProductCard";
 import QuantityStepper from "../components/QuantityStepper";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
 import { SHIPPING, candles } from "../data/candles";
-import { imageFor } from "../data/candle-images";
+import { cardImage } from "../data/card-images";
 import { paymentsLive } from "../lib/checkout-mode";
 import { requestCheckout } from "../lib/checkout-client";
 import { saveDemoOrder } from "../lib/demo-order";
@@ -51,7 +51,7 @@ function CartLine({ line, onQuantity, onRemove }) {
     <li className={styles.cartItem}>
       <div className={styles.cartItemImage}>
         <Image
-          src={imageFor(slug, "top").src}
+          src={cardImage(slug, "top").src}
           alt=""
           width={88}
           height={88}

@@ -3,7 +3,8 @@
 // Plain data only (no image imports), so the checkout API and the unit
 // tests can import it without a bundler. Prices are integer New Zealand
 // cents. Product descriptions live in data/candle-copy.js and images in
-// data/candle-images.js, so the cart (on every page) stays small.
+// data/candle-images.js and data/card-images.js, so the cart (on every
+// page) stays small.
 
 export const CURRENCY = "nzd";
 
