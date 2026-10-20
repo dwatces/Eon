@@ -8,57 +8,62 @@ Website and online shop for Eon, a New Zealand candle brand, built with Next.js 
 
 ## About
 
-Eon's candles are hand-poured in vegan soy wax, each paired with crystal chips and flowers. This repo is the brand's site: a home page, a shop page, a page for each of the four candles (love, happiness, dreams and summer), an about page with contact details, and a cart that hands off to Stripe Checkout for payment.
+Eon's candles are hand-poured in vegan soy wax, each paired with crystal chips and flowers. This repo is the brand's site: a home page, a shop page, a page for each of the four candles (love, happiness, dreams and summer), an about page, and a cart with a checkout that is priced on the server.
+
+The live site is a portfolio demo: checkout shows an order summary and takes no payment.
 
 The first version was built between December 2021 and February 2022. In June 2026 the site was restyled with a small design system (cream, terracotta and sage palette, Fraunces and Raleway type) and simpler flex and grid layouts.
 
 ## Features
 
-- Four product pages, each with a photo gallery and full-screen lightbox, a quantity selector and an add-to-cart button.
-- A shopping cart held in React context with a reducer and saved to `localStorage`, so it survives a page reload.
-- A Next.js API route (`pages/api/checkout_sessions.js`) that creates a Stripe Checkout session from the cart items, limited to New Zealand shipping addresses, with a flat NZ$5 shipping rate (1 to 3 business days). Products map to Stripe Price IDs in `components/products.js`.
-- An order confirmation page that clears the cart.
-- Responsive navigation with a mobile menu and a cart count badge.
-- Security headers (HSTS, `X-Frame-Options`, `X-Content-Type-Options` and others) set in `next.config.js`.
-- `robots.txt`, `sitemap.xml` and Open Graph meta tags.
+- Four product pages, each with a photo gallery, a full-screen lightbox built on the native `<dialog>` element, a quantity selector and an add-to-cart button.
+- A cart kept in `localStorage` through a pure reducer (`lib/cart.js`), with prices in cents taken from one catalogue (`data/candles.js`). It survives a reload and stays in sync across tabs.
+- A checkout API route (`pages/api/checkout_sessions.js`) that validates the cart and prices it on the server. With no Stripe key it returns a demo order summary; with a Stripe test key it creates a Stripe Checkout session limited to New Zealand addresses, with a flat NZ$5 shipping rate (1 to 3 business days).
+- Responsive navigation with a mobile menu and a cart count.
+- Security headers in `next.config.js`, including a Content-Security-Policy that allows only the site's own scripts, fonts and connections.
+- Self-hosted fonts, so pages make no third-party requests.
 
 ## Tech stack
 
-- Next.js 12 (pages router) and React 17
-- CSS Modules, with shared design tokens as CSS custom properties in `styles/globals.css`
-- Stripe (`stripe` on the server, `@stripe/stripe-js` in the browser) and axios
-- react-image-lightbox, react-icons and MUI icons
-- Node 20.x (pinned in `package.json`), deployed on Vercel
+- Next.js 16 (pages router) and React 19
+- CSS Modules, with shared design tokens as CSS custom properties in `styles/globals.css`, and fonts through `next/font/local`
+- Stripe's Node SDK on the server (the browser needs no Stripe key)
+- react-icons
+- Vitest for unit and API tests, Playwright for end-to-end tests, ESLint 9 and Prettier
+- Node 24 (pinned in `package.json` and `.nvmrc`), deployed on Vercel
 
 ## Running locally
 
-You need Node 20.
+You need Node 24.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Then open http://localhost:3000. The other scripts are `npm run build`, `npm run start` and `npm run lint`.
+Then open http://localhost:3000. No environment variables are needed: checkout runs in demo mode. To try a real Stripe test-mode hand-off, copy `.env.example` to `.env.local` and set `STRIPE_SECRET_KEY` to a Stripe test key. `.env.example` explains every variable.
 
-Browsing the site and using the cart need no configuration. Checkout uses two Stripe values, which go in `.env.local` (ignored by git):
+Other scripts:
 
-- `STRIPE_SECRET_KEY`: server side, used by the checkout API route
-- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`: browser side, used to redirect to Stripe
-
-Known issue: `pages/api/checkout_sessions.js` and `components/get-stripe.js` currently use these as bare names instead of reading `process.env.STRIPE_SECRET_KEY` and `process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, so checkout will not run until those two lines read from `process.env`. The Price IDs in `components/products.js` also belong to the original Stripe account, so with your own keys you would need to create matching prices and update those IDs.
+- `npm run build` and `npm run start`: production build and server
+- `npm run lint` and `npm run format:check`
+- `npm test`: unit and API tests
+- `npm run test:e2e`: end-to-end tests against a local production build (set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first)
 
 ## Project structure
 
 ```
 pages/          Home, shop, about, cart, success, 404 and 500 pages
 pages/shop/     One page per candle: love, happiness, dreams, summer
-pages/api/      checkout_sessions.js (creates the Stripe Checkout session)
-components/     Nav bar, footer, header banner, layouts, product list, Stripe loader
-hooks/          Cart context and the localStorage-backed reducer
-lib/            Small helpers (utils.js), plus an unused Shopify Storefront helper
-styles/         Global design tokens and per-page CSS Modules
-public/         Product photos, icons, fonts, robots.txt and sitemap.xml
+pages/api/      checkout_sessions.js (validates the cart, demo or Stripe)
+components/     Nav bar, footer, header banner, lightbox
+data/           The candle catalogue, product copy and product photos
+hooks/          Cart context
+lib/            Cart, checkout, money, site URL and font helpers
+styles/         Global design tokens, per-page CSS Modules and the font files
+tests/          Vitest unit and API tests
+e2e/            Playwright end-to-end tests
+public/         Product photos, icons and robots.txt
 ```
 
 ## Author
