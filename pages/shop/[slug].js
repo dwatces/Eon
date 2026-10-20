@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
-import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import Lightbox from "../../components/Lightbox";
+import ProductGallery from "../../components/ProductGallery";
 import { allSlugs, getCandle } from "../../data/candles";
 import { candleImages } from "../../data/candle-images";
 import { descriptionFor } from "../../data/candle-copy";
@@ -11,8 +10,6 @@ import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
 
 export function getStaticPaths() {
   return {
@@ -31,7 +28,6 @@ export default function CandlePage({ slug }) {
   const candle = getCandle(slug);
   // Photos in catalogue order: lid (the main photo), flower, lit, crystal.
   const photos = candle.imageKeys.map((key) => candleImages[slug][key]);
-  const [lightboxIndex, setLightboxIndex] = useState(null);
   const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
   const [cartClicked, setCartClicked] = useState(false);
@@ -47,73 +43,8 @@ export default function CandlePage({ slug }) {
         <title>{candle.name}</title>
       </Head>
       <main className={styles.main}>
-        <div className={styles.galleryContainer}>
-          <div className={styles.galleryImage}>
-            <button
-              className={styles.buttonImage}
-              type="button"
-              onClick={() => setLightboxIndex(1)}
-            >
-              <Image
-                src={photos[1].src}
-                alt={photos[1].alt}
-                className={styles.candleSize}
-                priority
-              />
-            </button>
-          </div>
-          <div className={styles.galleryImage}>
-            <button
-              className={styles.buttonImage}
-              type="button"
-              onClick={() => setLightboxIndex(2)}
-            >
-              <Image
-                src={photos[2].src}
-                alt={photos[2].alt}
-                className={styles.candleSize}
-                priority
-              />
-            </button>
-          </div>
-          <div className={styles.galleryImage}>
-            <button
-              className={styles.buttonImage}
-              type="button"
-              onClick={() => setLightboxIndex(3)}
-            >
-              <Image
-                src={photos[3].src}
-                alt={photos[3].alt}
-                className={styles.candleSize}
-                priority
-              />
-            </button>
-          </div>
-        </div>
-        <div className={styles.galleryMainContainer}>
-          <div className={styles.mainImage}>
-            <IoIosArrowBack
-              onClick={() => setLightboxIndex(0)}
-              className={`${styles.mobileGallery} ${styles.galleryBack}`}
-            />
-            <button
-              className={styles.buttonImage}
-              type="button"
-              onClick={() => setLightboxIndex(0)}
-            >
-              <Image
-                src={photos[0].src}
-                alt={photos[0].alt}
-                className={styles.candleMain}
-                priority
-              />
-            </button>
-            <IoIosArrowForward
-              onClick={() => setLightboxIndex(0)}
-              className={`${styles.mobileGallery} ${styles.galleryForward}`}
-            />
-          </div>
+        <div className={styles.gallery}>
+          <ProductGallery name={candle.name} photos={photos} />
         </div>
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
@@ -160,13 +91,6 @@ export default function CandlePage({ slug }) {
             </div>
           </div>
         </div>
-        <Lightbox
-          images={photos}
-          index={lightboxIndex}
-          onIndexChange={setLightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-          label={`${candle.name} candle photos`}
-        />
       </main>
     </>
   );
