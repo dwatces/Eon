@@ -34,7 +34,8 @@ export default function ProductGallery({ name, photos }) {
           <Image
             src={photo.src}
             alt={photo.alt}
-            sizes="(min-width: 520px) 460px, 100vw"
+            sizes="(min-width: 520px) 460px, calc(100vw - 5rem)"
+            placeholder="blur"
             className={styles.mainImage}
             loading="eager"
             fetchPriority="high"

@@ -47,6 +47,7 @@ const About = () => {
               src={rangePhoto}
               alt="The four Eon candle tins, Dreams, Summer, Love and Happiness, with tumbled crystals"
               sizes="(min-width: 900px) 340px, (min-width: 480px) 400px, calc(100vw - 3rem)"
+              placeholder="blur"
               className={styles.photo}
             />
           </figure>

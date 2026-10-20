@@ -320,3 +320,26 @@ test("the About page has one heading, plain sections and no line breaks", async 
   await expect(main.locator("br")).toHaveCount(0);
   await expect(main.locator("#contact")).toContainText("no orders");
 });
+
+test("each page preloads at most one image, its largest", async ({
+  request,
+}) => {
+  const expected = {
+    "/": /hero-banner/,
+    "/shop": /love-lid/,
+    "/shop/love": /love-lid/,
+    "/about": null,
+    "/cart": null,
+  };
+  for (const [path, largest] of Object.entries(expected)) {
+    const html = await (await request.get(path)).text();
+    const preloads = html.match(/<link rel="preload"[^>]*as="image"[^>]*>/g);
+    if (largest === null) {
+      expect(preloads, path).toBeNull();
+    } else {
+      expect(preloads, path).toHaveLength(1);
+      expect(preloads[0]).toMatch(largest);
+      expect(preloads[0]).toContain('fetchPriority="high"');
+    }
+  }
+});

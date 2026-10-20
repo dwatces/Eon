@@ -10,7 +10,8 @@ import Fire from "../assets/icons/burning-embers.svg";
 import Earth from "../assets/icons/earth-asia-oceania.svg";
 import Leaf from "../assets/icons/linden-leaf.svg";
 
-const TILE_SIZES = "(min-width: 1180px) 270px, (min-width: 761px) 25vw, 50vw";
+const TILE_SIZES =
+  "(min-width: 1180px) 268px, (min-width: 761px) calc(25vw - 1.7rem), calc(50vw - 2.2rem)";
 
 // The label's three pillars: an icon, a heading and the story behind it.
 const PILLARS = [

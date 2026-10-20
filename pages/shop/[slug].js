@@ -23,7 +23,7 @@ export function getStaticProps({ params }) {
   return { props: { slug: params.slug } };
 }
 
-const MORE_SIZES = "(min-width: 1180px) 200px, (min-width: 640px) 25vw, 30vw";
+const MORE_SIZES = "(min-width: 800px) 216px, calc(33vw - 1.5rem)";
 
 export default function CandlePage({ slug }) {
   const candle = getCandle(slug);

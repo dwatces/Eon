@@ -32,6 +32,7 @@ export default function ProductCard({
           src={image.src}
           alt=""
           sizes={sizes}
+          placeholder="blur"
           loading={loading}
           fetchPriority={fetchPriority}
           className={styles.image}

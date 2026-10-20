@@ -17,6 +17,7 @@ const Header = () => (
       alt="Four Eon candle tins in a row, Dreams, Love, Happiness and Summer, with crystals in front"
       sizes={SIZES}
       className={styles.header}
+      placeholder="blur"
       loading="eager"
       fetchPriority="high"
     />
