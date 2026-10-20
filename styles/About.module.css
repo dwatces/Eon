@@ -81,7 +81,9 @@
 /* ---------- Contact ---------- */
 .contactBox {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   padding: clamp(2.5rem, 6vw, 4rem) 1.5rem 0;
 }
@@ -94,14 +96,8 @@
   color: var(--ink);
 }
 
-.email {
-  font-family: "Raleway", sans-serif;
-  font-size: 1.05rem;
-  color: var(--terracotta);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s var(--ease);
-}
-
-.email:hover {
-  border-color: var(--terracotta);
+.contactText {
+  max-width: 36rem;
+  text-align: center;
+  color: var(--ink-soft);
 }

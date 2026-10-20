@@ -72,13 +72,11 @@ const About = () => {
           </p>
         </div>
         <div className={styles.contactBox} id="contact">
-          <h2 className={styles.contactHeader}>
-            Connect with us:
-            <br />
-            <a className={styles.email} href="mailto:contact@eoncandles.co.nz">
-              contact@eoncandles.co.nz
-            </a>
-          </h2>
+          <h2 className={styles.contactHeader}>Contact</h2>
+          <p className={styles.contactText}>
+            This site is a portfolio demo of the Eon shop, so it takes no orders
+            or enquiries.
+          </p>
         </div>
       </main>
     </Layout>
