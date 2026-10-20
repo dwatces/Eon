@@ -38,6 +38,28 @@ test.describe("missing pages", () => {
       expect(response.status()).toBe(404);
     });
   }
+
+  test("the 404 page has a heading, a way home and a noindex tag", async ({
+    page,
+  }) => {
+    await page.goto("/nope");
+    const main = page.getByRole("main");
+    await expect(main.getByRole("heading", { level: 1 })).toHaveText(
+      "Page not found",
+    );
+    await expect(main.getByRole("link", { name: "Home" })).toHaveAttribute(
+      "href",
+      "/",
+    );
+    await expect(
+      main.getByRole("link", { name: "Shop the candles" }),
+    ).toHaveAttribute("href", "/shop");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "noindex",
+    );
+    await expect(page.locator("footer")).toBeVisible();
+  });
 });
 
 const candles = [

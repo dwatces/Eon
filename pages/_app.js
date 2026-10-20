@@ -3,9 +3,12 @@ import Head from "next/head";
 import { CartProvider } from "../hooks/use-shopping-cart";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import ErrorBoundary from "../components/ErrorBoundary";
+import { useRouter } from "next/router";
 import { fraunces, raleway } from "../lib/fonts";
 
 function MyApp({ Component, pageProps }) {
+  const { asPath } = useRouter();
   return (
     <>
       <Head>
@@ -37,7 +40,9 @@ function MyApp({ Component, pageProps }) {
       `}</style>
       <CartProvider>
         <NavBar />
-        <Component {...pageProps} />
+        <ErrorBoundary resetKey={asPath.split("#")[0]}>
+          <Component {...pageProps} />
+        </ErrorBoundary>
         <Footer />
       </CartProvider>
     </>
