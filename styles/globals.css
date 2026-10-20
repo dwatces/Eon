@@ -84,6 +84,26 @@ body {
 
 main {
   flex: 1 0 auto;
+  /* Keep the skip-link target clear of the sticky navigation. */
+  scroll-margin-top: 4.25rem;
+}
+
+/* The first tab stop on every page; visible only when focused. */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  padding: 0.75rem 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ink);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 h1,

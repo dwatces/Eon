@@ -90,7 +90,7 @@ export default function Success({ stripeEnabled = false }) {
       <Head>
         <title>Order summary</title>
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         {view.kind === "wait" && (
           <p className={styles.text} aria-busy="true">
             Loading…

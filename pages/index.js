@@ -23,7 +23,7 @@ export default function Home() {
             content="Eon is a candle shop in the heart of the city of Auckland. We offer a wide range of candles, including our own vegan soy wax handmade candles, imbued with crystal and natural elements to increase the candles power!"
           />
         </Head>
-        <main className={styles.main}>
+        <main id="main" className={styles.main}>
           <div className={styles.eonL}>
             <h1 className={styles.logo}>
               <Image

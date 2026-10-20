@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
 import Image from "next/image";
@@ -21,7 +21,30 @@ const NavBar = () => {
   const [showNav, setNav] = useState(false);
   const { count } = useShoppingCart();
   const router = useRouter();
+  const toggleRef = useRef(null);
+  const menuRef = useRef(null);
   const closeNav = () => setNav(false);
+
+  // Any navigation closes the mobile menu.
+  useEffect(() => {
+    const close = () => setNav(false);
+    router.events.on("routeChangeStart", close);
+    return () => router.events.off("routeChangeStart", close);
+  }, [router.events]);
+
+  // While the menu is open: focus starts on its first link, and Escape
+  // closes it and puts focus back on the toggle.
+  useEffect(() => {
+    if (!showNav) return;
+    menuRef.current?.querySelector("a")?.focus();
+    const onKeyDown = (event) => {
+      if (event.key !== "Escape") return;
+      setNav(false);
+      toggleRef.current?.focus();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [showNav]);
 
   return (
     <nav className={styles.navbar} aria-label="Main">
@@ -41,8 +64,8 @@ const NavBar = () => {
       </Link>
       <ul
         id="site-menu"
-        style={{ display: showNav ? "flex" : null }}
-        className={styles.middleLinks}
+        ref={menuRef}
+        className={`${styles.middleLinks} ${showNav ? styles.menuOpen : ""}`}
       >
         {LINKS.map(({ href, label, isActive }) => (
           <li
@@ -75,6 +98,7 @@ const NavBar = () => {
           )}
         </Link>
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setNav(!showNav)}
           className={`${styles.btbIcon} ${styles.nav__hamburger}`}
@@ -89,6 +113,15 @@ const NavBar = () => {
           )}
         </button>
       </div>
+      {showNav && (
+        // A tap outside the open menu closes it without following whatever
+        // is underneath. Keyboard users close it with Escape or the toggle.
+        <div
+          className={styles.backdrop}
+          onClick={closeNav}
+          aria-hidden="true"
+        />
+      )}
     </nav>
   );
 };

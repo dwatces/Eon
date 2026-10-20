@@ -11,7 +11,7 @@ const About = () => {
           content="This is the about page for eon candles, describing our methods and beliefs"
         />
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <div className={styles.crystals}>
           <div className={styles.crystalHeaderText}>
             <h1 className={styles.crystalHeader}>

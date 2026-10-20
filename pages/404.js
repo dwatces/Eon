@@ -9,7 +9,7 @@ export default function NotFound() {
         <title>Page not found | Eon Candles</title>
         <meta name="robots" content="noindex" />
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <h1 className={styles.title}>Page not found</h1>
         <p className={styles.text}>
           There&apos;s no page at this address. The link may be mistyped, or the

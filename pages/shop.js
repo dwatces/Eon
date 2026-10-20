@@ -12,7 +12,7 @@ export default function Shop() {
         <title>Candle Shop</title>
         <meta name="description" content="Shop for Eons candle products" />
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <h1 className={styles.visuallyHidden}>Our candles</h1>
         <ul className={styles.candleContainer}>
           {candles.map((candle, index) => (

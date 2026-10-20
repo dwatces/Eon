@@ -9,7 +9,7 @@ export default function ServerError() {
         <title>Something went wrong | Eon Candles</title>
         <meta name="robots" content="noindex" />
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <h1 className={styles.title}>Something went wrong</h1>
         <p className={styles.text}>
           The server couldn&apos;t load this page. Please try again in a moment.

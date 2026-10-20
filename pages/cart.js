@@ -178,7 +178,7 @@ export default function Cart({ paymentsLive: live = false }) {
       <Head>
         <title>Your cart</title>
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <h1 className={styles.title}>Your cart</h1>
         {!hydrated ? (
           <p className={styles.intro}>Loading your cart…</p>

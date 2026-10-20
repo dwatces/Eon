@@ -38,6 +38,9 @@ function MyApp({ Component, pageProps }) {
           --font-body: ${raleway.style.fontFamily};
         }
       `}</style>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <CartProvider>
         <NavBar />
         <ErrorBoundary resetKey={asPath.split("#")[0]}>

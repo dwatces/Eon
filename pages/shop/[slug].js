@@ -30,7 +30,7 @@ export default function CandlePage({ slug }) {
       <Head>
         <title>{candle.name}</title>
       </Head>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <div className={styles.gallery}>
           <ProductGallery key={slug} name={candle.name} photos={photos} />
         </div>
