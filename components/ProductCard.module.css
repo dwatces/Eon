@@ -13,8 +13,14 @@
     border-color 0.25s var(--ease);
 }
 
-.root:hover {
-  transform: translateY(-5px);
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .root:hover {
+    transform: translateY(-5px);
+  }
+
+  .tile:hover {
+    transform: translateY(-4px);
+  }
 }
 
 /* The whole card is clickable through the name's link. */
@@ -103,10 +109,6 @@
 /* ---------- Home tile ---------- */
 .tile {
   border-radius: var(--radius-sm);
-}
-
-.tile:hover {
-  transform: translateY(-4px);
 }
 
 .tile .picture {

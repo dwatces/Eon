@@ -104,14 +104,11 @@
   border: 2px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition:
-    border-color 0.2s var(--ease),
-    transform 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease);
 }
 
 .thumb:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
 }
 
 .thumb[aria-pressed="true"] {

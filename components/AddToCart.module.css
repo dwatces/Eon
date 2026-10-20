@@ -25,14 +25,11 @@
   border: none;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition:
-    background 0.2s var(--ease),
-    transform 0.2s var(--ease);
+  transition: background 0.2s var(--ease);
 }
 
 .button:hover {
   background: var(--accent-hover);
-  transform: translateY(-1px);
 }
 
 .note {

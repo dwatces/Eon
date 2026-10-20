@@ -82,13 +82,20 @@
   font-size: 1.2rem;
 }
 
+/* A 44px tall target that keeps the line's layout. */
 .lineName a {
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s var(--ease);
+  display: inline-block;
+  min-width: 2.75rem;
+  padding: 0.75rem 0;
+  margin: -0.75rem 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.2s var(--ease);
 }
 
 .lineName a:hover {
-  border-color: currentColor;
+  text-decoration-color: currentColor;
 }
 
 .cartItemDetails p {
@@ -228,14 +235,11 @@
   border: none;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition:
-    background 0.2s var(--ease),
-    transform 0.2s var(--ease);
+  transition: background 0.2s var(--ease);
 }
 
 .buttonCheckout:hover:not(:disabled) {
   background: var(--accent-hover);
-  transform: translateY(-1px);
 }
 
 .buttonCheckout:disabled {

@@ -51,14 +51,11 @@
   color: #fff;
   background: var(--accent);
   border-radius: var(--radius-pill);
-  transition:
-    background 0.2s var(--ease),
-    transform 0.2s var(--ease);
+  transition: background 0.2s var(--ease);
 }
 
 .cta:hover {
   background: var(--accent-hover);
-  transform: translateY(-1px);
 }
 
 /* ---------- Pillars: Energy / Oneness / Nature ---------- */
@@ -89,8 +86,13 @@
 }
 
 .eonLink:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .eonLink:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .eonTitle {
