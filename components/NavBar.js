@@ -67,7 +67,7 @@ const NavBar = () => {
                 name="cartButton"
                 aria-label="cartButton"
               >
-                <IoMdCart className={styles.Cartlink} size="small" />
+                <IoMdCart className={styles.Cartlink} size={24} />
               </button>
             </Link>
             {cartCount > 0 && (
@@ -86,7 +86,7 @@ const NavBar = () => {
           ) : (
             <>
               <MenuIcon color="warning" fontSize="large" />
-              <IoMdCart className={styles.CartlinkMobile} size="small" />
+              <IoMdCart className={styles.CartlinkMobile} size={24} />
             </>
           )}
           <span className={styles.cartItems} onClick={toggleNav}>
@@ -96,7 +96,7 @@ const NavBar = () => {
                 name="cartButton"
                 aria-label="cartButton"
               >
-                <IoMdCart className={styles.Cartlink} size="small" />
+                <IoMdCart className={styles.Cartlink} size={24} />
               </button>
             </Link>
             {cartCount > 0 && (
