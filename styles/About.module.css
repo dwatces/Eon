@@ -41,7 +41,7 @@
 }
 
 .crystalHeader a:hover {
-  color: var(--terracotta);
+  color: var(--accent);
 }
 
 .split {

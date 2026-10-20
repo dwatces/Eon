@@ -14,21 +14,26 @@
   --sand: #efe6d6;
   --surface: #fffdfa;
 
-  /* ink + text */
+  /* ink + text (each at least 4.5:1 on cream, cream-deep and surface;
+     tests/tokens.test.js checks the pairs) */
   --ink: #2b2620;
   --ink-soft: #4c453c;
-  --muted: #847a6d;
+  --muted: #6b6257;
 
-  /* brand accents */
+  /* brand accents. --terracotta is for large display text and
+     decoration only (3.58:1 on cream); text, links, prices, buttons and
+     focus rings use --accent. --sage is decoration only (2.79:1). */
   --terracotta: #c06a4d;
   --terracotta-dark: #a4543a;
+  --terracotta-deeper: #8b4630;
   --terracotta-soft: #f3ddd3;
+  --accent: var(--terracotta-dark);
+  --accent-hover: var(--terracotta-deeper);
+  --focus-ring: var(--terracotta-dark);
   --sage: #889a78;
   --sage-deep: #6c7e5d;
   --sage-soft: #e9efe0;
   --blush: #ecd3cc;
-  --blush-soft: #f7ece8;
-  --gold: #b08d57;
 
   /* lines + shape */
   --border: #e8ddcd;
@@ -160,22 +165,6 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--terracotta);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
-}
-
-/* shared helpers (global, consumable from anywhere) */
-.active {
-  color: var(--terracotta);
-  font-weight: 600;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-body, sans-serif);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--terracotta);
 }

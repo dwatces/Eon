@@ -64,12 +64,12 @@
 }
 
 .link:hover {
-  color: var(--terracotta);
+  color: var(--accent);
 }
 
-/* active route highlight (global .active set on the <li>) */
-:global(.active) .link {
-  color: var(--terracotta);
+/* the current page */
+.link[aria-current="page"] {
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .cartItems:hover .Cartlink {
-  color: var(--terracotta);
+  color: var(--accent);
 }
 
 .cartCount {
@@ -106,7 +106,7 @@
   font-weight: 700;
   line-height: 1;
   color: #fff;
-  background: var(--terracotta);
+  background: var(--accent);
   border: 2px solid var(--cream);
   border-radius: var(--radius-pill);
 }
@@ -173,7 +173,7 @@
 }
 
 .footerCredit a:hover {
-  color: var(--terracotta-dark);
+  color: var(--accent);
 }
 
 .socialButtonF,

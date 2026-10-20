@@ -133,8 +133,8 @@
 }
 
 .button:hover {
-  color: var(--terracotta-dark);
-  border-color: var(--terracotta-dark);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 @media (min-width: 640px) {
@@ -224,7 +224,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--terracotta);
+  background: var(--accent);
   border: none;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -234,7 +234,7 @@
 }
 
 .buttonCheckout:hover:not(:disabled) {
-  background: var(--terracotta-dark);
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 

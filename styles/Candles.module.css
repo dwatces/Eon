@@ -55,7 +55,7 @@
   font-family: var(--font-display, Georgia, serif);
   font-size: 1.9rem;
   font-weight: 500;
-  color: var(--terracotta);
+  color: var(--accent);
 }
 
 /* ---------- Layout breakpoints ---------- */

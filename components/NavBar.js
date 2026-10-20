@@ -68,10 +68,7 @@ const NavBar = () => {
         className={`${styles.middleLinks} ${showNav ? styles.menuOpen : ""}`}
       >
         {LINKS.map(({ href, label, isActive }) => (
-          <li
-            key={href}
-            className={`${isActive(router.pathname) ? "active" : ""} ${styles.linkHome}`}
-          >
+          <li key={href} className={styles.linkHome}>
             <Link
               href={href}
               className={styles.link}

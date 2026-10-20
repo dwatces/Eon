@@ -30,7 +30,7 @@
 }
 
 .root:has(.link:focus-visible) {
-  outline: 2px solid var(--terracotta);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .details .price {
-  color: var(--terracotta-dark);
+  color: var(--accent);
 }
 
 /* ---------- Shop card ---------- */

@@ -75,7 +75,7 @@
 }
 
 .arrow:hover {
-  background: var(--terracotta-dark);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -110,12 +110,12 @@
 }
 
 .thumb:hover {
-  border-color: var(--terracotta);
+  border-color: var(--accent);
   transform: translateY(-2px);
 }
 
 .thumb[aria-pressed="true"] {
-  border-color: var(--terracotta-dark);
+  border-color: var(--accent);
 }
 
 .thumbImage {

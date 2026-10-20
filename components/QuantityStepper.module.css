@@ -30,8 +30,8 @@
 }
 
 .button:hover:not([aria-disabled="true"]) {
-  border-color: var(--terracotta-dark);
-  color: var(--terracotta-dark);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .button[aria-disabled="true"] {
