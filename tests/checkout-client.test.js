@@ -133,6 +133,23 @@ describe("checkOrder", () => {
     ).toBe(true);
   });
 
+  it("reads the body of every answer, so no response is left open", async () => {
+    for (const [status, body] of [
+      [200, { status: "unpaid" }],
+      [404, { error: "x" }],
+      [502, { error: "x" }],
+    ]) {
+      const json = vi.fn().mockResolvedValue(body);
+      const fetchImpl = vi.fn().mockResolvedValue({
+        ok: status === 200,
+        status,
+        json,
+      });
+      await checkOrder("cs_test_a1", fetchImpl);
+      expect(json, String(status)).toHaveBeenCalledTimes(1);
+    }
+  });
+
   it("calls an unknown or unpaid session unconfirmed", async () => {
     expect(await checkOrder("cs_test_a1", reply(404, { error: "x" }))).toEqual({
       kind: "unconfirmed",
