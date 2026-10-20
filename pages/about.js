@@ -28,16 +28,16 @@ const About = () => {
             </p>
             <p>
               Made in the earth eons ago, crystals carry an innate power to
-              direct positive energies into our bodies and souls; whilst warding
-              from the negative. Our vegan soy wax candles each have a unique,
+              direct positive energies into our bodies and souls, while warding
+              off the negative. Our vegan soy wax candles each have a unique,
               beautiful scent profile, derived from all natural ingredients. We
               pair each scent with a magically chosen crystal and natural
               accompaniment. Once lit, the energy released is amplified, in
-              turn, enabling you to reach a higher level of being; in which we
-              must nurture to bring out our best selves. Our crystal imbued
-              candles will help you fight off negative feelings, align with and
-              promote positive energies, and grow your mind, body and soul. They
-              help you find your natural, inner strength, love, compassion, and
+              turn, enabling you to reach a higher level of being, which we must
+              nurture to bring out our best selves. Our crystal imbued candles
+              will help you fight off negative feelings, align with and promote
+              positive energies, and grow your mind, body and soul. They help
+              you find your natural, inner strength, love, compassion, and
               perseverance and amplify these positive energies within you to new
               heights.
             </p>
