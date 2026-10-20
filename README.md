@@ -16,7 +16,7 @@ The first version was built between December 2021 and February 2022. In June 202
 
 ## Features
 
-- Four product pages, each with a photo gallery, a full-screen lightbox built on the native `<dialog>` element, a quantity selector and an add-to-cart button.
+- One product route (`pages/shop/[slug].js`) that builds a static page for each candle from the catalogue, with a photo gallery, a full-screen lightbox built on the native `<dialog>` element, a quantity stepper and an add-to-cart button that confirms each add.
 - A cart kept in `localStorage` through a pure reducer (`lib/cart.js`), with prices in cents taken from one catalogue (`data/candles.js`). It survives a reload and stays in sync across tabs.
 - A checkout API route (`pages/api/checkout_sessions.js`) that validates the cart and prices it on the server. With no Stripe key it returns a demo order summary; with a Stripe test key it creates a Stripe Checkout session limited to New Zealand addresses, with a flat NZ$5 shipping rate (1 to 3 business days).
 - Responsive navigation with a mobile menu and a cart count.
@@ -47,23 +47,24 @@ Other scripts:
 
 - `npm run build` and `npm run start`: production build and server
 - `npm run lint` and `npm run format:check`
-- `npm test`: unit and API tests
+- `npm test`: unit, API and component tests
 - `npm run test:e2e`: end-to-end tests against a local production build (set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first)
 
 ## Project structure
 
 ```
 pages/          Home, shop, about, cart, success, 404 and 500 pages
-pages/shop/     One page per candle: love, happiness, dreams, summer
+pages/shop/     [slug].js: one statically generated page per candle
 pages/api/      checkout_sessions.js (validates the cart, demo or Stripe)
-components/     Nav bar, footer, header banner, lightbox
+components/     Nav bar, footer, product card and gallery, cart controls, SEO tags
 data/           The candle catalogue, product copy and product photos
 hooks/          Cart context
 lib/            Cart, checkout, money, site URL and font helpers
 styles/         Global design tokens, per-page CSS Modules and the font files
-tests/          Vitest unit and API tests
+tests/          Vitest unit, API and component tests
 e2e/            Playwright end-to-end tests
-public/         Product photos, icons and robots.txt
+public/         Product photos, icons and the social card image
+scripts/        Writes robots.txt and sitemap.xml at build
 ```
 
 ## Author
