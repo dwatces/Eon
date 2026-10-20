@@ -25,7 +25,9 @@ const securityHeaders = [
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   },
-  { key: "X-Content-Type-Options", value: "nosniff" },
+  // The dev server loads one JSON manifest through a script tag, which
+  // nosniff blocks, so nosniff is for production builds only.
+  ...(isDev ? [] : [{ key: "X-Content-Type-Options", value: "nosniff" }]),
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-DNS-Prefetch-Control", value: "on" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -44,6 +46,8 @@ module.exports = {
     SITE_URL: resolveSiteUrl(process.env),
   },
   turbopack: { root: __dirname },
+  // Keep `next dev` from adding a generated rules file to the project.
+  agentRules: false,
   reactStrictMode: true,
   poweredByHeader: false,
   async headers() {
