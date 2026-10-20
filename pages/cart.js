@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import OrderSummary from "../components/OrderSummary";
 import ProductCard from "../components/ProductCard";
 import QuantityStepper from "../components/QuantityStepper";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
 import { SHIPPING, candles } from "../data/candles";
 import { imageFor } from "../data/candle-images";
+import { paymentsLive } from "../lib/checkout-mode";
+import { requestCheckout } from "../lib/checkout-client";
+import { saveDemoOrder } from "../lib/demo-order";
 import { formatNZD } from "../lib/money";
 import styles from "../styles/Cart.module.css";
+
+// One boolean, decided at build time: whether checkout can take real
+// money. It never carries the key itself.
+export function getStaticProps() {
+  return { props: { paymentsLive: paymentsLive(process.env) } };
+}
 
 const itemCount = (count) => `${count} ${count === 1 ? "item" : "items"}`;
 
@@ -78,7 +89,79 @@ function CartLine({ line, onQuantity, onRemove }) {
   );
 }
 
-export default function Cart() {
+// The Checkout button. A demo order goes to /success through
+// sessionStorage; if storage is blocked, the summary is shown here.
+function Checkout({ items, live }) {
+  const router = useRouter();
+  const [state, setState] = useState({ status: "idle" });
+  const busy = useRef(false);
+
+  const start = async () => {
+    if (busy.current) return;
+    busy.current = true;
+    setState({ status: "pending" });
+    try {
+      const result = await requestCheckout(items);
+      if (result.kind === "stripe") {
+        window.location.assign(result.url);
+        return;
+      }
+      try {
+        saveDemoOrder(window.sessionStorage, result.order);
+      } catch {
+        busy.current = false;
+        setState({ status: "demo-inline", order: result.order });
+        return;
+      }
+      await router.push("/success?demo=1");
+    } catch {
+      busy.current = false;
+      setState({ status: "error" });
+    }
+  };
+
+  const pending = state.status === "pending";
+
+  return (
+    <>
+      <p className={styles.proceed}>
+        {live
+          ? "Checkout continues on Stripe, which takes the payment."
+          : "This shop is a portfolio demo. Checkout takes no real payment."}
+      </p>
+      <button
+        type="button"
+        className={styles.buttonCheckout}
+        onClick={start}
+        disabled={pending}
+        aria-busy={pending}
+      >
+        {pending ? "Starting checkout…" : "Checkout"}
+      </button>
+      <div role="status" className={styles.checkoutMessage}>
+        {state.status === "demo-inline" && (
+          <>
+            <OrderSummary order={state.order} caption="Demo order summary" />
+            <p>
+              This is a portfolio demo. No payment was taken and no order was
+              placed.
+            </p>
+          </>
+        )}
+      </div>
+      <div role="alert" className={styles.checkoutError}>
+        {state.status === "error" && (
+          <p>
+            We couldn&apos;t start checkout. Nothing was charged. Please try
+            again.
+          </p>
+        )}
+      </div>
+    </>
+  );
+}
+
+export default function Cart({ paymentsLive: live = false }) {
   const {
     hydrated,
     items,
@@ -89,39 +172,6 @@ export default function Cart() {
     setQuantity,
     removeLine,
   } = useShoppingCart();
-
-  const [checkoutState, setCheckoutState] = useState({ status: "idle" });
-
-  const startCheckout = async () => {
-    if (checkoutState.status === "pending") return;
-    setCheckoutState({ status: "pending" });
-    try {
-      const response = await fetch("/api/checkout_sessions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: items.map(({ slug, quantity }) => ({ slug, quantity })),
-        }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.error || "Checkout failed");
-      if (
-        data.mode === "stripe" &&
-        typeof data.url === "string" &&
-        data.url.startsWith("https://checkout.stripe.com/")
-      ) {
-        window.location.assign(data.url);
-        return;
-      }
-      if (data.mode === "demo" && data.order) {
-        setCheckoutState({ status: "demo", order: data.order });
-        return;
-      }
-      throw new Error("Unexpected checkout response");
-    } catch {
-      setCheckoutState({ status: "error" });
-    }
-  };
 
   return (
     <>
@@ -170,34 +220,7 @@ export default function Cart() {
                   <dd>{formatNZD(total)}</dd>
                 </div>
               </dl>
-              <p className={styles.proceed}>
-                This is a portfolio demo shop: checkout shows an order summary
-                and takes no payment.
-              </p>
-              <button
-                type="button"
-                className={styles.buttonCheckout}
-                onClick={startCheckout}
-                disabled={checkoutState.status === "pending"}
-                aria-busy={checkoutState.status === "pending"}
-              >
-                {checkoutState.status === "pending"
-                  ? "Starting checkout…"
-                  : "Checkout"}
-              </button>
-              <div role="status" className={styles.checkoutMessage}>
-                {checkoutState.status === "demo" && (
-                  <p>
-                    Demo order: {formatNZD(checkoutState.order.subtotal)} plus{" "}
-                    {formatNZD(checkoutState.order.shipping)} New Zealand
-                    shipping, {formatNZD(checkoutState.order.total)} in total.
-                    No payment was taken and no order was placed.
-                  </p>
-                )}
-                {checkoutState.status === "error" && (
-                  <p>We couldn&apos;t start checkout. Please try again.</p>
-                )}
-              </div>
+              <Checkout items={items} live={live} />
             </section>
           </>
         )}

@@ -1,0 +1,50 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.caption {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--ink);
+}
+
+.table th,
+.table td {
+  padding: 0.55rem 0;
+  font-weight: 400;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.table td:nth-last-child(-n + 2),
+.table thead th:nth-last-child(-n + 2) {
+  text-align: right;
+}
+
+.table tbody th {
+  color: var(--ink);
+}
+
+.table tfoot th,
+.table tfoot td {
+  color: var(--ink-soft);
+}
+
+.table tfoot .total th,
+.table tfoot .total td {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.2rem;
+  color: var(--ink);
+  border-bottom: none;
+}
