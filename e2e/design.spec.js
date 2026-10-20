@@ -170,3 +170,41 @@ for (const { width, columns } of shopLayouts) {
     });
   });
 }
+
+test("a product page reads h1, h2, h3 with no gap under the title", async ({
+  page,
+}) => {
+  await page.goto("/shop/love");
+  const outline = await page
+    .locator("main")
+    .locator("h1, h2, h3")
+    .evaluateAll((hs) => hs.map((h) => h.tagName));
+  expect(outline).toEqual(["H1", "H2", "H3", "H3", "H3"]);
+  await expect(
+    page.getByRole("region", { name: "More candles" }).getByRole("link"),
+  ).toHaveText(["Happiness", "Dreams", "Summer"]);
+  const gap = await page.evaluate(() => {
+    const title = document.querySelector("main h1").getBoundingClientRect();
+    const next = document.querySelector("main h1 + p").getBoundingClientRect();
+    return next.top - title.bottom;
+  });
+  expect(gap).toBeLessThan(80);
+});
+
+test.describe("product page at 1440 px", () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test("the photos and the details start at the same height", async ({
+    page,
+  }) => {
+    await page.goto("/shop/dreams");
+    const tops = await page.evaluate(() => ({
+      gallery: document
+        .querySelector("main [aria-label='View larger photo']")
+        .closest("div[class*=stage]")
+        .getBoundingClientRect().top,
+      title: document.querySelector("main h1").getBoundingClientRect().top,
+    }));
+    expect(Math.abs(tops.gallery - tops.title)).toBeLessThan(24);
+  });
+});

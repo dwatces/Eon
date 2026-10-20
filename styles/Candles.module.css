@@ -3,66 +3,144 @@
    ============================================================ */
 
 .main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "gallery"
-    "details";
-  gap: 1.75rem;
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 3.5rem) 1.5rem clamp(3rem, 6vw, 4.5rem);
+  padding: clamp(1rem, 3vw, 2rem) 1.5rem clamp(3rem, 6vw, 4.5rem);
 }
 
-/* ---------- Gallery ---------- */
-.gallery {
-  grid-area: gallery;
-  display: flex;
+/* ---------- Back link ---------- */
+.back {
+  display: inline-flex;
   align-items: center;
+  gap: 0.3rem;
+  min-height: 2.75rem;
+  margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.2s var(--ease);
+}
+
+.back:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Gallery + details ---------- */
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+}
+
+.gallery {
+  display: flex;
   justify-content: center;
 }
 
-/* ---------- Details ---------- */
-.candleContent {
-  grid-area: details;
-  display: flex;
-  align-items: center;
-}
-
-.candleContentHeader {
+.details {
   width: 100%;
-  max-width: 460px;
+  max-width: 34rem;
   margin: 0 auto;
 }
 
 .candleTitle {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  margin-bottom: 0.25rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+}
+
+.candleRetail {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--accent);
+}
+
+/* Scent, crystal and botanicals */
+.notes {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.notes div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.notes dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.9;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.notes dd {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ink);
 }
 
 .candleDescription {
-  margin: 0;
+  max-width: 62ch;
   font-size: 1rem;
   line-height: 1.8;
   color: var(--ink-soft);
 }
 
-.candleRetail {
-  font-variant-numeric: lining-nums tabular-nums;
-  margin: 0.25rem 0 0;
-  font-family: var(--font-display, Georgia, serif);
-  font-size: 1.9rem;
-  font-weight: 500;
-  color: var(--accent);
+/* ---------- More candles ---------- */
+.more {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--border);
 }
 
-/* ---------- Layout breakpoints ---------- */
-@media (min-width: 768px) {
+.moreTitle {
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  text-align: center;
+}
+
+.moreList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
+  max-width: 44rem;
+  margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+}
+
+/* ---------- One column below 900px ---------- */
+/* The back link, photos and details share the gallery's width. */
+@media (max-width: 899px) {
   .main {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "gallery details";
-    align-items: center;
-    gap: clamp(2rem, 5vw, 4rem);
+    max-width: calc(460px + 3rem);
+  }
+}
+
+/* ---------- Two columns from 900px ---------- */
+@media (min-width: 900px) {
+  .product {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  /* The photos stay in view while the description scrolls. */
+  .gallery {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .details {
+    margin: 0;
   }
 }

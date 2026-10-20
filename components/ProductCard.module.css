@@ -140,3 +140,18 @@
 .tile .price {
   font-size: 1.05rem;
 }
+
+/* ---------- Compact tile (three across a phone) ---------- */
+@media (max-width: 639px) {
+  .compact .details {
+    padding-top: 0.5rem;
+  }
+
+  .compact .name {
+    font-size: 1.05rem;
+  }
+
+  .compact .price {
+    font-size: 0.95rem;
+  }
+}
