@@ -6,7 +6,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
-import { products } from "../../components/products";
 import { getCandle } from "../../data/candles";
 import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
@@ -37,7 +36,7 @@ const Dreams = () => {
   const [cartClicked, setCartClicked] = useState(false);
 
   const handleOnAddToCart = () => {
-    addItem(products[2], qty);
+    addItem(candle.slug, qty);
     setCartClicked(true);
   };
 

@@ -12,7 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 const NavBar = () => {
   const [showNav, setNav] = useState(false);
   const toggleNav = () => setNav(!showNav);
-  const { cartDetails, cartCount } = useShoppingCart();
+  const { count: cartCount } = useShoppingCart();
   const router = useRouter();
 
   return (

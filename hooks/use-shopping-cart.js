@@ -1,141 +1,92 @@
-import React, { useContext, useMemo } from "react";
-import useLocalStorageReducer from "./use-local-storage-reducer";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useState,
+} from "react";
+import {
+  STORAGE_KEY,
+  cartCount,
+  cartLines,
+  cartReducer,
+  cartShipping,
+  cartSubtotal,
+  cartTotal,
+  emptyCart,
+  loadCart,
+  parseStoredCart,
+  saveCart,
+} from "../lib/cart";
 
-// Reducers
-const initialCartValues = {
-  cartDetails: {},
-  cartCount: 0,
-  totalPrice: 0,
+const CartContext = createContext(null);
+
+const storage = () => {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
 };
 
-const addItem = (state = {}, product = null, quantity = 0) => {
-  if (quantity <= 0 || !product) return state;
+// Starts empty on the server and on the first client render, so the HTML
+// always matches. The saved cart loads after mount; `hydrated` says when.
+export function CartProvider({ children }) {
+  const [cart, dispatch] = useReducer(cartReducer, emptyCart);
+  const [hydrated, setHydrated] = useState(false);
 
-  let entry = state?.cartDetails?.[product.id];
+  useEffect(() => {
+    const store = storage();
+    if (store) dispatch({ type: "LOAD", lines: loadCart(store).lines });
+    setHydrated(true);
 
-  // Update item
-  if (entry) {
-    entry.quantity += quantity;
-  }
-  // Add item
-  else {
-    entry = {
-      ...product,
-      quantity,
+    // Keep tabs in sync.
+    const onStorage = (event) => {
+      if (event.key === STORAGE_KEY) {
+        dispatch({
+          type: "LOAD",
+          lines: parseStoredCart(event.newValue).lines,
+        });
+      } else if (event.key === null) {
+        dispatch({ type: "CLEAR" });
+      }
     };
-  }
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
-  return {
-    ...state,
-    cartDetails: {
-      ...state.cartDetails,
-      [product.id]: entry,
-    },
-    cartCount: Math.max(0, state.cartCount + quantity),
-    totalPrice: Math.max(state.totalPrice + product.price * quantity),
-  };
-};
+  useEffect(() => {
+    if (!hydrated) return;
+    const store = storage();
+    if (store) saveCart(store, cart);
+  }, [cart, hydrated]);
 
-const removeItem = (state = {}, product = null, quantity = 0) => {
-  if (quantity <= 0 || !product) return state;
-
-  let entry = state?.cartDetails?.[product.id];
-
-  if (entry) {
-    // Remove item
-    if (quantity >= entry.quantity) {
-      const { [product.id]: id, ...details } = state.cartDetails;
-      return {
-        ...state,
-        cartDetails: details,
-        cartCount: Math.max(0, state.cartCount - entry.quantity),
-        totalPrice: Math.max(
-          0,
-          state.totalPrice - product.price * entry.quantity,
-        ),
-      };
-    }
-    // Update item
-    else {
-      return {
-        ...state,
-        cartDetails: {
-          ...state.cartDetails,
-          [product.id]: {
-            ...entry,
-            quantity: entry.quantity - quantity,
-          },
-        },
-        cartCount: Math.max(0, state.cartCount - quantity),
-        totalPrice: Math.max(0, state.totalPrice - product.price * quantity),
-      };
-    }
-  } else {
-    return state;
-  }
-};
-
-const clearCart = () => {
-  return initialCartValues;
-};
-
-const cartReducer = (state = {}, action) => {
-  switch (action.type) {
-    case "ADD_ITEM":
-      return addItem(state, action.product, action.quantity);
-    case "REMOVE_ITEM":
-      return removeItem(state, action.product, action.quantity);
-    case "CLEAR_CART":
-      return clearCart();
-    default:
-      return state;
-  }
-};
-
-// Context + Provider
-const CartContext = React.createContext();
-
-export const CartProvider = ({ currency = "NZD", children = null }) => {
-  const [cart, dispatch] = useLocalStorageReducer(
-    "cart",
-    cartReducer,
-    initialCartValues,
+  const value = useMemo(
+    () => ({
+      hydrated,
+      lines: cart.lines,
+      count: cartCount(cart),
+      items: cartLines(cart),
+      subtotal: cartSubtotal(cart),
+      shipping: cartShipping(cart),
+      total: cartTotal(cart),
+      addItem: (slug, quantity = 1) =>
+        dispatch({ type: "ADD", slug, quantity }),
+      setQuantity: (slug, quantity) =>
+        dispatch({ type: "SET_QTY", slug, quantity }),
+      removeLine: (slug) => dispatch({ type: "REMOVE_LINE", slug }),
+      clearCart: () => dispatch({ type: "CLEAR" }),
+    }),
+    [cart, hydrated],
   );
 
-  const contextValue = useMemo(
-    () => [
-      {
-        ...cart,
-        currency,
-      },
-      dispatch,
-    ],
-    [cart, currency],
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+}
 
-  return (
-    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
-  );
-};
-
-// Hook
-export const useShoppingCart = () => {
-  const [cart, dispatch] = useContext(CartContext);
-
-  const addItem = (product, quantity = 1) =>
-    dispatch({ type: "ADD_ITEM", product, quantity });
-
-  const removeItem = (product, quantity = 1) =>
-    dispatch({ type: "REMOVE_ITEM", product, quantity });
-
-  const clearCart = () => dispatch({ type: "CLEAR_CART" });
-
-  const shoppingCart = {
-    ...cart,
-    addItem,
-    removeItem,
-    clearCart,
-  };
-
-  return shoppingCart;
-};
+export function useShoppingCart() {
+  const cart = useContext(CartContext);
+  if (!cart)
+    throw new Error("useShoppingCart must be used inside CartProvider");
+  return cart;
+}

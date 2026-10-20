@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
 import styles from "../styles/Cart.module.css";
-import { getCandle } from "../data/candles";
+import { imageFor } from "../data/candle-images";
 import { formatNZD } from "../lib/money";
 
 const Cart = () => {
-  const { cartDetails, cartCount, removeItem } = useShoppingCart();
+  const { hydrated, items, count: cartCount, removeLine } = useShoppingCart();
 
   const [checkoutState, setCheckoutState] = useState({ status: "idle" });
 
@@ -19,10 +19,7 @@ const Cart = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          items: Object.values(cartDetails).map(({ name, quantity }) => ({
-            slug: name,
-            quantity,
-          })),
+          items: items.map(({ slug, quantity }) => ({ slug, quantity })),
         }),
       });
       const data = await response.json().catch(() => ({}));
@@ -44,6 +41,8 @@ const Cart = () => {
       setCheckoutState({ status: "error" });
     }
   };
+
+  if (!hydrated) return <main className={styles.main} aria-busy="true" />;
 
   return (
     <>
@@ -67,40 +66,34 @@ const Cart = () => {
         {cartCount > 0 ? (
           <>
             <div>
-              {Object.entries(cartDetails).map(
-                ([id, { name, price, quantity }]) => (
-                  <div key={id} className={styles.cartItem}>
-                    <div className={styles.cartItemImage}>
-                      <Image
-                        src={`/${id}.png`}
-                        alt={`${name}`}
-                        width={200}
-                        height={200}
-                        priority
-                      />
-                    </div>
-                    <div className={styles.cartItemDetails}>
-                      <h3>{name}</h3>
-                      <p>Quantity: {quantity}</p>
-                      <p>
-                        Price:{" "}
-                        {getCandle(name)
-                          ? formatNZD(getCandle(name).unitAmount)
-                          : price}{" "}
-                        each
-                      </p>
-                    </div>
-                    <div className={styles.cartItemRemove}>
-                      <button
-                        className={styles.button}
-                        onClick={() => removeItem({ id })}
-                      >
-                        Remove
-                      </button>
-                    </div>
+              {items.map(({ slug, name, quantity, unitAmount }) => (
+                <div key={slug} className={styles.cartItem}>
+                  <div className={styles.cartItemImage}>
+                    <Image
+                      src={imageFor(slug, "top").src}
+                      alt=""
+                      width={88}
+                      height={88}
+                      objectFit="cover"
+                    />
                   </div>
-                ),
-              )}
+                  <div className={styles.cartItemDetails}>
+                    <h3>{name}</h3>
+                    <p>Quantity: {quantity}</p>
+                    <p>Price: {formatNZD(unitAmount)} each</p>
+                  </div>
+                  <div className={styles.cartItemRemove}>
+                    <button
+                      type="button"
+                      className={styles.button}
+                      onClick={() => removeLine(slug)}
+                      aria-label={`Remove ${name} candle`}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>{" "}
             <p className={styles.proceed}>
               This is a portfolio demo shop: checkout shows an order summary and
