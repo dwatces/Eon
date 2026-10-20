@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Link from "next/link";
 import "react-image-lightbox/style.css";
-import { ProductJsonLd } from "next-seo";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "../../components/Layout";
@@ -41,18 +40,6 @@ const Dreams = () => {
   const open = () => {
     setIsOpen(true);
   };
-
-  <ProductJsonLd
-    productName="dreams candle"
-    description="Follow your dreams with our lavender, chamomile, and frankincense candle. Paired with the powerful energy of amethyst crystals to provide clarity of mind, and cornflowers to bring wealth and good fortune."
-    manufacturerName="Eon"
-    material="candle"
-    award="best scented candle in NZ"
-    aggregateRating={{
-      ratingValue: "4.4",
-      reviewCount: "89",
-    }}
-  />;
 
   return (
     <Layout>

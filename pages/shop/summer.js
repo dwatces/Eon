@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Link from "next/link";
-import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Head from "next/head";
 import Layout from "../../components/Layout";
@@ -40,18 +39,6 @@ const Summer = () => {
   const open = () => {
     setIsOpen(true);
   };
-
-  <ProductJsonLd
-    productName="summer candle"
-    description="Bring on the summer vibes with our coconut, mango, and lime scented candle. Paired with both aventurine crystal shards for good blessings and lavender flowers for peace and grace."
-    manufacturerName="Eon"
-    material="candle"
-    award="best scented candle in NZ"
-    aggregateRating={{
-      ratingValue: "4.9",
-      reviewCount: "72",
-    }}
-  />;
 
   return (
     <Layout>

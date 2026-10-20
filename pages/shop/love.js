@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import "react-image-lightbox/style.css";
-import { ProductJsonLd } from "next-seo";
 import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
@@ -41,18 +40,6 @@ const Love = () => {
   const open = () => {
     setIsOpen(true);
   };
-
-  <ProductJsonLd
-    productName="love candle"
-    description="ose otto, ylang ylang, orange, and patchouli scented candle not only smells divine, but is precisely paired with rose quartz chips and rose bud to amplify and attract love in your life."
-    manufacturerName="Eon"
-    material="candle"
-    award="best scented candle in NZ"
-    aggregateRating={{
-      ratingValue: "4.9",
-      reviewCount: "29",
-    }}
-  />;
 
   return (
     <Layout>

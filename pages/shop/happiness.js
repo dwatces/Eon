@@ -4,7 +4,6 @@ import Link from "next/link";
 import "react-image-lightbox/style.css";
 import Head from "next/head";
 import Lightbox from "react-image-lightbox";
-import { ProductJsonLd } from "next-seo";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import { products } from "../../components/products";
@@ -38,18 +37,6 @@ const Happiness = () => {
   const open = () => {
     setIsOpen(true);
   };
-
-  <ProductJsonLd
-    productName="happiness candle"
-    description="all the good in life with the beautiful scents of wild orange, clary sage, and lemon. This candle comes paired with citrine chips that channel happiness, and jasmine flower petals for clarity and perspective."
-    manufacturerName="Eon"
-    material="candle"
-    award="best scented candle in NZ"
-    aggregateRating={{
-      ratingValue: "4.8",
-      reviewCount: "166",
-    }}
-  />;
 
   return (
     <Layout>
