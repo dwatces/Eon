@@ -2,6 +2,8 @@
 
 Brand and shop site for Eon, a New Zealand candle label, built with Next.js and Stripe Checkout.
 
+My own project: built in 2021 and 2022, modernised in 2026.
+
 **Live site:** [eon-ht82.vercel.app](https://eon-ht82.vercel.app/)
 
 ![Eon home page: a banner photo of the four candle tins with crystals, then the Eon logo, the tagline and a Shop the candles button](docs/screenshot.webp)
@@ -133,6 +135,6 @@ docs/           README screenshots
 
 Built by Daniel Olliver. More of my work: [danielolliver.com/dev](https://danielolliver.com/dev/).
 
-I also run [Olliver Web](https://olliverweb.co.nz), my web design and development service in Auckland.
+I also run [Olliver Web](https://olliverweb.co.nz), my web design and development service in Auckland for small-business websites, online stores and web apps.
 
 Ben Jones contributed early responsive layout work between December 2021 and January 2022.
