@@ -6,6 +6,7 @@ import {
   candles,
   getCandle,
 } from "../data/candles.js";
+import { candleCopy, descriptionFor } from "../data/candle-copy.js";
 
 describe("candle catalogue", () => {
   it("has the four candles in display order", () => {
@@ -31,8 +32,9 @@ describe("candle catalogue", () => {
       expect(candle.notes.scent).toBeTruthy();
       expect(candle.notes.crystal).toBeTruthy();
       expect(candle.notes.botanicals).toBeTruthy();
-      expect(candle.description.length).toBeGreaterThan(100);
+      expect(descriptionFor(candle.slug).length).toBeGreaterThan(100);
     });
+    expect(Object.keys(candleCopy)).toEqual(allSlugs());
   });
 
   it("holds no Stripe identifiers", () => {

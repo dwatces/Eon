@@ -1,34 +1,23 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Link from "next/link";
-import "react-image-lightbox/style.css";
 import Head from "next/head";
-import Lightbox from "react-image-lightbox";
+import Lightbox from "../../components/Lightbox";
 import Image from "next/image";
-import Layout from "../../components/Layout";
 import { getCandle } from "../../data/candles";
+import { candleImages } from "../../data/candle-images";
+import { descriptionFor } from "../../data/candle-copy";
 import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
-import altPicFlower from "../../public/Flower-Happy2.webp";
-import altPicCrystal from "../../public/Crystal-Happy.webp";
-import altPicLit from "../../public/lit-happy.webp";
-import mainPic from "../../public/lid-happiness.webp";
 
 const candle = getCandle("happiness");
+// Photos in catalogue order: lid (the main photo), flower, lit, crystal.
+const photos = candle.imageKeys.map((key) => candleImages[candle.slug][key]);
 
 const Happiness = () => {
-  const images = [
-    "/lid-happiness.png",
-    "/Flower-Happy2.png",
-    "/Crystal-Happy.png",
-    "/lit-happy.png",
-  ];
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-  const [crystal, setCrystal] = useState(false);
-  const [flower, setFlower] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
   const [cartClicked, setCartClicked] = useState(false);
@@ -37,42 +26,51 @@ const Happiness = () => {
     addItem(candle.slug, qty);
     setCartClicked(true);
   };
-  const open = () => {
-    setIsOpen(true);
-  };
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Happiness</title>
       </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(1)}
+            >
               <Image
-                src={altPicFlower}
-                alt="happy flower"
+                src={photos[1].src}
+                alt={photos[1].alt}
                 className={styles.candleSize}
                 priority
               />
             </button>
           </div>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(2)}
+            >
               <Image
-                src={altPicLit}
-                alt="happy lit"
+                src={photos[2].src}
+                alt={photos[2].alt}
                 className={styles.candleSize}
                 priority
               />
             </button>
           </div>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(3)}
+            >
               <Image
-                src={altPicCrystal}
-                alt="happy crystal"
+                src={photos[3].src}
+                alt={photos[3].alt}
                 className={styles.candleSize}
                 priority
               />
@@ -81,10 +79,14 @@ const Happiness = () => {
         </div>
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(0)}
+            >
               <Image
-                src={mainPic}
-                alt="happy main"
+                src={photos[0].src}
+                alt={photos[0].alt}
                 className={styles.candleSizeMain}
                 priority
               />
@@ -133,22 +135,19 @@ const Happiness = () => {
                 )}
               </div>
 
-              <p>{candle.description}</p>
+              <p>{descriptionFor(candle.slug)}</p>
             </div>
           </div>
         </div>
-        {isOpen && (
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[photoIndex + 1]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => setIsOpen(false)}
-            onMovePrevRequest={() => setPhotoIndex(0)}
-            onMoveNextRequest={() => setPhotoIndex(photoIndex + 1)}
-          />
-        )}
+        <Lightbox
+          images={photos}
+          index={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          label={`${candle.name} candle photos`}
+        />
       </main>
-    </Layout>
+    </>
   );
 };
 

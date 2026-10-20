@@ -1,36 +1,25 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "../../hooks/use-shopping-cart";
 import Link from "next/link";
-import "react-image-lightbox/style.css";
 import Head from "next/head";
 import Image from "next/image";
-import Layout from "../../components/Layout";
-import Lightbox from "react-image-lightbox";
+import Lightbox from "../../components/Lightbox";
 import { getCandle } from "../../data/candles";
+import { candleImages } from "../../data/candle-images";
+import { descriptionFor } from "../../data/candle-copy";
 import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
-import altPicCrystal from "../../public/Crystal-dreams.webp";
-import altPicFlower from "../../public/Flower-Dream.webp";
-import altPicLit from "../../public/lit-dreams.webp";
-import mainPic from "../../public/lid-dreams.webp";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
 const candle = getCandle("dreams");
+// Photos in catalogue order: lid (the main photo), flower, lit, crystal.
+const photos = candle.imageKeys.map((key) => candleImages[candle.slug][key]);
 
 const Dreams = () => {
-  const images = [
-    "/lid-dreams.png",
-    "/Flower-Dream.png",
-    "/Crystal-dreams.png",
-    "/lit-dreams.png",
-  ];
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-  const [crystal, setCrystal] = useState(false);
-  const [flower, setFlower] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const { addItem } = useShoppingCart();
   const [qty, setQty] = useState(1);
   const [cartClicked, setCartClicked] = useState(false);
@@ -40,42 +29,50 @@ const Dreams = () => {
     setCartClicked(true);
   };
 
-  const open = () => {
-    setIsOpen(true);
-  };
-
   return (
-    <Layout>
+    <>
       <Head>
         <title>Dreams</title>
       </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(1)}
+            >
               <Image
-                src={altPicFlower}
-                alt="dreams flower"
+                src={photos[1].src}
+                alt={photos[1].alt}
                 className={styles.candleSize}
                 priority
               />
             </button>
           </div>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(2)}
+            >
               <Image
-                src={altPicLit}
-                alt="dreams lit"
+                src={photos[2].src}
+                alt={photos[2].alt}
                 className={styles.candleSize}
                 priority
               />
             </button>
           </div>
           <div className={styles.galleryImage}>
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(3)}
+            >
               <Image
-                src={altPicCrystal}
-                alt="dreams crystal"
+                src={photos[3].src}
+                alt={photos[3].alt}
                 className={styles.candleSize}
                 priority
               />
@@ -85,19 +82,23 @@ const Dreams = () => {
         <div className={styles.galleryMainContainer}>
           <div className={styles.mainImage}>
             <IoIosArrowBack
-              onClick={open}
+              onClick={() => setLightboxIndex(0)}
               className={`${styles.mobileGallery} ${styles.galleryBack}`}
             />
-            <button className={styles.buttonImage} type="button" onClick={open}>
+            <button
+              className={styles.buttonImage}
+              type="button"
+              onClick={() => setLightboxIndex(0)}
+            >
               <Image
-                src={mainPic}
-                alt="dreams main"
+                src={photos[0].src}
+                alt={photos[0].alt}
                 className={styles.candleMain}
                 priority
               />
             </button>
             <IoIosArrowForward
-              onClick={open}
+              onClick={() => setLightboxIndex(0)}
               className={`${styles.mobileGallery} ${styles.galleryForward}`}
             />
           </div>
@@ -142,22 +143,19 @@ const Dreams = () => {
                 )}
               </div>
 
-              <p>{candle.description}</p>
+              <p>{descriptionFor(candle.slug)}</p>
             </div>
           </div>
         </div>
-        {isOpen && (
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[photoIndex + 1]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => setIsOpen(false)}
-            onMovePrevRequest={() => setPhotoIndex(0)}
-            onMoveNextRequest={() => setPhotoIndex(photoIndex + 1)}
-          />
-        )}
+        <Lightbox
+          images={photos}
+          index={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          label={`${candle.name} candle photos`}
+        />
       </main>
-    </Layout>
+    </>
   );
 };
 
