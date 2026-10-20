@@ -7,7 +7,7 @@ const Header = () => (
     <header>
       <Image
         src={backgroundImg}
-        alt="hero banner"
+        alt="Four Eon candle tins in a row, Dreams, Love, Happiness and Summer, with crystals in front"
         width={2200}
         height={600}
         sizes="100vw"

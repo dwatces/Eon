@@ -25,7 +25,7 @@ export default function Home() {
             <h1 className={styles.logo}>
               <Image
                 src={Logo}
-                alt=" Eon candles home desktop"
+                alt="Eon Candles"
                 className={styles.eonLogo}
                 width={100}
                 height={50}
@@ -47,7 +47,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Fire}
-                alt="flame icon"
+                alt=""
                 className={styles.eonIcon}
                 width={80}
                 height={30}
@@ -62,7 +62,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Earth}
-                alt="earth icon"
+                alt=""
                 className={styles.eonIcon}
                 width={80}
                 height={30}
@@ -77,7 +77,7 @@ export default function Home() {
               </h2>
               <Image
                 src={Leaf}
-                alt="nature icon"
+                alt=""
                 className={styles.eonIcon}
                 width={80}
                 height={30}
@@ -92,33 +92,33 @@ export default function Home() {
               lives and ward against negative. Crystals have the power to allow
               us to release our fears, ground us from our daily anxieties, and
               bring us good fortune. That&apos;s why here at Eon, our 100%
-              natural, soy wax, hand poured candles are paired with a specially
-              selected, powerful crystals and a natural accompaniments to spread
+              natural, soy wax, hand-poured candles are paired with specially
+              selected, powerful crystals and natural accompaniments to spread
               the power of crystals throughout your home. Each candle scent is a
               seamless blend of natural ingredients that create a luxurious,
               relaxing, and endlessly enjoyable scent that you will love.
             </p>
             <p id="nature" className={`${styles.eonPara} ${styles.hover}`}>
               Our modern lives are so busy; we rarely take time to pause,
-              breath, and reconnect with the energies of the universe. We are
+              breathe, and reconnect with the energies of the universe. We are
               all one with each other, with the Earth, and greater universe
               beyond. Crystals are ancient, formed in the earth eons ago; using
               their power we can reconnect with the universe that created us. We
               believe the simple act of taking a moment to slow down, light a
-              candle, breath deeply, and relax into the the candles&apos; peace
-              promoting scent allows the mind to calm and reconnect with the
-              energies of the universe. This process of mindfulness opens you to
-              receive the positive energies that are all around us just waiting
-              to be received.
+              candle, breathe deeply, and relax into the candle&apos;s
+              peace-promoting scent allows the mind to calm and reconnect with
+              the energies of the universe. This process of mindfulness opens
+              you to receive the positive energies that are all around us just
+              waiting to be received.
             </p>
             <p className={`${styles.eonPara} ${styles.hover}`}>
               We all desire a deeper connection with the natural world, and have
               the honour and duty to protect it. That&apos;s why each of our
-              candles come with a delicately chosen natural accompaniment to
+              candles comes with a delicately chosen natural accompaniment to
               amplify the power of the candle and bring us closer to nature. We
               never contribute to landfills, all our NZ packaging is plastic
-              free and biodegradable. The petite candle tins are also re-usable!
-              They make excellent storage for crystals, trinkets, or keep sakes
+              free and biodegradable. The petite candle tins are also reusable!
+              They make excellent storage for crystals, trinkets, or keepsakes
               after your candle has been enjoyed.
             </p>
           </div>

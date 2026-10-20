@@ -38,7 +38,6 @@
 
 .candleTitle {
   font-size: clamp(2rem, 5vw, 2.8rem);
-  text-transform: capitalize;
   margin-bottom: 0.25rem;
 }
 

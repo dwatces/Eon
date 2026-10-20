@@ -51,7 +51,10 @@ export const candleImages = {
       alt: "Summer candle with white chrysanthemums",
     },
     lit: { src: summerLit, alt: "Summer candle lit, with the lid off" },
-    crystal: { src: summerCrystal, alt: "Summer candle with crystal stones" },
+    crystal: {
+      src: summerCrystal,
+      alt: "Summer candle with green crystal stones",
+    },
   },
 };
 

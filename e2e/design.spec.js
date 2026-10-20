@@ -116,3 +116,18 @@ test("a focused card shows a focus ring", async ({ page }) => {
   expect(ring.style).toBe("solid");
   expect(parseFloat(ring.width)).toBeGreaterThanOrEqual(2);
 });
+
+test("images have descriptive alt text or none", async ({ page }) => {
+  for (const path of ["/", "/shop", "/shop/summer", "/about", "/cart"]) {
+    await page.goto(path);
+    const alts = await page
+      .locator("img")
+      .evaluateAll((imgs) => imgs.map((img) => img.getAttribute("alt")));
+    for (const alt of alts) {
+      expect(alt, `an image on ${path} has no alt attribute`).not.toBeNull();
+      expect(alt, `alt text on ${path}`).not.toMatch(
+        /^\s|main$|topdown|banner|desktop|icon$/i,
+      );
+    }
+  }
+});

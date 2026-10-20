@@ -22,7 +22,7 @@ const About = () => {
               </a>
             </h1>
             <p className={styles.crystalsText}>
-              We&apos;re Kiwis that love to bring positive energies into all
+              We&apos;re Kiwis who love to bring positive energies into all
               lives. Our boutique candles are more than just pleasant scents. At
               Eon, all our candles are handcrafted, combining both the energy of
               crystals, and the natural world, to provide uplifting aromas for
@@ -33,19 +33,19 @@ const About = () => {
               that will fit perfectly into your life.
             </p>
             <p className={styles.crystalsText}>
-              Made in the earth eons ago, crystals carry an inate power to
+              Made in the earth eons ago, crystals carry an innate power to
               direct positive energies into our bodies and souls; whilst warding
               from the negative. Our vegan soy wax candles each have a unique,
               beautiful scent profile, derived from all natural ingredients. We
               pair each scent with a magically chosen crystal and natural
-              accompaniment. Once light by fire, the energy released is
-              amplified, in turn, enabling you to reach a higher level of being;
-              in which we must nurture to bring out our best selves. Our crystal
-              imbued candles will help you fight off negative feelings, align
-              with and promote positive energies, and grow your mind, body and
-              soul. They help you find your natural, inner strength, love,
-              compassion, and perseverance and amplify these positives energies
-              within you to new heights; order online today!
+              accompaniment. Once lit, the energy released is amplified, in
+              turn, enabling you to reach a higher level of being; in which we
+              must nurture to bring out our best selves. Our crystal imbued
+              candles will help you fight off negative feelings, align with and
+              promote positive energies, and grow your mind, body and soul. They
+              help you find your natural, inner strength, love, compassion, and
+              perseverance and amplify these positive energies within you to new
+              heights.
             </p>
             <br />
           </div>
@@ -56,13 +56,13 @@ const About = () => {
         <br />
         <div className={styles.nzNatural}>
           <p className={styles.envText}>
-            We love our planet, and our clean, green country that&apos;s why our
-            candles are made of vegan soy wax, and we ship all our candles in
-            recyclable and bio-degradeable packaging. Cardboard boxes filled
+            We love our planet, and our clean, green country; that&apos;s why
+            our candles are made of vegan soy wax, and we ship all our candles
+            in recyclable and biodegradable packaging. Cardboard boxes filled
             with natural wood wool, wrapped in a compostable bag keeps your
             candle safe and sound while it makes its journey through our
-            beautiful Aoteroa to you. Our candle tins are easily repurposable as
-            well! After washing, use our tins as a place to keep trinkets,
+            beautiful Aotearoa to you. Our candle tins are easily repurposable
+            as well! After washing, use our tins as a place to keep trinkets,
             keepsakes, or anything special to you!
           </p>
         </div>
