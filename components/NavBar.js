@@ -5,9 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Layout.module.css";
 import logo from "../public/eon-logo.webp";
-import { IoMdCart } from "react-icons/io";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { IoMdCart, IoMdClose, IoMdMenu } from "react-icons/io";
 
 const LINKS = [
   { href: "/", label: "Home", isActive: (path) => path === "/" },
@@ -88,9 +86,9 @@ const NavBar = () => {
           aria-controls="site-menu"
         >
           {showNav ? (
-            <CloseIcon color="warning" fontSize="large" />
+            <IoMdClose size={32} aria-hidden="true" />
           ) : (
-            <MenuIcon color="warning" fontSize="large" />
+            <IoMdMenu size={32} aria-hidden="true" />
           )}
         </button>
       </div>
