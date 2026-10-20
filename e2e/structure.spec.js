@@ -46,3 +46,11 @@ test.describe("mobile menu", () => {
     await expect(page.locator("#site-menu")).toBeHidden();
   });
 });
+
+test("pages send a strict Content-Security-Policy", async ({ page }) => {
+  const response = await page.goto("/shop/love");
+  const headers = response.headers();
+  expect(headers["content-security-policy"]).toContain("script-src 'self'");
+  expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+  expect(headers["x-powered-by"]).toBeUndefined();
+});
