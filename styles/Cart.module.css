@@ -4,7 +4,8 @@
 
 .main {
   width: 100%;
-  max-width: 760px;
+  /* In rem, so the column widens when a reader enlarges the text. */
+  max-width: 47.5rem;
   min-height: 60vh;
   margin: 0 auto;
   padding: clamp(2.5rem, 6vw, 4rem) 1.5rem clamp(3rem, 7vw, 5rem);
@@ -144,7 +145,8 @@
   border-color: var(--accent);
 }
 
-@media (min-width: 640px) {
+/* In em, so a cart line only goes onto one row when its text fits. */
+@media (min-width: 40em) {
   .cartItem {
     grid-template-columns: 88px 1fr auto 6rem;
     grid-template-areas: "image details controls total";
