@@ -134,11 +134,11 @@ const Dreams = () => {
                     onClick={handleOnAddToCart}
                     type="button"
                   >
-                    ADD TO CART
+                    Add to cart
                   </button>
                 ) : (
                   <Link href="/cart" className={styles.submitButton}>
-                    CHECKOUT
+                    Checkout
                   </Link>
                 )}
               </div>

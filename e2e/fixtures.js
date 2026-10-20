@@ -1,8 +1,5 @@
 import { test as base, expect } from "@playwright/test";
 
-// Google Fonts still loads from Google until the fonts are self-hosted.
-const ALLOWED_EXTERNAL_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"];
-
 // Every test fails if the page logs a console error, throws, or sends a
 // request anywhere other than the local server.
 export const test = base.extend({
@@ -22,7 +19,6 @@ export const test = base.extend({
         const url = new URL(req.url());
         if (url.protocol === "data:" || url.protocol === "blob:") return;
         if (url.host === allowedHost) return;
-        if (ALLOWED_EXTERNAL_HOSTS.includes(url.hostname)) return;
         errors.push(`external request: ${url.host}`);
       });
       await use(errors);

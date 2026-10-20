@@ -101,7 +101,7 @@
   min-width: 1.05rem;
   height: 1.05rem;
   padding: 0 0.28rem;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-body, sans-serif);
   font-size: 0.66rem;
   font-weight: 700;
   line-height: 1;

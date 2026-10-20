@@ -78,8 +78,9 @@
 }
 
 .candleDetailMuted {
+  font-variant-numeric: lining-nums tabular-nums;
   margin-top: 0.7rem !important;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-display, Georgia, serif);
   font-size: 1.25rem !important;
   font-weight: 500;
   color: var(--terracotta) !important;

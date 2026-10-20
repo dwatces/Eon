@@ -3,6 +3,7 @@ import Head from "next/head";
 import { CartProvider } from "../hooks/use-shopping-cart";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { fraunces, raleway } from "../lib/fonts";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -28,6 +29,12 @@ function MyApp({ Component, pageProps }) {
           key="viewport"
         />
       </Head>
+      <style jsx global>{`
+        :root {
+          --font-display: ${fraunces.style.fontFamily};
+          --font-body: ${raleway.style.fontFamily};
+        }
+      `}</style>
       <CartProvider>
         <NavBar />
         <Component {...pageProps} />

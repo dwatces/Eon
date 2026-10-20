@@ -1,18 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap");
-
 /* ============================================================
    Eon — design system
    Modern wellness palette: cream / sand, terracotta, sage
    Display serif (Fraunces) + humanist body (Raleway)
    ============================================================ */
 
-@font-face {
-  font-family: "Raleway";
-  src: url("/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-}
+/* Fonts are self-hosted with next/font (lib/fonts.js); _app sets
+   --font-display (Fraunces) and --font-body (Raleway). */
 
 :root {
   /* surfaces */
@@ -60,11 +53,7 @@
 }
 
 html {
-  font-family:
-    "Raleway",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
   max-width: 100vw;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -102,7 +91,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display, Georgia, serif);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.015em;
@@ -163,7 +152,7 @@ button {
 
 .eyebrow {
   display: inline-block;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-body, sans-serif);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.22em;
