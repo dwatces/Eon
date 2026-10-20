@@ -208,3 +208,21 @@ test.describe("product page at 1440 px", () => {
     expect(Math.abs(tops.gallery - tops.title)).toBeLessThan(24);
   });
 });
+
+test("the footer has text links and a labelled Facebook link", async ({
+  page,
+}) => {
+  await page.goto("/about");
+  const footer = page.locator("footer");
+  await expect(
+    footer.getByRole("navigation", { name: "Footer" }).getByRole("link"),
+  ).toHaveText(["Home", "Shop", "About"]);
+  const facebook = footer.getByRole("link", {
+    name: "Eon Candles on Facebook (opens in a new tab)",
+  });
+  await expect(facebook).toHaveAttribute("target", "_blank");
+  await expect(facebook).toHaveAttribute("rel", "noopener noreferrer");
+  const box = await facebook.boundingBox();
+  expect(box.width).toBeGreaterThanOrEqual(44);
+  expect(box.height).toBeGreaterThanOrEqual(44);
+});
