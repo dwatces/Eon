@@ -4,6 +4,8 @@ import { useShoppingCart } from "../hooks/use-shopping-cart";
 import axios from "axios";
 import getStripe from "../components/get-stripe";
 import styles from "../styles/Cart.module.css";
+import { getCandle } from "../data/candles";
+import { formatNZD } from "../lib/money";
 
 const Cart = () => {
   const { cartDetails, cartCount, removeItem } = useShoppingCart();
@@ -58,7 +60,13 @@ const Cart = () => {
                     <div className={styles.cartItemDetails}>
                       <h3>{name}</h3>
                       <p>Quantity: {quantity}</p>
-                      <p>Price: {price}/per</p>
+                      <p>
+                        Price:{" "}
+                        {getCandle(name)
+                          ? formatNZD(getCandle(name).unitAmount)
+                          : price}{" "}
+                        each
+                      </p>
                     </div>
                     <div className={styles.cartItemRemove}>
                       <button

@@ -1,29 +1,17 @@
-export const products = [
-  {
-    id: "price_1KTa4GIILjXbtSkjqSx6HWRR",
-    name: "love",
-    price: "$20",
-    currency: "NZD",
-  },
+import { candles } from "../data/candles";
 
-  {
-    id: "price_1KTa3qIILjXbtSkjkD1GsKS9",
-    name: "happiness",
-    price: "$20",
-    currency: "NZD",
-  },
+// Saved carts are still keyed by these ids. They go once the cart is
+// keyed by slug.
+const SAVED_CART_IDS = {
+  love: "price_1KTa4GIILjXbtSkjqSx6HWRR",
+  happiness: "price_1KTa3qIILjXbtSkjkD1GsKS9",
+  dreams: "price_1KTa3YIILjXbtSkj77yFEYtG",
+  summer: "price_1KTa2yIILjXbtSkj71FY8dLm",
+};
 
-  {
-    id: "price_1KTa3YIILjXbtSkj77yFEYtG",
-    name: "dreams",
-    price: "$20",
-    currency: "NZD",
-  },
-
-  {
-    id: "price_1KTa2yIILjXbtSkj71FY8dLm",
-    name: "summer",
-    price: "$20",
-    currency: "NZD",
-  },
-];
+export const products = candles.map((candle) => ({
+  id: SAVED_CART_IDS[candle.slug],
+  name: candle.slug,
+  price: candle.unitAmount,
+  currency: "NZD",
+}));
