@@ -13,11 +13,11 @@ Brand and shop site for Eon, a New Zealand candle label, built with Next.js and 
 
 ## About
 
-Eon's candles are hand-poured in vegan soy wax, each paired with crystal chips and botanicals. This repo is the label's site: a home page, a shop page, a page for each of the four candles (love, happiness, dreams and summer), an about page, and a cart with a checkout that is priced on the server.
+Eon's candles are hand-poured in vegan soy wax, each paired with crystal chips and botanicals. The site has a home page, a shop page, a page for each of the four candles (love, happiness, dreams and summer), an about page, and a cart with a checkout that is priced on the server.
 
 The live site is meant to run as a portfolio demo that takes no payment: with no `STRIPE_SECRET_KEY` set, checkout shows an order summary. What the deployed site actually does depends on the Vercel project's environment variables; see [Before you deploy](#before-you-deploy).
 
-The first version was built between December 2021 and February 2022. In June 2026 the site was restyled with a small design system (cream, terracotta and sage palette, Fraunces and Raleway type) and simpler flex and grid layouts. In October 2026 it moved to Next.js 16 and React 19, checkout gained a demo mode and server-side pricing, the shop was rebuilt for keyboard and screen-reader use, and the repo gained unit, API and end-to-end tests.
+First built from December 2021 to February 2022 and modernised in 2026: a small design system (cream, terracotta and sage, Fraunces and Raleway), Next.js 16 and React 19, a demo-mode checkout priced on the server, keyboard and screen-reader fixes, and unit, API and end-to-end tests.
 
 ## Features
 
@@ -34,7 +34,7 @@ The first version was built between December 2021 and February 2022. In June 202
 ## How checkout works
 
 1. The cart sends only candle slugs and quantities to `POST /api/checkout_sessions`.
-2. The server checks the request: JSON only (`415` otherwise), known candles, whole quantities from 1 to 10, each candle once and no other fields (`400` with a JSON `error` otherwise). Before that, Next's body parser answers in plain text: `413` for a body over 8 kB and `400` for malformed JSON. The server then prices each line, shipping and the total from the catalogue. Nothing the browser sends can change a price.
+2. Next's body parser answers first, in plain text: `413` for a body over 8 kB and `400` for malformed JSON. The server then checks the request: JSON only (`415` otherwise), known candles, whole quantities from 1 to 10, each candle once and no other fields (`400` with a JSON `error` otherwise). It prices each line, shipping and the total from the catalogue. Nothing the browser sends can change a price.
 3. The mode is decided on every request:
    - **No `STRIPE_SECRET_KEY` (the default, and how the live demo is meant to run): demo mode.** The API returns the order summary, the browser shows it on `/success` and empties the cart, and no payment is taken.
    - **A Stripe test key** (`sk_test_` or `rk_test_`) creates a Stripe Checkout session in test mode: prices in NZD built on the server, New Zealand addresses only and a flat NZ$5 shipping rate (1 to 3 business days). The browser goes to the URL Stripe returns, and only if it is on `checkout.stripe.com`.
@@ -48,18 +48,18 @@ The first version was built between December 2021 and February 2022. In June 202
 - Next.js 16 (pages router, built with webpack) and React 19
 - CSS Modules, with shared design tokens as CSS custom properties in `styles/globals.css`, and Fraunces and Raleway self-hosted through `next/font/local`
 - Stripe's Node SDK on the server; the browser needs no Stripe key or script
-- react-icons (the old axios, MUI icons, Stripe.js and react-image-lightbox dependencies are gone)
+- react-icons for the interface icons
 - Vitest, Testing Library and jsdom for unit, API and component tests; Playwright and axe-core for end-to-end, accessibility and performance tests
 - ESLint 9 with jsx-a11y, Prettier, and a TypeScript check of the checkout code's JSDoc types against the Stripe SDK
 - Node 24 (pinned in `package.json` and `.nvmrc`), deployed on Vercel
 
 ## Running locally
 
-You need Node 24.
+You need Node 24 (`nvm use` reads `.nvmrc`).
 
 ```bash
 npm ci
-cp .env.example .env.local   # optional: every variable is optional
+cp .env.example .env.local   # optional
 npm run dev
 ```
 
@@ -69,35 +69,26 @@ Then open http://localhost:3000. Checkout works with no keys: it runs in demo mo
 
 All are optional, and the build needs none. `.env.example` describes each one.
 
-| Name                                 | Default                                                     | What it does                                                                                               |
-| ------------------------------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `STRIPE_SECRET_KEY`                  | empty: demo mode                                            | A test key turns on the Stripe test-mode hand-off. A live key needs `EON_ALLOW_LIVE_PAYMENTS` too.         |
-| `EON_ALLOW_LIVE_PAYMENTS`            | empty                                                       | `true` lets a live key take real payments.                                                                 |
-| `NEXT_PUBLIC_SITE_URL`               | Vercel's production URL, then `https://eon-ht82.vercel.app` | Canonical links, the sitemap and Stripe's return URLs.                                                     |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | empty                                                       | Still accepted for older deployments, but no longer used.                                                  |
-| `EON_STRIPE_API_BASE`                | empty                                                       | Tests only: sends Stripe API calls to a local stub. Ignored unless the host is `localhost` or `127.0.0.1`. |
+| Name                      | Default                                                     | What it does                                                                                               |
+| ------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `STRIPE_SECRET_KEY`       | empty: demo mode                                            | A test key turns on the Stripe test-mode hand-off. A live key needs `EON_ALLOW_LIVE_PAYMENTS` too.         |
+| `EON_ALLOW_LIVE_PAYMENTS` | empty                                                       | `true` lets a live key take real payments.                                                                 |
+| `NEXT_PUBLIC_SITE_URL`    | Vercel's production URL, then `https://eon-ht82.vercel.app` | Canonical links, the sitemap and Stripe's return URLs.                                                     |
+| `EON_STRIPE_API_BASE`     | empty                                                       | Tests only: sends Stripe API calls to a local stub. Ignored unless the host is `localhost` or `127.0.0.1`. |
 
-The API routes read the Stripe settings on every request. The cart page also reads them at build time to choose its wording, so set them before `npm run build`.
+The API routes read the Stripe settings on every request. The cart page reads them at build time to choose its wording, and `NEXT_PUBLIC_SITE_URL` is fixed at build time too, so set them before `npm run build`.
 
 ### Before you deploy
 
-The repo can't see the Vercel project's environment variables, so check them in the Vercel dashboard (Settings, Environment Variables, Production) before a deploy:
-
-- **`STRIPE_SECRET_KEY` unset:** demo mode, as described above. This is the intended setup for the live demo.
-- **A test key** (`sk_test_` or `rk_test_`): checkout goes to Stripe's test Checkout instead of the demo order summary. No real card is charged, but remove the key for a pure demo.
-- **A live key without `EON_ALLOW_LIVE_PAYMENTS=true`:** demo mode, with a warning in the function logs once per instance. Remove the key unless live payments are planned.
-- **A live key with `EON_ALLOW_LIVE_PAYMENTS=true`:** real payments. Set this only on purpose.
-- **`EON_STRIPE_API_BASE`** should be unset (it is ignored unless it points at `localhost` or `127.0.0.1`).
-
-Redeploy after changing any of them, because the cart page reads them at build time.
+The repo can't see the Vercel project's environment variables. Before a production deploy, check them in the Vercel dashboard (Settings, Environment Variables). For the demo, `STRIPE_SECRET_KEY`, `EON_ALLOW_LIVE_PAYMENTS` and `EON_STRIPE_API_BASE` should all be unset; the table above and [How checkout works](#how-checkout-works) say what each one does. Redeploy after changing any of them, because the cart page reads them at build time. `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` is no longer read and can be deleted if it is still set.
 
 ### Scripts
 
 - `npm run dev`: development server
 - `npm run build` and `npm run start`: production build and server. The build writes `robots.txt` and `sitemap.xml` first.
 - `npm test`: unit, API and component tests (Vitest). A guard fails any test that opens a connection to anything other than localhost.
-- `npm run test:coverage`: the same tests, with at least 90% line coverage required for `lib/` and the API route
-- `npm run test:e2e`: end-to-end tests (Playwright). It builds the site, starts it on `127.0.0.1:7301` in demo mode, and runs the shopping journey, cart, checkout, gallery, navigation, accessibility, SEO and performance specs at 390 and 1440 px. A second server on port 7305, with a local Stripe stub on 7309, covers Stripe test mode (the hand-off, the return to the order page, a forged session id and a Stripe outage), so nothing calls Stripe. Set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first.
+- `npm run test:coverage`: the same tests, with at least 90% line coverage required for `lib/` and the API routes
+- `npm run test:e2e`: end-to-end tests (Playwright). It builds the site, starts it on `127.0.0.1:7301` in demo mode, and runs the shopping journey, cart, checkout, gallery, navigation, accessibility and SEO specs at 390 and 1440 px, and the performance budgets once on an emulated phone. A second server on port 7305, with a local Stripe stub on 7309, covers Stripe test mode (the hand-off, the return to the order page, a forged session id and a Stripe outage), so nothing calls Stripe. Set `CHROME_PATH` to use an installed Chrome, or run `npx playwright install chromium` first.
 - `npm run lint`, `npm run typecheck`, `npm run format` and `npm run format:check`
 - `npm run check`: lint, type check, format check, tests with coverage and a production build
 
@@ -111,7 +102,7 @@ pages/shop/     [slug].js: one statically generated page per candle
 pages/api/      checkout_sessions.js: validates the cart, then demo or Stripe
                 checkout_sessions/[id].js: checks a Stripe session for the order page
 components/     Nav bar, footer, product card and gallery, lightbox, cart controls, SEO tags
-data/           The candle catalogue, product copy and product photos
+data/           The candle catalogue, product copy and the photo lists for each candle
 hooks/          The cart hook, backed by a small store in lib/
 lib/            Cart reducer and store, checkout, checkout mode, money, site URL and fonts
 styles/         Global design tokens, per-page CSS Modules and the font files
@@ -132,10 +123,16 @@ docs/           README screenshots
 - **The order page checks each Stripe session as it loads, with no order records.** A typed-in session id can't fake a thank-you or empty a cart, and there is still no database. The cost: the shop keeps no list of paid orders; that lives in the Stripe dashboard.
 - **What would come next:** a Stripe webhook to record paid orders, and stock levels if the range grows.
 
+## Credits
+
+- The three home-page pillar icons are from [game-icons.net](https://game-icons.net) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), cropped: burning embers and linden leaf by [Lorc](https://lorcblog.blogspot.com), and earth Asia and Oceania by [Delapouite](https://delapouite.com).
+- The Facebook icon is from Font Awesome Free (CC BY 4.0). The other interface icons are Ionicons and Ant Design Icons (MIT). All come through react-icons.
+- Fraunces and Raleway are under the SIL Open Font License 1.1 (`styles/fonts/OFL.txt`).
+
 ## Author
 
 Built by Daniel Olliver. More of my work: [danielolliver.com/dev](https://danielolliver.com/dev/).
 
-I also run [Olliver Web](https://olliverweb.co.nz), a web design and development studio in Auckland.
+I also run [Olliver Web](https://olliverweb.co.nz), my web design and development service in Auckland.
 
 Ben Jones contributed early responsive layout work between December 2021 and January 2022.
