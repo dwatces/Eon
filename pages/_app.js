@@ -30,12 +30,8 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <CartProvider>
         <NavBar />
-        <html lang="en-nz">
-          <body>
-            <Component {...pageProps} />
-            <Footer />
-          </body>
-        </html>
+        <Component {...pageProps} />
+        <Footer />
       </CartProvider>
     </>
   );

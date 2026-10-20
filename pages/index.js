@@ -32,10 +32,6 @@ export default function Home() {
             name="description"
             content="Eon is a candle shop in the heart of the city of Auckland. We offer a wide range of candles, including our own vegan soy wax handmade candles, imbued with crystal and natural elements to increase the candles power!"
           />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
         </Head>
         <main className={styles.main}>
           <div className={styles.eonL}>
@@ -61,7 +57,6 @@ export default function Home() {
                     src={MobileLove}
                     alt="topdown love"
                     className={styles.eonCandle}
-                    responsive="true"
                     onMouseEnter={(e) => {
                       setCandle1(true);
                     }}
@@ -77,7 +72,6 @@ export default function Home() {
                     src={MobileHappy}
                     alt="topdown happy"
                     className={styles.eonCandle}
-                    responsive="true"
                     onMouseEnter={(e) => {
                       setCandle2(true);
                     }}
@@ -93,7 +87,6 @@ export default function Home() {
                     src={MobileDreams}
                     alt="topdown dream"
                     className={styles.eonCandle}
-                    responsive="true"
                     onMouseEnter={(e) => {
                       setCandle3(true);
                     }}
@@ -109,7 +102,6 @@ export default function Home() {
                     src={MobileSummer}
                     alt="topdown summer"
                     className={styles.eonCandle}
-                    responsive="true"
                     onMouseEnter={(e) => {
                       setCandle4(true);
                     }}
@@ -213,7 +205,6 @@ export default function Home() {
                   className={styles.eonCandle}
                   width={700}
                   height={600}
-                  responsive="true"
                   onMouseEnter={(e) => {
                     setCandle1(true);
                   }}

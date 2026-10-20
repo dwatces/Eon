@@ -93,13 +93,6 @@ body {
   min-height: 100vh;
 }
 
-/* _app wraps page content in invalid nested <html><body>; dissolve them so the
-   sticky-footer flex column reaches <main> and <footer> on short pages */
-#__next > html,
-#__next > html > body {
-  display: contents;
-}
-
 main {
   flex: 1 0 auto;
 }

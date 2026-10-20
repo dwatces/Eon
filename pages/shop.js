@@ -17,7 +17,6 @@ function Shop() {
       <Head>
         <title>Candle Shop</title>
         <meta name="description" content="Shop for Eons candle products" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
         <h1 className={styles.visuallyHidden}>Our candles</h1>
@@ -29,7 +28,6 @@ function Shop() {
                   src={love}
                   alt="candle love"
                   className={styles.candleSize}
-                  responsive="true"
                   priority
                 />
               </div>
@@ -38,9 +36,7 @@ function Shop() {
                 <p>Rose Otto, Ylang Ylang, Orange & Patchouli</p>
                 <p>Rose Quartz Chips & Rose Bud</p>
                 <p className={styles.candleDetailMuted}>
-                  <p className={styles.candleRetail}>
-                    {formatNZD(getCandle("love").unitAmount)}
-                  </p>
+                  {formatNZD(getCandle("love").unitAmount)}
                 </p>
               </div>
             </div>
@@ -52,7 +48,6 @@ function Shop() {
                   src={happiness}
                   alt="candle happiness"
                   className={styles.candleSize}
-                  responsive="true"
                   priority
                 />
               </div>
@@ -74,7 +69,6 @@ function Shop() {
                   src={dreams}
                   alt="candle dreams"
                   className={styles.candleSize}
-                  responsive="true"
                   priority
                 />
               </div>
@@ -96,7 +90,6 @@ function Shop() {
                   src={summer}
                   alt="candle summer"
                   className={styles.candleSize}
-                  responsive="true"
                   priority
                 />
               </div>

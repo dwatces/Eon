@@ -48,7 +48,6 @@ const Dreams = () => {
     <Layout>
       <Head>
         <title>Dreams</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <main className={styles.main}>
         <div className={styles.galleryContainer}>
@@ -58,7 +57,6 @@ const Dreams = () => {
                 src={altPicFlower}
                 alt="dreams flower"
                 className={styles.candleSize}
-                responsive="true"
                 priority
               />
             </button>
@@ -69,7 +67,6 @@ const Dreams = () => {
                 src={altPicLit}
                 alt="dreams lit"
                 className={styles.candleSize}
-                responsive="true"
                 priority
               />
             </button>
@@ -80,7 +77,6 @@ const Dreams = () => {
                 src={altPicCrystal}
                 alt="dreams crystal"
                 className={styles.candleSize}
-                responsive="true"
                 priority
               />
             </button>
@@ -97,7 +93,6 @@ const Dreams = () => {
                 src={mainPic}
                 alt="dreams main"
                 className={styles.candleMain}
-                responsive="true"
                 priority
               />
             </button>
@@ -110,7 +105,7 @@ const Dreams = () => {
         <div className={styles.candleContent}>
           <div className={styles.candleContentHeader}>
             <h1 className={styles.candleTitle}>{candle.name}</h1>
-            <p className={styles.candleDescription}>
+            <div className={styles.candleDescription}>
               <div className={styles.containerBuy}>
                 <p className={styles.candleRetail}>
                   {formatNZD(candle.unitAmount)}
@@ -141,16 +136,14 @@ const Dreams = () => {
                     ADD TO CART
                   </button>
                 ) : (
-                  <Link href="/cart">
-                    <button className={styles.submitButton} type="button">
-                      CHECKOUT
-                    </button>
+                  <Link href="/cart" passHref>
+                    <a className={styles.submitButton}>CHECKOUT</a>
                   </Link>
                 )}
               </div>
 
-              {candle.description}
-            </p>
+              <p>{candle.description}</p>
+            </div>
           </div>
         </div>
         {isOpen && (
