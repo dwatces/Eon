@@ -18,10 +18,13 @@ export default function Shop() {
         <ul className={styles.candleContainer}>
           {candles.map((candle, index) => (
             <li key={candle.slug}>
+              {/* The first card is preloaded; the rest load straight away
+                  too, since any of them can be the largest image on screen. */}
               <ProductCard
                 candle={candle}
                 sizes={CARD_SIZES}
                 priority={index === 0}
+                loading="eager"
               />
             </li>
           ))}

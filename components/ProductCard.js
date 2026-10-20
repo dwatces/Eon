@@ -15,6 +15,7 @@ export default function ProductCard({
   headingLevel = 2,
   sizes,
   priority = false,
+  loading,
 }) {
   const Heading = `h${headingLevel}`;
   const image = imageFor(candle.slug, variant === "tile" ? "top" : "lid");
@@ -28,6 +29,7 @@ export default function ProductCard({
           alt=""
           sizes={sizes}
           priority={priority}
+          loading={priority ? undefined : loading}
           className={styles.image}
         />
       </div>
