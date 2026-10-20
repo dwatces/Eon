@@ -176,6 +176,8 @@ test.describe("when the order can't be confirmed", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       "We couldn't confirm this order",
     );
+    // Every response is read to the end, so the page settles.
+    await page.waitForLoadState("networkidle", { timeout: 5000 });
     await expect(page.locator("main")).not.toContainText("Thank you");
     await expect(
       page.getByRole("link", { name: "Cart, 3 items" }),
