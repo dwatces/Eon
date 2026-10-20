@@ -8,6 +8,7 @@ import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
 import { getCandle } from "../../data/candles";
+import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -113,7 +114,7 @@ const Love = () => {
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>
                 <p className={styles.candleRetail}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(candle.unitAmount)}
                 </p>
 
                 <p className={styles.quantity}>Quantity:</p>
@@ -149,18 +150,8 @@ const Love = () => {
                   </Link>
                 )}
               </div>
-              Our rose otto, ylang ylang, orange, and patchouli scented candle
-              smells divine and has been precisely paired with rose quartz chips
-              and rose buds to amplify and attract love into your life. Rose
-              Quartz is a very popular crystal, and one of our favourites for
-              its powerful and varied benefits. Rose Quartz is calming;
-              providing a reassuring and gentle atmosphere to any room. Rose
-              quartz promotes love, friendship, healing and deep inner peace but
-              most importantly, rose quartz has the powerful ability to dispel
-              negativity and replace it with positive energies. This is why we
-              chose to imbue our rose otto, ylang ylang, orange, and patchouli
-              crystal with rose quarts, we truely believe it will amplify the
-              loves in your life to new heights!
+
+              {candle.description}
             </p>
           </div>
         </div>

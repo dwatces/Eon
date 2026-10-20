@@ -68,10 +68,6 @@
   box-shadow: 0 0 0 3px var(--sage-soft);
 }
 
-.candlePrice {
-  text-decoration: line-through;
-}
-
 /* ---------- Product grid ---------- */
 .candleContainer {
   display: grid;
@@ -146,14 +142,6 @@
   font-size: 1.25rem !important;
   font-weight: 500;
   color: var(--terracotta) !important;
-}
-
-.candlePrice {
-  margin-left: 0.4rem;
-  font-size: 0.82rem;
-  font-family: "Raleway", sans-serif;
-  color: var(--muted) !important;
-  text-decoration: line-through;
 }
 
 /* Visible to screen readers only */

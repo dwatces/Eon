@@ -3,6 +3,8 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Shop.module.css";
+import { getCandle } from "../data/candles";
+import { formatNZD } from "../lib/money";
 import Layout from "../components/Layout";
 import dreams from "../public/lid-dreams.webp";
 import happiness from "../public/lid-happiness.webp";
@@ -37,7 +39,7 @@ function Shop() {
                 <p>Rose Quartz Chips & Rose Bud</p>
                 <p className={styles.candleDetailMuted}>
                   <p className={styles.candleRetail}>
-                    $20<sup className={styles.candlePrice}>$30</sup>
+                    {formatNZD(getCandle("love").unitAmount)}
                   </p>
                 </p>
               </div>
@@ -59,7 +61,7 @@ function Shop() {
                 <p>Wild Orange, Clary Sage & Lemon</p>
                 <p>Citrine Chips & Jasmine Flower Petals</p>
                 <p className={styles.candleDetailMuted}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(getCandle("happiness").unitAmount)}
                 </p>
               </div>
             </div>
@@ -81,7 +83,7 @@ function Shop() {
                 <p>Lavender, Chamomile & Frankincense</p>
                 <p>Amethyst Chips & Cornflowers</p>
                 <p className={styles.candleDetailMuted}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(getCandle("dreams").unitAmount)}
                 </p>
               </div>
             </div>
@@ -103,7 +105,7 @@ function Shop() {
                 <p>Coconut, Mango & Lime</p>
                 <p>Aventurine Chips & Lavender Flowers</p>
                 <p className={styles.candleDetailMuted}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(getCandle("summer").unitAmount)}
                 </p>
               </div>
             </div>

@@ -172,14 +172,6 @@
   color: var(--terracotta);
 }
 
-.candlePrice {
-  margin-left: 0.55rem;
-  font-family: "Raleway", sans-serif;
-  font-size: 1rem;
-  color: var(--muted);
-  text-decoration: line-through;
-}
-
 .quantity {
   margin: 0;
   font-size: 0.95rem;

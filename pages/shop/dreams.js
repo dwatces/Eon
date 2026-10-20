@@ -8,6 +8,7 @@ import Layout from "../../components/Layout";
 import Lightbox from "react-image-lightbox";
 import { products } from "../../components/products";
 import { getCandle } from "../../data/candles";
+import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -113,7 +114,7 @@ const Dreams = () => {
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>
                 <p className={styles.candleRetail}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(candle.unitAmount)}
                 </p>
                 <p className={styles.quantity}>Quantity:</p>
                 <button
@@ -148,15 +149,8 @@ const Dreams = () => {
                   </Link>
                 )}
               </div>
-              Follow your dreams with our lavender, chamomile, and frankincense
-              candle. Paired with the powerful energy of amethyst crystals to
-              provide clarity of mind, and cornflowers to bring wealth and good
-              fortune. Amethyst stones are a symbol of peace, of cleansing and
-              calming energies. The relaxing scent of this candle paired with
-              the clarity of mind form the amethyst crystals will help ground
-              you and help you focus on what really matters to you in life
-              whatever that may be. We truely believe this candle helps us reach
-              for the stars.
+
+              {candle.description}
             </p>
           </div>
         </div>

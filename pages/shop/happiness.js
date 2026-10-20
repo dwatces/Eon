@@ -8,6 +8,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import { products } from "../../components/products";
 import { getCandle } from "../../data/candles";
+import { formatNZD } from "../../lib/money";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "../../styles/Candles.module.css";
@@ -103,7 +104,7 @@ const Happiness = () => {
             <p className={styles.candleDescription}>
               <div className={styles.containerBuy}>
                 <p className={styles.candleRetail}>
-                  $20<sup className={styles.candlePrice}>$30</sup>
+                  {formatNZD(candle.unitAmount)}
                 </p>
                 <p className={styles.quantity}>Quantity:</p>
                 <button
@@ -139,15 +140,8 @@ const Happiness = () => {
                   </Link>
                 )}
               </div>
-              Fill the room with positive energies and appreciation for all the
-              good in life with the beautiful scents of wild orange, clary sage,
-              and lemon. This candle comes paired with citrine chips that
-              channel happiness, and jasmine flower petals for clarity and
-              perspective. Citrine is a powerful crystal with a deep, cheerful
-              colouring, it promotes optimism, happiness and it is believed to
-              manifest financial good fortunes. The sight and scents of this
-              candle will help you appreciate the little things and spread cheer
-              and happiness throughout your home and life.
+
+              {candle.description}
             </p>
           </div>
         </div>
