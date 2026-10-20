@@ -1,13 +1,94 @@
 import { useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import ProductCard from "../components/ProductCard";
+import QuantityStepper from "../components/QuantityStepper";
 import { useShoppingCart } from "../hooks/use-shopping-cart";
-import styles from "../styles/Cart.module.css";
+import { SHIPPING, candles } from "../data/candles";
 import { imageFor } from "../data/candle-images";
 import { formatNZD } from "../lib/money";
+import styles from "../styles/Cart.module.css";
 
-const Cart = () => {
-  const { hydrated, items, count: cartCount, removeLine } = useShoppingCart();
+const itemCount = (count) => `${count} ${count === 1 ? "item" : "items"}`;
+
+function EmptyCart() {
+  return (
+    <>
+      <p className={styles.intro}>
+        Your cart is empty. Here are the four candles in the range.
+      </p>
+      <ul className={styles.suggestions}>
+        {candles.map((candle) => (
+          <li key={candle.slug}>
+            <ProductCard
+              candle={candle}
+              variant="tile"
+              headingLevel={2}
+              sizes="(min-width: 640px) 170px, 45vw"
+            />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+function CartLine({ line, onQuantity, onRemove }) {
+  const { slug, name, quantity, unitAmount, lineTotal } = line;
+  return (
+    <li className={styles.cartItem}>
+      <div className={styles.cartItemImage}>
+        <Image
+          src={imageFor(slug, "top").src}
+          alt=""
+          width={88}
+          height={88}
+          sizes="88px"
+        />
+      </div>
+      <div className={styles.cartItemDetails}>
+        <h2 className={styles.lineName}>
+          <Link href={`/shop/${slug}`}>{name}</Link>
+        </h2>
+        <p>{formatNZD(unitAmount)} each</p>
+      </div>
+      <p className={styles.lineTotal}>
+        <span className={styles.visuallyHidden}>Line total: </span>
+        {formatNZD(lineTotal)}
+      </p>
+      <div className={styles.controls}>
+        <QuantityStepper
+          value={quantity}
+          onChange={(next) => onQuantity(slug, next)}
+          label={`Quantity of ${name}`}
+          itemName={`${name} candle`}
+          hideLabel
+        />
+        <button
+          type="button"
+          className={styles.button}
+          onClick={() => onRemove(slug)}
+          aria-label={`Remove ${name} candle`}
+        >
+          Remove
+        </button>
+      </div>
+    </li>
+  );
+}
+
+export default function Cart() {
+  const {
+    hydrated,
+    items,
+    count,
+    subtotal,
+    shipping,
+    total,
+    setQuantity,
+    removeLine,
+  } = useShoppingCart();
 
   const [checkoutState, setCheckoutState] = useState({ status: "idle" });
 
@@ -42,68 +123,57 @@ const Cart = () => {
     }
   };
 
-  if (!hydrated) return <main className={styles.main} aria-busy="true" />;
-
   return (
     <>
+      <Head>
+        <title>Your cart</title>
+      </Head>
       <main className={styles.main}>
-        <div>
-          {cartCount > 0 ? (
-            <>
-              <h2 className={styles.title}>Your Shopping Cart</h2>
-              <p className={styles.cartCount}>{cartCount} items</p>
-              <p className={styles.underline}></p>
-            </>
-          ) : (
-            <>
-              <h2>Your Shopping Cart is Empty</h2>
-              <p className={styles.shopLink}>
-                <Link href="/shop">Check out our candles here</Link>
-              </p>
-            </>
-          )}
-        </div>
-        {cartCount > 0 ? (
+        <h1 className={styles.title}>Your cart</h1>
+        {!hydrated ? (
+          <p className={styles.intro}>Loading your cart…</p>
+        ) : count === 0 ? (
+          <EmptyCart />
+        ) : (
           <>
-            <div>
-              {items.map(({ slug, name, quantity, unitAmount }) => (
-                <div key={slug} className={styles.cartItem}>
-                  <div className={styles.cartItemImage}>
-                    <Image
-                      src={imageFor(slug, "top").src}
-                      alt=""
-                      width={88}
-                      height={88}
-                      style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  </div>
-                  <div className={styles.cartItemDetails}>
-                    <h3>{name}</h3>
-                    <p>Quantity: {quantity}</p>
-                    <p>Price: {formatNZD(unitAmount)} each</p>
-                  </div>
-                  <div className={styles.cartItemRemove}>
-                    <button
-                      type="button"
-                      className={styles.button}
-                      onClick={() => removeLine(slug)}
-                      aria-label={`Remove ${name} candle`}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
+            <p className={styles.cartCount}>{itemCount(count)}</p>
+            <ul className={styles.lines}>
+              {items.map((line) => (
+                <CartLine
+                  key={line.slug}
+                  line={line}
+                  onQuantity={setQuantity}
+                  onRemove={removeLine}
+                />
               ))}
-            </div>{" "}
-            <p className={styles.proceed}>
-              This is a portfolio demo shop: checkout shows an order summary and
-              takes no payment.
-            </p>
-            <div className={styles.cartCheckout}>
+            </ul>
+            <section className={styles.summary} aria-labelledby="order-summary">
+              <h2 id="order-summary" className={styles.summaryTitle}>
+                Order summary
+              </h2>
+              <dl className={styles.totals}>
+                <div>
+                  <dt>Subtotal</dt>
+                  <dd>{formatNZD(subtotal)}</dd>
+                </div>
+                <div>
+                  <dt>
+                    Shipping{" "}
+                    <span className={styles.shippingNote}>
+                      ({SHIPPING.label})
+                    </span>
+                  </dt>
+                  <dd>{formatNZD(shipping)}</dd>
+                </div>
+                <div className={styles.total}>
+                  <dt>Total (NZD)</dt>
+                  <dd>{formatNZD(total)}</dd>
+                </div>
+              </dl>
+              <p className={styles.proceed}>
+                This is a portfolio demo shop: checkout shows an order summary
+                and takes no payment.
+              </p>
               <button
                 type="button"
                 className={styles.buttonCheckout}
@@ -115,25 +185,23 @@ const Cart = () => {
                   ? "Starting checkout…"
                   : "Checkout"}
               </button>
-            </div>
-            <div role="status" className={styles.checkoutMessage}>
-              {checkoutState.status === "demo" && (
-                <p>
-                  Demo order: {formatNZD(checkoutState.order.subtotal)} plus{" "}
-                  {formatNZD(checkoutState.order.shipping)} New Zealand
-                  shipping, {formatNZD(checkoutState.order.total)} in total. No
-                  payment was taken and no order was placed.
-                </p>
-              )}
-              {checkoutState.status === "error" && (
-                <p>We couldn&apos;t start checkout. Please try again.</p>
-              )}
-            </div>
+              <div role="status" className={styles.checkoutMessage}>
+                {checkoutState.status === "demo" && (
+                  <p>
+                    Demo order: {formatNZD(checkoutState.order.subtotal)} plus{" "}
+                    {formatNZD(checkoutState.order.shipping)} New Zealand
+                    shipping, {formatNZD(checkoutState.order.total)} in total.
+                    No payment was taken and no order was placed.
+                  </p>
+                )}
+                {checkoutState.status === "error" && (
+                  <p>We couldn&apos;t start checkout. Please try again.</p>
+                )}
+              </div>
+            </section>
           </>
-        ) : null}
+        )}
       </main>
     </>
   );
-};
-
-export default Cart;
+}

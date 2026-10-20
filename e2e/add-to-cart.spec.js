@@ -23,9 +23,9 @@ test("adding confirms, updates the badge and allows another add", async ({
 
   await message(page).getByRole("link", { name: "View cart" }).click();
   await expect(page).toHaveURL(/\/cart$/);
-  expect(
-    await page.evaluate(() => JSON.parse(localStorage.getItem("eon-cart"))),
-  ).toEqual({ v: 2, lines: { love: 3 } });
+  await expect(
+    page.getByRole("group", { name: "Quantity of Love" }).locator("output"),
+  ).toHaveText("3");
 });
 
 test("the quantity stops at 10", async ({ page }) => {

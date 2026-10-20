@@ -12,7 +12,7 @@ test("demo checkout prices the cart on the server and takes no payment", async (
   await page.getByRole("button", { name: /checkout/i }).click();
   expect((await response).status()).toBe(200);
 
-  const status = page.getByRole("status");
+  const status = page.locator("main div[role=status]");
   await expect(status).toContainText("$25.00 in total");
   await expect(status).toContainText("No payment was taken");
   await expect(page).toHaveURL(/\/cart$/);
