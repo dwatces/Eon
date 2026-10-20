@@ -94,6 +94,23 @@ test("the social card image is a 1200 x 630 JPEG", async ({ page }) => {
   expect(size).toEqual([1200, 630]);
 });
 
+test("the home-screen icon is a 180 x 180 PNG linked from every page", async ({
+  page,
+}) => {
+  await page.goto("/shop");
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
+    "href",
+    "/apple-touch-icon.png",
+  );
+  const response = await page.goto("/apple-touch-icon.png");
+  expect(response.headers()["content-type"]).toBe("image/png");
+  const size = await page.evaluate(() => {
+    const img = document.querySelector("img");
+    return [img.naturalWidth, img.naturalHeight];
+  });
+  expect(size).toEqual([180, 180]);
+});
+
 test.describe("missing pages", () => {
   test.use({ allowedConsole: [/status of 404/] });
 

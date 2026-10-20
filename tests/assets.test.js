@@ -38,8 +38,12 @@ describe("shipped images", () => {
     expect(source).toContain(`"/${file}"`);
   });
 
-  it("keeps public/ to the favicon and the social card", () => {
-    expect(publicFiles.sort()).toEqual(["favicon.ico", "og-eon.jpg"]);
+  it("keeps public/ to the icons and the social card", () => {
+    expect(publicFiles.sort()).toEqual([
+      "apple-touch-icon.png",
+      "favicon.ico",
+      "og-eon.jpg",
+    ]);
   });
 
   it("has no two files with the same content", () => {

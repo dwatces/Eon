@@ -64,7 +64,7 @@ styles/         Global design tokens, per-page CSS Modules and the font files
 tests/          Vitest unit, API and component tests
 e2e/            Playwright end-to-end tests
 assets/         Product photos, the logo and icons, imported by the code
-public/         The favicon and the social card image
+public/         The favicon, the home-screen icon and the social card image
 scripts/        Writes robots.txt and sitemap.xml at build
 ```
 
