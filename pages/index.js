@@ -45,7 +45,7 @@ export default function Home() {
             </p>
             <div className={styles.underline}></div>
             <div className={styles.mobileTop}>
-              <Link href="/shop/love" passHref>
+              <Link href="/shop/love">
                 <div className={styles.rowItem}>
                   <Image
                     src={MobileLove}
@@ -54,7 +54,7 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Link href="/shop/happiness" passHref>
+              <Link href="/shop/happiness">
                 <div className={styles.rowItem}>
                   <Image
                     src={MobileHappy}
@@ -63,7 +63,7 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Link href="/shop/dreams" passHref>
+              <Link href="/shop/dreams">
                 <div className={styles.rowItem}>
                   <Image
                     src={MobileDreams}
@@ -72,7 +72,7 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Link href="/shop/summer" passHref>
+              <Link href="/shop/summer">
                 <div className={styles.rowItem}>
                   <Image
                     src={MobileSummer}
@@ -167,7 +167,7 @@ export default function Home() {
           </div>
           <h2 className={styles.showcaseHeading}>Our Candles</h2>
           <div className={styles.DesktopTop}>
-            <Link href="/shop/love" passHref>
+            <Link href="/shop/love">
               <div className={styles.rowItem}>
                 <Image
                   src={love}
@@ -178,7 +178,7 @@ export default function Home() {
                 />
               </div>
             </Link>
-            <Link href="/shop/happiness" passHref>
+            <Link href="/shop/happiness">
               <div className={styles.rowItem}>
                 <Image
                   src={happy}
@@ -189,7 +189,7 @@ export default function Home() {
                 />
               </div>
             </Link>
-            <Link href="/shop/dreams" passHref>
+            <Link href="/shop/dreams">
               <div className={styles.rowItem}>
                 <Image
                   src={dream}
@@ -200,7 +200,7 @@ export default function Home() {
                 />
               </div>
             </Link>
-            <Link href="/shop/summer" passHref>
+            <Link href="/shop/summer">
               <div className={styles.rowItem}>
                 <Image
                   src={summer}

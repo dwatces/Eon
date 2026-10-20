@@ -25,16 +25,19 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar} aria-label="Main">
-      <Link href="/" passHref>
-        <a className={styles.logo} aria-label="Eon home" onClick={closeNav}>
-          <Image
-            src={logo}
-            className={styles.eonLogo}
-            alt=""
-            width={60}
-            height={30}
-          />
-        </a>
+      <Link
+        href="/"
+        className={styles.logo}
+        aria-label="Eon home"
+        onClick={closeNav}
+      >
+        <Image
+          src={logo}
+          className={styles.eonLogo}
+          alt=""
+          width={60}
+          height={30}
+        />
       </Link>
       <ul
         id="site-menu"
@@ -46,36 +49,30 @@ const NavBar = () => {
             key={href}
             className={`${isActive(router.pathname) ? "active" : ""} ${styles.linkHome}`}
           >
-            <Link href={href} passHref>
-              <a
-                className={styles.link}
-                aria-current={isActive(router.pathname) ? "page" : undefined}
-                onClick={closeNav}
-              >
-                {label}
-              </a>
+            <Link
+              href={href}
+              className={styles.link}
+              aria-current={isActive(router.pathname) ? "page" : undefined}
+              onClick={closeNav}
+            >
+              {label}
             </Link>
           </li>
         ))}
       </ul>
       <div className={styles.navActions}>
-        <Link href="/cart" passHref>
-          <a
-            className={styles.cartItems}
-            aria-label={`Cart, ${count} ${count === 1 ? "item" : "items"}`}
-            onClick={closeNav}
-          >
-            <IoMdCart
-              className={styles.Cartlink}
-              size={24}
-              aria-hidden="true"
-            />
-            {count > 0 && (
-              <span className={styles.cartCount} aria-hidden="true">
-                {count}
-              </span>
-            )}
-          </a>
+        <Link
+          href="/cart"
+          className={styles.cartItems}
+          aria-label={`Cart, ${count} ${count === 1 ? "item" : "items"}`}
+          onClick={closeNav}
+        >
+          <IoMdCart className={styles.Cartlink} size={24} aria-hidden="true" />
+          {count > 0 && (
+            <span className={styles.cartCount} aria-hidden="true">
+              {count}
+            </span>
+          )}
         </Link>
         <button
           type="button"

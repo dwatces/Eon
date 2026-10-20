@@ -15,12 +15,10 @@ const Footer = () => (
           <FaFacebookF className={styles.iconF} aria-hidden="true" />
         </div>
       </a>
-      <Link href="/about#contact" passHref>
-        <a aria-label="Contact">
-          <div className={styles.socialButtonE}>
-            <FaEnvelope className={styles.iconE} aria-hidden="true" />
-          </div>
-        </a>
+      <Link href="/about#contact" aria-label="Contact">
+        <div className={styles.socialButtonE}>
+          <FaEnvelope className={styles.iconE} aria-hidden="true" />
+        </div>
       </Link>
     </div>
     <p className={styles.footerNote}>

@@ -91,8 +91,8 @@ export default function Lightbox({
               key={index}
               src={image.src}
               alt={image.alt}
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
               sizes="(min-width: 900px) 80vw, 100vw"
             />
           </div>

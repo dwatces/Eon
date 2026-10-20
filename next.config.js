@@ -5,10 +5,9 @@ module.exports = {
   env: {
     SITE_URL: resolveSiteUrl(process.env),
   },
-  // Next 12 only lints pages, components and lib by default.
-  eslint: {
-    dirs: ["pages", "components", "lib", "hooks", "data", "tests", "e2e"],
-  },
+  turbopack: { root: __dirname },
+  reactStrictMode: true,
+  poweredByHeader: false,
   async headers() {
     return [
       {

@@ -10,7 +10,8 @@ const Header = () => (
         alt="hero banner"
         width={2200}
         height={600}
-        layout="responsive"
+        sizes="100vw"
+        style={{ width: "100%", height: "auto", aspectRatio: "2200 / 600" }}
         className={styles.header}
         priority
       />

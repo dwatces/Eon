@@ -20,7 +20,7 @@ function Shop() {
       <main className={styles.main}>
         <h1 className={styles.visuallyHidden}>Our candles</h1>
         <div className={styles.candleContainer}>
-          <Link href="/shop/love" passHref>
+          <Link href="/shop/love">
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -40,7 +40,7 @@ function Shop() {
               </div>
             </div>
           </Link>
-          <Link href="/shop/happiness" passHref>
+          <Link href="/shop/happiness">
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -61,7 +61,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="/shop/dreams" passHref>
+          <Link href="/shop/dreams">
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image
@@ -82,7 +82,7 @@ function Shop() {
             </div>
           </Link>
 
-          <Link href="/shop/summer" passHref>
+          <Link href="/shop/summer">
             <div className={styles.candleChild}>
               <div className={styles.candlePic}>
                 <Image

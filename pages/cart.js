@@ -74,7 +74,11 @@ const Cart = () => {
                       alt=""
                       width={88}
                       height={88}
-                      objectFit="cover"
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      }}
                     />
                   </div>
                   <div className={styles.cartItemDetails}>

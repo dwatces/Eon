@@ -137,8 +137,8 @@ const Dreams = () => {
                     ADD TO CART
                   </button>
                 ) : (
-                  <Link href="/cart" passHref>
-                    <a className={styles.submitButton}>CHECKOUT</a>
+                  <Link href="/cart" className={styles.submitButton}>
+                    CHECKOUT
                   </Link>
                 )}
               </div>
