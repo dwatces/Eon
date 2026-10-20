@@ -32,5 +32,15 @@ export default defineConfig({
     setupFiles: ["tests/setup.js"],
     restoreMocks: true,
     unstubEnvs: true,
+    // `npm run test:coverage`: the shop's logic lives in lib/ and the API
+    // route, and both must stay at 90% of lines or more.
+    coverage: {
+      provider: "v8",
+      include: ["lib/**", "pages/api/**"],
+      // next/font/local declarations only run inside the Next.js compiler.
+      exclude: ["lib/fonts.js"],
+      reporter: ["text", "html"],
+      thresholds: { lines: 90 },
+    },
   },
 });

@@ -1,4 +1,20 @@
 import { afterEach, vi } from "vitest";
+import {
+  installNetworkGuard,
+  takeBlockedConnections,
+} from "./helpers/network-guard.js";
+
+// No test may reach the network: only localhost connections are allowed.
+installNetworkGuard();
+
+afterEach(() => {
+  const hosts = takeBlockedConnections();
+  if (hosts.length) {
+    throw new Error(
+      `This test tried to use the network: ${[...new Set(hosts)].join(", ")}`,
+    );
+  }
+});
 
 // Components read the router through next/router. Component tests get a
 // static router on "/".

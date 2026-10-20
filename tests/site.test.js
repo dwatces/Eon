@@ -104,6 +104,12 @@ describe("resolveReturnOrigin", () => {
     ).toBe("https://eon-git-improve.vercel.app");
   });
 
+  it("falls back to the site URL for a malformed Host header", () => {
+    expect(resolveReturnOrigin(req("bad host:x"), { env: {}, site })).toBe(
+      site,
+    );
+  });
+
   it("falls back to the site URL when there is no Host header", () => {
     expect(resolveReturnOrigin({ headers: {} }, { env: {}, site })).toBe(site);
     expect(resolveReturnOrigin(undefined, { env: {}, site })).toBe(site);

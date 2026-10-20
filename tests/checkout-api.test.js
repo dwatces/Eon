@@ -320,6 +320,16 @@ describe("POST /api/checkout_sessions", () => {
     expect(logged).not.toContain("Secret detail");
   });
 
+  it("returns a generic 502 when Stripe sends no checkout URL", async () => {
+    restoreEnv = setCheckoutEnv({ STRIPE_SECRET_KEY: "sk_test_canary123" });
+    create.mockResolvedValueOnce({ id: "cs_test_123" });
+    const r = await call();
+    expect(r.status).toBe(502);
+    expect(r.json).toEqual({
+      error: "We couldn't start checkout. Please try again.",
+    });
+  });
+
   it("never puts a key or session details in any response", async () => {
     restoreEnv = setCheckoutEnv({ STRIPE_SECRET_KEY: "sk_test_canary123" });
     const r = await call();
