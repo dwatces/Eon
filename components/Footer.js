@@ -24,6 +24,9 @@ const Footer = () => (
     <p className={styles.footerNote}>
       This is a portfolio demo shop: no real orders or payments are taken.
     </p>
+    <p className={styles.footerCredit}>
+      <a href="https://danielolliver.com/dev/">Site by Daniel Olliver</a>
+    </p>
   </footer>
 );
 

@@ -26,6 +26,12 @@ for (const path of routes) {
     await expect(page.locator("footer")).toContainText(
       "This is a portfolio demo shop: no real orders or payments are taken.",
     );
+    await expect(
+      page.locator("footer").getByRole("link", {
+        name: "Site by Daniel Olliver",
+      }),
+    ).toHaveAttribute("href", "https://danielolliver.com/dev/");
+    await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
   });
 }
 

@@ -158,6 +158,24 @@
   color: var(--ink-soft);
 }
 
+.footerCredit {
+  margin-top: -0.5rem;
+  font-size: 0.875rem;
+}
+
+.footerCredit a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.footerCredit a:hover {
+  color: var(--terracotta-dark);
+}
+
 .socialButtonF,
 .socialButtonE {
   display: inline-flex;
