@@ -60,6 +60,8 @@ const NavBar = () => {
           alt=""
           width={60}
           height={30}
+          loading="eager"
+          fetchPriority="low"
         />
       </Link>
       <ul

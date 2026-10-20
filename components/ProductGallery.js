@@ -36,7 +36,8 @@ export default function ProductGallery({ name, photos }) {
             alt={photo.alt}
             sizes="(min-width: 520px) 460px, 100vw"
             className={styles.mainImage}
-            priority
+            loading="eager"
+            fetchPriority="high"
           />
         </button>
         <button

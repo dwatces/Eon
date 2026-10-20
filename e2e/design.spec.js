@@ -41,7 +41,7 @@ const smallTargets = (page) =>
     return small;
   });
 
-const routes = ["/shop", "/shop/love", "/success", "/cart"];
+const routes = ["/", "/shop", "/shop/love", "/success", "/cart"];
 
 for (const path of routes) {
   test(`every target on ${path} is at least 44×44`, async ({ page }) => {
@@ -276,4 +276,32 @@ test.describe("the 16px gutter at 390 px", () => {
       expect(close).toEqual([]);
     });
   }
+});
+
+test.describe("home page at 390 px", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test("the banner shows the tins at least 200px tall", async ({ page }) => {
+    await page.goto("/");
+    const box = await page.locator("header img").boundingBox();
+    expect(box.width).toBe(390);
+    expect(box.height).toBeGreaterThanOrEqual(200);
+  });
+});
+
+test("every in-page link on the home page has a target", async ({ page }) => {
+  await page.goto("/");
+  const missing = await page.evaluate(() =>
+    [...document.querySelectorAll('a[href^="#"]')]
+      .map((a) => a.getAttribute("href").slice(1))
+      .filter((id) => !document.getElementById(id)),
+  );
+  expect(missing).toEqual([]);
+  // Energy, Oneness and Nature are headings of their own stories.
+  await expect(page.locator("main section h2")).toHaveText([
+    "Energy",
+    "Oneness",
+    "Nature",
+    "Our candles",
+  ]);
 });

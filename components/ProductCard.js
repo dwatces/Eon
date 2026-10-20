@@ -15,8 +15,8 @@ export default function ProductCard({
   variant = "card",
   headingLevel = 2,
   sizes,
-  priority = false,
   loading,
+  fetchPriority,
   compact = false,
 }) {
   const Heading = `h${headingLevel}`;
@@ -32,8 +32,8 @@ export default function ProductCard({
           src={image.src}
           alt=""
           sizes={sizes}
-          priority={priority}
-          loading={priority ? undefined : loading}
+          loading={loading}
+          fetchPriority={fetchPriority}
           className={styles.image}
         />
       </div>

@@ -128,10 +128,26 @@
 }
 
 /* ---------- Hero banner (landing only) ---------- */
+/* Wide screens keep the banner's long frame, which the photo fills;
+   phones crop it (object-fit: cover) so the tins stay large. */
 .header {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 2200 / 600;
+}
+
+@media (max-width: 760px) {
+  .header {
+    aspect-ratio: 2.2;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    aspect-ratio: 1.4;
+  }
 }
 
 /* Behind the open mobile menu (shown only on small screens). */

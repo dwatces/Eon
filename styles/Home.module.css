@@ -59,23 +59,23 @@
 }
 
 /* ---------- Pillars: Energy / Oneness / Nature ---------- */
+/* One column of cards up to 1099px (about 65 characters a line at
+   most), three across from 1100px. */
 .eonContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   width: 100%;
-  max-width: var(--container);
+  max-width: calc(40rem + 3rem);
   margin: clamp(2.75rem, 6vw, 4.5rem) auto 0;
   padding: 0 1.5rem;
 }
 
 .eonLink {
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 2.25rem 1.25rem;
-  text-align: center;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2.25rem clamp(1.25rem, 3vw, 2rem) 2rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -95,6 +95,14 @@
   }
 }
 
+/* Icon above the heading, centred, as on the original cards. */
+.pillarHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
 .eonTitle {
   font-family: var(--font-display, Georgia, serif);
   font-size: 1.45rem;
@@ -110,28 +118,18 @@
   opacity: 0.9;
 }
 
-/* ---------- Philosophy ---------- */
-.eonText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 720px;
-  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
-  padding: 0 1.5rem;
-  text-align: center;
-}
-
 .eonPara {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.8;
   color: var(--ink-soft);
 }
 
-/* neutralise the old jumpy hover animation */
-.hover {
-  position: relative;
+@media (min-width: 1100px) {
+  .eonContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    max-width: var(--container);
+  }
 }
 
 /* ---------- Product showcase ---------- */
@@ -155,17 +153,7 @@
 
 /* ---------- Breakpoint ---------- */
 @media (min-width: 761px) {
-  .eonContainer {
-    gap: 1.75rem;
-  }
-
   .tiles {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .eonContainer {
-    grid-template-columns: 1fr;
   }
 }

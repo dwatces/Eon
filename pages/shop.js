@@ -27,13 +27,15 @@ export default function Shop() {
         <ul className={styles.candleContainer}>
           {candles.map((candle, index) => (
             <li key={candle.slug}>
-              {/* The first card is preloaded; the rest load straight away
-                  too, since any of them can be the largest image on screen. */}
+              {/* Every card loads straight away, since all four are on
+                  screen on a wide display. The first, the largest image
+                  on a phone, gets high priority and React's one preload;
+                  the rest stay out of the preloads at low priority. */}
               <ProductCard
                 candle={candle}
                 sizes={CARD_SIZES}
-                priority={index === 0}
                 loading="eager"
+                fetchPriority={index === 0 ? "high" : "low"}
               />
             </li>
           ))}
